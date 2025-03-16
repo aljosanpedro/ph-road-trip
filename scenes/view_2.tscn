@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://fsdq3et6em4j"]
+
+[ext_resource type="Texture2D" uid="uid://0hb7bdlmsn75" path="res://icon.svg" id="1_jwu3e"]
+
+[node name="View2" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+self_modulate = Color(0.240328, 0.367838, 1, 1)
+position = Vector2(96, 552)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_jwu3e")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+self_modulate = Color(0.240328, 0.367838, 1, 1)
+position = Vector2(664, 176)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_jwu3e")
+
+[node name="Icon5" type="Sprite2D" parent="."]
+self_modulate = Color(0.240328, 0.367838, 1, 1)
+position = Vector2(992, 488)
+scale = Vector2(2.1875, 2.3125)
+texture = ExtResource("1_jwu3e")
