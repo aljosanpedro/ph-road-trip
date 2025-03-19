@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cwpcoufb3lqo3"]
 
-[ext_resource type="Texture2D" uid="uid://0hb7bdlmsn75" path="res://icon.svg" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://32o3axwjhfdg" path="res://scenes/view_1.tscn" id="2_jyhfs"]
-[ext_resource type="Script" uid="uid://b2xg25fi1qyaf" path="res://scenes/view_1.gd" id="3_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://fsdq3et6em4j" path="res://scenes/view_2.tscn" id="3_tbgi4"]
-[ext_resource type="Script" uid="uid://drti8u4gh8px" path="res://scenes/view_2.gd" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://04oxmsgrtw1t" path="res://icon.svg" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://32o3axwjhfdg" path="res://_prototype_stuff/view_1.tscn" id="2_jyhfs"]
+[ext_resource type="Script" uid="uid://b2xg25fi1qyaf" path="res://_prototype_stuff/view_1.gd" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://fsdq3et6em4j" path="res://_prototype_stuff/view_2.tscn" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://drti8u4gh8px" path="res://_prototype_stuff/view_2.gd" id="5_tbgi4"]
 
 [node name="Main" type="Node2D"]
 
