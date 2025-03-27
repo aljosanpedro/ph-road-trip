@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwpcoufb3lqo3"]
+
+[ext_resource type="Texture2D" uid="uid://04oxmsgrtw1t" path="res://icon.svg" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://32o3axwjhfdg" path="res://_prototype_stuff/view_1.tscn" id="2_jyhfs"]
+[ext_resource type="Script" uid="uid://b2xg25fi1qyaf" path="res://_prototype_stuff/view_1.gd" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://fsdq3et6em4j" path="res://_prototype_stuff/view_2.tscn" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://drti8u4gh8px" path="res://_prototype_stuff/view_2.gd" id="5_tbgi4"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(96, 552)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_sugp2")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(664, 176)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_sugp2")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(520, 512)
+scale = Vector2(2.125, 2.125)
+texture = ExtResource("1_sugp2")
+
+[node name="Icon4" type="Sprite2D" parent="."]
+position = Vector2(240, 232)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_sugp2")
+
+[node name="Icon5" type="Sprite2D" parent="."]
+position = Vector2(992, 488)
+scale = Vector2(2.1875, 2.3125)
+texture = ExtResource("1_sugp2")
+
+[node name="View1" parent="." instance=ExtResource("2_jyhfs")]
+script = ExtResource("3_jyhfs")
+
+[node name="View2" parent="." instance=ExtResource("3_tbgi4")]
+script = ExtResource("5_tbgi4")
+
+[node name="CheckButton" type="CheckButton" parent="."]
+offset_right = 44.0
+offset_bottom = 32.0
+
+[connection signal="toggled" from="CheckButton" to="View1" method="_on_check_button_toggled"]
+[connection signal="toggled" from="CheckButton" to="View2" method="_on_check_button_toggled"]
