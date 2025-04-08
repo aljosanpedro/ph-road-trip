@@ -12,12 +12,15 @@ config_version=5
 
 config/name="PH Road Trip"
 config/tags=PackedStringArray("team_work")
+run/main_scene="uid://dglj23acmhple"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+AudioManager="*res://scenes/logic/audio_manager.tscn"
+Events="*res://scripts/logic/events.gd"
 
 [dialogic]
 

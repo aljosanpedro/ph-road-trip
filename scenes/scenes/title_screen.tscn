@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://dglj23acmhple"]
+[gd_scene load_steps=2 format=3 uid="uid://dglj23acmhple"]
+
+[ext_resource type="Script" uid="uid://cxw33yn604nps" path="res://scripts/scenes/title_screen.gd" id="1_p0v5f"]
 
 [node name="TitleScreen" type="Node"]
+script = ExtResource("1_p0v5f")
+
+[node name="StartGame" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -15.5
+offset_right = 46.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "start game"
+
+[connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]
