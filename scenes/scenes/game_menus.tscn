@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://ckg3ip852twg0"]
+[gd_scene load_steps=2 format=3 uid="uid://ckg3ip852twg0"]
+
+[ext_resource type="PackedScene" uid="uid://d2qa4m3blgw5m" path="res://scenes/gameplay/camera.tscn" id="1_i4d2l"]
 
 [node name="GameMenus" type="CanvasLayer"]
+
+[node name="Camera" parent="." instance=ExtResource("1_i4d2l")]

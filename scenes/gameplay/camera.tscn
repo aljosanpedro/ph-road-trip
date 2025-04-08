@@ -10,6 +10,7 @@
 script = ExtResource("1_s88o6")
 
 [node name="Background" type="TextureRect" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
