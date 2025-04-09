@@ -10,16 +10,25 @@
 },
 &"default_portrait": "default",
 &"description": "",
-&"display_name": "Dood",
+&"display_name": "Shiori from Hololive English -ADVENT-",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
 "default": {
 "export_overrides": {
-"image": "\"res://assets/images/chara.png\""
+"image": "\"res://assets/images/shiori_from_hololive_english.png\""
 },
 "mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"mirror": {
+"export_overrides": {
+"image": "\"res://assets/images/shiori_from_hololive_english.png\""
+},
+"mirror": true,
 "offset": Vector2(0, 0),
 "scale": 1,
 "scene": ""

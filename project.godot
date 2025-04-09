@@ -25,7 +25,8 @@ Events="*res://scripts/logic/events.gd"
 [dialogic]
 
 directories/dch_directory={
-"Dood": "res://assets/characters/Dood.dch"
+"Dood": "res://assets/characters/Dood.dch",
+"Shiori": "res://assets/characters/Shiori.dch"
 }
 directories/dtl_directory={
 "timeline": "res://assets/dialogue/timeline.dtl"

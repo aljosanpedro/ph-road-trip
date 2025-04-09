@@ -1,4 +1,13 @@
 [background arg="res://assets/images/background/irony.jpg" fade="0.0"]
-join Dood center
+join Dood left
 Dood: This is an obvious test.
+Dood: I guess it's working somehow.
+You suddenly feel a choice compelling you...
+- Go for it?
+	Dood: I can feel it... a presence...
+	join Shiori (mirror) right
+	Shiori (default): SHIORIIIIIN~ It's me, Shiori Novella from Hololive English -Advent-!
+	Dood: Holy moly! It's Shiori Novella from Hololive English -Advent-!
+- Don't go for it
+	Dood: It's gone... but why do I feel unsatisfied?
 [clear time="1.0"]
