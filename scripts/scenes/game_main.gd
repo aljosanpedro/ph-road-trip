@@ -18,7 +18,7 @@ func _ready() -> void:
 
 #region Area Change Functions
 ## First is path.
-func _goto_area(path: String, can_blink: bool = true, special: bool = false):
+func _goto_area(path: String):
 	if ResourceLoader.exists(path):
 		call_deferred("_deferred_change_area", path)
 	
