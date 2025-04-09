@@ -24,8 +24,12 @@ Events="*res://scripts/logic/events.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"Dood": "res://assets/characters/Dood.dch"
+}
+directories/dtl_directory={
+"timeline": "res://assets/dialogue/timeline.dtl"
+}
 glossary/default_case_sensitive=true
 
 [display]

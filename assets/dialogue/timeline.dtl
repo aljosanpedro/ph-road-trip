@@ -1,0 +1,4 @@
+[background arg="res://assets/images/background/irony.jpg" fade="0.0"]
+join Dood center
+Dood: This is an obvious test.
+[clear time="1.0"]
