@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="PH Road Trip"
+config/name="Jollast of Us"
 config/tags=PackedStringArray("team_work")
 run/main_scene="uid://dglj23acmhple"
 config/features=PackedStringArray("4.4", "Forward Plus")
