@@ -1,7 +1,7 @@
 extends Node
 #region Initialized Variables and Exports
 ## INFO: Exported variables
-@export var current_scene: PackedScene 
+@export var current_scene: PackedScene
 
 ## INFO: Onready variables
 @onready var game_area = $GameArea
@@ -18,12 +18,12 @@ func _ready() -> void:
 
 #region Area Change Functions
 ## First is path.
-func _goto_area(path: String):
+func _goto_area(path: String) -> void:
 	if ResourceLoader.exists(path):
 		call_deferred("_deferred_change_area", path)
 	
 ## Changes scene. Deferred JUST IN CASE.
-func _deferred_change_area(path: String):
+func _deferred_change_area(path: String) -> void:
 	var current_scene = get_node("GameArea")
 	var new_scene = ResourceLoader.load(path)
 	
