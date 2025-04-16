@@ -27,10 +27,10 @@ func _input(_event: InputEvent) -> void:
 		await camera_gallery.capture_photo()
 		camera_shutter.show()
 	
-	# GALLERY ACTION: Open Gallery via Mouse Thumb 1
-	if Input.is_action_just_pressed("open_gallery"):
-		if camera_gallery.visible: camera_gallery.visible = false
-		else: camera_gallery.visible = true
+	## GALLERY ACTION: Open Gallery via Mouse Thumb 1
+	#if Input.is_action_just_pressed("open_gallery"):
+		#if camera_gallery.visible: camera_gallery.visible = false
+		#else: camera_gallery.visible = true
 	
 	# CAMERA ACTION: Zooming in via MOUSE UP/DOWN
 	if camera.enabled:
