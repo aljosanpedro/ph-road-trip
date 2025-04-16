@@ -1,0 +1,50 @@
+[gd_scene load_steps=14 format=3 uid="uid://bjcubxys1hsk8"]
+
+[ext_resource type="Texture2D" uid="uid://c1jt4ddndx7oh" path="res://assets/images/button_blue.png" id="2_clw3b"]
+[ext_resource type="Script" uid="uid://405qtrihmcwq" path="res://scripts/components/map_button.gd" id="2_sjkov"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6tdas"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hymrw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sjkov"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_clw3b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2i5nx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gxe5t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bf6ud"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_slhiq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qpowh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7431c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ybudn"]
+
+[node name="MapButton" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1088.0
+offset_bottom = -576.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6tdas")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_hymrw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sjkov")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_clw3b")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2i5nx")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_gxe5t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bf6ud")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_slhiq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qpowh")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7431c")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ybudn")
+icon = ExtResource("2_clw3b")
+script = ExtResource("2_sjkov")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
