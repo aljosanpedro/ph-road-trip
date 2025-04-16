@@ -24,6 +24,10 @@ func _goto_area(path: String) -> void:
 	
 ## Changes scene. Deferred JUST IN CASE.
 func _deferred_change_area(path: String) -> void:
+	# bc global @export var current_scene at top of file
+	# unless want to rename ofc xD
+	@warning_ignore("shadowed_variable")
+	
 	var current_scene = get_node("GameArea")
 	var new_scene = ResourceLoader.load(path)
 	
