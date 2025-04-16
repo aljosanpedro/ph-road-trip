@@ -8,6 +8,10 @@ enum CurrentGameScene {
 	MAP_TRAVEL,
 	PAUSE_MENU
 }
+enum POV_Character {
+	ADI,
+	WIKS
+}
 
 ## INFO: Exported variables
 @export var current_scene: PackedScene
@@ -18,7 +22,9 @@ enum CurrentGameScene {
 @onready var scene_map_travel = $CanvasLayer/MapTravel
 
 ## INFO: Other variables
+## Sets Adi as the default POV character.
 var current_game_scene = CurrentGameScene.CURRENT_MAP
+var current_pov = POV_Character.ADI
 #endregion
 
 #region Virtual functions
