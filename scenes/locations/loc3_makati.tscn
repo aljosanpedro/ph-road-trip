@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://bvwus66gcy76w"]
+[gd_scene load_steps=2 format=3 uid="uid://bvwus66gcy76w"]
+
+[ext_resource type="Script" uid="uid://d1hr2h250rqpl" path="res://scripts/locations/loc_3_makati.gd" id="1_euv1a"]
 
 [node name="Makati" type="Node2D"]
+script = ExtResource("1_euv1a")

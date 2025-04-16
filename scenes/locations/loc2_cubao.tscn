@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://cr3bx2sugqsil"]
+[gd_scene load_steps=2 format=3 uid="uid://cr3bx2sugqsil"]
+
+[ext_resource type="Script" uid="uid://wx5m6c8828qu" path="res://scripts/locations/loc_2_cubao.gd" id="1_7bot1"]
 
 [node name="Cubao" type="Node2D"]
+script = ExtResource("1_7bot1")
