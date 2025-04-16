@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://b4gu5lbc4cbce"]
+[gd_scene load_steps=2 format=3 uid="uid://b4gu5lbc4cbce"]
 
-[node name="JolliLocation" type="Node2D"]
+[ext_resource type="Script" uid="uid://c7impa7aijasj" path="res://scripts/locations/jolli_location.gd" id="1_3uf7e"]
+
+[node name="Jabee" type="Node2D"]
+script = ExtResource("1_3uf7e")

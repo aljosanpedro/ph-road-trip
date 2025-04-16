@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://tc7x4dba68eq"]
+
+[ext_resource type="Texture2D" uid="uid://c1jt4ddndx7oh" path="res://assets/images/button_blue.png" id="1_hiqf0"]
+
+[resource]
+Button/icons/icon = ExtResource("1_hiqf0")

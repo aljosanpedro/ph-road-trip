@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckg3ip852twg0"]
+
+[ext_resource type="PackedScene" uid="uid://d2qa4m3blgw5m" path="res://scenes/gameplay/camera.tscn" id="1_i4d2l"]
+[ext_resource type="Script" uid="uid://by5sklrq8qlc4" path="res://scripts/scenes/game_menus.gd" id="1_xy57w"]
+[ext_resource type="PackedScene" uid="uid://dhkep6yubnjdq" path="res://scenes/scenes/map_travel.tscn" id="2_rmd3w"]
+
+[node name="GameMenus" type="CanvasLayer"]
+script = ExtResource("1_xy57w")
+
+[node name="Camera" parent="." instance=ExtResource("1_i4d2l")]
+
+[node name="MapTravel" parent="." instance=ExtResource("2_rmd3w")]
+visible = false

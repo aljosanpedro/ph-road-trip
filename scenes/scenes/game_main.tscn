@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bar68ubop558i" path="res://scripts/scenes/game_main.gd" id="1_ee8ta"]
 [ext_resource type="PackedScene" uid="uid://cwpcoufb3lqo3" path="res://_prototype_stuff/main.tscn" id="2_jnjbd"]
-[ext_resource type="PackedScene" uid="uid://ckg3ip852twg0" path="res://scenes/scenes/game_menus.tscn" id="2_lfugw"]
-[ext_resource type="Script" uid="uid://by5sklrq8qlc4" path="res://scripts/scenes/game_menus.gd" id="3_kdvjq"]
+[ext_resource type="PackedScene" uid="uid://d2qa4m3blgw5m" path="res://scenes/gameplay/camera.tscn" id="3_jnjbd"]
+[ext_resource type="PackedScene" uid="uid://dhkep6yubnjdq" path="res://scenes/scenes/map_travel.tscn" id="4_3585q"]
 
 [node name="GameMain" type="Node"]
 script = ExtResource("1_ee8ta")
@@ -11,5 +11,11 @@ current_scene = ExtResource("2_jnjbd")
 
 [node name="GameArea" type="Node" parent="."]
 
-[node name="GameMenus" parent="." instance=ExtResource("2_lfugw")]
-script = ExtResource("3_kdvjq")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Camera" parent="CanvasLayer" instance=ExtResource("3_jnjbd")]
+
+[node name="MapTravel" parent="CanvasLayer" instance=ExtResource("4_3585q")]
+visible = false
+
+[connection signal="scene_map_travel_closed" from="CanvasLayer/MapTravel" to="." method="_on_scene_map_travel_closed"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjcubxys1hsk8"]
+
+[ext_resource type="Texture2D" uid="uid://c1jt4ddndx7oh" path="res://assets/images/button_blue.png" id="2_clw3b"]
+[ext_resource type="Texture2D" uid="uid://n0cace2f5ei8" path="res://assets/images/button_blue_pressed.png" id="2_hymrw"]
+[ext_resource type="Script" uid="uid://405qtrihmcwq" path="res://scripts/components/map_button.gd" id="2_sjkov"]
+
+[node name="MapButton" type="TextureButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1088.0
+offset_bottom = -576.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_clw3b")
+texture_pressed = ExtResource("2_hymrw")
+script = ExtResource("2_sjkov")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
