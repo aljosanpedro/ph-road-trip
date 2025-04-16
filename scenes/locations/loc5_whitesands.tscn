@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://vy7bujibq7po"]
+
+[ext_resource type="Script" uid="uid://dw415x3ib5yr3" path="res://scripts/locations/loc_5_whitesands.gd" id="1_xd7wl"]
+
+[node name="Quiapo" type="Node2D"]
+script = ExtResource("1_xd7wl")
