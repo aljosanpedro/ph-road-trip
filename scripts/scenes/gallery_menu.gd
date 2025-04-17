@@ -6,7 +6,6 @@ var pictures: Array = [
 	
 ]
 
-
 func capture_photo() -> void:
 	# TODO: Crop image https://forum.godotengine.org/t/how-to-crop-center-of-an-image/5828/2
 	await RenderingServer.frame_post_draw
