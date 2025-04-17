@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://gacu2tai2u5d"]
+[gd_scene load_steps=6 format=3 uid="uid://gacu2tai2u5d"]
 
 [ext_resource type="Script" uid="uid://bar68ubop558i" path="res://scripts/scenes/game_main.gd" id="1_ee8ta"]
-[ext_resource type="PackedScene" uid="uid://cwpcoufb3lqo3" path="res://_prototype_stuff/main.tscn" id="2_jnjbd"]
+[ext_resource type="PackedScene" uid="uid://l52hev016n2l" path="res://scenes/locations/intro_scene.tscn" id="2_jnjbd"]
+[ext_resource type="PackedScene" uid="uid://cwi3ojmkmngll" path="res://scenes/gameplay/pov_switch.tscn" id="3_3585q"]
 [ext_resource type="PackedScene" uid="uid://d2qa4m3blgw5m" path="res://scenes/gameplay/camera.tscn" id="3_jnjbd"]
 [ext_resource type="PackedScene" uid="uid://dhkep6yubnjdq" path="res://scenes/scenes/map_travel.tscn" id="4_3585q"]
 
@@ -12,6 +13,8 @@ current_scene = ExtResource("2_jnjbd")
 [node name="GameArea" type="Node" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="POVSwitch" parent="CanvasLayer" instance=ExtResource("3_3585q")]
 
 [node name="Camera" parent="CanvasLayer" instance=ExtResource("3_jnjbd")]
 

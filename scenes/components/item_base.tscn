@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://8iegyqjcp1jn"]
+
+[ext_resource type="Script" uid="uid://drocy0im4gk31" path="res://scripts/components/item_base.gd" id="1_io38k"]
+
+[node name="ItemBase" type="Area2D"]
+script = ExtResource("1_io38k")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

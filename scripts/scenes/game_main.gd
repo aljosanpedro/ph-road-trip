@@ -8,6 +8,10 @@ enum CurrentGameScene {
 	MAP_TRAVEL,
 	PAUSE_MENU
 }
+#enum POV_Character {
+	#ADI,
+	#WIKS
+#}
 
 ## INFO: Exported variables
 @export var current_scene: PackedScene
@@ -18,11 +22,15 @@ enum CurrentGameScene {
 @onready var scene_map_travel = $CanvasLayer/MapTravel
 
 ## INFO: Other variables
+## Sets Adi as the default POV character.
 var current_game_scene = CurrentGameScene.CURRENT_MAP
 #endregion
 
 #region Virtual functions
 func _ready() -> void:
+	# INFO: Initialize Events singleton for a new game.
+	Events.initialize()
+	
 	scene_map_travel.visible = false
 	
 	# INFO: Initialize connections to the Events scene.
@@ -60,6 +68,7 @@ func _deferred_change_area(path: String) -> void:
 	move_child(current_scene, 0)
 #endregion
 
+## Call the map travel scene.
 func _map_travel_scene_call() -> void:
 	if current_game_scene != CurrentGameScene.MAP_TRAVEL:
 		current_game_scene = CurrentGameScene.MAP_TRAVEL
@@ -71,5 +80,6 @@ func _map_travel_scene_call() -> void:
 		scene_map_travel.visible = false
 		return
 
+## Is called when the map travel scene is closed via the MapTravel signal.
 func _on_scene_map_travel_closed() -> void:
 	_map_travel_scene_call()
