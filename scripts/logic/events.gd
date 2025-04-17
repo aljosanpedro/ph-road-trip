@@ -6,6 +6,7 @@ enum POV_Character {
 	WIKS
 }
 signal change_map(path: String)
+signal open_camera_signal()
 
 var current_pov: POV_Character = POV_Character.ADI
 #endregion
@@ -33,4 +34,9 @@ func set_current_pov(value: POV_Character) -> void:
 ## Get the current POV of the game.
 func get_current_pov() -> POV_Character:
 	return current_pov
+
+## Helper function to make code easier to read.
+func open_camera() -> void:
+	open_camera_signal.emit()
+	
 #endregion
