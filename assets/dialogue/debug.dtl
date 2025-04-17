@@ -1,5 +1,5 @@
 if Events.get_current_pov() == Events.POV_Character.ADI:
-	Oh, hello. You're Adi, right?
+	Oh, hello. You're Adi, right? Disabling your counterpart for now.
 else:
-	Oh, hello. You're Wiks, right?
-do Events.open_camera()
+	Oh, hello. You're Wiks, right? Disabling your counterpart for now.
+do Events.scene_pov_enable(false)
