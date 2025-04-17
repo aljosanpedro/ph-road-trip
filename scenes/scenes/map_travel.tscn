@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://scripts/scenes/map_travel.gd" id="1_j37w6"]
 [ext_resource type="Texture2D" uid="uid://dmwdqkx3e5rjy" path="res://assets/background/map.png" id="1_sjt2v"]
 [ext_resource type="PackedScene" uid="uid://bjcubxys1hsk8" path="res://scenes/components/map_button.tscn" id="3_e23lu"]
-[ext_resource type="PackedScene" path="res://scenes/locations/loc1_updqc.tscn" id="4_02dou"]
-[ext_resource type="PackedScene" path="res://scenes/locations/loc2_cubao.tscn" id="5_t4heh"]
-[ext_resource type="PackedScene" path="res://scenes/locations/loc3_makati.tscn" id="6_mo0mx"]
-[ext_resource type="PackedScene" path="res://scenes/locations/loc4_quiapo.tscn" id="7_tsi4x"]
-[ext_resource type="PackedScene" path="res://scenes/locations/loc5_whitesands.tscn" id="8_qr2xy"]
+[ext_resource type="PackedScene" uid="uid://cbe1ckj2yiwf5" path="res://scenes/locations/loc1_updqc.tscn" id="4_02dou"]
+[ext_resource type="PackedScene" uid="uid://cr3bx2sugqsil" path="res://scenes/locations/loc2_cubao.tscn" id="5_t4heh"]
+[ext_resource type="PackedScene" uid="uid://bvwus66gcy76w" path="res://scenes/locations/loc3_makati.tscn" id="6_mo0mx"]
+[ext_resource type="PackedScene" uid="uid://dxbcrkwydgm8i" path="res://scenes/locations/loc4_quiapo.tscn" id="7_tsi4x"]
+[ext_resource type="PackedScene" uid="uid://vy7bujibq7po" path="res://scenes/locations/loc5_whitesands.tscn" id="8_qr2xy"]
 
 [node name="MapTravel" type="Control"]
 layout_mode = 3
