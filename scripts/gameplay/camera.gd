@@ -22,7 +22,6 @@ func _process(_delta: float) -> void:
 	#print(get_viewport().get_mouse_position())
 	if camera.enabled: camera.position = get_viewport().get_mouse_position()
 
-	
 func _input(_event: InputEvent) -> void:
 	# DEPRECATED CAMERA ACTION: Open camera via CAMERA COMMAND
 	#if Input.is_action_just_pressed("ui_accept"):
@@ -40,6 +39,8 @@ func _input(_event: InputEvent) -> void:
 		camera_shutter.hide()
 		await camera_gallery.capture_photo()
 		camera_shutter.show()
+		
+		# TODO: Once game is near polish, add flicker animation.
 		_camera_disable()
 	
 	# CAMERA ACTION: Zooming in via MOUSE UP/DOWN
