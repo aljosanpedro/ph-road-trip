@@ -10,14 +10,16 @@ size = Vector2(372, 719)
 [node name="UPDQC" type="Node2D"]
 script = ExtResource("1_it7vl")
 
-[node name="ItemBase" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
+[node name="Character" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="ItemBase"]
+[node name="Sprite2D" type="Sprite2D" parent="Character"]
 position = Vector2(167, 355)
 texture = ExtResource("3_tyg5k")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemBase"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
 position = Vector2(176, 349.5)
 shape = SubResource("RectangleShape2D_au5bx")
+
+[connection signal="item_clicked" from="Character" to="." method="_on_character_item_clicked"]

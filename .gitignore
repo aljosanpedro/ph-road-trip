@@ -17,3 +17,6 @@ mono_crash.*.json
 
 # Aljo
 addons/godot-git-plugin
+
+# Ignore vscode for the LOVE OF GOD.
+.vscode/

@@ -1,0 +1,4 @@
+if Events.get_current_pov() == Events.POV_Character.ADI:
+	Oh, hello. You're Adi, right?
+else:
+	Oh, hello. You're Wiks, right?

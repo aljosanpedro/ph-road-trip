@@ -25,7 +25,9 @@ Events="*res://scripts/logic/events.gd"
 [dialogic]
 
 directories/dch_directory={}
-directories/dtl_directory={}
+directories/dtl_directory={
+"debug": "res://assets/dialogue/debug.dtl"
+}
 glossary/default_case_sensitive=true
 layout/style_list=[]
 layout/default_style="Default"

@@ -1,5 +1,6 @@
 extends Area2D
 ## ItemBase is the base of an item that can be interacted in the map.
+## Has a signal `item_clicked` that allows more control on the map.
 ##
 ## Requires:
 ## Sprite2D to manipulate
