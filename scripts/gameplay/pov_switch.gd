@@ -53,8 +53,8 @@ func _enable_character_povs(value: bool) -> void:
 	else:
 		match Events.get_current_pov():
 			Events.POV_Character.ADI:
-				adi_button_picture.disabled = true
-			Events.POV_Character.WIKS:
 				wiks_button_picture.disabled = true
+			Events.POV_Character.WIKS:
+				adi_button_picture.disabled = true
 		
 #endregion
