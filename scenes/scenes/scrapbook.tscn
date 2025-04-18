@@ -1,0 +1,181 @@
+[gd_scene load_steps=3 format=3 uid="uid://3o101x5hahte"]
+
+[ext_resource type="PackedScene" uid="uid://b8ma4iwy05pfs" path="res://scenes/components/scrapbook/scrapbook_entry.tscn" id="1_oj6eq"]
+[ext_resource type="Texture2D" uid="uid://bax8t2y7y6i2s" path="res://assets/background/scrapbook.png" id="2_iieyp"]
+
+[node name="Scrapbook" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Mockup" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1498.0
+offset_bottom = 794.0
+scale = Vector2(0.769025, 0.816121)
+texture = ExtResource("2_iieyp")
+
+[node name="Book" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_right = 1048.0
+offset_bottom = 648.0
+
+[node name="Entries" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Intro" parent="Entries" instance=ExtResource("1_oj6eq")]
+
+[node name="Frame" parent="Entries/Intro/Polaroid" index="0"]
+layout_mode = 0
+
+[node name="Tape1" parent="Entries/Intro/Polaroid/Tape" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 142.0
+offset_bottom = 35.0
+
+[node name="Tape2" parent="Entries/Intro/Polaroid/Tape" index="1"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 92.0
+offset_bottom = 35.0
+
+[node name="UPDQC" parent="Entries" instance=ExtResource("1_oj6eq")]
+
+[node name="Frame" parent="Entries/UPDQC/Polaroid" index="0"]
+layout_mode = 0
+
+[node name="Tape1" parent="Entries/UPDQC/Polaroid/Tape" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 142.0
+offset_bottom = 35.0
+
+[node name="Tape2" parent="Entries/UPDQC/Polaroid/Tape" index="1"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 92.0
+offset_bottom = 35.0
+
+[node name="Cubao" parent="Entries" instance=ExtResource("1_oj6eq")]
+
+[node name="Frame" parent="Entries/Cubao/Polaroid" index="0"]
+layout_mode = 0
+
+[node name="Tape1" parent="Entries/Cubao/Polaroid/Tape" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 142.0
+offset_bottom = 35.0
+
+[node name="Tape2" parent="Entries/Cubao/Polaroid/Tape" index="1"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 92.0
+offset_bottom = 35.0
+
+[node name="Makati" parent="Entries" instance=ExtResource("1_oj6eq")]
+
+[node name="Frame" parent="Entries/Makati/Polaroid" index="0"]
+layout_mode = 0
+
+[node name="Tape1" parent="Entries/Makati/Polaroid/Tape" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 142.0
+offset_bottom = 35.0
+
+[node name="Tape2" parent="Entries/Makati/Polaroid/Tape" index="1"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 92.0
+offset_bottom = 35.0
+
+[node name="Quiapo" parent="Entries" instance=ExtResource("1_oj6eq")]
+
+[node name="Frame" parent="Entries/Quiapo/Polaroid" index="0"]
+layout_mode = 0
+
+[node name="Tape1" parent="Entries/Quiapo/Polaroid/Tape" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 142.0
+offset_bottom = 35.0
+
+[node name="Tape2" parent="Entries/Quiapo/Polaroid/Tape" index="1"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 92.0
+offset_bottom = 35.0
+
+[node name="Coast" parent="Entries" instance=ExtResource("1_oj6eq")]
+
+[node name="Frame" parent="Entries/Coast/Polaroid" index="0"]
+layout_mode = 0
+
+[node name="Tape1" parent="Entries/Coast/Polaroid/Tape" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 142.0
+offset_bottom = 35.0
+
+[node name="Tape2" parent="Entries/Coast/Polaroid/Tape" index="1"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 92.0
+offset_bottom = 35.0
+
+[node name="Jollibee" parent="Entries" instance=ExtResource("1_oj6eq")]
+
+[node name="Frame" parent="Entries/Jollibee/Polaroid" index="0"]
+layout_mode = 0
+
+[node name="Tape1" parent="Entries/Jollibee/Polaroid/Tape" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 142.0
+offset_bottom = 35.0
+
+[node name="Tape2" parent="Entries/Jollibee/Polaroid/Tape" index="1"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 92.0
+offset_bottom = 35.0
+
+[editable path="Entries/Intro"]
+[editable path="Entries/Intro/Polaroid"]
+[editable path="Entries/Intro/Text"]
+[editable path="Entries/UPDQC"]
+[editable path="Entries/UPDQC/Polaroid"]
+[editable path="Entries/UPDQC/Text"]
+[editable path="Entries/Cubao"]
+[editable path="Entries/Cubao/Polaroid"]
+[editable path="Entries/Cubao/Text"]
+[editable path="Entries/Makati"]
+[editable path="Entries/Makati/Polaroid"]
+[editable path="Entries/Makati/Text"]
+[editable path="Entries/Quiapo"]
+[editable path="Entries/Quiapo/Polaroid"]
+[editable path="Entries/Quiapo/Text"]
+[editable path="Entries/Coast"]
+[editable path="Entries/Coast/Polaroid"]
+[editable path="Entries/Coast/Text"]
+[editable path="Entries/Jollibee"]
+[editable path="Entries/Jollibee/Polaroid"]
+[editable path="Entries/Jollibee/Text"]
