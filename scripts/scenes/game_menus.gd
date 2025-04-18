@@ -4,5 +4,5 @@ extends CanvasLayer
 
 ## Opens map travel.
 func open_map_travel() -> void:
-	scene_map_travel.visible
+	scene_map_travel.visible = true
 	
