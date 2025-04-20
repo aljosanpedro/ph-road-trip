@@ -16,7 +16,7 @@ env:
 jobs:
     export-windows:
         name: Windows Export
-        runs-on: ubuntu-20.04
+        runs-on: ubuntu-22.04
         container:
           image: barichello/godot-ci:4.4.1
         steps:
@@ -58,7 +58,7 @@ jobs:
 
     export-web:
         name: Web Export
-        runs-on: ubuntu-20.04
+        runs-on: ubuntu-22.04
         container:
           image: barichello/godot-ci:4.4.1
         steps:
@@ -76,7 +76,7 @@ jobs:
                 EXPORT_DIR="$(readlink -f build)"
                 cd $PROJECT_PATH
                 godot --headless --verbose --export-release "Web" "$EXPORT_DIR/web/index.html"
-                
+
             - name: Upload Artifact
               id: upload_artifact
               uses: actions/upload-artifact@v4
@@ -126,7 +126,7 @@ jobs:
 
     # export-mac:
     #     name: Mac Export
-    #     runs-on: ubuntu-20.04
+    #     runs-on: ubuntu-22.04
     #     container:
     #     image: barichello/godot-ci:4.4.1
     #     steps:
