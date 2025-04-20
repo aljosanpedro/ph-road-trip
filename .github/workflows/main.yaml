@@ -15,6 +15,7 @@ env:
   
 jobs:
     export-windows:
+        permissions: write-all
         name: Windows Export
         runs-on: ubuntu-22.04
         container:
@@ -57,6 +58,7 @@ jobs:
               artifacts: build/windows/windows_${{  github.ref_name }}.zip
 
     export-web:
+        permissions: write-all
         name: Web Export
         runs-on: ubuntu-22.04
         container:
