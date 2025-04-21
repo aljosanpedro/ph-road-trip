@@ -29,7 +29,7 @@ directories/dtl_directory={
 "debug": "res://assets/dialogue/debug.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=[""]
+layout/style_list=[]
 layout/default_style=""
 variables={}
 extensions_folder="res://addons/dialogic_additions"

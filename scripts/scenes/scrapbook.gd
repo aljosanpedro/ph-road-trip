@@ -1,5 +1,7 @@
 extends Control
 
+@onready var fade_texture = $Fade
+@onready var entries = $Entries
 
 const FADE_DURATION : float = 1.5
 
@@ -10,16 +12,15 @@ func _ready() -> void:
 
 
 func fade_in() -> void:
-	$Fade.visible = true
+	fade_texture.visible = true
 	
-	var screen = $Fade
 	var tween = get_tree().create_tween()
 	
-	tween.tween_property(screen, "color", Color.TRANSPARENT, FADE_DURATION)
+	tween.tween_property(fade_texture, "color", Color.TRANSPARENT, FADE_DURATION)
 
 
 func set_entries() -> void:
-	var entries : Array[Node] = $Entries.get_children(false)
+	var entries : Array[Node] = entries.get_children(false)
 		# Node: Node2D
 		# include_internal = false; no children
 

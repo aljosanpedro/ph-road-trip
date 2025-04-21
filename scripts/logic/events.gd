@@ -24,6 +24,7 @@ func _ready() -> void:
 ## Initializes Events for a new game.
 func initialize() -> void:
 	current_pov = POV_Character.ADI
+	scrapbook_pictures = []
 #endregion
 
 #region Custom Functions
