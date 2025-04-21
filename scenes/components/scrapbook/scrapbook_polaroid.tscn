@@ -11,6 +11,7 @@ offset_bottom = 40.0
 scale = Vector2(5.45, 6.59)
 
 [node name="Picture" type="Sprite2D" parent="Frame"]
+visible = false
 position = Vector2(20, 16.9955)
 scale = Vector2(0.0237985, 0.0292792)
 texture = ExtResource("1_20x0q")
