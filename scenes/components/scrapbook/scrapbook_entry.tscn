@@ -3,10 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://k14jy5i2n67d" path="res://scenes/components/scrapbook/scrapbook_polaroid.tscn" id="1_vusa4"]
 [ext_resource type="PackedScene" uid="uid://vcn63u6tkkxi" path="res://scenes/components/scrapbook/scrapbook_text.tscn" id="2_1nosq"]
 
-[node name="Entry" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="Entry" type="Node2D"]
 
 [node name="Polaroid" parent="." instance=ExtResource("1_vusa4")]
 
 [node name="Text" parent="." instance=ExtResource("2_1nosq")]
+position = Vector2(269, 48)

@@ -2,15 +2,11 @@
 
 [ext_resource type="FontFile" uid="uid://u86swj21yivi" path="res://assets/fonts/scrapbook/JumkidsTwilight.ttf" id="1_a626u"]
 
-[node name="Text" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 245.0
-offset_right = 245.0
+[node name="Text" type="Node2D"]
+position = Vector2(13, 0)
 rotation = 0.139626
 
 [node name="Date" type="Label" parent="."]
-layout_mode = 0
 offset_right = 111.0
 offset_bottom = 23.0
 rotation = -0.10645
@@ -22,7 +18,6 @@ theme_override_font_sizes/font_size = 22
 text = "11-22-93"
 
 [node name="Description" type="Label" parent="."]
-layout_mode = 0
 offset_left = -7.0
 offset_top = 38.0
 offset_right = 161.0
