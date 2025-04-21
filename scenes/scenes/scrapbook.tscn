@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bn7hmu26cutsr"]
+[gd_scene load_steps=5 format=3 uid="uid://bn7hmu26cutsr"]
 
+[ext_resource type="Script" uid="uid://dygafg6qc461k" path="res://scripts/scenes/scrapbook.gd" id="1_x7omj"]
 [ext_resource type="Texture2D" uid="uid://bax8t2y7y6i2s" path="res://assets/background/scrapbook.png" id="2_iieyp"]
 [ext_resource type="PackedScene" uid="uid://k14jy5i2n67d" path="res://scenes/components/scrapbook/scrapbook_polaroid.tscn" id="2_x7omj"]
 [ext_resource type="PackedScene" uid="uid://vcn63u6tkkxi" path="res://scenes/components/scrapbook/scrapbook_text.tscn" id="3_sxt88"]
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_x7omj")
 
 [node name="Mockup" type="TextureRect" parent="."]
 visible = false
@@ -49,6 +51,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Intro" type="Node2D" parent="Entries"]
+position = Vector2(27, 30)
 
 [node name="Polaroid" parent="Entries/Intro" instance=ExtResource("2_x7omj")]
 
@@ -56,6 +59,7 @@ grow_vertical = 2
 position = Vector2(256, 48)
 
 [node name="UPDQC" type="Node2D" parent="Entries"]
+position = Vector2(272, 32)
 
 [node name="Polaroid" parent="Entries/UPDQC" instance=ExtResource("2_x7omj")]
 
@@ -63,6 +67,7 @@ position = Vector2(256, 48)
 position = Vector2(256, 48)
 
 [node name="Cubao" type="Node2D" parent="Entries"]
+position = Vector2(29, 334)
 
 [node name="Polaroid" parent="Entries/Cubao" instance=ExtResource("2_x7omj")]
 
@@ -70,6 +75,7 @@ position = Vector2(256, 48)
 position = Vector2(256, 48)
 
 [node name="Makati" type="Node2D" parent="Entries"]
+position = Vector2(269, 335)
 
 [node name="Polaroid" parent="Entries/Makati" instance=ExtResource("2_x7omj")]
 
@@ -77,6 +83,7 @@ position = Vector2(256, 48)
 position = Vector2(256, 48)
 
 [node name="Quiapo" type="Node2D" parent="Entries"]
+position = Vector2(681, 31)
 
 [node name="Polaroid" parent="Entries/Quiapo" instance=ExtResource("2_x7omj")]
 
@@ -84,6 +91,7 @@ position = Vector2(256, 48)
 position = Vector2(256, 48)
 
 [node name="Coast" type="Node2D" parent="Entries"]
+position = Vector2(918, 31)
 
 [node name="Polaroid" parent="Entries/Coast" instance=ExtResource("2_x7omj")]
 
@@ -91,6 +99,7 @@ position = Vector2(256, 48)
 position = Vector2(256, 48)
 
 [node name="Jollibee" type="Node2D" parent="Entries"]
+position = Vector2(681, 337)
 
 [node name="Polaroid" parent="Entries/Jollibee" instance=ExtResource("2_x7omj")]
 
