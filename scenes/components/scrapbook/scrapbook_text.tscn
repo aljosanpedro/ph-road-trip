@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://vcn63u6tkkxi"]
+
+[ext_resource type="FontFile" uid="uid://u86swj21yivi" path="res://assets/fonts/scrapbook/JumkidsTwilight.ttf" id="1_a626u"]
+
+[node name="Text" type="Node2D"]
+visible = false
+rotation = 0.139626
+
+[node name="Date" type="Label" parent="."]
+offset_right = 111.0
+offset_bottom = 23.0
+rotation = -0.10645
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/paragraph_spacing = 0
+theme_override_fonts/font = ExtResource("1_a626u")
+theme_override_font_sizes/font_size = 22
+text = "11-22-93"
+
+[node name="Description" type="Label" parent="."]
+offset_left = -7.0
+offset_top = 38.0
+offset_right = 161.0
+offset_bottom = 182.0
+rotation = -0.147147
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_a626u")
+theme_override_font_sizes/font_size = 28
+text = "the garden was full of water!!!"
+autowrap_mode = 3

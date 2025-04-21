@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://k14jy5i2n67d"]
+
+[ext_resource type="Texture2D" uid="uid://bg581qxvxpddi" path="res://assets/images/scrapbook/scrapbook-image.png" id="1_20x0q"]
+[ext_resource type="FontFile" uid="uid://u86swj21yivi" path="res://assets/fonts/scrapbook/JumkidsTwilight.ttf" id="2_sx2fh"]
+
+[node name="Polaroid" type="Node2D"]
+
+[node name="Frame" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(5.45, 6.59)
+
+[node name="Picture" type="TextureRect" parent="Frame"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 1544.0
+offset_bottom = 1080.0
+scale = Vector2(0.023, 0.028)
+texture = ExtResource("1_20x0q")
+
+[node name="Label" type="Label" parent="Frame"]
+layout_mode = 0
+offset_left = 1.02585
+offset_top = 33.6981
+offset_right = 39.0259
+offset_bottom = 38.6981
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_sx2fh")
+theme_override_font_sizes/font_size = 5
+text = "sunk garden"
+horizontal_alignment = 1
+
+[node name="Tape" type="Node2D" parent="."]
+
+[node name="Tape1" type="ColorRect" parent="Tape"]
+offset_left = 13.0003
+offset_top = 249.319
+offset_right = 155.0
+offset_bottom = 284.319
+color = Color(0.929412, 0.847059, 0.72549, 0.588235)
+
+[node name="Tape2" type="ColorRect" parent="Tape"]
+offset_left = 199.673
+offset_top = -26.1264
+offset_right = 291.673
+offset_bottom = 8.87355
+rotation = 1.00299
+color = Color(0.929412, 0.847059, 0.72549, 0.588235)

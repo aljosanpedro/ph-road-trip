@@ -1,0 +1,135 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn7hmu26cutsr"]
+
+[ext_resource type="Script" uid="uid://dygafg6qc461k" path="res://scripts/scenes/scrapbook.gd" id="1_x7omj"]
+[ext_resource type="Texture2D" uid="uid://bax8t2y7y6i2s" path="res://assets/background/scrapbook.png" id="2_iieyp"]
+[ext_resource type="PackedScene" uid="uid://k14jy5i2n67d" path="res://scenes/components/scrapbook/scrapbook_polaroid.tscn" id="2_x7omj"]
+[ext_resource type="PackedScene" uid="uid://vcn63u6tkkxi" path="res://scenes/components/scrapbook/scrapbook_text.tscn" id="3_sxt88"]
+
+[node name="Scrapbook" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x7omj")
+
+[node name="Mockup" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 346.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.769025, 0.816121)
+texture = ExtResource("2_iieyp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Book" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -416.0
+offset_top = -324.0
+offset_right = 472.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Entries" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Intro" type="Node2D" parent="Entries"]
+position = Vector2(27, 30)
+
+[node name="Polaroid" parent="Entries/Intro" instance=ExtResource("2_x7omj")]
+
+[node name="Label" parent="Entries/Intro/Polaroid/Frame" index="1"]
+text = "Sunk Garden"
+
+[node name="Text" parent="Entries/Intro" instance=ExtResource("3_sxt88")]
+position = Vector2(256, 48)
+
+[node name="UPDQC" type="Node2D" parent="Entries"]
+position = Vector2(272, 32)
+
+[node name="Polaroid" parent="Entries/UPDQC" instance=ExtResource("2_x7omj")]
+
+[node name="Text" parent="Entries/UPDQC" instance=ExtResource("3_sxt88")]
+position = Vector2(256, 48)
+
+[node name="Cubao" type="Node2D" parent="Entries"]
+position = Vector2(29, 334)
+
+[node name="Polaroid" parent="Entries/Cubao" instance=ExtResource("2_x7omj")]
+
+[node name="Text" parent="Entries/Cubao" instance=ExtResource("3_sxt88")]
+position = Vector2(256, 48)
+
+[node name="Makati" type="Node2D" parent="Entries"]
+position = Vector2(269, 335)
+
+[node name="Polaroid" parent="Entries/Makati" instance=ExtResource("2_x7omj")]
+
+[node name="Text" parent="Entries/Makati" instance=ExtResource("3_sxt88")]
+position = Vector2(256, 48)
+
+[node name="Quiapo" type="Node2D" parent="Entries"]
+position = Vector2(681, 31)
+
+[node name="Polaroid" parent="Entries/Quiapo" instance=ExtResource("2_x7omj")]
+
+[node name="Text" parent="Entries/Quiapo" instance=ExtResource("3_sxt88")]
+position = Vector2(256, 48)
+
+[node name="Coast" type="Node2D" parent="Entries"]
+position = Vector2(918, 31)
+
+[node name="Polaroid" parent="Entries/Coast" instance=ExtResource("2_x7omj")]
+
+[node name="Text" parent="Entries/Coast" instance=ExtResource("3_sxt88")]
+position = Vector2(256, 48)
+
+[node name="Jollibee" type="Node2D" parent="Entries"]
+position = Vector2(681, 337)
+
+[node name="Polaroid" parent="Entries/Jollibee" instance=ExtResource("2_x7omj")]
+
+[node name="Text" parent="Entries/Jollibee" instance=ExtResource("3_sxt88")]
+position = Vector2(256, 48)
+
+[node name="Fade" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[editable path="Entries/Intro/Polaroid"]
+[editable path="Entries/Intro/Text"]
+[editable path="Entries/UPDQC/Polaroid"]
+[editable path="Entries/UPDQC/Text"]
+[editable path="Entries/Cubao/Polaroid"]
+[editable path="Entries/Cubao/Text"]
+[editable path="Entries/Makati/Polaroid"]
+[editable path="Entries/Makati/Text"]
+[editable path="Entries/Quiapo/Polaroid"]
+[editable path="Entries/Quiapo/Text"]
+[editable path="Entries/Coast/Polaroid"]
+[editable path="Entries/Coast/Text"]
+[editable path="Entries/Jollibee/Polaroid"]
+[editable path="Entries/Jollibee/Text"]
