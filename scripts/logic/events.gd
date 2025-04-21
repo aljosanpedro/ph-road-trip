@@ -8,6 +8,8 @@ enum POV_Character {
 signal change_map(path: String)
 
 var current_pov: POV_Character = POV_Character.ADI
+
+var scrapbook_pictures: Array[Node] = []
 #endregion
 
 #region Virtual functions
