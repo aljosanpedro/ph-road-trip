@@ -3,7 +3,6 @@
 [ext_resource type="FontFile" uid="uid://u86swj21yivi" path="res://assets/fonts/scrapbook/JumkidsTwilight.ttf" id="1_a626u"]
 
 [node name="Text" type="Node2D"]
-position = Vector2(13, 0)
 rotation = 0.139626
 
 [node name="Date" type="Label" parent="."]

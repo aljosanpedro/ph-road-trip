@@ -10,12 +10,12 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(5.45, 6.59)
 
-[node name="Image" type="Sprite2D" parent="Frame"]
+[node name="Picture" type="Sprite2D" parent="Frame"]
 position = Vector2(20, 16.9955)
 scale = Vector2(0.0237985, 0.0292792)
 texture = ExtResource("1_20x0q")
 
-[node name="Location" type="Label" parent="Frame"]
+[node name="Label" type="Label" parent="Frame"]
 layout_mode = 0
 offset_left = 1.02585
 offset_top = 33.6981

@@ -8,4 +8,4 @@
 [node name="Polaroid" parent="." instance=ExtResource("1_vusa4")]
 
 [node name="Text" parent="." instance=ExtResource("2_1nosq")]
-position = Vector2(269, 48)
+position = Vector2(272, 49)
