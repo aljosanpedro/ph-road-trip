@@ -1,6 +1,7 @@
 extends Node
 
 #region Initialized Variables and Exports
+# POV
 enum POV_Character {
 	ADI,
 	WIKS
@@ -9,7 +10,9 @@ signal change_map(path: String)
 
 var current_pov: POV_Character = POV_Character.ADI
 
-var scrapbook_pictures: Array[Node] = []
+# Scrapbook
+const SCRAPBOOK_ENTRIES : int = 7
+var scrapbook_pictures : Array[Node] = []
 #endregion
 
 #region Virtual functions

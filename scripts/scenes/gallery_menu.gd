@@ -8,7 +8,8 @@ extends CanvasLayer
 
 
 func capture_photo() -> void:
-	if len(Events.scrapbook_pictures) == 7: # Locations/Pictures
+	# Limit photos taken to expected scrapbook entries
+	if len(Events.scrapbook_pictures) == Events.SCRAPBOOK_ENTRIES:
 		return 
 	
 	# TODO: Crop image https://forum.godotengine.org/t/how-to-crop-center-of-an-image/5828/2
@@ -38,6 +39,7 @@ func _create_new_image(new_image: Image) -> void:
 	new_entry.custom_minimum_size = Vector2(200, 181)
 	new_entry.expand_mode = TextureRect.EXPAND_FIT_WIDTH
 	
+	# Set to scrapbook polaroid specs
 	new_entry.scale = Vector2(0.18, 0.17)
 	new_entry.position.x += 1.9
 	new_entry.position.y += 1.5
@@ -47,4 +49,5 @@ func _create_new_image(new_image: Image) -> void:
 		# preventing adding to Events.scrapbook_photos
 	#gallery_container.add_child(new_entry)
 	
+	# Camera -> [Gallery -> Events] -> Scrapbook -> Polaroid
 	Events.scrapbook_pictures.append(new_entry)
