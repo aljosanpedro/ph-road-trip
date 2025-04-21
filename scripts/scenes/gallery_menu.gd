@@ -6,7 +6,6 @@ extends CanvasLayer
 	#
 #]
 
-
 func capture_photo() -> void:
 	# Limit photos taken to expected scrapbook entries
 	if len(Events.scrapbook_pictures) == Events.SCRAPBOOK_ENTRIES:
