@@ -55,6 +55,9 @@ position = Vector2(27, 30)
 
 [node name="Polaroid" parent="Entries/Intro" instance=ExtResource("2_x7omj")]
 
+[node name="Label" parent="Entries/Intro/Polaroid/Frame" index="1"]
+text = "Sunk Garden"
+
 [node name="Text" parent="Entries/Intro" instance=ExtResource("3_sxt88")]
 position = Vector2(256, 48)
 
@@ -105,6 +108,16 @@ position = Vector2(681, 337)
 
 [node name="Text" parent="Entries/Jollibee" instance=ExtResource("3_sxt88")]
 position = Vector2(256, 48)
+
+[node name="Fade" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [editable path="Entries/Intro/Polaroid"]
 [editable path="Entries/Intro/Text"]
