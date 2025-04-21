@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bn7hmu26cutsr"]
+[gd_scene load_steps=4 format=3 uid="uid://bn7hmu26cutsr"]
 
-[ext_resource type="PackedScene" uid="uid://b8ma4iwy05pfs" path="res://scenes/components/scrapbook/scrapbook_entry.tscn" id="1_oj6eq"]
 [ext_resource type="Texture2D" uid="uid://bax8t2y7y6i2s" path="res://assets/background/scrapbook.png" id="2_iieyp"]
+[ext_resource type="PackedScene" uid="uid://k14jy5i2n67d" path="res://scenes/components/scrapbook/scrapbook_polaroid.tscn" id="2_x7omj"]
+[ext_resource type="PackedScene" uid="uid://vcn63u6tkkxi" path="res://scenes/components/scrapbook/scrapbook_text.tscn" id="3_sxt88"]
 
 [node name="Scrapbook" type="Control"]
 layout_mode = 3
@@ -12,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Mockup" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +26,7 @@ scale = Vector2(0.769025, 0.816121)
 texture = ExtResource("2_iieyp")
 metadata/_edit_use_anchors_ = true
 
-[node name="Book2" type="TextureRect" parent="."]
+[node name="Book" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -46,164 +48,66 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Intro" parent="Entries" instance=ExtResource("1_oj6eq")]
+[node name="Intro" type="Node2D" parent="Entries"]
 
-[node name="Tape1" parent="Entries/Intro/Polaroid/Tape" index="0"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 142.0
-offset_bottom = 35.0
+[node name="Polaroid" parent="Entries/Intro" instance=ExtResource("2_x7omj")]
 
-[node name="Tape2" parent="Entries/Intro/Polaroid/Tape" index="1"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 92.0
-offset_bottom = 35.0
+[node name="Text" parent="Entries/Intro" instance=ExtResource("3_sxt88")]
+position = Vector2(256, 48)
 
-[node name="Description" parent="Entries/Intro/Text" index="1"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 168.0
-offset_bottom = 144.0
+[node name="UPDQC" type="Node2D" parent="Entries"]
 
-[node name="UPDQC" parent="Entries" instance=ExtResource("1_oj6eq")]
+[node name="Polaroid" parent="Entries/UPDQC" instance=ExtResource("2_x7omj")]
 
-[node name="Tape1" parent="Entries/UPDQC/Polaroid/Tape" index="0"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 142.0
-offset_bottom = 35.0
+[node name="Text" parent="Entries/UPDQC" instance=ExtResource("3_sxt88")]
+position = Vector2(256, 48)
 
-[node name="Tape2" parent="Entries/UPDQC/Polaroid/Tape" index="1"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 92.0
-offset_bottom = 35.0
+[node name="Cubao" type="Node2D" parent="Entries"]
 
-[node name="Description" parent="Entries/UPDQC/Text" index="1"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 168.0
-offset_bottom = 144.0
+[node name="Polaroid" parent="Entries/Cubao" instance=ExtResource("2_x7omj")]
 
-[node name="Cubao" parent="Entries" instance=ExtResource("1_oj6eq")]
+[node name="Text" parent="Entries/Cubao" instance=ExtResource("3_sxt88")]
+position = Vector2(256, 48)
 
-[node name="Tape1" parent="Entries/Cubao/Polaroid/Tape" index="0"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 142.0
-offset_bottom = 35.0
+[node name="Makati" type="Node2D" parent="Entries"]
 
-[node name="Tape2" parent="Entries/Cubao/Polaroid/Tape" index="1"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 92.0
-offset_bottom = 35.0
+[node name="Polaroid" parent="Entries/Makati" instance=ExtResource("2_x7omj")]
 
-[node name="Description" parent="Entries/Cubao/Text" index="1"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 168.0
-offset_bottom = 144.0
+[node name="Text" parent="Entries/Makati" instance=ExtResource("3_sxt88")]
+position = Vector2(256, 48)
 
-[node name="Makati" parent="Entries" instance=ExtResource("1_oj6eq")]
+[node name="Quiapo" type="Node2D" parent="Entries"]
 
-[node name="Tape1" parent="Entries/Makati/Polaroid/Tape" index="0"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 142.0
-offset_bottom = 35.0
+[node name="Polaroid" parent="Entries/Quiapo" instance=ExtResource("2_x7omj")]
 
-[node name="Tape2" parent="Entries/Makati/Polaroid/Tape" index="1"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 92.0
-offset_bottom = 35.0
+[node name="Text" parent="Entries/Quiapo" instance=ExtResource("3_sxt88")]
+position = Vector2(256, 48)
 
-[node name="Description" parent="Entries/Makati/Text" index="1"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 168.0
-offset_bottom = 144.0
+[node name="Coast" type="Node2D" parent="Entries"]
 
-[node name="Quiapo" parent="Entries" instance=ExtResource("1_oj6eq")]
+[node name="Polaroid" parent="Entries/Coast" instance=ExtResource("2_x7omj")]
 
-[node name="Tape1" parent="Entries/Quiapo/Polaroid/Tape" index="0"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 142.0
-offset_bottom = 35.0
+[node name="Text" parent="Entries/Coast" instance=ExtResource("3_sxt88")]
+position = Vector2(256, 48)
 
-[node name="Tape2" parent="Entries/Quiapo/Polaroid/Tape" index="1"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 92.0
-offset_bottom = 35.0
+[node name="Jollibee" type="Node2D" parent="Entries"]
 
-[node name="Description" parent="Entries/Quiapo/Text" index="1"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 168.0
-offset_bottom = 144.0
+[node name="Polaroid" parent="Entries/Jollibee" instance=ExtResource("2_x7omj")]
 
-[node name="Coast" parent="Entries" instance=ExtResource("1_oj6eq")]
+[node name="Text" parent="Entries/Jollibee" instance=ExtResource("3_sxt88")]
+position = Vector2(256, 48)
 
-[node name="Tape1" parent="Entries/Coast/Polaroid/Tape" index="0"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 142.0
-offset_bottom = 35.0
-
-[node name="Tape2" parent="Entries/Coast/Polaroid/Tape" index="1"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 92.0
-offset_bottom = 35.0
-
-[node name="Description" parent="Entries/Coast/Text" index="1"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 168.0
-offset_bottom = 144.0
-
-[node name="Jollibee" parent="Entries" instance=ExtResource("1_oj6eq")]
-
-[node name="Tape1" parent="Entries/Jollibee/Polaroid/Tape" index="0"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 142.0
-offset_bottom = 35.0
-
-[node name="Tape2" parent="Entries/Jollibee/Polaroid/Tape" index="1"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 92.0
-offset_bottom = 35.0
-
-[node name="Description" parent="Entries/Jollibee/Text" index="1"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 168.0
-offset_bottom = 144.0
-
-[editable path="Entries/Intro"]
 [editable path="Entries/Intro/Polaroid"]
 [editable path="Entries/Intro/Text"]
-[editable path="Entries/UPDQC"]
 [editable path="Entries/UPDQC/Polaroid"]
 [editable path="Entries/UPDQC/Text"]
-[editable path="Entries/Cubao"]
 [editable path="Entries/Cubao/Polaroid"]
 [editable path="Entries/Cubao/Text"]
-[editable path="Entries/Makati"]
 [editable path="Entries/Makati/Polaroid"]
 [editable path="Entries/Makati/Text"]
-[editable path="Entries/Quiapo"]
 [editable path="Entries/Quiapo/Polaroid"]
 [editable path="Entries/Quiapo/Text"]
-[editable path="Entries/Coast"]
 [editable path="Entries/Coast/Polaroid"]
 [editable path="Entries/Coast/Text"]
-[editable path="Entries/Jollibee"]
 [editable path="Entries/Jollibee/Polaroid"]
 [editable path="Entries/Jollibee/Text"]
