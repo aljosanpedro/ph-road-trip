@@ -23,9 +23,11 @@ grow_vertical = 2
 texture = ExtResource("2_wfrsl")
 expand_mode = 3
 
-[node name="Screen" type="ColorRect" parent="."]
+[node name="Screen" type="CanvasLayer" parent="."]
+layer = 2
 visible = false
-layout_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screen"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -33,7 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.270588, 0.270588, 0.270588, 0.784314)
 
-[node name="Label" type="Label" parent="Screen"]
+[node name="Label" type="Label" parent="Screen/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -50,15 +52,18 @@ text = "Paused"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Button" type="CheckButton" parent="."]
+[node name="Button" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="CheckButton" type="CheckButton" parent="Button"]
 process_mode = 3
-layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -95.0
 offset_bottom = 31.0
 grow_horizontal = 0
+focus_mode = 0
 text = "Pause"
 
-[connection signal="toggled" from="Button" to="." method="_on_button_toggled"]
+[connection signal="toggled" from="Button/CheckButton" to="." method="_on_button_toggled"]
