@@ -20,7 +20,7 @@ func fade_in() -> void:
 
 
 func set_entries() -> void:
-	var entries : Array[Node] = entries.get_children(false)
+	var entries_children : Array[Node] = entries.get_children(false)
 		# Node: Node2D
 		# include_internal = false; no children
 
@@ -28,7 +28,7 @@ func set_entries() -> void:
 		# Node: TextureRect
 	
 	for i in range(len(pictures)):
-		var entry : String = entries[i].name
+		var entry : String = entries_children[i].name
 		var picture : Node = pictures[i]
 		
 		set_photo(entry, picture)
