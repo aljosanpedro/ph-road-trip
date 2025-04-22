@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cr3bx2sugqsil"]
+[gd_scene load_steps=3 format=3 uid="uid://cr3bx2sugqsil"]
 
 [ext_resource type="Script" uid="uid://wx5m6c8828qu" path="res://scripts/locations/loc_2_cubao.gd" id="1_7bot1"]
+[ext_resource type="Texture2D" uid="uid://c55kgxk441tg6" path="res://assets/images/hillarea.png" id="2_5wx0i"]
 
 [node name="Cubao" type="Node2D"]
 script = ExtResource("1_7bot1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_5wx0i")
+expand_mode = 1

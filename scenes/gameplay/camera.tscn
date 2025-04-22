@@ -30,6 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
 texture = ExtResource("3_2l8hh")
+expand_mode = 1
 
 [node name="CameraShutter" type="TextureRect" parent="CameraLayer"]
 anchors_preset = 15
@@ -39,6 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
 texture = ExtResource("4_4ic5v")
+expand_mode = 1
 
 [node name="GalleryMenu" type="CanvasLayer" parent="."]
 visible = false
