@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cwi3ojmkmngll" path="res://scenes/gameplay/pov_switch.tscn" id="3_3585q"]
 [ext_resource type="PackedScene" uid="uid://d2qa4m3blgw5m" path="res://scenes/gameplay/camera.tscn" id="3_jnjbd"]
 [ext_resource type="PackedScene" uid="uid://dhkep6yubnjdq" path="res://scenes/scenes/map_travel.tscn" id="4_3585q"]
+[ext_resource type="PackedScene" uid="uid://b0bgu2evrugl1" path="res://scenes/settings/pause.tscn" id="6_7yowf"]
 
 [node name="GameMain" type="Node"]
 script = ExtResource("1_ee8ta")
@@ -13,15 +14,9 @@ current_scene = ExtResource("2_jnjbd")
 
 [node name="GameArea" type="Node" parent="."]
 
-[node name="Background" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -36.0
-offset_bottom = 36.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_7yowf")
+[node name="Settings" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="Settings" instance=ExtResource("6_7yowf")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
