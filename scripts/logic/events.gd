@@ -1,6 +1,7 @@
 extends Node
 
 #region Initialized Variables and Exports
+# POV
 enum POV_Character {
 	ADI,
 	WIKS
@@ -9,6 +10,10 @@ signal change_map(path: String)
 signal open_camera_signal()
 
 var current_pov: POV_Character = POV_Character.ADI
+
+# Scrapbook
+const SCRAPBOOK_ENTRIES : int = 7
+var scrapbook_pictures : Array[Node] = []
 #endregion
 
 #region Virtual functions
@@ -18,6 +23,7 @@ func _ready() -> void:
 ## Initializes Events for a new game.
 func initialize() -> void:
 	current_pov = POV_Character.ADI
+	scrapbook_pictures = []
 #endregion
 
 #region Custom Functions

@@ -44,6 +44,9 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_map"):
 		_map_travel_scene_call()
 		get_viewport().set_input_as_handled()
+		
+	if event.is_action_pressed("open_scrapbook"):
+		get_tree().change_scene_to_file("res://scenes/scenes/scrapbook.tscn")
 
 #region Area Change Functions
 ## First is path.
