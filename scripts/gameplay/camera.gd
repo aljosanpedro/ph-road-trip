@@ -8,10 +8,10 @@ extends Control
 
 # Technically, negative to because LEFT/TOP siya na limits. But it's here as an
 # absolute value.
-const NL_X: int = 371
-const NL_Y: int = 94
-const SL_X: int = 1514 
-const SL_Y: int = 825 
+const NL_X: int = 392
+const NL_Y: int = 85
+const SL_X: int = 399 
+const SL_Y: int = 203 
 #endregion
 
 #region Virtual functions
@@ -66,16 +66,20 @@ func _camera_disable() -> void:
 ## zooming in/out.
 ## Right: 1333 px when zoomed
 ## Bottom: 773 px when zoomed
+# Get 
 func _camera_recalculate_limit() -> void:
 	var new_left_limit 		= -(NL_X * (1.0 / camera.zoom.x))
 	var new_top_limit 		= -(NL_Y * (1.0 / camera.zoom.y))
-	var new_right_limit 	= SL_X - ((NL_X + 12) * (1.0 - (1.0 / camera.zoom.x)))
-	var new_bottom_limit 	= SL_Y - ((NL_Y + 12) * (1.0 - (1.0 / camera.zoom.y)))
+	
+	# INFO: Multiplicative inverse, motherfuckers.
+	var new_right_limit 	= 1152 + (SL_X * (1.0 / camera.zoom.x)) 
+	var new_bottom_limit 	= 648 + (SL_Y * (1.0 / camera.zoom.y)) 
+	
 	camera.set_limit(SIDE_LEFT, new_left_limit)
 	camera.set_limit(SIDE_TOP, new_top_limit)
 	camera.set_limit(SIDE_RIGHT, new_right_limit)
 	camera.set_limit(SIDE_BOTTOM, new_bottom_limit)
-	#print("LR: ", 1.0 - (1.0 / camera.zoom.x))
-	#print("Camera Right: ", camera.limit_right, " ", camera.zoom.x - 1)
-	#print("Camera Bottom: ", camera.limit_bottom, " ", camera.zoom.y - 1)
+	print("Current Zoom: ", camera.zoom.x)
+	print("Camera Right: ", camera.limit_right, " ", camera.zoom.x - 1)
+	print("Camera Bottom: ", camera.limit_bottom, " ", (1.0 / camera.zoom.y))
 #endregion

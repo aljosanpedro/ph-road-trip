@@ -11,7 +11,6 @@ anchors_preset = 0
 script = ExtResource("1_s88o6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-281, -4)
 enabled = false
 limit_left = -371
 limit_top = -94
@@ -20,6 +19,7 @@ limit_bottom = 825
 editor_draw_limits = true
 
 [node name="CameraLayer" type="CanvasLayer" parent="."]
+layer = 2
 visible = false
 
 [node name="CameraOverlay" type="TextureRect" parent="CameraLayer"]
