@@ -2,11 +2,15 @@ extends CanvasLayer
 
 @onready var gallery_container = $ImageContainer
 
-var pictures: Array = [
-	
-]
+#var pictures: Array = [
+	#
+#]
 
 func capture_photo() -> void:
+	# Limit photos taken to expected scrapbook entries
+	if len(Events.scrapbook_pictures) == Events.SCRAPBOOK_ENTRIES:
+		return 
+	
 	# TODO: Crop image https://forum.godotengine.org/t/how-to-crop-center-of-an-image/5828/2
 	await RenderingServer.frame_post_draw
 	var new_image: Image = get_viewport().get_texture().get_image()
@@ -22,7 +26,7 @@ func capture_photo() -> void:
 	cropped_image.blit_rect(new_image, specified_region, Vector2(0,0))
 	
 	# Append image to the array and then call pictures.
-	pictures.append(cropped_image)
+	#pictures.append(cropped_image)
 	_create_new_image(cropped_image)
 
 func _create_new_image(new_image: Image) -> void:
@@ -34,6 +38,15 @@ func _create_new_image(new_image: Image) -> void:
 	new_entry.custom_minimum_size = Vector2(200, 181)
 	new_entry.expand_mode = TextureRect.EXPAND_FIT_WIDTH
 	
-	# Finally, add it to gallery.
-	gallery_container.add_child(new_entry)
+	# Set to scrapbook polaroid specs
+	new_entry.scale = Vector2(0.18, 0.17)
+	new_entry.position.x += 1.9
+	new_entry.position.y += 1.5
 	
+	# Finally, add it to gallery.
+	# Deprecated; and will queue_free() new_entry
+		# preventing adding to Events.scrapbook_photos
+	#gallery_container.add_child(new_entry)
+	
+	# Camera -> [Gallery -> Events] -> Scrapbook -> Polaroid
+	Events.scrapbook_pictures.append(new_entry)
