@@ -43,7 +43,9 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_bjcl6"]
 script = ExtResource("1_xaqfk")
 scene = ExtResource("7_nqx6a")
-overrides = {}
+overrides = {
+"boxes_stylebox_normal": "\"choice_panel_normal.tres\""
+}
 
 [sub_resource type="Resource" id="Resource_ufnmv"]
 script = ExtResource("1_xaqfk")
@@ -72,4 +74,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("1_xaqfk")]([])
-metadata/_latest_layer = ""
+metadata/_latest_layer = "15"
