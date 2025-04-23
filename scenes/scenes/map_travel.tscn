@@ -1,6 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://dhkep6yubnjdq"]
+[gd_scene load_steps=22 format=3 uid="uid://dhkep6yubnjdq"]
 
-[ext_resource type="Script" path="res://scripts/scenes/map_travel.gd" id="1_j37w6"]
+[ext_resource type="Script" uid="uid://dbntfaivbsnoc" path="res://scripts/scenes/map_travel.gd" id="1_j37w6"]
 [ext_resource type="Texture2D" uid="uid://bds4ha4gntixm" path="res://assets/images/travel_map/map.png" id="2_e23lu"]
 [ext_resource type="Texture2D" uid="uid://jdbv1i8fogc1" path="res://assets/images/travel_map/map_arranged.png" id="3_02dou"]
 [ext_resource type="PackedScene" uid="uid://bjcubxys1hsk8" path="res://scenes/components/map_button.tscn" id="3_e23lu"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://dxbcrkwydgm8i" path="res://scenes/locations/loc4_quiapo.tscn" id="7_tsi4x"]
 [ext_resource type="PackedScene" uid="uid://vy7bujibq7po" path="res://scenes/locations/loc5_whitesands.tscn" id="8_qr2xy"]
 [ext_resource type="PackedScene" uid="uid://b4gu5lbc4cbce" path="res://scenes/locations/jolli_location.tscn" id="10_t4heh"]
+[ext_resource type="Texture2D" uid="uid://daf2lyaokqqyb" path="res://assets/images/travel_map/player_location.png" id="11_mo0mx"]
+[ext_resource type="FontFile" uid="uid://00hlmm36oh26" path="res://assets/fonts/travel_map/CubaoFree2-Regular.ttf" id="12_tsi4x"]
+[ext_resource type="Texture2D" uid="uid://bhlgojw3jrjxi" path="res://assets/images/travel_map/player_node.png" id="13_qr2xy"]
 
 [sub_resource type="Animation" id="Animation_t4heh"]
 resource_name = "QCtoCubao"
@@ -111,6 +114,11 @@ _data = {
 &"RESET": SubResource("Animation_02dou")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_qr2xy"]
+line_spacing = 0.0
+font = ExtResource("12_tsi4x")
+font_size = 40
+
 [node name="MapTravel" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -150,62 +158,90 @@ joint_mode = 1
 round_precision = 32
 antialiased = true
 
-[node name="UPDQC" parent="." instance=ExtResource("3_e23lu")]
+[node name="UPD-QC" parent="." groups=["locations"] instance=ExtResource("3_e23lu")]
 layout_mode = 1
-offset_left = 729.0
-offset_top = 211.0
-offset_right = -399.0
-offset_bottom = -413.0
+offset_left = 726.0
+offset_top = 208.0
+offset_right = -386.0
+offset_bottom = -400.0
 location = ExtResource("4_02dou")
 
-[node name="Cubao" parent="." instance=ExtResource("3_e23lu")]
+[node name="Cubao" parent="." groups=["locations"] instance=ExtResource("3_e23lu")]
 layout_mode = 1
-offset_left = 698.0
-offset_top = 268.0
-offset_right = -430.0
-offset_bottom = -356.0
+offset_left = 694.0
+offset_top = 263.0
+offset_right = -418.0
+offset_bottom = -345.0
 location = ExtResource("5_t4heh")
 
-[node name="Makati" parent="." instance=ExtResource("3_e23lu")]
+[node name="Makati" parent="." groups=["locations"] instance=ExtResource("3_e23lu")]
 layout_mode = 1
-offset_left = 649.0
-offset_top = 355.0
-offset_right = -479.0
-offset_bottom = -269.0
+offset_left = 647.0
+offset_top = 351.0
+offset_right = -465.0
+offset_bottom = -257.0
 location = ExtResource("6_mo0mx")
 
-[node name="Quiapo" parent="." instance=ExtResource("3_e23lu")]
+[node name="Quiapo" parent="." groups=["locations"] instance=ExtResource("3_e23lu")]
 layout_mode = 1
-offset_left = 680.0
-offset_top = 414.0
-offset_right = -448.0
-offset_bottom = -210.0
+offset_left = 676.0
+offset_top = 409.0
+offset_right = -436.0
+offset_bottom = -199.0
 location = ExtResource("7_tsi4x")
 
-[node name="Coast" parent="." instance=ExtResource("3_e23lu")]
+[node name="Coast" parent="." groups=["locations"] instance=ExtResource("3_e23lu")]
 layout_mode = 1
-offset_left = 670.0
-offset_top = 437.0
-offset_right = -458.0
-offset_bottom = -187.0
+offset_left = 666.0
+offset_top = 433.0
+offset_right = -446.0
+offset_bottom = -175.0
 location = ExtResource("8_qr2xy")
 
-[node name="Jabee" parent="." instance=ExtResource("3_e23lu")]
+[node name="Jabee" parent="." groups=["locations"] instance=ExtResource("3_e23lu")]
 layout_mode = 1
-offset_left = 644.0
-offset_top = 434.0
-offset_right = -484.0
-offset_bottom = -190.0
+offset_left = 640.0
+offset_top = 431.0
+offset_right = -472.0
+offset_bottom = -177.0
 location = ExtResource("10_t4heh")
+
+[node name="CurrentLocationPlayer" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 726.0
+offset_top = 208.0
+offset_right = 766.0
+offset_bottom = 248.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_qr2xy")
+
+[node name="TargetArea" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 723.0
+offset_top = 174.0
+offset_right = 748.0
+offset_bottom = 223.0
+mouse_filter = 2
+texture = ExtResource("11_mo0mx")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_qr2xy")
 }
 
+[node name="LocationLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 40.0
+offset_right = 297.0
+offset_bottom = 115.0
+rotation = -0.0523599
+text = "???"
+label_settings = SubResource("LabelSettings_qr2xy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="UPDQC" to="." method="_on_location_pressed"]
-[connection signal="pressed" from="Cubao" to="." method="_on_location_pressed"]
-[connection signal="pressed" from="Makati" to="." method="_on_location_pressed"]
-[connection signal="pressed" from="Quiapo" to="." method="_on_location_pressed"]
-[connection signal="pressed" from="Coast" to="." method="_on_location_pressed"]
