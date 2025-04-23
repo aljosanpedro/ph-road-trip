@@ -118,13 +118,3 @@ func pause_game() -> void:
 func resume_game() -> void:
 	#bgm_pause(false)
 	AudioServer.set_bus_effect_enabled(AudioServer.get_bus_index("BGM"), 0, false)
-
-func game_over_effects_start() -> void:
-	AudioServer.set_bus_effect_enabled(AudioServer.get_bus_index("BGM"), 0, true)
-	AudioServer.set_bus_effect_enabled(AudioServer.get_bus_index("BGM"), 1, true)
-	AudioServer.set_bus_effect_enabled(AudioServer.get_bus_index("BGM"), 2, true)
-
-func game_over_effects_end() -> void:
-	AudioServer.set_bus_effect_enabled(AudioServer.get_bus_index("BGM"), 0, false)
-	AudioServer.set_bus_effect_enabled(AudioServer.get_bus_index("BGM"), 1, false)
-	AudioServer.set_bus_effect_enabled(AudioServer.get_bus_index("BGM"), 2, false)
