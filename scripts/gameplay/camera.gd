@@ -38,8 +38,10 @@ func _input(_event: InputEvent) -> void:
 	# INFO CAMERA ACTION: Play captures a photo via RIGHT CLICK.
 	if Input.is_action_just_pressed("camera_capture") and camera.enabled:
 		camera_shutter.hide()
+		camera_overlay.hide()
 		await camera_gallery.capture_photo()
 		camera_shutter.show()
+		camera_overlay.show()
 		
 		# TODO: Once game is near polish, add flicker animation.
 		_camera_disable()
