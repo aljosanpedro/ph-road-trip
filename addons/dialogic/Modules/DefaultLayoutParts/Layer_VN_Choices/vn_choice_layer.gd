@@ -28,7 +28,7 @@ extends DialogicLayoutLayer
 @export_file('*.tres') var boxes_stylebox_focused: String = "res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/choice_panel_focus.tres"
 @export_subgroup('Modulate')
 @export_subgroup('Size & Position')
-@export var boxes_v_separation: int = 10
+@export var boxes_v_separation: int = -50
 @export var boxes_fill_width: bool = true
 @export var boxes_min_size: Vector2 = Vector2()
 @export var boxes_offset: Vector2 = Vector2()

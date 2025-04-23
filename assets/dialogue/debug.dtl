@@ -1,5 +1,4 @@
-if Events.get_current_pov() == Events.POV_Character.ADI:
-	Oh, hello. You're Adi, right?
-else:
-	Oh, hello. You're Wiks, right?
-do Events.open_camera()
+Mogo: Oh, hello. You're Wiks, right?
+John: Choose
+- sex
+- online
