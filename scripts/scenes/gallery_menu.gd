@@ -21,8 +21,8 @@ func capture_photo() -> void:
 	# TODO: Adjust ratio appropriately. SCRATCH THAT, RESIZE EXISTS.
 	
 	var cropped_image: Image = Image.new()
-	var specified_region = Rect2(371, 95, 417, 376)
-	cropped_image = Image.create(417, 376, true, new_image.get_format())
+	var specified_region = Rect2(392, 95, 360, 360)
+	cropped_image = Image.create(360, 360, true, new_image.get_format())
 	cropped_image.blit_rect(new_image, specified_region, Vector2(0,0))
 	
 	# Append image to the array and then call pictures.
