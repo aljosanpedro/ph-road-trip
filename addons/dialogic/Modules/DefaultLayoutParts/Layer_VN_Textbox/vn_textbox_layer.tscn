@@ -295,6 +295,7 @@ play_every_character = 0
 
 [node name="NextIndicator" type="Control" parent="Anchor/AnimationParent/Sizer/DialogTextPanel"]
 unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -336,10 +337,12 @@ metadata/_edit_group_ = true
 
 [node name="DialogicNode_NameLabel" type="Label" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/NameLabelHolder/NameLabelPanel" node_paths=PackedStringArray("name_label_root")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_v8y64")
 theme_override_font_sizes/font_size = 15
 text = "S"
+horizontal_alignment = 1
 script = ExtResource("7_bi7sh")
 name_label_root = NodePath("..")
