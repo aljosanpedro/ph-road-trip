@@ -1,16 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://gacu2tai2u5d"]
+[gd_scene load_steps=7 format=3 uid="uid://gacu2tai2u5d"]
 
 [ext_resource type="Script" uid="uid://bar68ubop558i" path="res://scripts/scenes/game_main.gd" id="1_ee8ta"]
 [ext_resource type="PackedScene" uid="uid://l52hev016n2l" path="res://scenes/locations/intro_scene.tscn" id="2_jnjbd"]
+[ext_resource type="Texture2D" uid="uid://c55kgxk441tg6" path="res://assets/images/hillarea.png" id="3_7yowf"]
 [ext_resource type="PackedScene" uid="uid://cwi3ojmkmngll" path="res://scenes/gameplay/pov_switch.tscn" id="3_3585q"]
 [ext_resource type="PackedScene" uid="uid://d2qa4m3blgw5m" path="res://scenes/gameplay/camera.tscn" id="3_jnjbd"]
 [ext_resource type="PackedScene" uid="uid://dhkep6yubnjdq" path="res://scenes/scenes/map_travel.tscn" id="4_3585q"]
+[ext_resource type="PackedScene" uid="uid://b0bgu2evrugl1" path="res://scenes/settings/pause.tscn" id="6_7yowf"]
 
 [node name="GameMain" type="Node"]
 script = ExtResource("1_ee8ta")
 current_scene = ExtResource("2_jnjbd")
 
 [node name="GameArea" type="Node" parent="."]
+
+[node name="Settings" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="Settings" instance=ExtResource("6_7yowf")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
