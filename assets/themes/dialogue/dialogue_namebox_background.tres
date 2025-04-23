@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://yc75n3uv77lf"]
+
+[ext_resource type="Texture2D" uid="uid://j8lspv5heyan" path="res://assets/images/dialogue/dialogue_namebox_background.png" id="1_ew0b0"]
+
+[resource]
+content_margin_left = 30.0
+content_margin_right = 170.0
+texture = ExtResource("1_ew0b0")
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0

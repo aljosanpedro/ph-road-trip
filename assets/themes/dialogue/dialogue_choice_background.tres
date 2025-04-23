@@ -1,0 +1,6 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dfcwpowosc0is"]
+
+[ext_resource type="Texture2D" uid="uid://cx8y4ij1187pg" path="res://assets/images/dialogue/dialogue_choices_background.png" id="1_firyn"]
+
+[resource]
+texture = ExtResource("1_firyn")

@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://c6nrncw6fkmmt"]
+
+[ext_resource type="Texture2D" uid="uid://ctiarf4c7nsbf" path="res://assets/images/dialogue/dialogue_choices_background_chosen.png" id="1_wauuc"]
+
+[resource]
+texture = ExtResource("1_wauuc")
+region_rect = Rect2(124.573, 272.027, 1358.18, 136.761)

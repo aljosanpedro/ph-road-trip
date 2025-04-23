@@ -33,7 +33,22 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_7t71o"]
 script = ExtResource("1_xaqfk")
 scene = ExtResource("5_ev4nn")
-overrides = {}
+overrides = {
+"box_animation_in": "0",
+"box_animation_out": "0",
+"box_color_custom": "Color(1, 1, 1, 1)",
+"box_color_use_global": "false",
+"box_panel": "\"res://assets/themes/dialogue/dialogue_background.tres\"",
+"box_size": "Vector2(640, 165)",
+"name_label_box_modulate": "Color(1, 1, 1, 1)",
+"name_label_box_offset": "Vector2(-20, 30)",
+"name_label_box_panel": "\"res://assets/themes/dialogue/dialogue_namebox_background.tres\"",
+"name_label_box_use_global_color": "false",
+"name_label_use_character_color": "false",
+"name_label_use_global_color": "false",
+"text_custom_color": "Color(0, 0, 0, 1)",
+"text_use_global_color": "false"
+}
 
 [sub_resource type="Resource" id="Resource_xgcra"]
 script = ExtResource("1_xaqfk")
