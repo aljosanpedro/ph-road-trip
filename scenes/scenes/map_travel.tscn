@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dhkep6yubnjdq"]
+[gd_scene load_steps=18 format=3 uid="uid://dhkep6yubnjdq"]
 
 [ext_resource type="Script" path="res://scripts/scenes/map_travel.gd" id="1_j37w6"]
 [ext_resource type="Texture2D" uid="uid://bds4ha4gntixm" path="res://assets/images/travel_map/map.png" id="2_e23lu"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bvwus66gcy76w" path="res://scenes/locations/loc3_makati.tscn" id="6_mo0mx"]
 [ext_resource type="PackedScene" uid="uid://dxbcrkwydgm8i" path="res://scenes/locations/loc4_quiapo.tscn" id="7_tsi4x"]
 [ext_resource type="PackedScene" uid="uid://vy7bujibq7po" path="res://scenes/locations/loc5_whitesands.tscn" id="8_qr2xy"]
+[ext_resource type="PackedScene" uid="uid://b4gu5lbc4cbce" path="res://scenes/locations/jolli_location.tscn" id="10_t4heh"]
 
 [sub_resource type="Animation" id="Animation_t4heh"]
 resource_name = "QCtoCubao"
@@ -151,17 +152,17 @@ antialiased = true
 
 [node name="UPDQC" parent="." instance=ExtResource("3_e23lu")]
 layout_mode = 1
-offset_left = 728.0
-offset_top = 212.0
-offset_right = -400.0
-offset_bottom = -412.0
+offset_left = 729.0
+offset_top = 211.0
+offset_right = -399.0
+offset_bottom = -413.0
 location = ExtResource("4_02dou")
 
 [node name="Cubao" parent="." instance=ExtResource("3_e23lu")]
 layout_mode = 1
-offset_left = 697.0
+offset_left = 698.0
 offset_top = 268.0
-offset_right = -431.0
+offset_right = -430.0
 offset_bottom = -356.0
 location = ExtResource("5_t4heh")
 
@@ -195,6 +196,7 @@ offset_left = 644.0
 offset_top = 434.0
 offset_right = -484.0
 offset_bottom = -190.0
+location = ExtResource("10_t4heh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
