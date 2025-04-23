@@ -86,3 +86,7 @@ func _map_travel_scene_call() -> void:
 ## Is called when the map travel scene is closed via the MapTravel signal.
 func _on_scene_map_travel_closed() -> void:
 	_map_travel_scene_call()
+
+
+#func _on_settings_opened() -> void:
+	#$Settings/Pause._on_button_toggled(true)
