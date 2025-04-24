@@ -32,7 +32,8 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "debug": "res://assets/dialogue/debug.dtl",
-"intro": "res://assets/dialogue/intro/intro.dtl"
+"intro": "res://assets/dialogue/intro/intro.dtl",
+"loc_1_interactables": "res://assets/dialogue/location_1/loc_1_interactables.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://assets/themes/dialogue_stylings.tres"]
