@@ -1,11 +1,11 @@
 extends Node2D
 
 # List of interactables
-# For Wiks:
+# For wiks:
 # 	kids_playing
 # 	lanterns
 # 	radio
-# For Adi:
+# For adi:
 # 	mannequins
 # 	jabee
 
@@ -15,7 +15,7 @@ func _ready() -> void:
 func _on_character_item_clicked() -> void:
 	Dialogic.start("debug")
 	#match Events.get_current_pov():
-		#Events.POV_Character.ADI:
+		#Events.POV_Character.adi:
 			#pass
-		#Events.POV_Character.WIKS:
+		#Events.POV_Character.wiks:
 			#pass

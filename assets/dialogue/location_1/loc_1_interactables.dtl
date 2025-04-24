@@ -1,56 +1,56 @@
 label kids_playing
 You see a bunch of kids running around, chasing each other with sticks.
-Wiks: Huh, haven't seen these many kids in a whil— Hey, watch out!
+wiks: Huh, haven't seen these many kids in a whil— Hey, watch out!
 You rush ahead and try to catch a kid as he slips on a wet patch of floor that he didn't notice.
 You barely make it in time to catch him before he gets injured.
-Wiks: Watch where you're going!
+wiks: Watch where you're going!
 The kid rushes a “thank you” before scrambling off to join the other kids.
-Wiks: Kids these days...
-Wiks: Crap, wait. I was just a kid a few years back.
-Wiks: Damn it, I'm sounding like the old man… and I'm just in my twenties!
+wiks: Kids these days...
+wiks: Crap, wait. I was just a kid a few years back.
+wiks: Damn it, I'm sounding like the old man… and I'm just in my twenties!
 jump end
 label lanterns
-Adi: That's a lotta lanterns.
-Adi: Where do they get the oil for it?
-Wiks: I remember that they have a trade deal with one of the vertical farms nearby. They use a certain plant that they can process into an oil for the 
-Adi: So they have a refinery, huh.
-Adi: So much work just for the lanterns...
-Wiks: Well, they're known for it now.
-Wiks: Might be weird if they suddenly snuffed it all out.
-Wiks: Besides, it looks beautiful too.
+adi: That's a lotta lanterns.
+adi: Where do they get the oil for it?
+wiks: I remember that they have a trade deal with one of the vertical farms nearby. They use a certain plant that they can process into an oil for the 
+adi: So they have a refinery, huh.
+adi: So much work just for the lanterns...
+wiks: Well, they're known for it now.
+wiks: Might be weird if they suddenly snuffed it all out.
+wiks: Besides, it looks beautiful too.
 jump end
 label radio
 You hear an old radio left next to the mural. While the sound is pretty bad quality, you can make out the voice of the radio host giving the latest 
-Wiks: Is that-- I can't believe they'd just let a radio out in the open like this.
-Adi: I haven't seen you this excited about something for a while now.
-Adi: And I haven't even seen you in months!
-Wiks: Come on, Adi, you know what I mean. It's a radio! You know how of those exist in good quality? For it to just be left alone here...
-Adi: I mean, its a hub. They probably need a lot of radios around for people to get the hang of things.
-Wiks: But still...
-Adi: Come on, before they think you're gonna grab it.
+wiks: Is that-- I can't believe they'd just let a radio out in the open like this.
+adi: I haven't seen you this excited about something for a while now.
+adi: And I haven't even seen you in months!
+wiks: Come on, Adi, you know what I mean. It's a radio! You know how of those exist in good quality? For it to just be left alone here...
+adi: I mean, its a hub. They probably need a lot of radios around for people to get the hang of things.
+wiks: But still...
+adi: Come on, before they think you're gonna grab it.
 jump end
 label mannequins
-Adi: Why'd they just leave the mannequins in one place like this?
-Adi: It looks creepy, all posed like this.
-Adi: Although…
-Adi: Maybe I can ask them for one at some point, since no one seems to use them.
-Adi: I could use the model.
-Adi: Maybe I'd let Wiks carry it home.
+adi: Why'd they just leave the mannequins in one place like this?
+adi: It looks creepy, all posed like this.
+adi: Although…
+adi: Maybe I can ask them for one at some point, since no one seems to use them.
+adi: I could use the model.
+adi: Maybe I'd let Wiks carry it home.
 jump end
 label jabee
-Adi: What the hell is that?
+adi: What the hell is that?
 Wiks is confused for a bit as tries to understand the statue before you.
 It looks like a cartoon character, but none of the old books you've read show this character.
 It's also old enough to not be something custom-made.
-Wiks: I think… I saw one of these when we were exploring close to the coast north.
-Wiks: It's a mascot? Or something, I don't know.
-Adi: A mascot for what?
-Wiks: I don't know actually. No one in the crew knows who that is.
-Adi: I bet [i]tita[/i] knows who this is.
-Wiks: True. I don't wanna waste some film on it though.
-Wiks: Maybe you can sketch it?
+wiks: I think… I saw one of these when we were exploring close to the coast north.
+wiks: It's a mascot? Or something, I don't know.
+adi: A mascot for what?
+wiks: I don't know actually. No one in the crew knows who that is.
+adi: I bet [i]tita[/i] knows who this is.
+wiks: True. I don't wanna waste some film on it though.
+wiks: Maybe you can sketch it?
 You bite your lip. Should you?
-Adi: I'll try.
+adi: I'll try.
 jump end
 label end
 [end_timeline]

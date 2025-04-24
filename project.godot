@@ -25,10 +25,10 @@ Events="*res://scripts/logic/events.gd"
 [dialogic]
 
 directories/dch_directory={
-"Adi": "res://assets/dialogue/characters/adi.dch",
-"Female Voice": "res://assets/dialogue/characters/female_voice.dch",
-"Singer": "res://assets/dialogue/characters/singer.dch",
-"Wiks": "res://assets/dialogue/characters/wiks.dch"
+"adi": "res://assets/dialogue/characters/adi.dch",
+"female_voice": "res://assets/dialogue/characters/female_voice.dch",
+"singer": "res://assets/dialogue/characters/singer.dch",
+"wiks": "res://assets/dialogue/characters/wiks.dch"
 }
 directories/dtl_directory={
 "debug": "res://assets/dialogue/debug.dtl",
