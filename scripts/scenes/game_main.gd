@@ -15,6 +15,7 @@ enum CurrentGameScene {
 
 ## INFO: Exported variables
 @export var current_scene: PackedScene
+@export var initial_character_pov: Events.POV_Character = Events.POV_Character.WIKS
 
 ## INFO: Onready variables
 @onready var game_area = $GameArea
@@ -25,6 +26,7 @@ enum CurrentGameScene {
 ## INFO: Other variables
 ## Sets Adi as the default POV character.
 var current_game_scene = CurrentGameScene.CURRENT_MAP
+
 #endregion
 
 #region Virtual functions
@@ -41,6 +43,7 @@ func _ready() -> void:
 	# INFO: Start game. Kinda funny we're doing loop-de-loops here.
 	Events.change_area(current_scene.resource_path)
 	Events.show_the_context_menus(false) # By default, as intro will flick it up.
+	Events.set_current_pov(initial_character_pov)
 	
 #endregion
 

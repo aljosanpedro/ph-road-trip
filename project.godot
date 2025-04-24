@@ -26,6 +26,8 @@ Events="*res://scripts/logic/events.gd"
 
 directories/dch_directory={
 "Adi": "res://assets/dialogue/characters/adi.dch",
+"Female Voice": "res://assets/dialogue/characters/female_voice.dch",
+"Singer": "res://assets/dialogue/characters/singer.dch",
 "Wiks": "res://assets/dialogue/characters/wiks.dch"
 }
 directories/dtl_directory={

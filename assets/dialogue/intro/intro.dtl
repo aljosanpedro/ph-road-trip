@@ -1,1 +1,100 @@
+Wiks: Adi... the whole caravan's waiting for you!
+Adi: Yes! I know!
+Wiks: Got everything you need?
+Adi: Yes! Just-- Give me a moment!
+Wiks: I'm coming in.
 join Wiks center
+It's just how you remember it. It smells like the fierce chemical odor of paint and dust and sea and all the quiet days spent here with your best friend.
+update Wiks left
+join Adi center
+There she is now, hunched over and rummaging through a box of God-knows-what.
+update Adi right
+join Wiks left
+Wiks: I woke you up a few hours ago, haven't I?
+Adi pauses for a moment, then looks at you.
+Adi: No, you didn't.
+She resumes rummaging.
+Adi: Anyway, since you're there, can you help look for the camera?
+Adi: I don't remember leaving it anywhere but here. But it's not here. Think its the rats that got it?
+You chuckle for a bit.
+Wiks: If we've got rats that can chew through hard plastic, they're definitely gonna be here.
+You scan your eyes, trying to see if she placed it somewhere conspicuous, like the last time she forgot where her brushes were. Or her journal. Or her keys.
+You get taken aback when your eyes land on the wall in front of you.
+Wiks: Woah.
+She doesn't even look up.
+Adi: Oh, yeah. I made a few changes since you were last here.
+It's her mural, painted on the widest wall of their childhood home. It's an abstract flurry of colors, but somehow you can still feel the incredible emotions she puts behind it. There are so many layers of paint that it's thicker at the bottom.
+Wiks: You've certainly put a lot of progress since last time.
+Adi: It's been [i]months,[/i] Wiks.
+You laugh it off, but a small pit opens at your stomach at the guilt.
+Wiks: Sorry, I haven't been able to pass by... work's been busy.
+Wiks: Lotta people being hurt lately, and we gotta pick up after 'em/
+Adi turns to see you, and you see half her face for the first time today. For a moment, although she's as sassy as ever, there's a hint of [i]something[/i] in her eyes. Concern, maybe? Perhaps fatigue?
+Adi: So long as you're okay.
+She then fully meets your gaze, and whatever it is you saw vanishes. It's quick enough it could've been a trick of the light.
+Adi: But you need to get me more paints! I'm running out of cobalt blue.
+Wiks: Again? But I just gave you those… Fine. I think there's still a few places I can “source” some paints for you.
+Wiks: There's an old hardware shop that we've tagged but haven't explored yet. Some of the stuff there might still be good with a bit of work.
+Adi perks up at the mention of art materials. Adi's frown bursts into a smile, and a breath you didn't notice was held escapes your chest.
+Adi: I have a list of things I need-- wait, no, you know what, what if you just bring me there instead?
+You scratch your head. Sure the store hasn't collapsed yet, but your team hasn't yet checked how safe the building is. Decades of floods and storms might have damaged its foundations…
+And yet the way she looks at you forces your hand.
+Wiks: I'll see what I can do.
+A booming voice from outside interrupts your casual talk.
+"Female Voice": [b]Hoy[/b]! You two! I've got half the village and twenty carabao waiting here. Weren't you two supposed to be prepared hours ago?
+Adi makes the face she makes when she knows she's in trouble. You laugh a little at that, but notice something else. With her face in full view, a little fleck of wet paint is shimmers on her hair. Wasn't she supposed to be preparing?
+Wiks: Yes, ma'am! We'll be down in one minute!
+"Female Voice": [i]Hay[/i]... I swear, these kids have never been early to anything. You have five minutes or I'm leaving you all behind!
+Wiks: C'mon Adi, we don't want to make her wait!
+Adi turns to you, exasperated, before her eyes suddenly widen.
+Adi: There it is!
+She rushes forward and grabs something behind you. Turns out the camera was on a windowsill.
+Wiks: Really? A windowsill this time?
+Adi: I swear, that wasn't--
+You laugh and turn away, grabbing her prepared bags near the door.
+Wiks: Lets go, before our only chance at a vacation runs off at walking speed.
+The journey out of the village and into the city proper takes longer than expected. The carabaos refusing to be organized and delve into the flooded streets of what remains of the former capital.
+update Wiks leftmost
+update Adi rightmost
+join Singer center
+The two of you meet up with the leader of the caravan, a well-known travelling singer known by many names, but to the two of you, she's just nothing more but [i]tita[/i].
+leave Adi
+update Wiks left
+update Singer right
+The two of you greet her as you settle in. As the three of you exchange small talk, Adi suddenly rushes off, having forgotten something.
+Singer: Ah youth. I wish I was half as spry as you two.
+Singer: You really can't tell what Adi's going to do next, can't you? She must be a handful.
+Wiks: She has her quirks… but don't we all?
+Singer chuckles.
+Singer: You're a sweet boy. Well, make this trip count, okay? I didn't get you two this time off just to continue working.
+Singer: You two need a break! [i]Mga bata ngayon[/i], always working, always trying to be something…
+Your smile falters for a bit at her words.
+You wonder if she noticed.
+Singer: Well, anyways. You remember my favor, yes?
+Wiks: Yes ma'am.
+Wiks: The landmarks that we pass by right? You wanted to see them as well?
+Singer: Indeed! Make sure those pictures are good alright?
+Wiks: I wouldn't worry about it, especially with Adi around.
+Wiks: Though why us? Don't you travel around more than us?
+The singer thinks for a moment.
+Singer: Let's just say that a shared goal can start journeys that we don't expect.
+You catch her throw a glance at the guitar by her side. It's old and battered, filled with stickers from all over the place. You don't remember a time when she used it, though.
+leave --All--
+You barely have time to respond when you see the carabaos start to move again, and you're rushed back into your place at the caravan, next to Adi.
+The journey takes a few hours more, and the sun is well on its way to rising when you finally reach your destination, the Cubao trading hub.
+It also serves as the first stop of your journey.
+join Wiks leftmost
+join Adi center
+join Singer rightmost
+Singer: You two drop off here.
+Singer: The boat rental is just there, drop my name and he'll know what to do.
+Singer: Ingat kayo. I'll see you back at the village in a week or so.
+leave Singer
+update Wiks left
+update Adi right
+The two of you leave the caravan as they move along to their next destination, the singer at their helm.
+It takes a while to get your rental [i]bangka[/i] sorted out, but everything goes smoothly once the singer's name gets dropped in the right ears
+The two of you survey the scene of Cubao with a mix of trepidation and excitement.
+From here on out, it's just going to be the two of you, a [i]bangka[/i] and a flooded world.
+What will you find out?
+[end_timeline]
