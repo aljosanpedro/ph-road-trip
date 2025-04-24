@@ -9,7 +9,7 @@ on:
 # NOTE: If your `project.godot` is at the repository root, set `PROJECT_PATH` below to ".".
 
 env:
-    GODOT_VERSION: 4.4.1
+    GODOT_VERSION: latest
     EXPORT_NAME: game
     PROJECT_PATH: .
 
@@ -20,7 +20,7 @@ jobs:
         name: Windows Export
         runs-on: ubuntu-22.04
         container:
-          image: barichello/godot-ci:4.4.1
+          image: barichello/godot-ci:latest
         steps:
           - name: Checkout
             uses: actions/checkout@v4
@@ -51,7 +51,7 @@ jobs:
         name: Web Export
         runs-on: ubuntu-22.04
         container:
-          image: barichello/godot-ci:4.4.1
+          image: barichello/godot-ci:latest
         steps:
             - name: Checkout
               uses: actions/checkout@v4
