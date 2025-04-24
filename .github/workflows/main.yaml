@@ -9,7 +9,7 @@ on:
 # NOTE: If your `project.godot` is at the repository root, set `PROJECT_PATH` below to ".".
 
 env:
-    GODOT_VERSION: latest
+    GODOT_VERSION: 4.4.1
     EXPORT_NAME: game
     PROJECT_PATH: .
 
