@@ -153,7 +153,7 @@ jobs:
 
         - name: Install rsync 📚
           run: |
-            apt-get update && apt-get install -y rsync
+            sudo apt-get update && sudo apt-get install -y rsync
 
         - name: Add coi-service-worker
           run: |
