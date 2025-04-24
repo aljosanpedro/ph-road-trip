@@ -24,9 +24,13 @@ Events="*res://scripts/logic/events.gd"
 
 [dialogic]
 
-directories/dch_directory={}
+directories/dch_directory={
+"Adi": "res://assets/dialogue/characters/adi.dch",
+"Wiks": "res://assets/dialogue/characters/wiks.dch"
+}
 directories/dtl_directory={
-"debug": "res://assets/dialogue/debug.dtl"
+"debug": "res://assets/dialogue/debug.dtl",
+"intro": "res://assets/dialogue/intro/intro.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://assets/themes/dialogue_stylings.tres"]
