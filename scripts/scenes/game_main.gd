@@ -15,15 +15,18 @@ enum CurrentGameScene {
 
 ## INFO: Exported variables
 @export var current_scene: PackedScene
+@export var initial_character_pov: Events.POV_Character = Events.POV_Character.WIKS
 
 ## INFO: Onready variables
 @onready var game_area = $GameArea
-@onready var scene_camera = $CanvasLayer/Camera
-@onready var scene_map_travel = $CanvasLayer/MapTravel
+@onready var context_menu_layer = $ContextMenus
+@onready var scene_camera = $ContextMenus/Camera
+@onready var scene_map_travel = $ContextMenus/MapTravel
 
 ## INFO: Other variables
 ## Sets Adi as the default POV character.
 var current_game_scene = CurrentGameScene.CURRENT_MAP
+
 #endregion
 
 #region Virtual functions
@@ -35,9 +38,13 @@ func _ready() -> void:
 	
 	# INFO: Initialize connections to the Events scene.
 	Events.change_map.connect(_goto_area)
+	Events.show_contextual_menus.connect(_show_game_contextual_menus)
 	
 	# INFO: Start game. Kinda funny we're doing loop-de-loops here.
 	Events.change_area(current_scene.resource_path)
+	Events.show_the_context_menus(false) # By default, as intro will flick it up.
+	Events.set_current_pov(initial_character_pov)
+	
 #endregion
 
 func _input(event: InputEvent) -> void:
@@ -47,6 +54,7 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed("open_scrapbook"):
 		get_tree().change_scene_to_file("res://scenes/scenes/scrapbook.tscn")
+		get_viewport().set_input_as_handled()
 
 #region Area Change Functions
 ## First is path.
@@ -71,6 +79,7 @@ func _deferred_change_area(path: String) -> void:
 	move_child(current_scene, 0)
 #endregion
 
+#region Custom function
 ## Call the map travel scene.
 func _map_travel_scene_call() -> void:
 	if current_game_scene != CurrentGameScene.MAP_TRAVEL:
@@ -87,6 +96,9 @@ func _map_travel_scene_call() -> void:
 func _on_scene_map_travel_closed() -> void:
 	_map_travel_scene_call()
 
+func _show_game_contextual_menus(value: bool) -> void:
+	context_menu_layer.visible = value
+#endregion
 
 #func _on_settings_opened() -> void:
 	#$Settings/Pause._on_button_toggled(true)

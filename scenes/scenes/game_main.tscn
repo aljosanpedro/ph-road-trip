@@ -17,13 +17,13 @@ current_scene = ExtResource("2_jnjbd")
 
 [node name="Settings" parent="Settings" instance=ExtResource("4_qvvsl")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="ContextMenus" type="CanvasLayer" parent="."]
 
-[node name="POVSwitch" parent="CanvasLayer" instance=ExtResource("3_3585q")]
+[node name="POVSwitch" parent="ContextMenus" instance=ExtResource("3_3585q")]
 
-[node name="Camera" parent="CanvasLayer" instance=ExtResource("3_jnjbd")]
+[node name="Camera" parent="ContextMenus" instance=ExtResource("3_jnjbd")]
 
-[node name="MapTravel" parent="CanvasLayer" instance=ExtResource("4_3585q")]
+[node name="MapTravel" parent="ContextMenus" instance=ExtResource("4_3585q")]
 visible = false
 
-[connection signal="scene_map_travel_closed" from="CanvasLayer/MapTravel" to="." method="_on_scene_map_travel_closed"]
+[connection signal="scene_map_travel_closed" from="ContextMenus/MapTravel" to="." method="_on_scene_map_travel_closed"]
