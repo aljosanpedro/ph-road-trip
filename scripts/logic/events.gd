@@ -4,7 +4,8 @@ extends Node
 # POV
 enum POV_Character {
 	ADI,
-	WIKS
+	WIKS,
+	BOTH
 }
 signal change_map(path: String)
 signal open_camera_signal()
