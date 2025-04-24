@@ -13,6 +13,7 @@ script = ExtResource("1_it7vl")
 [node name="Character" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
+required_character = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Character"]
 position = Vector2(167, 355)
