@@ -8,6 +8,7 @@ enum TranslationModes {PER_PROJECT, PER_TIMELINE, NONE}
 enum SaveLocationModes {INSIDE_TRANSLATION_FOLDER, NEXT_TO_TIMELINE, NONE}
 
 var loading := false
+@onready var settings_editor: Control = find_parent('Settings')
 
 ## The default CSV filename that contains the translations for character
 ## properties.
@@ -35,10 +36,10 @@ func _is_feature_tab() -> bool:
 
 func _ready() -> void:
 	%TransEnabled.toggled.connect(store_changes)
-	%OrigLocale.suggestions_func = get_locales
+	%OrigLocale.get_suggestions_func = get_locales
 	%OrigLocale.resource_icon = get_theme_icon("Translation", "EditorIcons")
 	%OrigLocale.value_changed.connect(store_changes)
-	%TestingLocale.suggestions_func = get_locales
+	%TestingLocale.get_suggestions_func = get_locales
 	%TestingLocale.resource_icon = get_theme_icon("Translation", "EditorIcons")
 	%TestingLocale.value_changed.connect(store_changes)
 	%TransFolderPicker.value_changed.connect(store_changes)
