@@ -47,6 +47,10 @@ func set_current_pov(value: POV_Character) -> void:
 func get_current_pov() -> POV_Character:
 	return current_pov
 
+## Get the name of the current character in the POV of the game.
+func get_current_pov_name() -> String:
+	return POV_Character.find_key(current_pov).capitalize()
+
 ## Helper function to make code easier to read.
 func open_camera() -> void:
 	open_camera_signal.emit()

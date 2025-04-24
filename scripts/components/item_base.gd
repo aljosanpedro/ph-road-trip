@@ -29,7 +29,7 @@ func _ready() -> void:
 	_pov_switch_grayout()
 
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
-	if _pov_checker(): return
+	if not _required_character_checker(): return
 	
 	if event.is_action_pressed("mouse_click"):
 		print("You clicked " + name + "!")
@@ -37,18 +37,19 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 
 ## INFO: Highlights item when mouse hovers to the item.
 func _on_mouse_entered() -> void:
-	if _pov_checker(): return
+	if not _required_character_checker(): return
 	
 	modulate = Color(2, 2, 2)
 
 ## INFO: De-highlights item when mouse hovers away from the item.
 func _on_mouse_exited() -> void:
-	if _pov_checker(): return
+	if not _required_character_checker(): return
 	
 	modulate = Color(1, 1, 1)
 	
-## INFO: Checks for the current character POV.
-func _pov_checker() -> bool:
+## INFO: Checks for the current character POV. [b]Returns true[/b] if its the 
+## character we want, [b]returns false[/b] otherwise.
+func _required_character_checker() -> bool:
 	# Check first if both POVs are allowed.
 	if required_character != Events.POV_Character.BOTH:
 	# If not the required character, do not allow at all.
@@ -61,7 +62,7 @@ func _pov_checker() -> bool:
 ## INFO: Function that graphically changes saturation when switching POVs.
 ## Allows for better info.
 func _pov_switch_grayout() -> void:
-	if _pov_checker():
+	if not _required_character_checker():
 		modulate = Color(0.5, 0.5, 0.5)
 	else:
 		modulate = Color(1, 1, 1)

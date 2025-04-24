@@ -1,4 +1,5 @@
-Mogo: Oh, hello. You're Wiks, right?
-John: Choose
+Oh, hello. You're {Events.get_current_pov_name()}, right?
+Choose
 - sex
 - online
+[end_timeline]
