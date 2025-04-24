@@ -7,9 +7,11 @@ enum POV_Character {
 	WIKS,
 	BOTH
 }
+
 signal change_map(path: String)
 signal open_camera_signal()
 signal pov_switch()
+signal show_contextual_menus(value: bool)
 
 var current_pov: POV_Character = POV_Character.ADI
 
@@ -46,6 +48,10 @@ func set_current_pov(value: POV_Character) -> void:
 ## Get the current POV of the game.
 func get_current_pov() -> POV_Character:
 	return current_pov
+
+## Helper function to show/hid contextual menus in game
+func show_the_context_menus(value: bool) -> void:
+	show_contextual_menus.emit(value)
 
 ## Get the name of the current character in the POV of the game.
 func get_current_pov_name() -> String:
