@@ -138,6 +138,39 @@ jobs:
                 generateReleaseNotes: true
                 tag: ${{ github.ref_name }}
                 artifacts: "build/web/web_${{  github.ref_name }}.zip,build/windows/windows_${{  github.ref_name }}.zip"
+    
+    publish-on-github-pages:
+      permissions: write-all
+      needs: export-web
+      name: Publishing on Github Pages
+      runs-on: ubuntu-22.04
+      steps:
+        - name: Download Web Artifact
+          uses: actions/download-artifact@v4
+          with:
+            name: web
+            path: build/web/
+
+        - name: Install rsync 📚
+          run: |
+            apt-get update && apt-get install -y rsync
+
+        - name: Add coi-service-worker
+          run: |
+            git clone https://github.com/gzuidhof/coi-serviceworker.git
+            mv coi-serviceworker/coi-serviceworker.js build/web/coi-serviceworker.js
+            sed -i '3 i <script src="coi-serviceworker.js"></script>' build/web/index.html
+
+        - name: Deploy
+          uses: peaceiris/actions-gh-pages@v4
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: ./build/web
+            force_orphan: true
+            user_name: "github-ci[bot]"
+            user_email: "github-actions[bot]@users.noreply.github.com"
+            commit_message: "Publish to gh-pages"
+            
     # export-mac:
     #     name: Mac Export
     #     runs-on: ubuntu-22.04
