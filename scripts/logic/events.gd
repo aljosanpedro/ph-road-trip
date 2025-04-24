@@ -9,6 +9,7 @@ enum POV_Character {
 }
 signal change_map(path: String)
 signal open_camera_signal()
+signal pov_switch()
 
 var current_pov: POV_Character = POV_Character.ADI
 
@@ -35,9 +36,13 @@ func change_area(path: String) -> void:
 
 ## Set the current [param POV] of the game.
 func set_current_pov(value: POV_Character) -> void:
+	# Change values.
 	print("Current POV: " + POV_Character.find_key(value))
 	current_pov = value
-
+	
+	# Then emit signal to let all items now of the switch.
+	pov_switch.emit()
+	
 ## Get the current POV of the game.
 func get_current_pov() -> POV_Character:
 	return current_pov

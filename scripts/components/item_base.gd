@@ -23,7 +23,10 @@ signal item_clicked()
 
 #region Virtual functions
 func _ready() -> void:
-	pass
+	# Connect callable.
+	Events.pov_switch.connect(_pov_switch_grayout)
+	# Call for the first time.
+	_pov_switch_grayout()
 
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if _pov_checker(): return
@@ -55,4 +58,12 @@ func _pov_checker() -> bool:
 	# Return true if all checks are done.
 	return true
 
+## INFO: Function that graphically changes saturation when switching POVs.
+## Allows for better info.
+func _pov_switch_grayout() -> void:
+	if _pov_checker():
+		modulate = Color(0.5, 0.5, 0.5)
+	else:
+		modulate = Color(1, 1, 1)
+		
 #endregion
