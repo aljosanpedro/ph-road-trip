@@ -17,63 +17,38 @@ env:
 jobs:
     export-windows:
         permissions: write-all
-        name: Windows Export
-        runs-on: ubuntu-22.04
-        container:
-          image: barichello/godot-ci:latest
+        name: Windows/Web Export
+        runs-on: ubuntu-latest
         steps:
           - name: Checkout
             uses: actions/checkout@v4
             with:
               lfs: true
-          - name: Setup
-            run: |
-              mkdir -v -p ~/.local/share/godot/export_templates/
-              mkdir -v -p ~/.config/
-              mv /root/.config/godot ~/.config/godot
-              mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
-          - name: Windows Build
-            run: |
-              mkdir -v -p build/windows
-              EXPORT_DIR="$(readlink -f build)"
-              cd $PROJECT_PATH
-              godot --headless --verbose --export-release "Windows Desktop" "$EXPORT_DIR/windows/$EXPORT_NAME.exe"
+
+          - name: export game
+            id: export
+            # Use latest version (see releases for all versions)
+            uses: firebelley/godot-export@v6.0.0
+            with:
+              # Defining all the required inputs
+              godot_executable_download_url: https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
+              godot_export_templates_download_url: https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz
+              relative_project_path: ./
+              use_preset_export_path: true
+
           - name: Upload Artifact
-            id: upload_artifact
+            id: upload_artifact_windows
             uses: actions/upload-artifact@v4
             with:
               name: windows
-              path: build/windows
+              path: "build/windows/Windows Desktop/"
 
-
-    export-web:
-        permissions: write-all
-        name: Web Export
-        runs-on: ubuntu-22.04
-        container:
-          image: barichello/godot-ci:latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-              with:
-                lfs: true
-            - name: Setup
-              run: |
-                mkdir -v -p ~/.local/share/godot/export_templates/
-                mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
-            - name: Web Build
-              run: |
-                mkdir -v -p build/web
-                EXPORT_DIR="$(readlink -f build)"
-                cd $PROJECT_PATH
-                godot --headless --verbose --export-release "Web" "$EXPORT_DIR/web/index.html"
-
-            - name: Upload Artifact
-              id: upload_artifact
-              uses: actions/upload-artifact@v4
-              with:
-                name: web
-                path: build/web
+          - name: Upload Artifact
+            id: upload_artifact_web
+            uses: actions/upload-artifact@v4
+            with:
+              name: web
+              path: "build/web/Web"
             
   
 
@@ -105,9 +80,9 @@ jobs:
 
     create-release:
         permissions: write-all
-        needs: [export-windows, export-web]
+        needs: export-windows
         name: Creating Releases for Windows/Web
-        runs-on: ubuntu-22.04
+        runs-on: ubuntu-latest
         steps:
             - name: Download Windows Artifact
               uses: actions/download-artifact@v4
@@ -142,9 +117,9 @@ jobs:
     
     publish-on-github-pages:
       permissions: write-all
-      needs: export-web
+      needs: export-windows
       name: Publishing on Github Pages
-      runs-on: ubuntu-22.04
+      runs-on: ubuntu-latest
       steps:
         - name: Download Web Artifact
           uses: actions/download-artifact@v4
