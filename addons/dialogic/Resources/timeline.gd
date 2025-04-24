@@ -1,23 +1,17 @@
 @tool
-extends "res://addons/dialogic/Resources/dialogic_identifiable_resource.gd"
+extends Resource
 class_name DialogicTimeline
 
 ## Resource that defines a list of events.
 ## It can store them as text and load them from text too.
 
-
-
 var events: Array = []
 var events_processed := false
-var text_lines_indexed := {}
 
 
-func _get_extension() -> String:
-	return "dtl"
-
-
-func _get_resource_name() -> String:
-	return "DialogicTimeline"
+## Method used for printing timeline resources identifiably
+func _to_string() -> String:
+	return "[DialogicTimeline:{file}]".format({"file":resource_path})
 
 
 ## Helper method
@@ -64,13 +58,6 @@ func as_text() -> String:
 	return result.strip_edges()
 
 
-## Returns the index of the event that corresponds to a specific line
-func get_index_from_text_line(text:String, line) -> int:
-	from_text(text)
-	process()
-	return text_lines_indexed[line]
-
-
 ## Method that loads all the event resources from the strings, if it wasn't done before
 func process() -> void:
 	if typeof(events[0]) == TYPE_STRING:
@@ -87,7 +74,6 @@ func process() -> void:
 
 	var prev_indent := ""
 	var processed_events := []
-	text_lines_indexed = {}
 
 	# this is needed to add an end branch event even to empty conditions/choices
 	var prev_was_opener := false
@@ -97,7 +83,6 @@ func process() -> void:
 	var empty_lines := 0
 	while idx < len(lines)-1:
 		idx += 1
-		text_lines_indexed[idx] = len(processed_events)
 
 		# make sure we are using the string version, in case this was already converted
 		var line := ""
@@ -127,13 +112,16 @@ func process() -> void:
 		## Now we process the event into a resource
 		## by checking on each event if it recognizes this string
 		var event_content: String = line_stripped
-		var event: DialogicEvent = event_from_string(event_content, event_cache)
+		var event: DialogicEvent
+		for i in event_cache:
+			if i._test_event_string(event_content):
+				event = i.duplicate()
+				break
 
 		event.empty_lines_above = empty_lines
 		# add the following lines until the event says it's full or there is an empty line
 		while !event.is_string_full_event(event_content):
 			idx += 1
-			text_lines_indexed[idx] = len(processed_events)
 			if idx == len(lines):
 				break
 
@@ -144,8 +132,8 @@ func process() -> void:
 
 			event_content += "\n"+following_line_stripped
 
-		event.event_node_as_text = event_content
 		event._load_from_string(event_content)
+		event.event_node_as_text = event_content
 
 		processed_events.append(event)
 		prev_was_opener = event.can_contain_events
@@ -176,10 +164,3 @@ func clean() -> void:
 			for con_out in event.get_signal_connection_list(sig.name):
 				con_out.signal.disconnect(con_out.callable)
 	unreference()
-
-
-static func event_from_string(event_content:String, event_cache:Array) -> DialogicEvent:
-	for i in event_cache:
-		if i._test_event_string(event_content):
-			return i.duplicate()
-	return DialogicTextEvent.new()

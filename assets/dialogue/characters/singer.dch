@@ -4,11 +4,9 @@
 &"_translation_id": "",
 &"color": Color(0.964706, 0.815686, 0.556863, 1),
 &"custom_info": {
-"prefix": "",
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "dialogue_stylings_new",
-"suffix": ""
+"style": ""
 },
 &"default_portrait": "neutral",
 &"description": "",
