@@ -212,6 +212,7 @@ jobs:
 
           - name: Place API Key to butler_creds
             run: |
+              mkdir -p ~/.config/itch/
               touch ~/.config/itch/butler_creds
               echo -n ${{ secrets.Itch_API_Key }} | cat > ~/.config/itch/butler_creds
 
