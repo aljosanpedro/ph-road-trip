@@ -17,8 +17,8 @@ env:
 jobs:
     export-windows:
         permissions: write-all
-        name: Windows Export and Push to Itch.io
-        runs-on: ubuntu-latest
+        name: Windows Export
+        runs-on: ubuntu-22.04
         container:
           image: barichello/godot-ci:latest
         steps:
@@ -44,7 +44,6 @@ jobs:
               EXPORT_DIR="$(readlink -f build)"
               cd $PROJECT_PATH
               godot --headless --verbose --export-release "Windows Desktop" "$EXPORT_DIR/windows/$EXPORT_NAME.exe"
-
           - name: Upload Artifact
             id: upload_artifact
             uses: actions/upload-artifact@v4
@@ -52,29 +51,10 @@ jobs:
               name: windows
               path: build/windows
 
-          - name: Zipping for Windows Release
-            run: |
-              cd build/windows/
-              zip -r windows_${{ github.ref_name }}.zip *
-
-          - name: Place API Key to butler_creds
-            run: |
-              mkdir -p ~/.config/itch/
-              touch ~/.config/itch/butler_creds
-              echo -n ${{ secrets.Itch_API_Key }} | cat > ~/.config/itch/butler_creds
-
-          - name: Logging in to Itch
-            run: |
-              butler login
-
-          - name: Push Windows Version to Itch
-            run: |
-              butler push build/windows/windows_${{  github.ref_name }}.zip aljowo/miles-of-memories:windows-stable
-
     export-web:
         permissions: write-all
-        name: Web Export and Push to Itch.io
-        runs-on: ubuntu-latest
+        name: Web Export
+        runs-on: ubuntu-22.04
         container:
           image: barichello/godot-ci:latest
         steps:
@@ -106,24 +86,7 @@ jobs:
                 name: web
                 path: build/web
             
-            - name: Zipping for Web Release
-              run: |
-                cd build/web/
-                zip -r web_${{ github.ref_name }}.zip *
-
-            - name: Place API Key to butler_creds
-              run: |
-                mkdir -p ~/.config/itch/
-                touch ~/.config/itch/butler_creds
-                echo -n ${{ secrets.Itch_API_Key }} | cat > ~/.config/itch/butler_creds
-
-            - name: Logging in to Itch
-              run: |
-                butler login
-            
-            - name: Push Web Version to Itch
-              run: |
-                butler push build/web/web_${{  github.ref_name }}.zip aljowo/miles-of-memories:html-stable
+  
 
             # - name: Install rsync 📚
             #   run: |
@@ -155,7 +118,7 @@ jobs:
         permissions: write-all
         needs: [export-windows, export-web]
         name: Creating Releases for Windows/Web
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         steps:
             - name: Download Windows Artifact
               uses: actions/download-artifact@v4
@@ -191,7 +154,7 @@ jobs:
       permissions: write-all
       needs: export-web
       name: Publishing on Github Pages
-      runs-on: ubuntu-latest
+      runs-on: ubuntu-22.04
       steps:
         - name: Download Web Artifact
           uses: actions/download-artifact@v4
@@ -218,4 +181,51 @@ jobs:
             user_name: "github-ci[bot]"
             user_email: "github-actions[bot]@users.noreply.github.com"
             commit_message: "Publish to gh-pages"
+            
+    itch-publish:
+        permissions: write-all
+        needs: [export-windows, export-web]
+        name: Publishing to Itch
+        runs-on: ubuntu-22.04
+        container:
+          image: barichello/godot-ci:latest
+        steps:
+          - name: Download Windows Artifact
+            uses: actions/download-artifact@v4
+            with:
+              name: windows
+              path: build/windows
+          
+          - name: Download Web Artifact
+            uses: actions/download-artifact@v4
+            with:
+              name: web
+              path: build/web/
 
+          - name: Zipping for Windows Release
+            run: |
+              cd build/windows/
+              zip -r windows_${{ github.ref_name }}.zip *
+
+          - name: Zipping for Web Release
+            run: |
+              cd build/web/
+              zip -r web_${{ github.ref_name }}.zip *
+
+          - name: Place API Key to butler_creds
+            run: |
+              mkdir -p ~/.config/itch/
+              touch ~/.config/itch/butler_creds
+              echo -n ${{ secrets.Itch_API_Key }} | cat > ~/.config/itch/butler_creds
+
+          - name: Logging in to Itch
+            run: |
+              butler login
+          
+          - name: Push Web Version to Itch
+            run: |
+              butler push build/web/web_${{  github.ref_name }}.zip aljowo/miles-of-memories:html-stable
+          
+          - name: Push Windows Version to Itch
+            run: |
+              butler push build/windows/windows_${{  github.ref_name }}.zip aljowo/miles-of-memories:windows-stable
