@@ -187,6 +187,8 @@ jobs:
         needs: [export-windows, export-web]
         name: Publishing to Itch
         runs-on: ubuntu-22.04
+        container:
+          image: barichello/godot-ci:latest
         steps:
           - name: Download Windows Artifact
             uses: actions/download-artifact@v4
