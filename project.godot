@@ -14,7 +14,8 @@ config/name="Jollast of Us"
 config/tags=PackedStringArray("team_work")
 run/main_scene="uid://dglj23acmhple"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://bck17rpoqxkot"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
@@ -123,6 +124,7 @@ open_scrapbook={
 
 [rendering]
 
+textures/vram_compression/import_etc2_astc=true
 textures/default_filters/use_nearest_mipmap_filter=true
 anti_aliasing/quality/msaa_2d=3
 anti_aliasing/quality/screen_space_aa=1

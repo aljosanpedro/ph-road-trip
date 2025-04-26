@@ -20,7 +20,7 @@ jobs:
         name: Windows Export and Push to Itch.io
         runs-on: ubuntu-latest
         container:
-          image: barichello/godot-ci:latest
+          image: barichello/godot-ci:4.4.1
         steps:
           - name: Checkout
             uses: actions/checkout@v4
@@ -71,12 +71,120 @@ jobs:
             run: |
               butler push build/windows/windows_${{  github.ref_name }}.zip aljowo/miles-of-memories:windows-stable
 
+    export-linux:
+      permissions: write-all
+      name: Linux Export and Push to Itch.io
+      runs-on: ubuntu-latest  # Use 22.04 with godot 4
+      container:
+        image: barichello/godot-ci:4.4.1
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+          with:
+            lfs: true
+            
+        - name: Setup
+          run: |
+            mkdir -v -p ~/.local/share/godot/export_templates/
+            mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+
+        - name: Import Assets
+          run: |
+            cd $PROJECT_PATH
+            godot --headless --verbose --editor --quit
+
+        - name: Linux Build
+          run: |
+            mkdir -v -p build/linux
+            EXPORT_DIR="$(readlink -f build)"
+            cd $PROJECT_PATH
+            godot --headless --verbose --export-release "Linux/X11" "$EXPORT_DIR/linux/$EXPORT_NAME.x86_64"
+        
+        - name: Upload Artifact
+          id: upload_artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: linux
+            path: build/linux
+
+        - name: Zipping for Linux Release
+          run: |
+            cd build/linux/
+            zip -r linux_${{ github.ref_name }}.zip *
+
+        - name: Place API Key to butler_creds
+          run: |
+            mkdir -p ~/.config/itch/
+            touch ~/.config/itch/butler_creds
+            echo -n ${{ secrets.Itch_API_Key }} | cat > ~/.config/itch/butler_creds
+
+        - name: Logging in to Itch
+          run: |
+            butler login
+
+        - name: Push Windows Version to Itch
+          run: |
+            butler push build/linux/linux_${{  github.ref_name }}.zip aljowo/miles-of-memories:linux-stable
+
+    export-mac:
+      name: Mac Export
+      runs-on: ubuntu-latest  # Use 22.04 with godot 4
+      container:
+        image: barichello/godot-ci:4.4.1
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+          with:
+            lfs: true
+          
+        - name: Setup
+          run: |
+            mkdir -v -p ~/.local/share/godot/export_templates/
+            mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+
+        - name: Import Assets
+          run: |
+            cd $PROJECT_PATH
+            godot --headless --verbose --editor --quit
+
+        - name: Mac Build
+          run: |
+            mkdir -v -p build/mac
+            EXPORT_DIR="$(readlink -f build)"
+            cd $PROJECT_PATH
+            godot --headless --verbose --export-release "macOS" "$EXPORT_DIR/mac/$EXPORT_NAME.zip"
+        
+        - name: Upload Artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: mac
+            path: build/mac
+
+        - name: Zipping for Mac Release
+          run: |
+            cd build/mac/
+            zip -r mac_${{ github.ref_name }}.zip *
+
+        - name: Place API Key to butler_creds
+          run: |
+            mkdir -p ~/.config/itch/
+            touch ~/.config/itch/butler_creds
+            echo -n ${{ secrets.Itch_API_Key }} | cat > ~/.config/itch/butler_creds
+
+        - name: Logging in to Itch
+          run: |
+            butler login
+
+        - name: Push Windows Version to Itch
+          run: |
+            butler push build/mac/mac_${{  github.ref_name }}.zip aljowo/miles-of-memories:mac-stable
+
     export-web:
         permissions: write-all
         name: Web Export and Push to Itch.io
         runs-on: ubuntu-latest
         container:
-          image: barichello/godot-ci:latest
+          image: barichello/godot-ci:4.4.1
         steps:
             - name: Checkout
               uses: actions/checkout@v4
@@ -153,7 +261,7 @@ jobs:
 
     create-release:
         permissions: write-all
-        needs: [export-windows, export-web]
+        needs: [export-windows, export-web, export-linux, export-mac]
         name: Creating Releases for Windows/Web
         runs-on: ubuntu-latest
         steps:
@@ -161,13 +269,25 @@ jobs:
               uses: actions/download-artifact@v4
               with:
                 name: windows
-                path: build/windows
+                path: build/windows/
             
             - name: Download Web Artifact
               uses: actions/download-artifact@v4
               with:
                 name: web
                 path: build/web/
+            
+            - name: Download Linux Artifact
+              uses: actions/download-artifact@v4
+              with:
+                name: windows
+                path: build/linux/
+            
+            - name: Download Mac Artifact
+              uses: actions/download-artifact@v4
+              with:
+                name: web
+                path: build/mac/
 
             - name: Zipping for Windows Release
               run: |
@@ -179,13 +299,24 @@ jobs:
                 cd build/web/
                 zip -r web_${{  github.ref_name }}.zip *
 
+            - name: Zipping for Linux Release
+              run: |
+                cd build/linux/
+                zip -r linux_${{  github.ref_name }}.zip *
+
+            - name: Zipping for Mac Release
+              run: |
+                cd build/mac/
+                zip -r mac_${{  github.ref_name }}.zip *
+
+              
             - name: Creating Release
               uses: ncipollo/release-action@v1.14.0
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
                 generateReleaseNotes: true
                 tag: ${{ github.ref_name }}
-                artifacts: "build/web/web_${{  github.ref_name }}.zip,build/windows/windows_${{  github.ref_name }}.zip"
+                artifacts: "build/web/web_${{  github.ref_name }}.zip,build/windows/windows_${{  github.ref_name }}.zip,build/linux/linux_${{  github.ref_name }}.zip,build/mac/mac_${{  github.ref_name }}.zip"
 
     publish-on-github-pages:
       permissions: write-all
