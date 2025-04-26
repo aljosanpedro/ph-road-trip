@@ -10,7 +10,7 @@ on:
 
 env:
     GODOT_VERSION: 4.4.1
-    EXPORT_NAME: game
+    EXPORT_NAME: miles-of-memories
     PROJECT_PATH: .
 
   
@@ -98,7 +98,7 @@ jobs:
             mkdir -v -p build/linux
             EXPORT_DIR="$(readlink -f build)"
             cd $PROJECT_PATH
-            godot --headless --verbose --export-release "Linux/X11" "$EXPORT_DIR/linux/$EXPORT_NAME.x86_64"
+            godot --headless --verbose --export-release "Linux" "$EXPORT_DIR/linux/$EXPORT_NAME.x86_64"
         
         - name: Upload Artifact
           id: upload_artifact
@@ -122,7 +122,7 @@ jobs:
           run: |
             butler login
 
-        - name: Push Windows Version to Itch
+        - name: Push Linux Version to Itch
           run: |
             butler push build/linux/linux_${{  github.ref_name }}.zip aljowo/miles-of-memories:linux-stable
 
@@ -160,11 +160,6 @@ jobs:
             name: mac
             path: build/mac
 
-        - name: Zipping for Mac Release
-          run: |
-            cd build/mac/
-            zip -r mac_${{ github.ref_name }}.zip *
-
         - name: Place API Key to butler_creds
           run: |
             mkdir -p ~/.config/itch/
@@ -175,9 +170,9 @@ jobs:
           run: |
             butler login
 
-        - name: Push Windows Version to Itch
+        - name: Push Mac Version to Itch
           run: |
-            butler push build/mac/mac_${{  github.ref_name }}.zip aljowo/miles-of-memories:mac-stable
+            butler push build/mac/$EXPORT_NAME.zip aljowo/miles-of-memories:mac-stable
 
     export-web:
         permissions: write-all
@@ -303,12 +298,6 @@ jobs:
               run: |
                 cd build/linux/
                 zip -r linux_${{  github.ref_name }}.zip *
-
-            - name: Zipping for Mac Release
-              run: |
-                cd build/mac/
-                zip -r mac_${{  github.ref_name }}.zip *
-
               
             - name: Creating Release
               uses: ncipollo/release-action@v1.14.0
@@ -316,7 +305,7 @@ jobs:
                 token: ${{ secrets.GITHUB_TOKEN }}
                 generateReleaseNotes: true
                 tag: ${{ github.ref_name }}
-                artifacts: "build/web/web_${{  github.ref_name }}.zip,build/windows/windows_${{  github.ref_name }}.zip,build/linux/linux_${{  github.ref_name }}.zip,build/mac/mac_${{  github.ref_name }}.zip"
+                artifacts: "build/web/web_${{  github.ref_name }}.zip,build/windows/windows_${{  github.ref_name }}.zip,build/linux/linux_${{  github.ref_name }}.zip,build/mac/$EXPORT_NAME.zip"
 
     publish-on-github-pages:
       permissions: write-all
