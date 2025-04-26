@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dglj23acmhple"]
+[gd_scene load_steps=17 format=3 uid="uid://dglj23acmhple"]
 
 [ext_resource type="Script" uid="uid://cxw33yn604nps" path="res://scripts/scenes/title_screen.gd" id="1_p0v5f"]
 [ext_resource type="Texture2D" uid="uid://ccmqhh07aidb8" path="res://assets/images/backgrounds/cubao.png" id="2_miwe6"]
@@ -24,6 +24,42 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xglq0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6ccg"]
+
+[sub_resource type="Animation" id="Animation_q5odm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_miwe6"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qq3hq"]
+_data = {
+&"RESET": SubResource("Animation_q5odm"),
+&"fade": SubResource("Animation_miwe6")
+}
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -72,5 +108,10 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_jjag5")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_xglq0")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m6ccg")
 text = "Start Game"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qq3hq")
+}
 
 [connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]
