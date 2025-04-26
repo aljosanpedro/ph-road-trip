@@ -127,7 +127,7 @@ jobs:
             butler push build/linux/linux_${{  github.ref_name }}.zip aljowo/miles-of-memories:linux-stable
 
     export-mac:
-      name: Mac Export
+      name: Mac Export and Push to Itch.io
       runs-on: ubuntu-latest  # Use 22.04 with godot 4
       container:
         image: barichello/godot-ci:4.4.1
@@ -257,7 +257,7 @@ jobs:
     create-release:
         permissions: write-all
         needs: [export-windows, export-web, export-linux, export-mac]
-        name: Creating Releases for Windows/Web
+        name: Creating Releases
         runs-on: ubuntu-latest
         steps:
             - name: Download Windows Artifact
