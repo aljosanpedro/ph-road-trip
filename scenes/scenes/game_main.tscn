@@ -29,6 +29,5 @@ visible = false
 [node name="Settings" type="CanvasLayer" parent="."]
 
 [node name="Settings" parent="Settings" instance=ExtResource("4_qvvsl")]
-mouse_filter = 2
 
 [connection signal="scene_map_travel_closed" from="ContextMenus/MapTravel" to="." method="_on_scene_map_travel_closed"]

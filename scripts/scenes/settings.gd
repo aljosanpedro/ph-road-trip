@@ -33,3 +33,8 @@ func _on_item_pressed(id) -> void:
 func _on_button_toggled(toggled_on: bool) -> void:
 	get_tree().paused = toggled_on
 	screen.visible = toggled_on
+	
+	if toggled_on:
+		mouse_filter = Control.MOUSE_FILTER_STOP
+	else:
+		mouse_filter = Control.MOUSE_FILTER_IGNORE
