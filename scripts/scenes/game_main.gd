@@ -22,6 +22,8 @@ enum CurrentGameScene {
 @onready var context_menu_layer = $ContextMenus
 @onready var scene_camera = $ContextMenus/Camera
 @onready var scene_map_travel = $ContextMenus/MapTravel
+@onready var pov_switch_graphic = $ContextMenus/POVSwitch
+
 
 ## INFO: Other variables
 ## Sets Adi as the default POV character.
@@ -71,15 +73,43 @@ func _deferred_change_area(path: String) -> void:
 	var current_scene = get_node("GameArea")
 	var new_scene = ResourceLoader.load(path)
 	
+	await _fade_out_from_scene(current_scene)
+	
 	current_scene.free()
 	current_scene = new_scene.instantiate()
 	
+	# Add child...
 	add_child(current_scene)
+	
+	# Before naming it...!
 	current_scene.name = "GameArea"
+	current_scene.modulate = Color.BLACK
+	
+	# New scene must always be the first.
 	move_child(current_scene, 0)
+	
+	_fade_in_to_scene(current_scene)
+	
 #endregion
 
 #region Custom function
+
+func _fade_out_from_scene(game_area: Node2D) -> void:
+	# Make tween for fade out
+	var tween = create_tween().set_parallel(true)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(pov_switch_graphic, "position", Vector2(416,-72), 0.1)
+	tween.tween_property(game_area, "modulate", Color.BLACK, 0.5)
+	await tween.finished
+
+func _fade_in_to_scene(game_area: Node2D) -> void:
+		# Then fade in again.
+	var new_tween = create_tween().set_parallel(true)
+	new_tween.set_ease(Tween.EASE_IN_OUT)
+	new_tween.tween_property(pov_switch_graphic, "position", Vector2(416,0), 0.1)
+	new_tween.tween_property(game_area, "modulate", Color.WHITE, 0.5)
+	await new_tween.finished
+
 ## Call the map travel scene.
 func _map_travel_scene_call() -> void:
 	if current_game_scene != CurrentGameScene.MAP_TRAVEL:
@@ -98,6 +128,7 @@ func _on_scene_map_travel_closed() -> void:
 
 func _show_game_contextual_menus(value: bool) -> void:
 	context_menu_layer.visible = value
+	
 #endregion
 
 #func _on_settings_opened() -> void:

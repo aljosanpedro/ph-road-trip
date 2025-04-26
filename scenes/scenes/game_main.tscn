@@ -11,11 +11,11 @@
 script = ExtResource("1_ee8ta")
 current_scene = ExtResource("2_jnjbd")
 
-[node name="GameArea" type="Node" parent="."]
+[node name="GameArea" type="Node2D" parent="."]
 
-[node name="Settings" type="CanvasLayer" parent="."]
-
-[node name="Settings" parent="Settings" instance=ExtResource("4_qvvsl")]
+[node name="TextureRect" type="ColorRect" parent="GameArea"]
+offset_right = 1151.0
+offset_bottom = 648.0
 
 [node name="ContextMenus" type="CanvasLayer" parent="."]
 
@@ -25,5 +25,10 @@ current_scene = ExtResource("2_jnjbd")
 
 [node name="MapTravel" parent="ContextMenus" instance=ExtResource("4_3585q")]
 visible = false
+
+[node name="Settings" type="CanvasLayer" parent="."]
+
+[node name="Settings" parent="Settings" instance=ExtResource("4_qvvsl")]
+mouse_filter = 2
 
 [connection signal="scene_map_travel_closed" from="ContextMenus/MapTravel" to="." method="_on_scene_map_travel_closed"]
