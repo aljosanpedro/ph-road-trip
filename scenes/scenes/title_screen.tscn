@@ -1,22 +1,76 @@
-[gd_scene load_steps=2 format=3 uid="uid://dglj23acmhple"]
+[gd_scene load_steps=14 format=3 uid="uid://dglj23acmhple"]
 
 [ext_resource type="Script" uid="uid://cxw33yn604nps" path="res://scripts/scenes/title_screen.gd" id="1_p0v5f"]
+[ext_resource type="Texture2D" uid="uid://ccmqhh07aidb8" path="res://assets/images/backgrounds/cubao.png" id="2_miwe6"]
 
-[node name="TitleScreen" type="Node"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_miwe6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q5odm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qq3hq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0or8v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6sfx6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_45tqg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_47nog"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1m84x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jjag5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xglq0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6ccg"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_p0v5f")
 
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_miwe6")
+expand_mode = 1
+
 [node name="StartGame" type="Button" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -46.0
-offset_top = -15.5
-offset_right = 46.0
-offset_bottom = 15.5
+offset_left = -521.0
+offset_top = 224.0
+offset_right = -303.0
+offset_bottom = 279.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "start game"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_miwe6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_q5odm")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qq3hq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0or8v")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_6sfx6")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_45tqg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_47nog")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_1m84x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jjag5")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_xglq0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m6ccg")
+text = "Start Game"
 
 [connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]
