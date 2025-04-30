@@ -12,8 +12,18 @@ signal change_map(path: String)
 signal open_camera_signal()
 signal pov_switch()
 signal show_contextual_menus(value: bool)
+signal switch_has_been_set
 
 var current_pov: POV_Character = POV_Character.ADI
+
+var switches: Dictionary[String, bool] = {
+	"loc_1_stall": false,
+	"loc_1_sunken_garden": false,
+	"loc_1_adis_mural": false,
+	"loc_1_trees": false,
+	"loc_1_loose_chicken": false,
+}
+
 
 # Scrapbook
 const SCRAPBOOK_ENTRIES : int = 7
@@ -26,6 +36,8 @@ func _ready() -> void:
 
 ## Initializes Events for a new game.
 func initialize() -> void:
+	for sw in switches:
+		switches[sw] = false
 	current_pov = POV_Character.ADI
 	scrapbook_pictures = []
 #endregion
@@ -61,8 +73,22 @@ func get_current_pov_name() -> String:
 func open_camera() -> void:
 	open_camera_signal.emit()
 
+# Sets [b]Events.switch[/b] [param name] to the following [param value]
+# Also emits a switch set in case for anything that needs it.
+func set_switch(switch_name: String, value: bool) -> void:
+	switches[switch_name] = value
+	switch_has_been_set.emit()
+
+# Get the switch's value.
+func get_switch(switch_name) -> bool:
+	return switches[switch_name]
+
 ## Resets everything when going back to main menu.
 func reset()-> void:
+	for sw in switches:
+		switches[sw] = false
+		
 	current_pov = POV_Character.ADI
 	scrapbook_pictures = []
+
 #endregion

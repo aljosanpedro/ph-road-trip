@@ -8,23 +8,61 @@ extends Node2D
 # for adi:
 # **trees**
 # **loose_chicken**
+#"loc_1_stall": false,
+#"loc_1_sunken_garden": false,
+#"loc_1_adis_mural": false,
+#"loc_1_trees": false,
+#"loc_1_loose_chicken": false,
 
 func _ready() -> void:
-	print("Now arriving at: " + name)
+	# Connect a following switch.
+	Events.switch_has_been_set.connect(_is_everything_interacted)
+	
+	# Set dialogue immediately.
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_scene.dtl", "intro")
 	await Dialogic.timeline_ended
 
+# If everything is interacted.
+func _is_everything_interacted() -> void:
+	var relevant_switches = [
+		"loc_1_stall",
+		"loc_1_sunken_garden",
+		"loc_1_adis_mural",
+		"loc_1_trees",
+		"loc_1_loose_chicken"
+	]
+	
+	# If not all are interacted, return.
+	for switches in relevant_switches:
+		if not Events.get_switch(switches): return
+	
+	# Initiate outro if true...
+	Dialogic.start("res://assets/dialogue/location_1/loc_1_scene.dtl", "outro")
+	await Dialogic.timeline_ended
+
+#region Interactable
 func _on_chicken_item_clicked() -> void:
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "loose_chicken")
+	await Dialogic.timeline_ended
+	Events.set_switch("loc_1_loose_chicken", true)
 
 func _on_stall_item_clicked() -> void:
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "stall")
+	await Dialogic.timeline_ended
+	Events.set_switch("loc_1_stall", true)
 
 func _on_adis_mural_item_clicked() -> void:
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "adis_mural")
+	await Dialogic.timeline_ended
+	Events.set_switch("loc_1_adis_mural", true)
 
 func _on_trees_item_clicked() -> void:
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "trees")
+	await Dialogic.timeline_ended
+	Events.set_switch("loc_1_trees", true)
 
 func _on_sunken_garden_item_clicked() -> void:
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "sunken_garden")
+	await Dialogic.timeline_ended
+	Events.set_switch("loc_1_sunken_garden", true)
+#endregion
