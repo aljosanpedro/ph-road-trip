@@ -9,7 +9,10 @@ enum POV_Character {
 }
 
 signal change_map(path: String)
+
 signal open_camera_signal()
+signal camera_photo_taken()
+
 signal pov_switch()
 signal show_contextual_menus(value: bool)
 signal switch_has_been_set
