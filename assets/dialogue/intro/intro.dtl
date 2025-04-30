@@ -31,26 +31,17 @@ You get taken aback when your eyes land on the wall in front of you.
 wiks: Woah.
 She doesn't even look up when she responds.
 adi: Is it the mural? Yeah, I made a few changes since you were last here.
-It's her mural, painted on the widest wall of their childhood home. It's an abstract flurry of colors, but somehow you can still feel the incredible emotions she puts behind it. There are so many layers of paint that it's thicker at the bottom.
+It's her mural, painted on the widest wall of her makeshift studio. It's an abstract flurry of colors, a far cry from the near empty wall when you last saw it. Even from this far away, you can see that there are so many layers of paint that the wall feels thicker.
 wiks: You've certainly put a lot of progress since last time.
 adi: It's been [i]months,[/i] Wiks.
-You laugh it off, but a small pit opens at your stomach at the guilt.
-wiks: Sorry, I haven't been able to pass by... work's been busy.
-wiks: Lotta people being hurt lately, and we gotta pick up after 'em/
+You laugh it off, but a small pit opens at your stomach. It was certainly one topic you've been trying to avoid. Especially today of all days.
+wiks: I... Look, I'm sorry. It's just that we've been undermanned for a while now.
+wiks: Lotta people being hurt lately, and someone's gotta make sure people don't have buildings crash on them...
 update adi (sad) [mirrored="true"]
 Adi turns to see you, and you see half her face for the first time today. For a moment, although she's as sassy as ever, there's a hint of [i]something[/i] in her eyes. Concern, maybe? Perhaps fatigue?
 adi: So long as you're okay.
 update adi (neutral) [mirrored="true"]
-She then fully meets your gaze, and whatever it is you saw vanishes. It's quick enough it could've been a trick of the light.
-adi: But you need to get me more paints! I'm running out of cobalt blue.
-wiks: Again? But I just gave you those… Fine. I think there's still a few places I can “source” some paints for you.
-wiks: There's an old hardware shop that we've tagged but haven't explored yet. Some of the stuff there might still be good with a bit of work.
-update adi (happy) [mirrored="true"]
-Adi perks up at the mention of art materials. Adi's frown bursts into a smile, and a breath you didn't notice was held escapes your chest.
-adi: I have a list of things I need-- wait, no, you know what, what if you just bring me there instead?
-You scratch your head. Sure the store hasn't collapsed yet, but your team hasn't yet checked how safe the building is. Decades of floods and storms might have damaged its foundations…
-And yet the way she looks at you forces your hand.
-wiks: I'll see what I can do.
+Her voice is quiet as she fully meets your gaze, and whatever it is you saw vanishes. It's quick enough it could've been a trick of the light.
 A booming voice from outside interrupts your casual talk.
 female_voice: [b]Hoy[/b]! You two! I've got half the village and twenty carabao waiting here. Weren't you two supposed to be prepared hours ago?
 update adi (neutral) [mirrored="false"]
@@ -60,10 +51,9 @@ female_voice: [i]Hay[/i]... I swear, these kids have never been early to anythin
 wiks: C'mon Adi, we don't want to make her wait!
 update adi [mirrored="false"]
 Adi turns to you, exasperated, before her eyes suddenly widen.
-adi: There it is!
 She rushes forward and grabs something behind you. Turns out the camera was on a windowsill.
 wiks: Really? A windowsill this time?
-adi (angry): I swear, that wasn't--
+adi (angry): I swear, that wasn't—
 You laugh and turn away, grabbing her prepared bags near the door.
 wiks: Lets go, before our only chance at a vacation runs off at walking speed.
 [clear time="5.0"]
@@ -79,10 +69,10 @@ update singer right [z_index="0"]
 The two of you greet her as you settle in. As the three of you exchange small talk, Adi suddenly rushes off, having forgotten something.
 singer: Ah youth. I wish I was half as spry as you two.
 singer: You really can't tell what Adi's going to do next, can't you? She must be a handful.
-wiks: She has her quirks… but don't we all?
+wiks: She has her quirks... but don't we all?
 Singer chuckles.
-singer: You're a sweet boy. Well, make this trip count, okay? I didn't get you two this time off just to continue working.
-singer: You two need a break! [i]Mga bata ngayon[/i], always working, always trying to be something…
+Singer: You're a sweet boy. Well, make this trip count, okay? I didn't get you two this time off just to continue working.
+singer: You two need a break! [i]Mga bata ngayon[/i], always working, always trying to be something...
 Your smile falters for a bit at her words.
 You wonder if she noticed.
 singer: Well, anyways. You remember my favor, yes?
@@ -96,20 +86,5 @@ singer: Let's just say that a shared goal can start journeys that we don't expec
 You catch her throw a glance at the guitar by her side. It's old and battered, filled with stickers from all over the place. You don't remember a time when she used it, though.
 leave --All--
 You barely have time to respond when you see the carabaos start to move again, and you're rushed back into your place at the caravan, next to Adi.
-The journey takes a few hours more, and the sun is well on its way to rising when you finally reach your destination, the Cubao trading hub.
-It also serves as the first stop of your journey.
-join wiks leftmost
-join adi center
-join singer rightmost
-singer: You two drop off here.
-singer: The boat rental is just there, drop my name and he'll know what to do.
-singer: Ingat kayo. I'll see you back at the village in a week or so.
-leave singer
-update wiks left
-update adi right
-The two of you leave the caravan as they move along to their next destination, the singer at their helm.
-It takes a while to get your rental [i]bangka[/i] sorted out, but everything goes smoothly once the singer's name gets dropped in the right ears
-The two of you survey the scene of Cubao with a mix of trepidation and excitement.
-From here on out, it's just going to be the two of you, a [i]bangka[/i] and a flooded world.
-What will you find out?
+It appears your journey has now begun.
 [end_timeline]
