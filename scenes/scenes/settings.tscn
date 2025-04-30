@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dy7ud5o81drsj" path="res://scripts/scenes/settings.gd" id="1_5rnpi"]
 [ext_resource type="PackedScene" uid="uid://dglj23acmhple" path="res://scenes/scenes/title_screen.tscn" id="2_tt6xx"]
-[ext_resource type="Texture2D" uid="uid://dmwdqkx3e5rjy" path="res://assets/background/map.png" id="2_wfrsl"]
+[ext_resource type="Texture2D" uid="uid://dmwdqkx3e5rjy" path="res://assets/images/backgrounds/map.png" id="2_wfrsl"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3

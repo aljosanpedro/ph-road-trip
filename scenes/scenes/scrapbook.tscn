@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bn7hmu26cutsr"]
 
 [ext_resource type="Script" uid="uid://dygafg6qc461k" path="res://scripts/scenes/scrapbook.gd" id="1_x7omj"]
-[ext_resource type="Texture2D" uid="uid://bax8t2y7y6i2s" path="res://assets/background/scrapbook.png" id="2_iieyp"]
+[ext_resource type="Texture2D" uid="uid://bax8t2y7y6i2s" path="res://assets/images/backgrounds/scrapbook.png" id="2_iieyp"]
 [ext_resource type="PackedScene" uid="uid://k14jy5i2n67d" path="res://scenes/components/scrapbook/scrapbook_polaroid.tscn" id="2_x7omj"]
 [ext_resource type="PackedScene" uid="uid://vcn63u6tkkxi" path="res://scenes/components/scrapbook/scrapbook_text.tscn" id="3_sxt88"]
 

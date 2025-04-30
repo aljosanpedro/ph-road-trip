@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bax8t2y7y6i2s"
-path="res://.godot/imported/scrapbook.png-b7bd949719e27e5bceba1223ac244a15.ctex"
+path="res://.godot/imported/scrapbook.png-bcf21a4b5329959433ca597fcb27677a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/scrapbook.png"
-dest_files=["res://.godot/imported/scrapbook.png-b7bd949719e27e5bceba1223ac244a15.ctex"]
+source_file="res://assets/images/backgrounds/scrapbook.png"
+dest_files=["res://.godot/imported/scrapbook.png-bcf21a4b5329959433ca597fcb27677a.ctex"]
 
 [params]
 
