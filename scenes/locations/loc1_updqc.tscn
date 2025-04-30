@@ -35,32 +35,38 @@ texture = ExtResource("2_t66bq")
 expand_mode = 1
 
 [node name="Chicken" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_j3x12")]
+position = Vector2(337, 443)
 hitbox_component = NodePath("CollisionShape2D")
+required_character = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chicken"]
-position = Vector2(353.25, 471.25)
+position = Vector2(19, 28)
 shape = SubResource("RectangleShape2D_j3x12")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Stall" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_j3x12")]
+position = Vector2(523, 332)
 hitbox_component = NodePath("CollisionShape2D")
+required_character = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stall"]
-position = Vector2(671, 358)
+position = Vector2(148, 26)
 shape = SubResource("RectangleShape2D_tyg5k")
 
 [node name="Adi\'sMural" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_j3x12")]
 hitbox_component = NodePath("CollisionShape2D")
+required_character = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Adi\'sMural"]
-position = Vector2(665.5, 248.5)
+position = Vector2(681, 252)
 shape = SubResource("RectangleShape2D_au5bx")
 
 [node name="Trees" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_j3x12")]
 hitbox_component = NodePath("CollisionShape2D")
+required_character = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trees"]
-position = Vector2(458.5, 80)
+position = Vector2(457, 89)
 shape = SubResource("RectangleShape2D_u16s0")
 debug_color = Color(1, 0, 0, 0.419608)
 
@@ -70,13 +76,20 @@ shape = SubResource("RectangleShape2D_btlh7")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Trees"]
-position = Vector2(283.5, 272.5)
+position = Vector2(283.5, 278.5)
 shape = SubResource("RectangleShape2D_gsp0h")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="SunkenGarden" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_j3x12")]
+position = Vector2(102, 469)
 hitbox_component = NodePath("CollisionShape2D")
+required_character = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SunkenGarden"]
-position = Vector2(110.5, 480)
 shape = SubResource("RectangleShape2D_bs6ud")
+
+[connection signal="item_clicked" from="Chicken" to="." method="_on_chicken_item_clicked"]
+[connection signal="item_clicked" from="Stall" to="." method="_on_stall_item_clicked"]
+[connection signal="item_clicked" from="Adi\'sMural" to="." method="_on_adis_mural_item_clicked"]
+[connection signal="item_clicked" from="Trees" to="." method="_on_trees_item_clicked"]
+[connection signal="item_clicked" from="SunkenGarden" to="." method="_on_sunken_garden_item_clicked"]
