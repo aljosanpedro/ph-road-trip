@@ -8,10 +8,21 @@ enum POV_Character {
 	BOTH
 }
 
+# Locations
+enum Locations {
+	UPDQC,
+	Cubao,
+	Makati,
+	Quiapo,
+	Coast,
+	Jabee
+}
+
 signal change_map(path: String)
 
 signal open_camera_signal()
 signal camera_photo_taken()
+signal unlock_location(loc_name: Locations)
 
 signal pov_switch()
 signal show_contextual_menus(value: bool)
@@ -50,6 +61,9 @@ func initialize() -> void:
 ## Pretty much a helper function for a signal to make code readable.
 func change_area(path: String) -> void:
 	change_map.emit(path)
+
+func enable_route(loc_name: Locations) -> void:
+	unlock_location.emit(loc_name)
 
 ## Set the current [param POV] of the game.
 func set_current_pov(value: POV_Character) -> void:

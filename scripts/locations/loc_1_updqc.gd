@@ -37,8 +37,24 @@ func _is_everything_interacted() -> void:
 		if not Events.get_switch(switches): return
 	
 	# Initiate outro if true...
-	Dialogic.start("res://assets/dialogue/location_1/loc_1_scene.dtl", "outro")
+	Dialogic.start("res://assets/dialogue/location_1/loc_1_scene.dtl", "outro_pre_camera")
 	await Dialogic.timeline_ended
+	
+	# Initiate camera...
+	Events.open_camera()
+	await Events.camera_photo_taken
+	
+	# Initiate after camera photo taken.
+	Dialogic.start("res://assets/dialogue/location_1/loc_1_scene.dtl", "outro_post_camera")
+	await Dialogic.timeline_ended
+	
+	# Then, enable Route.
+	Events.enable_route(Events.Locations.Cubao)
+	
+	# Disconnect to never let it fire again.
+	Events.switch_has_been_set.disconnect(_is_everything_interacted)
+	
+	
 
 #region Interactable
 func _on_chicken_item_clicked() -> void:

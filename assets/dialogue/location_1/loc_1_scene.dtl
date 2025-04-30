@@ -33,7 +33,18 @@ wiks: No time like the present to enjoy a week off.
 [clear time="1.0"]
 tutorial: Swap between Wiks and Adi by clicking their portraits at the top. Click on points of interest to learn more about the place, and each other. When all is done, talk to the other person! (note\: we show this text verbatim.)
 jump end
-label outro
+label outro_pre_camera
+if Events.get_current_pov() == Events.POV_Character.WIKS:
+	wiks: Hey, mind if I borrow the camera for a bit?
+	adi: Hm?
+	She rummages through her pack before producing the old camera from this morning.
+adi: What're you taking a picture of?
+wiks: This place. We don't know when we'll we back.
+wiks: Besides, tita asked for pictures. I have to.
+adi: Just don't waste your shots.
+adi: Those polaroids take ages to find.
+jump end
+label outro_post_camera
 adi: So where are we going next?
 The two of you are sitting in a tree stump next to the boat rental. To no one's surprise, the Singer was as good as her word. The moment you said her name, they merely asked for a destination and immediately set to work. Behind you, you can hear someone barking orders.
 wiks: Cubao. Good halfway point to practically everywhere, since its a transport hub. From there, we can go to either...

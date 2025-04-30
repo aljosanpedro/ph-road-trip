@@ -54,6 +54,9 @@ func _camera_take_photo() -> void:
 	await camera_gallery.capture_photo()
 	camera_shutter.show()
 	camera_overlay.show()
+	
+	# Once photo taken, tell Events.
+	Events.camera_photo_taken.emit()
 
 func _camera_activate() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
