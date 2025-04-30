@@ -1,56 +1,101 @@
-label kids_playing
-You see a bunch of kids running around, chasing each other with sticks.
-wiks: Huh, haven't seen these many kids in a whil— Hey, watch out!
-You rush ahead and try to catch a kid as he slips on a wet patch of floor that he didn't notice.
-You barely make it in time to catch him before he gets injured.
-wiks: Watch where you're going!
-The kid rushes a “thank you” before scrambling off to join the other kids.
-wiks: Kids these days...
-wiks: Crap, wait. I was just a kid a few years back.
-wiks: Damn it, I'm sounding like the old man… and I'm just in my twenties!
+label stall
+There's a small food stall near the two of you. It wasn't particularly of note, with a weathered sign with the words [i]Bancit's Kantunan[/i] plastered in front, and an upturned cart that serves as a makeshift table in front of it. You've eaten here quite a few times now, and you feel your spirits buoyed even further when you realize its still open.
+You approach, and with a light rap on the stall counter, a wizened old man turns. It takes him a few seconds to recognize you.
+old_man: Is that you... [i]whatsyournameagain[/i]... Wiks! Yes! Ah, how you've grown!
+wiks: Good morning po, how's it going?
+old_man: It's fine it's fine, the years taking its toll on my old bones again... Oh! Is that you Adi? My, what a beautiful woman you've become!
+Adi smiles and waves bashfully behind you. The old man's voice lowers as he continues.
+old_man: Only the two of you? You didn't tell me you were--
+You cut him off before he gets the wrong idea.
+wiks: It's not like that. We're just passing by for a trip.
+old_man: Whatever you say, Wiks.
+He winks at you mischievously. You roll your eyes. He did like to mess with you since you were a kid.
+old_man: Well, go take a seat. I'll whip you up your favorites. And don't worry about paying – business has been booming lately! I can barely keep up with the orders.
+It doesn't take long for the food to arrive. Plates of hot stir-fry noodles mixed with local vegetables and the latest catch lay tantalizingly in front of you, their aromas beckoning the two of you to dig in. The two of you don't hesitate.
+Moments later, as the two of you lounge at the cart after the hearty meal, Adi pipes up, her gaze lingering on the rickety stall.
+adi: Hm, why doesn't he move out of the same old stall? It looks... dangerous? Like it might fall at any time?
+wiks: It survived the floods, the storms, the evacuations... Sure it might need some elbow grease every now and then, but I think it deserves it.
+Adi ponders for a bit before she speaks again.
+adi: I just think that maybe, not everything needs to be fixed over and over again.
+adi: Sometimes it might be better to move on, build something new.
+Her voice is soft, gentle. But the words feel anything but.
+wiks: Maybe.
+wiks: But it's not our choice, y'know.
+adi: Letting go is always a choice.
+The conversation dies down. With the meal done, you thank the old man and head out to continue exploring the settlement, each of you busy with your new thoughts.
 jump end
-label lanterns
-adi: That's a lotta lanterns.
-adi: Where do they get the oil for it?
-wiks: I remember that they have a trade deal with one of the vertical farms nearby. They use a certain plant that they can process into an oil for the 
-adi: So they have a refinery, huh.
-adi: So much work just for the lanterns...
-wiks: Well, they're known for it now.
-wiks: Might be weird if they suddenly snuffed it all out.
-wiks: Besides, it looks beautiful too.
+label sunken_garden
+The pool is wide and relatively deep, ringed with trees and rocks dragged to form seats. Floating across the surface are hundreds of flowers—wild, mismatched, beautiful. A few boats ply the surface.
+adi: It's been a while since I saw the vaunted sunken garden.
+adi: Until now I wonder where the flowers came from.
+wiks: I heard a few stories that you might be interested in. Apparently some guy lost his family to the floods a long while back, and decided to plant flowers here in their memory every day. He didn't talk, didn't say anything why he did it.
+wiks: A couple years later, he vanished. No one knows what happened to him. So they just tended to the flowers, waiting until he returned.
+You see Adi crouch near the edge of the water, her fingers trailing through the still water.
+She takes a small blossom, cups it on her hands, gazing at it intently.
+wiks: His wife was named Lily, apparently.
+adi: It's... beautiful.
+With the gentlest motions that she can muster, you see her dry it on her dress, and tuck it on one of her pockets.
+wiks: I can't imagining dedicating all this effort on something...
+adi: And all of it for your past.
+wiks: Sounds just like you, huh? An artist working on the past?
+adi: Servants of the past, more like.
+You expect her to chuckle, but she doesn't.
 jump end
-label radio
-You hear an old radio left next to the mural. While the sound is pretty bad quality, you can make out the voice of the radio host giving the latest 
-wiks: Is that-- I can't believe they'd just let a radio out in the open like this.
-adi: I haven't seen you this excited about something for a while now.
-adi: And I haven't even seen you in months!
-wiks: Come on, Adi, you know what I mean. It's a radio! You know how of those exist in good quality? For it to just be left alone here...
-adi: I mean, its a hub. They probably need a lot of radios around for people to get the hang of things.
-wiks: But still...
-adi: Come on, before they think you're gonna grab it.
+label adis_mural
+As the two of you wander around, a young man stops the two of you. He's lanky, just a few years younger than the two of you, with a mop of black hair and a large grin in his face. He appears to recognize Adi.
+young_man: Oh hey, hi! It's you right?
+Adi blinks, confused.
+adi: Huh?
+young_man: The artist who made this mural! My family loves your work so much – my da likes to say that it's the only thing in this place that's not falling apart like everything else.
+You hear a forceful laugh come from Adi.
+adi: Haha... yeah... tell him I said hi. And thanks. I guess.
+young_man: Oh I will. Thank you for your work, ma'am. Your vision of the past really keeps the world alive.
+He scrambles off, presumably to tell his family about who he just met.
+You look up at the mural the young man pointed to. It's a painting of a beautiful woman, with long black hair blown by a breeze among a bed of flowers. You vaguely recognize the woman. Is this some sort of historical figure? Compared to the more abstract and eclectic painting you saw in Adi's studio, this one was more realistic and subdued.
+wiks: I wouldn't have guessed that you made this... When did you do it?
+adi: Two months ago. You were on your expedition to the southeast, then.
+Her voice is quiet. You feel a small pit form in your gut. Two months ago? How much of your friend's life have you missed already?
+Adi opens her mouth as if to say something, but doesn't.
+wiks: Is there... something with the painting?
+adi: It's just a picture of some folk hero. It was a quick job. That's it.
+You look at her, trying to press for more information, but she remains silent.
+You clear your throat.
+wiks: Well... the kid's not wrong at least. You made their past alive. Beautiful too.
+adi: No! No. They don't know me.
+Her voice is sharp, and the words come off a little too fast for your liking.
+adi: It's just a stupid painting.
+adi: Come on, we still have a road trip to get into.
+She walks away quickly, leaving you standing there in surprise. You take one last look at the mural, and then you walk away to join her, with more questions than answers.
+You wonder if ever she'll tell you about it.
 jump end
-label mannequins
-adi: Why'd they just leave the mannequins in one place like this?
-adi: It looks creepy, all posed like this.
-adi: Although…
-adi: Maybe I can ask them for one at some point, since no one seems to use them.
-adi: I could use the model.
-adi: Maybe I'd let Wiks carry it home.
+label trees
+A single large tree rises near the fence line, its branches sprawling away like someone stretching. Cloth strips hang from it—messages, blessings, names written in charcoal or carved into bark. A few candles flicker at its base, along with a smattering of religious figurines.
+Almost instinctively, you reach out for one of the loose ribbons and tighten it on a nearby low-hanging branch.
+wiks: What'd you pray for?
+You raise an eyebrow.
+adi: Nothing. I just tightened it. Don't want it flying away, you know.
+wiks: Doesn't it need a wish or a prayer for it to mean something?
+You shrug.
+adi: Maybe. But I don't think a prayer's what I need right now.
+Wiks stares at you, quiet. After a brief pause, he picks up a fallen ribbon, then ties it back into the branch, right next to yours.
+Two blank ribbons, the ink in them smudged beyond comprehension, fluttering in the breeze.
+The two of you don't say anything.
+Eventually the two of you leave.
 jump end
-label jabee
-adi: What the hell is that?
-Wiks is confused for a bit as tries to understand the statue before you.
-It looks like a cartoon character, but none of the old books you've read show this character.
-It's also old enough to not be something custom-made.
-wiks: I think… I saw one of these when we were exploring close to the coast north.
-wiks: It's a mascot? Or something, I don't know.
-adi: A mascot for what?
-wiks: I don't know actually. No one in the crew knows who that is.
-adi: I bet [i]tita[/i] knows who this is.
-wiks: True. I don't wanna waste some film on it though.
-wiks: Maybe you can sketch it?
-You bite your lip. Should you?
-adi: I'll try.
+label loose_chicken
+You hear a squawk, then a blur of feathers—chickens bolt out from under a nearby pallet, scattering in every direction.
+You both scream in surprise as a bunch of young men and women give chase, trying to catch them. Wiks' eyes catch your attention and you immediately understand what he wants.
+With a small shrug of [i]'might as well'[/i] the two of you try to help, trying to corral the loose animals.
+One chicken darts past your legs and you fumble, almost tripping over. Moving like a blur beside you, Wiks manages to corner it, gently scooping it up.
+He laughs, winded.
+wiks: I think I just found my true calling.
+adi: Chicken catcher? I thought you joined the Scouts because you're an explorer?
+Wiks shrugs nonchalantly.
+wiks: Nah, I'm just some guy with a knack for that type of thing.
+He pauses, then gives the chicken a little tap on the beak. He doesn't appear to notice just how close he was to getting his fingers pecked off.
+wiks: Well, no time like the present to find myself.
+He says it like a joke. It [i]almost[/i] lands like one.
+adi: You’re not just “some guy”, y'know?
+He shrugs, cradling the chicken like it might answer a question he hasn’t asked yet.
 jump end
 label end
-[end_timeline]

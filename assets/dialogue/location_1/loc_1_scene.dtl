@@ -1,5 +1,5 @@
+label intro
 [background scene="res://scenes/components/black_bg.tscn" fade="0.0"]
-
 The trip takes a few hours more, and the sun well on its way to rising when you finally reach your destination, a large pool of water located inside the campus of an old university. Nowadays, only a few buildings remained as schools, with the rest either having been abandoned due to damage or neglect, or been converted into living quarters.
 join adi center
 join wiks left
@@ -24,3 +24,26 @@ adi: Bye!
 The remainder farewells were carried off by the wind as you see the caravan began to lurch along, the singer with her wide-brimmed hat walking near the front, a beacon of confidence wherever she goes.
 With a deep breath, the two of you turn around to survey the scene before you.
 [clear time="1.0" step="false" text="false" portraits="false" music="false" positions="false" style="false"]
+[wait time="1.0"]
+With a great flourish you swing your arms out, and the morning light seeps through the buildings behind you, spreading a gentle warmth across your back. Beside you, Adi chuckles at your antics as she picks up the small satchel on her feet.
+wiks: Ah, freedom!
+adi: We're literally less than half a day away from home, Wiks. Calm down.
+adi: Why don't we look around? Get a proper breakfast that's not on top of a canoe before we head deeper into the city?
+wiks: No time like the present to enjoy a week off.
+[clear time="1.0"]
+tutorial: Swap between Wiks and Adi by clicking their portraits at the top. Click on points of interest to learn more about the place, and each other. When all is done, talk to the other person! (note\: we show this text verbatim.)
+jump end
+label outro
+adi: So where are we going next?
+The two of you are sitting in a tree stump next to the boat rental. To no one's surprise, the Singer was as good as her word. The moment you said her name, they merely asked for a destination and immediately set to work. Behind you, you can hear someone barking orders.
+wiks: Cubao. Good halfway point to practically everywhere, since its a transport hub. From there, we can go to either...
+adi: Hm, any chance we can go to those skyscrapers you told me about before? The ones down south?
+adi: I've always wanted to check it out.
+wiks: Sure, why not? It's a bit far from Cubo, but we should be able to reach it just before sundown. It's close to the coast though, so we might need to be careful of high tides.
+adi: Will that be a problem?
+wiks: We don't typically worry about it here, but closer to the shore, the waters rise fast. Doesn't take long entire streets to vanish.
+Adi thinks for a moment.
+adi: I'll let you decide.
+The two of you gather your things in silence as the boatman approaches, and with him, the next leg of your journey.
+label end
+[end_timeline]
