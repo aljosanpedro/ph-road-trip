@@ -60,5 +60,9 @@ func get_current_pov_name() -> String:
 ## Helper function to make code easier to read.
 func open_camera() -> void:
 	open_camera_signal.emit()
-	
+
+## Resets everything when going back to main menu.
+func reset()-> void:
+	current_pov = POV_Character.ADI
+	scrapbook_pictures = []
 #endregion
