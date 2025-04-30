@@ -11,11 +11,5 @@ extends Node2D
 
 func _ready() -> void:
 	print("Now arriving at: " + name)
-
-func _on_character_item_clicked() -> void:
-	Dialogic.start("debug")
-	#match Events.get_current_pov():
-		#Events.POV_Character.adi:
-			#pass
-		#Events.POV_Character.wiks:
-			#pass
+	Dialogic.start("res://assets/dialogue/intro/intro.dtl")
+	await Dialogic.timeline_ended

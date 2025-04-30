@@ -1,0 +1,26 @@
+[background scene="res://scenes/components/black_bg.tscn" fade="0.0"]
+
+The trip takes a few hours more, and the sun well on its way to rising when you finally reach your destination, a large pool of water located inside the campus of an old university. Nowadays, only a few buildings remained as schools, with the rest either having been abandoned due to damage or neglect, or been converted into living quarters.
+join adi center
+join wiks left
+Being located near your home settlement, it also serves as the first stop of your journey.
+join singer right
+As the caravan drops off their wares of commodities and scavenged goods, the two of you are approached by the Singer.
+singer: You two drop off here. It's a nice spot, and there's a boat rental here to Cubao, if you're going there. Just drop my name and he'll know what to do.
+She looks at the two of you a wistful look forming in her features.
+singer: Oh how I long to be like you two again, discovering the world and yourselves...
+She sniffles, wiping an imaginary tear in her eye.
+singer: [i]Ingat kayo[/i]! Don't be careless now, okay?
+Your farewells are drowned out by the noises of the caravan as they finish their drop and you hear the groans of the carabaos and the scraping of canoes as everyone begins to ride out.
+singer: I'll see you back at the village in a week or so. Bye!
+wiks: Bye tita! Thanks for the ride!
+Beside you, Adi doesn't respond, her head having instead nodded off from what you can presume to be a lack of sleep.
+update adi [animation="Shake X"]
+You nudge her slightly on the side, suppressing a grin as she gets jolted wide awake.
+adi: Huh? What? I'm awake.
+wiks: Tita's leaving.
+Adi's eyes grow wide as she realizes her mistake. She immediately calls out to the leaving singer, who turns and beams at her before continuing to walk away.
+adi: Bye!
+The remainder farewells were carried off by the wind as you see the caravan began to lurch along, the singer with her wide-brimmed hat walking near the front, a beacon of confidence wherever she goes.
+With a deep breath, the two of you turn around to survey the scene before you.
+[clear time="1.0" step="false" text="false" portraits="false" music="false" positions="false" style="false"]
