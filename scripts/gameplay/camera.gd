@@ -49,23 +49,21 @@ func _input(_event: InputEvent) -> void:
 
 #region Custom functions
 func _camera_take_photo() -> void:
-	camera_shutter.hide()
+	#camera_shutter.hide()
 	camera_overlay.hide()
 	await camera_gallery.capture_photo()
-	camera_shutter.show()
-	camera_overlay.show()
 	
 	# Once photo taken, tell Events.
 	Events.camera_photo_taken.emit()
 
 func _camera_activate() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
-	camera_overlay.visible = true
+	camera_overlay.show()
 	camera.enabled = true
 
 func _camera_disable() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	camera_overlay.visible = false
+	camera_overlay.hide()
 	camera.enabled = false
 
 ## Function that recalculates the limits of a camera, especially when it is
