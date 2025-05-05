@@ -31,19 +31,13 @@ func _input(_event: InputEvent) -> void:
 	
 	## DEPRECATED GALLERY ACTION: Open Gallery via Mouse Thumb 1
 	## ONLY ALLOWED IN DEBUG
-	if Input.is_action_just_pressed("open_gallery") and OS.is_debug_build():
-		if camera_gallery.visible: camera_gallery.visible = false
-		else: camera_gallery.visible = true
+	#if Input.is_action_just_pressed("open_gallery") and OS.is_debug_build():
+		#if camera_gallery.visible: camera_gallery.visible = false
+		#else: camera_gallery.visible = true
 		
 	# INFO CAMERA ACTION: Play captures a photo via RIGHT CLICK.
 	if Input.is_action_just_pressed("camera_capture") and camera.enabled:
-		camera_shutter.hide()
-		camera_overlay.hide()
-		await camera_gallery.capture_photo()
-		camera_shutter.show()
-		camera_overlay.show()
-		
-		# TODO: Once game is near polish, add flicker animation.
+		_camera_take_photo()
 		_camera_disable()
 	
 	# CAMERA ACTION: Zooming in via MOUSE UP/DOWN
@@ -54,6 +48,16 @@ func _input(_event: InputEvent) -> void:
 #endregion
 
 #region Custom functions
+func _camera_take_photo() -> void:
+	camera_shutter.hide()
+	camera_overlay.hide()
+	await camera_gallery.capture_photo()
+	camera_shutter.show()
+	camera_overlay.show()
+	
+	# Once photo taken, tell Events.
+	Events.camera_photo_taken.emit()
+
 func _camera_activate() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	camera_overlay.visible = true
@@ -84,4 +88,7 @@ func _camera_recalculate_limit() -> void:
 	print("Current Zoom: ", camera.zoom.x)
 	print("Camera Right: ", camera.limit_right, " ", camera.zoom.x - 1)
 	print("Camera Bottom: ", camera.limit_bottom, " ", (1.0 / camera.zoom.y))
+
+
+	
 #endregion

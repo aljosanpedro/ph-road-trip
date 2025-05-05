@@ -28,13 +28,18 @@ Events="*res://scripts/logic/events.gd"
 directories/dch_directory={
 "adi": "res://assets/dialogue/characters/adi.dch",
 "female_voice": "res://assets/dialogue/characters/female_voice.dch",
+"old_man": "res://assets/dialogue/characters/old_man.dch",
 "singer": "res://assets/dialogue/characters/singer.dch",
-"wiks": "res://assets/dialogue/characters/wiks.dch"
+"tutorial": "res://assets/dialogue/characters/tutorial.dch",
+"wiks": "res://assets/dialogue/characters/wiks.dch",
+"young_man": "res://assets/dialogue/characters/young_man.dch"
 }
 directories/dtl_directory={
 "debug": "res://assets/dialogue/debug.dtl",
 "intro": "res://assets/dialogue/intro/intro.dtl",
-"loc_1_interactables": "res://assets/dialogue/location_1/loc_1_interactables.dtl"
+"loc_1_interactables": "res://assets/dialogue/location_1/loc_1_interactables.dtl",
+"loc_1_scene": "res://assets/dialogue/location_1/loc_1_scene.dtl",
+"loc_2_interactables": "res://assets/dialogue/location_2/loc_2_interactables.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://assets/themes/dialogue_stylings.tres"]

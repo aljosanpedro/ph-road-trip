@@ -10,7 +10,7 @@ on:
 
 env:
     GODOT_VERSION: 4.4.1
-    EXPORT_NAME: miles-of-memories
+    EXPORT_NAME: watermarked
     PROJECT_PATH: .
 
   
@@ -69,7 +69,7 @@ jobs:
 
           - name: Push Windows Version to Itch
             run: |
-              butler push build/windows/windows_${{  github.ref_name }}.zip aljowo/miles-of-memories:windows-stable
+              butler push build/windows/windows_${{  github.ref_name }}.zip aljowo/watermarked:windows-stable
 
     export-linux:
       permissions: write-all
@@ -124,7 +124,7 @@ jobs:
 
         - name: Push Linux Version to Itch
           run: |
-            butler push build/linux/linux_${{  github.ref_name }}.zip aljowo/miles-of-memories:linux-stable
+            butler push build/linux/linux_${{  github.ref_name }}.zip aljowo/watermarked:linux-stable
 
     export-mac:
       name: Mac Export and Push to Itch.io
@@ -172,7 +172,7 @@ jobs:
 
         - name: Push Mac Version to Itch
           run: |
-            butler push build/mac/$EXPORT_NAME.zip aljowo/miles-of-memories:mac-stable
+            butler push build/mac/$EXPORT_NAME.zip aljowo/watermarked:mac-stable
 
     export-web:
         permissions: write-all
@@ -226,7 +226,7 @@ jobs:
             
             - name: Push Web Version to Itch
               run: |
-                butler push build/web/web_${{  github.ref_name }}.zip aljowo/miles-of-memories:html-stable
+                butler push build/web/web_${{  github.ref_name }}.zip aljowo/watermarked:html-stable
 
             # - name: Install rsync 📚
             #   run: |

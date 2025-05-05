@@ -38,13 +38,13 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 ## INFO: Highlights item when mouse hovers to the item.
 func _on_mouse_entered() -> void:
 	if not _required_character_checker(): return
-	
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 	modulate = Color(2, 2, 2)
 
 ## INFO: De-highlights item when mouse hovers away from the item.
 func _on_mouse_exited() -> void:
 	if not _required_character_checker(): return
-	
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	modulate = Color(1, 1, 1)
 	
 ## INFO: Checks for the current character POV. [b]Returns true[/b] if its the 

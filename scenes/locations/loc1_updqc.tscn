@@ -1,26 +1,95 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbe1ckj2yiwf5"]
+[gd_scene load_steps=11 format=3 uid="uid://cbe1ckj2yiwf5"]
 
 [ext_resource type="Script" uid="uid://du0kpd023b5oa" path="res://scripts/locations/loc_1_updqc.gd" id="1_it7vl"]
 [ext_resource type="PackedScene" uid="uid://8iegyqjcp1jn" path="res://scenes/components/item_base.tscn" id="2_j3x12"]
-[ext_resource type="Texture2D" uid="uid://dvxerxqjpmr6r" path="res://assets/images/chara.png" id="3_tyg5k"]
+[ext_resource type="Texture2D" uid="uid://bni3jh5hsund1" path="res://assets/images/backgrounds/1_upd.png" id="2_t66bq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3x12"]
+size = Vector2(51.5, 81.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyg5k"]
+size = Vector2(278, 66)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_au5bx"]
-size = Vector2(372, 719)
+size = Vector2(377, 139)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u16s0"]
+size = Vector2(915, 178)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btlh7"]
+size = Vector2(94.75, 374.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsp0h"]
+size = Vector2(373, 201)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bs6ud"]
+size = Vector2(219, 166)
 
 [node name="UPDQC" type="Node2D"]
 script = ExtResource("1_it7vl")
 
-[node name="Character" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_t66bq")
+expand_mode = 1
+
+[node name="Chicken" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_j3x12")]
+position = Vector2(337, 443)
 hitbox_component = NodePath("CollisionShape2D")
-sprite_component = NodePath("Sprite2D")
 required_character = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="Character"]
-position = Vector2(167, 355)
-texture = ExtResource("3_tyg5k")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chicken"]
+position = Vector2(19, 28)
+shape = SubResource("RectangleShape2D_j3x12")
+debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
-position = Vector2(176, 349.5)
+[node name="Stall" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_j3x12")]
+position = Vector2(523, 332)
+hitbox_component = NodePath("CollisionShape2D")
+required_character = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stall"]
+position = Vector2(148, 26)
+shape = SubResource("RectangleShape2D_tyg5k")
+
+[node name="Adi\'sMural" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_j3x12")]
+hitbox_component = NodePath("CollisionShape2D")
+required_character = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Adi\'sMural"]
+position = Vector2(681, 252)
 shape = SubResource("RectangleShape2D_au5bx")
 
-[connection signal="item_clicked" from="Character" to="." method="_on_character_item_clicked"]
+[node name="Trees" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_j3x12")]
+hitbox_component = NodePath("CollisionShape2D")
+required_character = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees"]
+position = Vector2(457, 89)
+shape = SubResource("RectangleShape2D_u16s0")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Trees"]
+position = Vector2(280.625, 352.75)
+shape = SubResource("RectangleShape2D_btlh7")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Trees"]
+position = Vector2(283.5, 278.5)
+shape = SubResource("RectangleShape2D_gsp0h")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="SunkenGarden" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_j3x12")]
+position = Vector2(102, 469)
+hitbox_component = NodePath("CollisionShape2D")
+required_character = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SunkenGarden"]
+shape = SubResource("RectangleShape2D_bs6ud")
+
+[connection signal="item_clicked" from="Chicken" to="." method="_on_chicken_item_clicked"]
+[connection signal="item_clicked" from="Stall" to="." method="_on_stall_item_clicked"]
+[connection signal="item_clicked" from="Adi\'sMural" to="." method="_on_adis_mural_item_clicked"]
+[connection signal="item_clicked" from="Trees" to="." method="_on_trees_item_clicked"]
+[connection signal="item_clicked" from="SunkenGarden" to="." method="_on_sunken_garden_item_clicked"]

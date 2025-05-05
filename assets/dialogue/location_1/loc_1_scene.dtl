@@ -1,0 +1,60 @@
+label intro
+[background scene="res://scenes/components/black_bg.tscn" fade="0.0"]
+The trip takes a few hours more, and the sun well on its way to rising when you finally reach your destination, a large pool of water located inside the campus of an old university. Nowadays, only a few buildings remained as schools, with the rest either having been abandoned due to damage or neglect, or been converted into living quarters.
+join adi center
+join wiks left
+Being located near your home settlement, it also serves as the first stop of your journey.
+join singer right
+As the caravan drops off their wares of commodities and scavenged goods, the two of you are approached by the Singer.
+singer: You two drop off here. It's a nice spot, and there's a boat rental here to Cubao, if you're going there. Just drop my name and he'll know what to do.
+She looks at the two of you a wistful look forming in her features.
+singer: Oh how I long to be like you two again, discovering the world and yourselves...
+She sniffles, wiping an imaginary tear in her eye.
+singer: [i]Ingat kayo[/i]! Don't be careless now, okay?
+Your farewells are drowned out by the noises of the caravan as they finish their drop and you hear the groans of the carabaos and the scraping of canoes as everyone begins to ride out.
+singer: I'll see you back at the village in a week or so. Bye!
+wiks: Bye tita! Thanks for the ride!
+Beside you, Adi doesn't respond, her head having instead nodded off from what you can presume to be a lack of sleep.
+update adi [animation="Shake X"]
+You nudge her slightly on the side, suppressing a grin as she gets jolted wide awake.
+adi: Huh? What? I'm awake.
+wiks: Tita's leaving.
+Adi's eyes grow wide as she realizes her mistake. She immediately calls out to the leaving singer, who turns and beams at her before continuing to walk away.
+adi: Bye!
+The remainder farewells were carried off by the wind as you see the caravan began to lurch along, the singer with her wide-brimmed hat walking near the front, a beacon of confidence wherever she goes.
+With a deep breath, the two of you turn around to survey the scene before you.
+[clear time="1.0" step="false" text="false" portraits="false" music="false" positions="false" style="false"]
+[wait time="1.0"]
+With a great flourish you swing your arms out, and the morning light seeps through the buildings behind you, spreading a gentle warmth across your back. Beside you, Adi chuckles at your antics as she picks up the small satchel on her feet.
+wiks: Ah, freedom!
+adi: We're literally less than half a day away from home, Wiks. Calm down.
+adi: Why don't we look around? Get a proper breakfast that's not on top of a canoe before we head deeper into the city?
+wiks: No time like the present to enjoy a week off.
+[clear time="1.0"]
+tutorial: Swap between Wiks and Adi by clicking their portraits at the top. Click on points of interest to learn more about the place, and each other. When all is done, talk to the other person! (note\: we show this text verbatim.)
+jump end
+label outro_pre_camera
+if Events.get_current_pov() == Events.POV_Character.WIKS:
+	wiks: Hey, mind if I borrow the camera for a bit?
+	adi: Hm?
+	She rummages through her pack before producing the old camera from this morning.
+adi: What're you taking a picture of?
+wiks: This place. We don't know when we'll we back.
+wiks: Besides, tita asked for pictures. I have to.
+adi: Just don't waste your shots.
+adi: Those polaroids take ages to find.
+jump end
+label outro_post_camera
+adi: So where are we going next?
+The two of you are sitting in a tree stump next to the boat rental. To no one's surprise, the Singer was as good as her word. The moment you said her name, they merely asked for a destination and immediately set to work. Behind you, you can hear someone barking orders.
+wiks: Cubao. Good halfway point to practically everywhere, since its a transport hub. From there, we can go to either...
+adi: Hm, any chance we can go to those skyscrapers you told me about before? The ones down south?
+adi: I've always wanted to check it out.
+wiks: Sure, why not? It's a bit far from Cubo, but we should be able to reach it just before sundown. It's close to the coast though, so we might need to be careful of high tides.
+adi: Will that be a problem?
+wiks: We don't typically worry about it here, but closer to the shore, the waters rise fast. Doesn't take long entire streets to vanish.
+Adi thinks for a moment.
+adi: I'll let you decide.
+The two of you gather your things in silence as the boatman approaches, and with him, the next leg of your journey.
+label end
+[end_timeline]
