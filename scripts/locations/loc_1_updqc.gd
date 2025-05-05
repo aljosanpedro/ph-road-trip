@@ -21,6 +21,8 @@ func _ready() -> void:
 	# Set dialogue immediately.
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_scene.dtl", "intro")
 	await Dialogic.timeline_ended
+	
+	Events.show_the_context_menus(true) # By default, as intro will flick it up.
 
 # If everything is interacted.
 func _is_everything_interacted() -> void:
