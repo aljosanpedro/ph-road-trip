@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://du0kpd023b5oa" path="res://scripts/locations/loc_1_updqc.gd" id="1_it7vl"]
 [ext_resource type="PackedScene" uid="uid://8iegyqjcp1jn" path="res://scenes/components/item_base.tscn" id="2_j3x12"]
-[ext_resource type="Texture2D" uid="uid://bni3jh5hsund1" path="res://assets/images/backgrounds/1_upd.png" id="2_t66bq"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t66bq"]
+load_path = "res://.godot/imported/1_upd.png-f5f3523330a41720651a94e24edb9027.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3x12"]
 size = Vector2(51.5, 81.5)
@@ -31,7 +33,7 @@ script = ExtResource("1_it7vl")
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("2_t66bq")
+texture = SubResource("CompressedTexture2D_t66bq")
 expand_mode = 1
 
 [node name="Chicken" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_j3x12")]
