@@ -1,19 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbe1ckj2yiwf5"]
+[gd_scene load_steps=16 format=3 uid="uid://cbe1ckj2yiwf5"]
 
 [ext_resource type="Script" uid="uid://du0kpd023b5oa" path="res://scripts/locations/loc_1_updqc.gd" id="1_it7vl"]
 [ext_resource type="PackedScene" uid="uid://8iegyqjcp1jn" path="res://scenes/components/item_base.tscn" id="2_j3x12"]
+[ext_resource type="Texture2D" uid="uid://c2j6stnrbc4wd" path="res://assets/images/items/loc_1/loc_1_adis_mural_interactable.png" id="3_j3x12"]
+[ext_resource type="Texture2D" uid="uid://1142vxlskcbl" path="res://assets/images/items/loc_1/loc_1_stall_interactable.png" id="4_btlh7"]
+[ext_resource type="Texture2D" uid="uid://bxv37vji0vyio" path="res://assets/images/items/loc_1/loc_1_trees_interactable.png" id="4_tyg5k"]
+[ext_resource type="Texture2D" uid="uid://bsmeprl6deob1" path="res://assets/images/items/loc_1/loc_1_loose_chicken_interactable.png" id="5_gsp0h"]
+[ext_resource type="Texture2D" uid="uid://cmpm3xbyem1j" path="res://assets/images/items/loc_1/loc_1_sunken_garden_interactable.png" id="7_bs6ud"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t66bq"]
 load_path = "res://.godot/imported/1_upd.png-f5f3523330a41720651a94e24edb9027.ctex"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3x12"]
-size = Vector2(51.5, 81.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_au5bx"]
+size = Vector2(356.5, 139)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyg5k"]
-size = Vector2(278, 66)
+size = Vector2(139, 66)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_au5bx"]
-size = Vector2(377, 139)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3x12"]
+size = Vector2(51.5, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u16s0"]
 size = Vector2(915, 178)
@@ -25,7 +30,7 @@ size = Vector2(94.75, 374.5)
 size = Vector2(373, 201)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bs6ud"]
-size = Vector2(219, 166)
+size = Vector2(219, 217)
 
 [node name="UPDQC" type="Node2D"]
 script = ExtResource("1_it7vl")
@@ -36,36 +41,60 @@ offset_bottom = 648.0
 texture = SubResource("CompressedTexture2D_t66bq")
 expand_mode = 1
 
-[node name="Chicken" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_j3x12")]
+[node name="Adi\'sMural" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
+hitbox_component = NodePath("CollisionShape2D")
+sprite_component = NodePath("Sprite2D")
+required_character = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Adi\'sMural"]
+position = Vector2(738.5, 303)
+scale = Vector2(0.599459, 0.598958)
+texture = ExtResource("3_j3x12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Adi\'sMural"]
+position = Vector2(694.25, 295)
+shape = SubResource("RectangleShape2D_au5bx")
+
+[node name="Stall" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
+position = Vector2(523, 332)
+hitbox_component = NodePath("CollisionShape2D")
+sprite_component = NodePath("Sprite2D")
+required_character = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Stall"]
+position = Vector2(180, 76)
+scale = Vector2(0.605187, 0.597015)
+texture = ExtResource("4_btlh7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stall"]
+position = Vector2(136.5, 69)
+shape = SubResource("RectangleShape2D_tyg5k")
+
+[node name="Chicken" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
 position = Vector2(337, 443)
 hitbox_component = NodePath("CollisionShape2D")
+sprite_component = NodePath("Sprite2D")
 required_character = 0
 
+[node name="Sprite2D" type="Sprite2D" parent="Chicken"]
+position = Vector2(593, -152)
+scale = Vector2(0.607595, 0.592592)
+texture = ExtResource("5_gsp0h")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chicken"]
-position = Vector2(19, 28)
+position = Vector2(593, -153)
 shape = SubResource("RectangleShape2D_j3x12")
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="Stall" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_j3x12")]
-position = Vector2(523, 332)
+[node name="Trees" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
 hitbox_component = NodePath("CollisionShape2D")
-required_character = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stall"]
-position = Vector2(148, 26)
-shape = SubResource("RectangleShape2D_tyg5k")
-
-[node name="Adi\'sMural" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_j3x12")]
-hitbox_component = NodePath("CollisionShape2D")
-required_character = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Adi\'sMural"]
-position = Vector2(681, 252)
-shape = SubResource("RectangleShape2D_au5bx")
-
-[node name="Trees" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_j3x12")]
-hitbox_component = NodePath("CollisionShape2D")
+sprite_component = NodePath("Sprite2D")
 required_character = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Trees"]
+position = Vector2(408.484, 277)
+scale = Vector2(0.597826, 0.597826)
+texture = ExtResource("4_tyg5k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trees"]
 position = Vector2(457, 89)
@@ -82,16 +111,23 @@ position = Vector2(283.5, 278.5)
 shape = SubResource("RectangleShape2D_gsp0h")
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="SunkenGarden" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_j3x12")]
+[node name="SunkenGarden" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
 position = Vector2(102, 469)
 hitbox_component = NodePath("CollisionShape2D")
+sprite_component = NodePath("Sprite2D")
 required_character = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="SunkenGarden"]
+position = Vector2(10, 35.5348)
+scale = Vector2(0.629214, 0.59931)
+texture = ExtResource("7_bs6ud")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SunkenGarden"]
+position = Vector2(0, 25.5)
 shape = SubResource("RectangleShape2D_bs6ud")
 
-[connection signal="item_clicked" from="Chicken" to="." method="_on_chicken_item_clicked"]
-[connection signal="item_clicked" from="Stall" to="." method="_on_stall_item_clicked"]
 [connection signal="item_clicked" from="Adi\'sMural" to="." method="_on_adis_mural_item_clicked"]
+[connection signal="item_clicked" from="Stall" to="." method="_on_stall_item_clicked"]
+[connection signal="item_clicked" from="Chicken" to="." method="_on_chicken_item_clicked"]
 [connection signal="item_clicked" from="Trees" to="." method="_on_trees_item_clicked"]
 [connection signal="item_clicked" from="SunkenGarden" to="." method="_on_sunken_garden_item_clicked"]
