@@ -28,7 +28,7 @@ signal pov_switch()
 signal show_contextual_menus(value: bool)
 signal switch_has_been_set
 
-var current_pov: POV_Character = POV_Character.ADI
+var current_pov: POV_Character = POV_Character.WIKS
 
 var switches: Dictionary[String, bool] = {
 	"loc_1_stall": false,
