@@ -5,7 +5,7 @@ wiks: Got everything you need?
 adi: Yes! Just— Give me a moment!
 wiks: I'm coming in.
 [background arg="res://assets/images/backgrounds/intro_jabee.png" fade="5.0" transition="Simple Fade"]
-[wait time="3.0"]
+[wait time="1.0"]
 join wiks center
 It's just how you remember it. It smells like the fierce chemical odor of paint and dust and sea and all the quiet days spent here with your best friend.
 update wiks left
@@ -56,7 +56,7 @@ wiks: Really? A windowsill this time?
 adi (angry): I swear, that wasn't—
 You laugh and turn away, grabbing her prepared bags near the door.
 wiks: Lets go, before our only chance at a vacation runs off at walking speed.
-[clear time="5.0"]
+[clear time="2.0" step="false"]
 [wait time="1.0"]
 The journey out of the village and into the city proper takes longer than expected. The carabaos refusing to be organized and delve into the flooded streets of what remains of the former capital.
 join wiks (neutral) left [z_index="1"]
@@ -71,7 +71,7 @@ singer: Ah youth. I wish I was half as spry as you two.
 singer: You really can't tell what Adi's going to do next, can't you? She must be a handful.
 wiks: She has her quirks... but don't we all?
 Singer chuckles.
-Singer: You're a sweet boy. Well, make this trip count, okay? I didn't get you two this time off just to continue working.
+You're a sweet boy. Well, make this trip count, okay? I didn't get you two this time off just to continue working.
 singer: You two need a break! [i]Mga bata ngayon[/i], always working, always trying to be something...
 Your smile falters for a bit at her words.
 You wonder if she noticed.

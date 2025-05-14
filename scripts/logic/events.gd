@@ -20,11 +20,16 @@ enum Locations {
 
 signal change_map(path: String)
 
+# Item_Base
 signal set_item_outline(value: bool)
 
+# For Camera Scene
 signal open_camera_signal()
 signal camera_photo_taken()
+
+# For Map Travel 
 signal unlock_location(loc_name: Locations)
+signal open_travel_map()
 
 signal pov_switch()
 signal show_contextual_menus(value: bool)
@@ -110,7 +115,12 @@ func reset()-> void:
 	current_pov = POV_Character.ADI
 	scrapbook_pictures = []
 
+## Shows the item outline when needed.
 func show_item_outline(value: bool) -> void:
 	set_item_outline.emit(value)
+
+## Shows the travel map scene.
+func show_travel_map_scene() -> void:
+	open_travel_map.emit()
 
 #endregion

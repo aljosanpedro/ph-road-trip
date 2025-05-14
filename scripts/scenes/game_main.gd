@@ -36,11 +36,13 @@ func _ready() -> void:
 	# INFO: Initialize Events singleton for a new game.
 	Events.initialize()
 	
+	# INFO: ???????????? What the sigma?
 	scene_map_travel.visible = false
 	
 	# INFO: Initialize connections to the Events scene.
 	Events.change_map.connect(_goto_area)
 	Events.show_contextual_menus.connect(_show_game_contextual_menus)
+	Events.open_travel_map.connect(_map_travel_scene_call)
 	
 	# INFO: Start game. Kinda funny we're doing loop-de-loops here.
 	Events.change_area(current_scene.resource_path)
@@ -50,9 +52,9 @@ func _ready() -> void:
 #endregion
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("open_map"):
-		_map_travel_scene_call()
-		get_viewport().set_input_as_handled()
+	#if event.is_action_pressed("open_map"):
+		#_map_travel_scene_call()
+		#get_viewport().set_input_as_handled()
 		
 	if event.is_action_pressed("open_scrapbook"):
 		get_tree().change_scene_to_file("res://scenes/scenes/scrapbook.tscn")

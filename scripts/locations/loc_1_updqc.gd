@@ -57,6 +57,9 @@ func _is_everything_interacted() -> void:
 	# Then, enable Route.
 	Events.enable_route(Events.Locations.Cubao)
 	
+	# Call map.
+	Events.show_travel_map_scene()
+	
 	# Disconnect to never let it fire again.
 	Events.switch_has_been_set.disconnect(_is_everything_interacted)
 	
