@@ -20,7 +20,6 @@ editor_draw_limits = true
 
 [node name="CameraLayer" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 
 [node name="CameraOverlay" type="TextureRect" parent="CameraLayer"]
 anchors_preset = 15

@@ -117,7 +117,7 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_qr2xy"]
 line_spacing = 0.0
 font = ExtResource("12_tsi4x")
-font_size = 40
+font_size = 80
 
 [node name="MapTravel" type="Control"]
 layout_mode = 3
@@ -160,68 +160,102 @@ antialiased = true
 
 [node name="UPD-QC" parent="." groups=["locations"] instance=ExtResource("3_e23lu")]
 layout_mode = 1
-offset_left = 726.0
-offset_top = 208.0
-offset_right = -386.0
-offset_bottom = -400.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1214.0
+offset_top = 353.0
+offset_right = 1234.0
+offset_bottom = 373.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1, 1)
 location = ExtResource("4_02dou")
 
 [node name="Cubao" parent="." groups=["locations"] instance=ExtResource("3_e23lu")]
 layout_mode = 1
-offset_left = 694.0
-offset_top = 263.0
-offset_right = -418.0
-offset_bottom = -345.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1164.0
+offset_top = 446.0
+offset_right = 1184.0
+offset_bottom = 466.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1, 1)
 location = ExtResource("5_t4heh")
 
 [node name="Makati" parent="." groups=["locations"] instance=ExtResource("3_e23lu")]
 layout_mode = 1
-offset_left = 647.0
-offset_top = 351.0
-offset_right = -465.0
-offset_bottom = -257.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1081.0
+offset_top = 589.0
+offset_right = 1101.0
+offset_bottom = 609.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1, 1)
 location = ExtResource("6_mo0mx")
 
 [node name="Quiapo" parent="." groups=["locations"] instance=ExtResource("3_e23lu")]
 layout_mode = 1
-offset_left = 676.0
-offset_top = 409.0
-offset_right = -436.0
-offset_bottom = -199.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1133.0
+offset_top = 689.0
+offset_right = 1153.0
+offset_bottom = 709.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1, 1)
 location = ExtResource("7_tsi4x")
 
 [node name="Coast" parent="." groups=["locations"] instance=ExtResource("3_e23lu")]
 layout_mode = 1
-offset_left = 666.0
-offset_top = 433.0
-offset_right = -446.0
-offset_bottom = -175.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1117.0
+offset_top = 728.0
+offset_right = 1137.0
+offset_bottom = 748.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1, 1)
 location = ExtResource("8_qr2xy")
 
 [node name="Jabee" parent="." groups=["locations"] instance=ExtResource("3_e23lu")]
 layout_mode = 1
-offset_left = 640.0
-offset_top = 431.0
-offset_right = -472.0
-offset_bottom = -177.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1073.0
+offset_top = 723.0
+offset_right = 1093.0
+offset_bottom = 743.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1, 1)
 location = ExtResource("10_t4heh")
 
 [node name="CurrentLocationPlayer" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 726.0
-offset_top = 208.0
-offset_right = 766.0
-offset_bottom = 248.0
-scale = Vector2(0.5, 0.5)
+offset_left = 1203.0
+offset_top = 342.0
+offset_right = 1243.0
+offset_bottom = 382.0
 texture = ExtResource("13_qr2xy")
 
 [node name="TargetArea" type="TextureRect" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 723.0
-offset_top = 174.0
-offset_right = 748.0
-offset_bottom = 223.0
+offset_left = 1.0
+offset_right = 51.0
+offset_bottom = 88.0
 mouse_filter = 2
 texture = ExtResource("11_mo0mx")
 expand_mode = 3
@@ -234,12 +268,12 @@ libraries = {
 
 [node name="LocationLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 68.0
-offset_top = 40.0
-offset_right = 297.0
-offset_bottom = 115.0
+offset_left = 65.0
+offset_top = 65.0
+offset_right = 519.0
+offset_bottom = 214.0
 rotation = -0.0523599
-text = "???"
+text = "UPD"
 label_settings = SubResource("LabelSettings_qr2xy")
 horizontal_alignment = 1
 vertical_alignment = 1
