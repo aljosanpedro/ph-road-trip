@@ -65,27 +65,37 @@ func _is_everything_interacted() -> void:
 
 #region Interactable
 func _on_chicken_item_clicked() -> void:
+	Events.show_item_outline(false)
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "loose_chicken")
 	await Dialogic.timeline_ended
+	Events.show_item_outline(true)
 	Events.set_switch("loc_1_loose_chicken", true)
 
 func _on_stall_item_clicked() -> void:
+	Events.show_item_outline(false)
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "stall")
 	await Dialogic.timeline_ended
+	Events.show_item_outline(true)
 	Events.set_switch("loc_1_stall", true)
 
 func _on_adis_mural_item_clicked() -> void:
+	Events.show_item_outline(false)
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "adis_mural")
 	await Dialogic.timeline_ended
+	Events.show_item_outline(true)
 	Events.set_switch("loc_1_adis_mural", true)
 
 func _on_trees_item_clicked() -> void:
+	Events.show_item_outline(false)
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "trees")
 	await Dialogic.timeline_ended
+	Events.show_item_outline(true)
 	Events.set_switch("loc_1_trees", true)
 
 func _on_sunken_garden_item_clicked() -> void:
+	Events.show_item_outline(false)
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "sunken_garden")
 	await Dialogic.timeline_ended
+	Events.show_item_outline(true)
 	Events.set_switch("loc_1_sunken_garden", true)
 #endregion
