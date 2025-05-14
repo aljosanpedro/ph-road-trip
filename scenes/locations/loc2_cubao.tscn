@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cr3bx2sugqsil"]
+[gd_scene load_steps=7 format=3 uid="uid://cr3bx2sugqsil"]
 
 [ext_resource type="Script" uid="uid://wx5m6c8828qu" path="res://scripts/locations/loc_2_cubao.gd" id="1_7bot1"]
 [ext_resource type="Texture2D" uid="uid://du6qv4l3n2bg1" path="res://assets/images/backgrounds/2_cubao.png" id="2_5wx0i"]
+[ext_resource type="PackedScene" uid="uid://8iegyqjcp1jn" path="res://scenes/components/item_base.tscn" id="3_s6s24"]
+[ext_resource type="Texture2D" uid="uid://c5lanwikfmg8c" path="res://assets/images/items/loc_2/loc_2_cubao_rubble_interactable.png" id="4_u3dxt"]
+[ext_resource type="Texture2D" uid="uid://c3k1r7je517sp" path="res://assets/images/items/loc_2/loc_2_jollibee_interactable.png" id="5_2dul2"]
+[ext_resource type="Texture2D" uid="uid://s2an4fscsmvk" path="res://assets/images/items/loc_2/loc_2_lantern_interactable.png" id="6_qov41"]
 
 [node name="Cubao" type="Node2D"]
 script = ExtResource("1_7bot1")
@@ -11,3 +15,43 @@ offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_5wx0i")
 expand_mode = 1
+
+[node name="Graffiti" parent="." instance=ExtResource("3_s6s24")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Graffiti"]
+position = Vector2(416, 494)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_u3dxt")
+
+[node name="Jolibee" parent="." instance=ExtResource("3_s6s24")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Jolibee"]
+position = Vector2(266, 353)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_2dul2")
+
+[node name="Lanterns" parent="." instance=ExtResource("3_s6s24")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Lanterns"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_qov41")
+
+[node name="Radio" parent="." instance=ExtResource("3_s6s24")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Radio"]
+scale = Vector2(0.6, 0.6)
+
+[node name="Clothes" parent="." instance=ExtResource("3_s6s24")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Clothes"]
+scale = Vector2(0.6, 0.6)
+
+[node name="Mannequins" parent="." instance=ExtResource("3_s6s24")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Mannequins"]
+scale = Vector2(0.6, 0.6)
+
+[node name="ItemBase7" parent="." instance=ExtResource("3_s6s24")]
+
+[node name="Sprite2D" type="Sprite2D" parent="ItemBase7"]
+scale = Vector2(0.6, 0.6)

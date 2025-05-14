@@ -12,22 +12,22 @@
 load_path = "res://.godot/imported/1_upd.png-f5f3523330a41720651a94e24edb9027.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_au5bx"]
-size = Vector2(356.5, 139)
+size = Vector2(523.25, 223.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyg5k"]
-size = Vector2(139, 66)
+size = Vector2(310, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3x12"]
-size = Vector2(51.5, 58)
+size = Vector2(81.75, 89)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u16s0"]
-size = Vector2(814.5, 252)
+size = Vector2(1358.5, 385)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btlh7"]
-size = Vector2(164, 374.5)
+size = Vector2(262, 522.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bs6ud"]
-size = Vector2(219, 217)
+size = Vector2(355.5, 400.5)
 
 [node name="UPDQC" type="Node2D"]
 script = ExtResource("1_it7vl")
@@ -36,7 +36,7 @@ script = ExtResource("1_it7vl")
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = SubResource("CompressedTexture2D_t66bq")
-expand_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="Adi\'sMural" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
 hitbox_component = NodePath("CollisionShape2D")
@@ -44,12 +44,11 @@ sprite_component = NodePath("Sprite2D")
 required_character = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Adi\'sMural"]
-position = Vector2(738.5, 303)
-scale = Vector2(0.599459, 0.598958)
+position = Vector2(1231, 505)
 texture = ExtResource("3_j3x12")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Adi\'sMural"]
-position = Vector2(694.25, 295)
+position = Vector2(1189.38, 504.25)
 shape = SubResource("RectangleShape2D_au5bx")
 
 [node name="Stall" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
@@ -59,12 +58,11 @@ sprite_component = NodePath("Sprite2D")
 required_character = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Stall"]
-position = Vector2(180, 76)
-scale = Vector2(0.605187, 0.597015)
+position = Vector2(647, 348)
 texture = ExtResource("4_btlh7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stall"]
-position = Vector2(136.5, 69)
+position = Vector2(629, 351)
 shape = SubResource("RectangleShape2D_tyg5k")
 
 [node name="Chicken" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
@@ -74,12 +72,11 @@ sprite_component = NodePath("Sprite2D")
 required_character = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Chicken"]
-position = Vector2(593, -152)
-scale = Vector2(0.607595, 0.592592)
+position = Vector2(1213, 41)
 texture = ExtResource("5_gsp0h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chicken"]
-position = Vector2(593, -153)
+position = Vector2(1214.13, 42.5)
 shape = SubResource("RectangleShape2D_j3x12")
 debug_color = Color(1, 0, 0, 0.419608)
 
@@ -89,19 +86,16 @@ sprite_component = NodePath("Sprite2D")
 required_character = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Trees"]
-position = Vector2(408.484, 275)
-scale = Vector2(0.597826, 0.597826)
+position = Vector2(683, 460)
 texture = ExtResource("4_tyg5k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trees"]
-visible = false
-position = Vector2(406.75, 126)
+position = Vector2(678.75, 192.5)
 shape = SubResource("RectangleShape2D_u16s0")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Trees"]
-visible = false
-position = Vector2(291, 352.75)
+position = Vector2(454, 648.875)
 shape = SubResource("RectangleShape2D_btlh7")
 debug_color = Color(1, 0, 0, 0.419608)
 
@@ -112,12 +106,11 @@ sprite_component = NodePath("Sprite2D")
 required_character = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="SunkenGarden"]
-position = Vector2(10, 35.5348)
-scale = Vector2(0.629214, 0.59931)
+position = Vector2(76, 371)
 texture = ExtResource("7_bs6ud")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SunkenGarden"]
-position = Vector2(0, 25.5)
+position = Vector2(77.25, 348.75)
 shape = SubResource("RectangleShape2D_bs6ud")
 
 [connection signal="item_clicked" from="Adi\'sMural" to="." method="_on_adis_mural_item_clicked"]
