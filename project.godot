@@ -28,7 +28,11 @@ Events="*res://scripts/logic/events.gd"
 directories/dch_directory={
 "adi": "res://assets/dialogue/characters/adi.dch",
 "female_voice": "res://assets/dialogue/characters/female_voice.dch",
+"lian": "res://assets/dialogue/characters/lian.dch",
+"old_lady": "res://assets/dialogue/characters/old_lady.dch",
 "old_man": "res://assets/dialogue/characters/old_man.dch",
+"random_kid": "res://assets/dialogue/characters/random_kid.dch",
+"random_kid_2": "res://assets/dialogue/characters/random_kid_2.dch",
 "singer": "res://assets/dialogue/characters/singer.dch",
 "tutorial": "res://assets/dialogue/characters/tutorial.dch",
 "wiks": "res://assets/dialogue/characters/wiks.dch",

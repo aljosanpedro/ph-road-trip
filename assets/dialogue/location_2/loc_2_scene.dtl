@@ -1,1 +1,51 @@
-so what do we do?
+label intro
+Your journey brings you deeper in the city, away from the wider spaces of home or the sunken garden.
+It’s almost like a maze—one of overgrown and crumbling buildings, half-submerged streets and collapsing flyovers.
+Your stop is only a place known as “The Gateway”, partially due to its central location making it a transport hub, but also because of the large broken sign that says the same thing.
+Inside is a city of echoes.
+Despite the people living here, the place is still and empty. Mossy mannequins stand in store windows, arms twisted to form crude poses. Stalls, counters, kiosks, all have been repurposed by the myriad families living here, forming huts and houses.
+But there is life: lanterns light up every corner of the mall. Old people sit in broken massage chairs. Men and women carry steaming pots and pans towards the communal kitchens. Youngsters push each other on carts with rusted wheels.
+Perhaps it isn’t as lively as it had once been, but it is lively nevertheless.
+adi: Holy crap.
+wiks: Welcome to the Gateway.
+wiks: The home of your dreams. Where memories are made, and where happiness can be bought. For the right price.
+if Events.get_current_pov() == Events.POV_Character.WIKS:
+	Your eyes widen in disbelief. What had Wiks gotten you into? Before you can ask, however, you notice the same things he said in an old ad in front of you.
+if Events.get_current_pov() == Events.POV_Character.ADI:
+	You see Adi's eyes open in disbelief, before she realizes you've been reading the lines from an old weathered ad in front of you.
+MAKE MEMORIES... HAPPINESS AT THE... RIGHT PRICE, it said.
+if Events.get_current_pov() == Events.POV_Character.WIKS:
+	You hear Adi let out a weak laugh, before giving you a playful flick on the arm. You chuckle, but a slight sense of unease worms its way into you.
+	You take a glance at her, and see a frown on her face. She notices your glance, and immediately smiles.
+	She motions towards the main portion of the building, and you ignore the worry for now. There'll be time later to ask.
+	adi: Let's go inside.
+if Events.get_current_pov() == Events.POV_Character.ADI:
+	You let out a weak laugh at the joke, giving Wiks a little playful flick on the arm, but something gnaws at you.
+The place, how its steeped in the past yet...
+You try to shake your head and brush it off, but the feeling remains.
+You blink and notice Wiks looking at you, a worried look on his features.
+You force a smile and jerk your head towards the inside of the mall.
+adi: Let's go inside.
+jump end
+label outro_pre_camera
+jump end
+label outro_post_camera
+Something hangs in the air between you two. It's quieter than usual.
+wiks: We can ride a boat to the skyscrapers down south. That should save us some time than if we walked or waited for the next caravan.
+adi: Cool.
+if Events.get_current_pov() == Events.POV_Character.WIKS:
+	Her voice is cold. Short. Not angry, just... flat. Like her mind's somewhere else.
+if Events.get_current_pov() == Events.POV_Character.ADI:
+	Your voice is quiet, flat. You don't notice it though.
+The rest of the walk is quiet as you approach another boat rental. Again, the Singer's name gives you immediate access to a good boat.
+if Events.get_current_pov() == Events.POV_Character.WIKS:
+	You try to distract yourself from the heavy air by engaging in small talk with the boatman, but he barely responds to your attempts at conversation.
+	Eventually you give up and slink back to a far wall, your hands nervously toying with your necklaces, as you try to bury a growing well of anxiety.
+	Was everything you've done a mistake?
+if Events.get_current_pov() == Events.POV_Character.ADI:
+	You barely notice Wiks talking to the boatman as you remain lost in thought. You know that this was supposed to be a time where you can be free, to find yourself, and yet...
+	With each leg of your journey, the world feels heavier and heavier.
+The boatman beckons to the two of you.
+Somehow, the open roads and shallow waters feel tighter as the two of you head out.
+label end
+[end_timeline]

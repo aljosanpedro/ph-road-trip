@@ -1,33 +1,71 @@
 label kids_playing
-You see a bunch of kids running around, chasing each other with sticks.
-wiks: Huh, haven't seen these many kids in a whil— Hey, watch out!
-You rush ahead and try to catch a kid as he slips on a wet patch of floor that he didn't notice.
-You barely make it in time to catch him before he gets injured.
-wiks: Watch where you're going!
-The kid rushes a “thank you” before scrambling off to join the other kids.
-wiks: Kids these days...
-wiks: Crap, wait. I was just a kid a few years back.
-wiks: Damn it, I'm sounding like the old man… and I'm just in my twenties!
+The two of you are walking when you hear loud footsteps running towards you. You barely have time to turn around when—BAM! A young kid, no more than six years old, slams head first into your thigh.
+wiks: Woah! Are you alright?
+You grab the kid before he falls to the ground. He’s dazed, but seemed unharmed. Behind him, you see a bunch of kids around his age stop before you. They were probably chasing each other.
+random_kid: Oy Lian, what happened?
+wiks: He hit his head, just give him a moment.
+You've barely finished speaking when the kid, Lian, shakes off his daze.
+lian: I'm fine, sorry mister!
+The kid suddenly runs off as the other kids, surprised at his sudden recovery, suddenly give chase.
+random_kid: Hey! No fair! You just wanted to rest!
+random_kid_2: We thought you were hurt!
+Their shouts and jeers rang out the corridors as they continued their journey. You turn around and see Adi looking at you with an eyebrow raised.
+adi: I never thought of you as a kid person.
+You shrug.
+wiks: Eh, let them be. It's not like we weren't kids once, y'know? Running around without a care in the world...
+For an instant, you see Adi's face falter, her gaze falling to the floor.
+adi: Hm. That was a different time.
+wiks: Adi...?
+She brushes it off.
+adi: Nevermind. Let's carry on.
 jump end
 label lanterns
-adi: That's a lotta lanterns.
-adi: Where do they get the oil for it?
-wiks: I remember that they have a trade deal with one of the vertical farms nearby. They use a certain plant that they can process into an oil for the 
-adi: So they have a refinery, huh.
-adi: So much work just for the lanterns...
-wiks: Well, they're known for it now.
-wiks: Might be weird if they suddenly snuffed it all out.
-wiks: Besides, it looks beautiful too.
+wiks: Huh, they must've doubled the number of lanterns since I was last here.
+wiks: I can actually see things now.
+You turn around at Adi, who was looking at one of the lanterns intently.
+wiks: Those things catch your eye? They apparently have a nearby farm produce the plant oil for these lanterns as part of a trade deal.
+wiks: And rumors are, many of these lanterns were made before the floods.
+wiks: I wonder what it feels like, to know that what you made serves a purpose this far in the future.
+You chuckle, but you notice your laughter sounds more hollow than you'd wish.
 jump end
 label radio
-You hear an old radio left next to the mural. While the sound is pretty bad quality, you can make out the voice of the radio host giving the latest 
-wiks: Is that-- I can't believe they'd just let a radio out in the open like this.
-adi: I haven't seen you this excited about something for a while now.
-adi: And I haven't even seen you in months!
-wiks: Come on, Adi, you know what I mean. It's a radio! You know how of those exist in good quality? For it to just be left alone here...
-adi: I mean, its a hub. They probably need a lot of radios around for people to get the hang of things.
-wiks: But still...
-adi: Come on, before they think you're gonna grab it.
+Near the rubble beneath the skylight, you see a beaten up old radio. An old woman, lounging around notices you looking at it, and moves closer.
+old_lady: Oh, that thing's busted for a while now. Just spews out static.
+old_lady: We'd have a technician take a look at it, but they're a bit busy with the radio towers down south.
+wiks: May I?
+old_lady: Sure sure, just put it back when you're done.
+You pick up the radio. While the edges are rusted, the knobs and dials seem to work. You glance around, and you see Adi currently sketching on her journal a few feet away. She probably wouldn't mind right?
+It takes you a few moments to find out what's wrong-- a few loose wires that just needed reconnecting. A few kids run past as you rummage through the wires. You flick a switch and the radio starts spewing out old-timey music.
+old_lady: Is that— Oh wonderful! Thank you young man, now I can listen to music again!
+wiks: I'm happy to help.
+You give the radio back to the old woman, who promptly carries it away. To her home, perhaps. Your face remains neutral as you watch her leave. You hear Adi's footsteps as she approaches.
+adi: You don't seem too happy for someone happy to help.
+wiks: I... don't know. I just felt like I had to.
+Adi stares at you for a while.
+adi: But did you want to?
+wiks: I...
+wiks: It was the right thing to do.
+jump end
+label graffiti
+The art in the rubble catches your eye—after all, it's located in the middle of the mall, directly underneath a massive hole in the roof.
+Bright sprays of neon yellow, bold red lines crossing over each other. Words scribbled in every possible direction. Somewhere on the side, drawings of people, of buildings and of green trees.
+It's a mess.
+Yet underneath it all is an eclectic order—people building on top of each other's work until it forms something that represents everyone who had their eyes drawn to the sight.
+An endless cycle of building up on what came before.
+wiks: Interesting how they made this out of some rubble, huh?
+wiks: Any interesting thoughts, miss artist?
+You shake your head. The technicalities of art are the last thing on your mind right now.
+adi: No.
+Wiks nods, though you don't know if he understood why you said so. He steps back, gives your shoulder a squeeze, and gives you some space.
+wiks: I'll be here if you need me.
+jump end
+label clothes
+Your eyes catch sight of a row of clothes hanging on makeshift clotheslines, many of them missing buttons or frayed at the edges. Some of the garments had been repurposed into patchwork outfits, while others were left untouched.
+The fabric feels soft and well-worn under your fingertips, but you feel like it wasn't always like this. There would've been a time when the fabric was crisp, new, marked with shapes and patterns (or the lack of them) that alluded to people's tastes.
+Now, they're all mashed together, old fabric with new cloth, repurposed, reused, recycled.
+The past reborn into the present, just in another form.
+Your thoughts wander into the intricacies of your work, and you wonder.
+Why must you now be the one to decide which past gets reborn into the present?
 jump end
 label mannequins
 adi: Why'd they just leave the mannequins in one place like this?
@@ -38,19 +76,20 @@ adi: I could use the model.
 adi: Maybe I'd let Wiks carry it home.
 jump end
 label jabee
-adi: What the hell is that?
-Wiks is confused for a bit as tries to understand the statue before you.
-It looks like a cartoon character, but none of the old books you've read show this character.
-It's also old enough to not be something custom-made.
-wiks: I think… I saw one of these when we were exploring close to the coast north.
-wiks: It's a mascot? Or something, I don't know.
-adi: A mascot for what?
-wiks: I don't know actually. No one in the crew knows who that is.
-adi: I bet [i]tita[/i] knows who this is.
-wiks: True. I don't wanna waste some film on it though.
-wiks: Maybe you can sketch it?
-You bite your lip. Should you?
-adi: I'll try.
-jump end
+A mascot stands before you, a cartoonishly happy bee bedecked in gold and red, its stinger pointed high in pride. It's the same mascot that you've seen at your studio.
+Tita says it's a logo of a famous fast food place, though you don't exactly have a concept of what makes food fast. While they no longer exist in the flooded cities, she said she once found an intact place far inland, where most citizens moved to, decades back.
+wiks: Huh, that's the mascot in your place, right? Funny we'd see it here as well.
+adi: Well, it is famous. How many of these had you seen out there?
+wiks: I don't really count, but maybe around ten? Twenty? There's actually a spot where there's a bunch of these smiling bee places clustered next to each other.
+wiks: I remember some of the explorers started using them as landmarks.
+He continues on, explaining everything he knows about the smiling bee. Normally, you'd be drinking every word he says, but right now, you wanted nothing more but an answer to something that you never noticed bugged you.
+adi: This must've meant a lot to people before.
+wiks: Of course that-- huh? What did you say?
+adi: If they built that many, they must've treasured this... this bee.
+Wiks scratches his head.
+wiks: I guess they might've? I don't really recall much conversation about them from the people who actually lived to see them.
+wiks: The floods must've had more importance in their memories.
+You nod, following him as he moves away. A thought runs in your head.
+What makes one past more special than another?
 label end
 [end_timeline]

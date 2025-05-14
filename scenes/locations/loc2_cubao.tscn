@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cr3bx2sugqsil"]
+[gd_scene load_steps=18 format=3 uid="uid://cr3bx2sugqsil"]
 
 [ext_resource type="Script" uid="uid://wx5m6c8828qu" path="res://scripts/locations/loc_2_cubao.gd" id="1_7bot1"]
 [ext_resource type="Texture2D" uid="uid://du6qv4l3n2bg1" path="res://assets/images/backgrounds/2_cubao.png" id="2_5wx0i"]
@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://c3k1r7je517sp" path="res://assets/images/items/loc_2/loc_2_jollibee_interactable.png" id="5_2dul2"]
 [ext_resource type="Texture2D" uid="uid://s2an4fscsmvk" path="res://assets/images/items/loc_2/loc_2_lantern_interactable.png" id="6_qov41"]
 [ext_resource type="Texture2D" uid="uid://dfwtyjfga85yb" path="res://assets/images/items/loc_2/loc_2_radio_interactable.png" id="7_e3aox"]
-[ext_resource type="Texture2D" uid="uid://8ekyne1fs4s2" path="res://assets/images/items/loc_2/loc_2_sky_interactable.png" id="8_xww42"]
+[ext_resource type="Texture2D" uid="uid://b68uuutbo381f" path="res://assets/images/items/loc_2/loc_2_kids_interactable.png" id="8_e3aox"]
 [ext_resource type="Texture2D" uid="uid://0ixhww6f8nhe" path="res://assets/images/items/loc_2/loc_2_mannequin_interactable.png" id="9_x6eh2"]
-[ext_resource type="Texture2D" uid="uid://co0qgic1vqtd1" path="res://assets/images/items/loc_2/loc_2_store_interactable.png" id="10_j05l1"]
+[ext_resource type="Texture2D" uid="uid://cqy2myj0rqfhi" path="res://assets/images/items/loc_2/loc_2_clothesline_interactable.png" id="10_xww42"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3aox"]
 size = Vector2(344, 209)
@@ -23,16 +23,23 @@ size = Vector2(22.25, 104)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j05l1"]
 size = Vector2(74.5, 118)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jojy"]
+size = Vector2(139.25, 88)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6eh2"]
 size = Vector2(215, 292.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i67qn"]
+size = Vector2(206.5, 60.8439)
 
 [node name="Cubao" type="Node2D"]
 script = ExtResource("1_7bot1")
 
 [node name="Background" type="TextureRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 texture = ExtResource("2_5wx0i")
+expand_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="Graffiti" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
@@ -89,13 +96,19 @@ metadata/_edit_lock_ = true
 position = Vector2(470.75, 865)
 shape = SubResource("RectangleShape2D_j05l1")
 
-[node name="Sky" parent="." node_paths=PackedStringArray("sprite_component") instance=ExtResource("3_s6s24")]
+[node name="Kids" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
+hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sky"]
-position = Vector2(562, 92)
-texture = ExtResource("8_xww42")
+[node name="Sprite2D" type="Sprite2D" parent="Kids"]
+position = Vector2(695, 548)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_e3aox")
 metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kids"]
+position = Vector2(696.375, 548)
+shape = SubResource("RectangleShape2D_7jojy")
 
 [node name="Mannequins" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
 hitbox_component = NodePath("CollisionShape2D")
@@ -111,10 +124,26 @@ position = Vector2(1200.5, 725.75)
 shape = SubResource("RectangleShape2D_x6eh2")
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="Store" parent="." node_paths=PackedStringArray("sprite_component") instance=ExtResource("3_s6s24")]
+[node name="Clothesline" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
+hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="Store"]
-position = Vector2(907, 584)
-texture = ExtResource("10_j05l1")
+[node name="Sprite2D" type="Sprite2D" parent="Clothesline"]
+position = Vector2(907, 240)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_xww42")
 metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Clothesline"]
+position = Vector2(899.026, 284.032)
+rotation = -0.6353
+shape = SubResource("RectangleShape2D_i67qn")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[connection signal="item_clicked" from="Graffiti" to="." method="_on_graffiti_item_clicked"]
+[connection signal="item_clicked" from="Jolibee" to="." method="_on_jolibee_item_clicked"]
+[connection signal="item_clicked" from="Lanterns" to="." method="_on_lanterns_item_clicked"]
+[connection signal="item_clicked" from="Radio" to="." method="_on_radio_item_clicked"]
+[connection signal="item_clicked" from="Kids" to="." method="_on_kids_item_clicked"]
+[connection signal="item_clicked" from="Mannequins" to="." method="_on_mannequins_item_clicked"]
+[connection signal="item_clicked" from="Clothesline" to="." method="_on_clothesline_item_clicked"]
