@@ -41,18 +41,23 @@ overrides = {
 "box_color_custom": "Color(1, 1, 1, 1)",
 "box_color_use_global": "false",
 "box_panel": "\"res://assets/themes/dialogue/dialogue_background.tres\"",
-"box_size": "Vector2(640, 165)",
+"box_size": "Vector2(1024, 264)",
 "italics_font": "\"res://assets/fonts/dialogue/merriweather_italic.ttf\"",
 "name_label_box_modulate": "Color(1, 1, 1, 1)",
-"name_label_box_offset": "Vector2(-20, 30)",
+"name_label_box_offset": "Vector2(-40, 25)",
 "name_label_box_panel": "\"res://assets/themes/dialogue/dialogue_namebox_background.tres\"",
 "name_label_box_use_global_color": "false",
+"name_label_custom_font_size": "28.0",
 "name_label_font": "\"res://assets/fonts/dialogue/merriweather_normal.ttf\"",
 "name_label_use_global_color": "false",
+"name_label_use_global_font_size": "false",
 "next_indicator_size": "Vector2(15, 15)",
 "normal_font": "\"res://assets/fonts/dialogue/merriweather_normal.ttf\"",
 "text_custom_color": "Color(0, 0, 0, 1)",
-"text_use_global_color": "false"
+"text_size": "32.0",
+"text_use_global_color": "false",
+"text_use_global_font": "false",
+"text_use_global_size": "false"
 }
 
 [sub_resource type="Resource" id="Resource_xgcra"]
@@ -64,13 +69,15 @@ overrides = {}
 script = ExtResource("1_xaqfk")
 scene = ExtResource("7_nqx6a")
 overrides = {
-"boxes_min_size": "Vector2(500, 0)",
+"boxes_min_size": "Vector2(800, 0)",
 "boxes_stylebox_focused": "\"res://assets/themes/dialogue/dialogue_choice_taken_background.tres\"",
 "boxes_stylebox_hovered": "\"res://assets/themes/dialogue/dialogue_choice_taken_background.tres\"",
 "boxes_stylebox_normal": "\"res://assets/themes/dialogue/dialogue_choice_background.tres\"",
 "boxes_stylebox_pressed": "\"res://assets/themes/dialogue/dialogue_choice_taken_background.tres\"",
 "boxes_v_separation": "0.0",
 "font_custom": "\"res://assets/fonts/dialogue/merriweather_normal.ttf\"",
+"font_size_custom": "28.0",
+"font_size_use_global": "false",
 "font_use_global": "false",
 "text_color_custom": "Color(0, 0, 0, 1)",
 "text_color_disabled": "Color(0.235294, 0.235294, 0.235294, 1)",
@@ -107,4 +114,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("1_xaqfk")]([])
-metadata/_latest_layer = "11"
+metadata/_latest_layer = "13"
