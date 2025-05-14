@@ -26,7 +26,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [PackedVector2Array(-115, -33, -116, -34), PackedVector2Array(-115, -33, -148, 24)]
+"values": [PackedVector2Array(-115, -33, -116, -34), PackedVector2Array(-115, -33, -168, 65)]
 }
 
 [sub_resource type="Animation" id="Animation_mo0mx"]
@@ -41,7 +41,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [PackedVector2Array(-115, -33, -148, 24), PackedVector2Array(-115, -33, -148, 24, -197, 113)]
+"values": [PackedVector2Array(-115, -33, -168, 65), PackedVector2Array(-115, -33, -168, 65, -250, 208)]
 }
 
 [sub_resource type="Animation" id="Animation_tsi4x"]
@@ -56,7 +56,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [PackedVector2Array(-115, -33, -148, 24, -197, 113), PackedVector2Array(-115, -33, -148, 24, -197, 113, -166, 169)]
+"values": [PackedVector2Array(-115, -33, -168, 65, -250, 208), PackedVector2Array(-115, -33, -168, 65, -250, 208, -195, 306)]
 }
 
 [sub_resource type="Animation" id="Animation_qr2xy"]
@@ -71,7 +71,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [PackedVector2Array(-115, -33, -148, 24, -197, 113, -166, 169), PackedVector2Array(-115, -33, -148, 24, -197, 113, -166, 169, -176, 193)]
+"values": [PackedVector2Array(-115, -33, -168, 65, -250, 208, -195, 306), PackedVector2Array(-115, -33, -168, 65, -250, 208, -195, 306, -214, 345)]
 }
 
 [sub_resource type="Animation" id="Animation_bgcp3"]
@@ -86,7 +86,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [PackedVector2Array(-115, -33, -148, 24, -197, 113, -166, 169, -176, 193), PackedVector2Array(-115, -33, -148, 24, -197, 113, -166, 169, -176, 193, -202, 191)]
+"values": [PackedVector2Array(-115, -33, -168, 65, -250, 208, -195, 306, -214, 345), PackedVector2Array(-115, -33, -168, 65, -250, 208, -195, 306, -214, 345, -261, 338)]
 }
 
 [sub_resource type="Animation" id="Animation_02dou"]
@@ -150,7 +150,7 @@ texture = ExtResource("3_02dou")
 expand_mode = 1
 
 [node name="Routing" type="Line2D" parent="."]
-position = Vector2(852, 250)
+position = Vector2(1340, 394)
 points = PackedVector2Array(-115, -33, -116, -34)
 width = 2.0
 default_color = Color(0, 0, 0, 1)
