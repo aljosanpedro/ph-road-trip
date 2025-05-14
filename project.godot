@@ -40,6 +40,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "debug": "res://assets/dialogue/debug.dtl",
+"end_of_demo": "res://assets/dialogue/end_of_demo.dtl",
 "intro": "res://assets/dialogue/intro/intro.dtl",
 "loc_1_interactables": "res://assets/dialogue/location_1/loc_1_interactables.dtl",
 "loc_1_scene": "res://assets/dialogue/location_1/loc_1_scene.dtl",
