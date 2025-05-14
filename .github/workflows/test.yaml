@@ -1,8 +1,6 @@
 name: "For Dev"
 
 on:
-    issues:
-        types: [closed]
     pull_request:
         types: [closed]
   
