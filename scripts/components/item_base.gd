@@ -25,6 +25,8 @@ signal item_clicked()
 func _ready() -> void:
 	# Connect callable.
 	Events.pov_switch.connect(_pov_switch_grayout)
+	Events.set_item_outline.connect(_show_item_outline)
+	
 	# Call for the first time.
 	_pov_switch_grayout()
 
@@ -38,12 +40,14 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 ## INFO: Highlights item when mouse hovers to the item.
 func _on_mouse_entered() -> void:
 	if not _required_character_checker(): return
+	if sprite_component != null: sprite_component.set_use_parent_material(true)  # Show outline.
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 	modulate = Color(2, 2, 2)
 
 ## INFO: De-highlights item when mouse hovers away from the item.
 func _on_mouse_exited() -> void:
 	if not _required_character_checker(): return
+	if sprite_component != null: sprite_component.set_use_parent_material(false) # Hide outline.
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	modulate = Color(1, 1, 1)
 	
@@ -63,8 +67,23 @@ func _required_character_checker() -> bool:
 ## Allows for better info.
 func _pov_switch_grayout() -> void:
 	if not _required_character_checker():
+		#if sprite_component != null: sprite_component.set_use_parent_material(false)
 		modulate = Color(0.5, 0.5, 0.5)
 	else:
+		#if sprite_component != null: sprite_component.set_use_parent_material(true)
 		modulate = Color(1, 1, 1)
+
+## INFO: Shows/hides item outline when called.
+func _show_item_outline(value: bool) -> void:
+	## If true, do POV switchout as normal.
+	if value == true:
+		_pov_switch_grayout()
+		set_pickable(true)
 		
+	# If not, then modulate and stuff. And DISALLOW any mouse enter/exits.
+	else:
+		#if sprite_component != null: sprite_component.set_use_parent_material(false)
+		modulate = Color(1, 1, 1)
+		set_pickable(false)
+
 #endregion

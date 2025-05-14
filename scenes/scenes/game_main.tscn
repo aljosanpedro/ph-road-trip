@@ -14,8 +14,8 @@ current_scene = ExtResource("2_jnjbd")
 [node name="GameArea" type="Node2D" parent="."]
 
 [node name="TextureRect" type="ColorRect" parent="GameArea"]
-offset_right = 1151.0
-offset_bottom = 648.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
 [node name="ContextMenus" type="CanvasLayer" parent="."]

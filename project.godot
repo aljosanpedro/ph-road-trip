@@ -39,7 +39,8 @@ directories/dtl_directory={
 "intro": "res://assets/dialogue/intro/intro.dtl",
 "loc_1_interactables": "res://assets/dialogue/location_1/loc_1_interactables.dtl",
 "loc_1_scene": "res://assets/dialogue/location_1/loc_1_scene.dtl",
-"loc_2_interactables": "res://assets/dialogue/location_2/loc_2_interactables.dtl"
+"loc_2_interactables": "res://assets/dialogue/location_2/loc_2_interactables.dtl",
+"loc_2_scene": "res://assets/dialogue/location_2/loc_2_scene.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://assets/themes/dialogue_stylings.tres"]
@@ -68,6 +69,9 @@ text/autopauses={}
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -129,6 +133,7 @@ open_scrapbook={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 textures/vram_compression/import_etc2_astc=true
 textures/default_filters/use_nearest_mipmap_filter=true
 anti_aliasing/quality/msaa_2d=3

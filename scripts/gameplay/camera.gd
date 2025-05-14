@@ -8,10 +8,10 @@ extends Control
 
 # Technically, negative to because LEFT/TOP siya na limits. But it's here as an
 # absolute value.
-const NL_X: int = 392
-const NL_Y: int = 85
-const SL_X: int = 399 
-const SL_Y: int = 203 
+const NL_X: int = 654
+const NL_Y: int = 141
+const SL_X: int = 666 
+const SL_Y: int = 339
 #endregion
 
 #region Virtual functions
@@ -25,9 +25,9 @@ func _process(_delta: float) -> void:
 func _input(_event: InputEvent) -> void:
 	# DEPRECATED CAMERA ACTION: Open camera via CAMERA COMMAND
 	## ONLY ALLOWED IN DEBUG
-	#if Input.is_action_just_pressed("ui_accept"):
-		#if camera.enabled: _camera_disable()
-		#else: _camera_activate()
+	if Input.is_action_just_pressed("ui_accept"):
+		if camera.enabled: _camera_disable()
+		else: _camera_activate()
 	
 	## DEPRECATED GALLERY ACTION: Open Gallery via Mouse Thumb 1
 	## ONLY ALLOWED IN DEBUG
@@ -57,11 +57,13 @@ func _camera_take_photo() -> void:
 	Events.camera_photo_taken.emit()
 
 func _camera_activate() -> void:
+	Events.show_item_outline(false) # Hide item outlines for picture taking.
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	camera_overlay.show()
 	camera.enabled = true
 
 func _camera_disable() -> void:
+	Events.show_item_outline(true) # Show item outlines for navigation.
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	camera_overlay.hide()
 	camera.enabled = false
@@ -76,8 +78,8 @@ func _camera_recalculate_limit() -> void:
 	var new_top_limit 		= -(NL_Y * (1.0 / camera.zoom.y))
 	
 	# INFO: Multiplicative inverse, motherfuckers.
-	var new_right_limit 	= 1152 + (SL_X * (1.0 / camera.zoom.x)) 
-	var new_bottom_limit 	= 648 + (SL_Y * (1.0 / camera.zoom.y)) 
+	var new_right_limit 	= 1920 + (SL_X * (1.0 / camera.zoom.x)) 
+	var new_bottom_limit 	= 1080 + (SL_Y * (1.0 / camera.zoom.y)) 
 	
 	camera.set_limit(SIDE_LEFT, new_left_limit)
 	camera.set_limit(SIDE_TOP, new_top_limit)

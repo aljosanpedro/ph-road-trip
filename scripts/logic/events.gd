@@ -20,22 +20,39 @@ enum Locations {
 
 signal change_map(path: String)
 
+# Item_Base
+signal set_item_outline(value: bool)
+
+# For Camera Scene
 signal open_camera_signal()
 signal camera_photo_taken()
+
+# For Map Travel 
 signal unlock_location(loc_name: Locations)
+signal open_travel_map()
 
 signal pov_switch()
 signal show_contextual_menus(value: bool)
 signal switch_has_been_set
 
-var current_pov: POV_Character = POV_Character.ADI
+var current_pov: POV_Character = POV_Character.WIKS
 
 var switches: Dictionary[String, bool] = {
+	# Location 1
 	"loc_1_stall": false,
 	"loc_1_sunken_garden": false,
 	"loc_1_adis_mural": false,
 	"loc_1_trees": false,
 	"loc_1_loose_chicken": false,
+	
+	# Location 2
+	"loc_2_kids_playing": false,
+	"loc_2_lanterns": false,
+	"loc_2_radio": false,
+	"loc_2_graffiti": false,
+	"loc_2_clothes": false,
+	"loc_2_mannequins": false,
+	"loc_2_jabee": false,
 }
 
 
@@ -107,5 +124,13 @@ func reset()-> void:
 		
 	current_pov = POV_Character.ADI
 	scrapbook_pictures = []
+
+## Shows the item outline when needed.
+func show_item_outline(value: bool) -> void:
+	set_item_outline.emit(value)
+
+## Shows the travel map scene.
+func show_travel_map_scene() -> void:
+	open_travel_map.emit()
 
 #endregion
