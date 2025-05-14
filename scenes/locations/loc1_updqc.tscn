@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cbe1ckj2yiwf5"]
+[gd_scene load_steps=15 format=3 uid="uid://cbe1ckj2yiwf5"]
 
 [ext_resource type="Script" uid="uid://du0kpd023b5oa" path="res://scripts/locations/loc_1_updqc.gd" id="1_it7vl"]
 [ext_resource type="PackedScene" uid="uid://8iegyqjcp1jn" path="res://scenes/components/item_base.tscn" id="2_j3x12"]
@@ -21,13 +21,10 @@ size = Vector2(139, 66)
 size = Vector2(51.5, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u16s0"]
-size = Vector2(915, 178)
+size = Vector2(814.5, 252)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btlh7"]
-size = Vector2(94.75, 374.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsp0h"]
-size = Vector2(373, 201)
+size = Vector2(164, 374.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bs6ud"]
 size = Vector2(219, 217)
@@ -97,18 +94,15 @@ scale = Vector2(0.597826, 0.597826)
 texture = ExtResource("4_tyg5k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trees"]
-position = Vector2(457, 89)
+visible = false
+position = Vector2(406.75, 126)
 shape = SubResource("RectangleShape2D_u16s0")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Trees"]
-position = Vector2(280.625, 352.75)
+visible = false
+position = Vector2(291, 352.75)
 shape = SubResource("RectangleShape2D_btlh7")
-debug_color = Color(1, 0, 0, 0.419608)
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Trees"]
-position = Vector2(283.5, 278.5)
-shape = SubResource("RectangleShape2D_gsp0h")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="SunkenGarden" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
