@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cr3bx2sugqsil"]
+[gd_scene load_steps=23 format=3 uid="uid://cr3bx2sugqsil"]
 
 [ext_resource type="Script" uid="uid://wx5m6c8828qu" path="res://scripts/locations/loc_2_cubao.gd" id="1_7bot1"]
 [ext_resource type="Texture2D" uid="uid://du6qv4l3n2bg1" path="res://assets/images/backgrounds/2_cubao.png" id="2_5wx0i"]
@@ -12,7 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://cqy2myj0rqfhi" path="res://assets/images/items/loc_2/loc_2_clothesline_interactable.png" id="10_xww42"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3aox"]
-size = Vector2(344, 209)
+size = Vector2(584, 162)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iadbw"]
+size = Vector2(531, 249)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0d5x"]
+size = Vector2(141, 49.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xww42"]
 size = Vector2(63, 82.5)
@@ -83,13 +89,23 @@ hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="Graffiti"]
-position = Vector2(694, 822)
+position = Vector2(675, 824)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_u3dxt")
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Graffiti"]
-position = Vector2(815, 863.5)
+position = Vector2(733, 725)
 shape = SubResource("RectangleShape2D_e3aox")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Graffiti"]
+position = Vector2(774.5, 931.5)
+shape = SubResource("RectangleShape2D_iadbw")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Graffiti"]
+position = Vector2(688.5, 622.25)
+shape = SubResource("RectangleShape2D_i0d5x")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Jolibee" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
