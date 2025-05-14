@@ -60,7 +60,7 @@ func _is_everything_interacted() -> void:
 	await Dialogic.timeline_ended
 	
 	# Then, enable Route.
-	Events.enable_route(Events.Locations.Cubao)
+	Events.enable_route(Events.Locations.Makati)
 	
 	# Call map.
 	Events.show_travel_map_scene()
@@ -69,7 +69,52 @@ func _is_everything_interacted() -> void:
 	Events.switch_has_been_set.disconnect(_is_everything_interacted)
 
 #region Interactable
+func _on_graffiti_item_clicked() -> void:
+	Events.show_item_outline(false)
+	# TODO: Insert dialogue here.
+	Events.show_item_outline(true)
+	Events.set_switch("loc_2_kids_playing", true)
 
 
+func _on_jolibee_item_clicked() -> void:
+	Events.show_item_outline(false)
+	# TODO: Insert dialogue here.
+	Events.show_item_outline(true)
+	Events.set_switch("loc_2_jabee", true)
 
+
+func _on_lanterns_item_clicked() -> void:
+	Events.show_item_outline(false)
+	# TODO: Insert dialogue here.
+	Events.show_item_outline(true)
+	Events.set_switch("loc_2_lanterns", true)
+
+
+func _on_radio_item_clicked() -> void:
+	Events.show_item_outline(false)
+	# TODO: Insert dialogue here.
+	Events.show_item_outline(true)
+	Events.set_switch("loc_2_radio", true)
+
+
+func _on_kids_item_clicked() -> void:
+	Events.show_item_outline(false)
+	# TODO: Insert dialogue here.
+	Events.show_item_outline(true)
+	Events.set_switch("loc_2_kids_playing", true)
+
+
+func _on_mannequins_item_clicked() -> void:
+	Events.show_item_outline(false)
+	# TODO: Insert dialogue here.
+	Events.show_item_outline(true)
+	Events.set_switch("loc_2_mannequins", true)
+
+
+func _on_clothesline_item_clicked() -> void:
+	Events.show_item_outline(false)
+	# TODO: Insert dialogue here.
+	Events.show_item_outline(true)
+	Events.set_switch("loc_2_clothes", true)
+	
 #endregion
