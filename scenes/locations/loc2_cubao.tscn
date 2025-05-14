@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cr3bx2sugqsil"]
+[gd_scene load_steps=16 format=3 uid="uid://cr3bx2sugqsil"]
 
 [ext_resource type="Script" uid="uid://wx5m6c8828qu" path="res://scripts/locations/loc_2_cubao.gd" id="1_7bot1"]
 [ext_resource type="Texture2D" uid="uid://du6qv4l3n2bg1" path="res://assets/images/backgrounds/2_cubao.png" id="2_5wx0i"]
@@ -6,6 +6,25 @@
 [ext_resource type="Texture2D" uid="uid://c5lanwikfmg8c" path="res://assets/images/items/loc_2/loc_2_cubao_rubble_interactable.png" id="4_u3dxt"]
 [ext_resource type="Texture2D" uid="uid://c3k1r7je517sp" path="res://assets/images/items/loc_2/loc_2_jollibee_interactable.png" id="5_2dul2"]
 [ext_resource type="Texture2D" uid="uid://s2an4fscsmvk" path="res://assets/images/items/loc_2/loc_2_lantern_interactable.png" id="6_qov41"]
+[ext_resource type="Texture2D" uid="uid://dfwtyjfga85yb" path="res://assets/images/items/loc_2/loc_2_radio_interactable.png" id="7_e3aox"]
+[ext_resource type="Texture2D" uid="uid://8ekyne1fs4s2" path="res://assets/images/items/loc_2/loc_2_sky_interactable.png" id="8_xww42"]
+[ext_resource type="Texture2D" uid="uid://0ixhww6f8nhe" path="res://assets/images/items/loc_2/loc_2_mannequin_interactable.png" id="9_x6eh2"]
+[ext_resource type="Texture2D" uid="uid://co0qgic1vqtd1" path="res://assets/images/items/loc_2/loc_2_store_interactable.png" id="10_j05l1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3aox"]
+size = Vector2(344, 209)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xww42"]
+size = Vector2(63, 82.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iuwtx"]
+size = Vector2(22.25, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j05l1"]
+size = Vector2(74.5, 118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6eh2"]
+size = Vector2(215, 292.5)
 
 [node name="Cubao" type="Node2D"]
 script = ExtResource("1_7bot1")
@@ -14,44 +33,88 @@ script = ExtResource("1_7bot1")
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_5wx0i")
-expand_mode = 1
+metadata/_edit_lock_ = true
 
-[node name="Graffiti" parent="." instance=ExtResource("3_s6s24")]
+[node name="Graffiti" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
+hitbox_component = NodePath("CollisionShape2D")
+sprite_component = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="Graffiti"]
-position = Vector2(416, 494)
-scale = Vector2(0.6, 0.6)
+position = Vector2(694, 822)
 texture = ExtResource("4_u3dxt")
+metadata/_edit_lock_ = true
 
-[node name="Jolibee" parent="." instance=ExtResource("3_s6s24")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Graffiti"]
+position = Vector2(815, 863.5)
+shape = SubResource("RectangleShape2D_e3aox")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="Jolibee" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
+hitbox_component = NodePath("CollisionShape2D")
+sprite_component = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="Jolibee"]
-position = Vector2(266, 353)
-scale = Vector2(0.6, 0.6)
+position = Vector2(444, 589)
 texture = ExtResource("5_2dul2")
+metadata/_edit_lock_ = true
 
-[node name="Lanterns" parent="." instance=ExtResource("3_s6s24")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jolibee"]
+position = Vector2(448.5, 592.75)
+shape = SubResource("RectangleShape2D_xww42")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="Lanterns" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
+hitbox_component = NodePath("CollisionShape2D")
+sprite_component = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="Lanterns"]
-scale = Vector2(0.6, 0.6)
+position = Vector2(375, 529)
 texture = ExtResource("6_qov41")
+metadata/_edit_lock_ = true
 
-[node name="Radio" parent="." instance=ExtResource("3_s6s24")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lanterns"]
+position = Vector2(373.875, 529)
+shape = SubResource("RectangleShape2D_iuwtx")
+
+[node name="Radio" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
+hitbox_component = NodePath("CollisionShape2D")
+sprite_component = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="Radio"]
-scale = Vector2(0.6, 0.6)
+position = Vector2(477, 866)
+texture = ExtResource("7_e3aox")
+metadata/_edit_lock_ = true
 
-[node name="Clothes" parent="." instance=ExtResource("3_s6s24")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Radio"]
+position = Vector2(470.75, 865)
+shape = SubResource("RectangleShape2D_j05l1")
 
-[node name="Sprite2D" type="Sprite2D" parent="Clothes"]
-scale = Vector2(0.6, 0.6)
+[node name="Sky" parent="." node_paths=PackedStringArray("sprite_component") instance=ExtResource("3_s6s24")]
+sprite_component = NodePath("Sprite2D")
 
-[node name="Mannequins" parent="." instance=ExtResource("3_s6s24")]
+[node name="Sprite2D" type="Sprite2D" parent="Sky"]
+position = Vector2(562, 92)
+texture = ExtResource("8_xww42")
+metadata/_edit_lock_ = true
+
+[node name="Mannequins" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
+hitbox_component = NodePath("CollisionShape2D")
+sprite_component = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="Mannequins"]
-scale = Vector2(0.6, 0.6)
+position = Vector2(1215, 728)
+texture = ExtResource("9_x6eh2")
+metadata/_edit_lock_ = true
 
-[node name="ItemBase7" parent="." instance=ExtResource("3_s6s24")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mannequins"]
+position = Vector2(1200.5, 725.75)
+shape = SubResource("RectangleShape2D_x6eh2")
+debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="Sprite2D" type="Sprite2D" parent="ItemBase7"]
-scale = Vector2(0.6, 0.6)
+[node name="Store" parent="." node_paths=PackedStringArray("sprite_component") instance=ExtResource("3_s6s24")]
+sprite_component = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="Store"]
+position = Vector2(907, 584)
+texture = ExtResource("10_j05l1")
+metadata/_edit_lock_ = true
