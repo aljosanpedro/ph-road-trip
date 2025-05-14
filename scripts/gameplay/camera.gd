@@ -25,9 +25,9 @@ func _process(_delta: float) -> void:
 func _input(_event: InputEvent) -> void:
 	# DEPRECATED CAMERA ACTION: Open camera via CAMERA COMMAND
 	## ONLY ALLOWED IN DEBUG
-	if Input.is_action_just_pressed("ui_accept"):
-		if camera.enabled: _camera_disable()
-		else: _camera_activate()
+	#if Input.is_action_just_pressed("ui_accept"):
+		#if camera.enabled: _camera_disable()
+		#else: _camera_activate()
 	
 	## DEPRECATED GALLERY ACTION: Open Gallery via Mouse Thumb 1
 	## ONLY ALLOWED IN DEBUG
