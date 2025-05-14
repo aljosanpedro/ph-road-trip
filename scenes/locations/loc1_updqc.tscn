@@ -89,7 +89,7 @@ sprite_component = NodePath("Sprite2D")
 required_character = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Trees"]
-position = Vector2(408.484, 277)
+position = Vector2(408.484, 275)
 scale = Vector2(0.597826, 0.597826)
 texture = ExtResource("4_tyg5k")
 
