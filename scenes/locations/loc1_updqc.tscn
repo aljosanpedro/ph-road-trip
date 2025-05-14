@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cbe1ckj2yiwf5"]
+[gd_scene load_steps=18 format=3 uid="uid://cbe1ckj2yiwf5"]
 
 [ext_resource type="Script" uid="uid://du0kpd023b5oa" path="res://scripts/locations/loc_1_updqc.gd" id="1_it7vl"]
 [ext_resource type="PackedScene" uid="uid://8iegyqjcp1jn" path="res://scenes/components/item_base.tscn" id="2_j3x12"]
@@ -28,6 +28,42 @@ size = Vector2(262, 522.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bs6ud"]
 size = Vector2(355.5, 400.5)
+
+[sub_resource type="Animation" id="Animation_btlh7"]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gsp0h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bs6ud"]
+_data = {
+&"RESET": SubResource("Animation_gsp0h"),
+&"fade_to_black": SubResource("Animation_btlh7")
+}
 
 [node name="UPDQC" type="Node2D"]
 script = ExtResource("1_it7vl")
@@ -112,6 +148,11 @@ texture = ExtResource("7_bs6ud")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SunkenGarden"]
 position = Vector2(77.25, 348.75)
 shape = SubResource("RectangleShape2D_bs6ud")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bs6ud")
+}
 
 [connection signal="item_clicked" from="Adi\'sMural" to="." method="_on_adis_mural_item_clicked"]
 [connection signal="item_clicked" from="Stall" to="." method="_on_stall_item_clicked"]

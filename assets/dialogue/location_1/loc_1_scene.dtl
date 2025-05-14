@@ -36,19 +36,30 @@ tutorial: Swap between Wiks and Adi by clicking their portraits at the top. Clic
 jump end
 label outro_pre_camera
 if Events.get_current_pov() == Events.POV_Character.WIKS:
-	wiks: Hey, mind if I borrow the camera for a bit?
-	adi: Hm?
-	She rummages through her pack before producing the old camera from this morning.
-adi: What're you taking a picture of?
-wiks: This place. We don't know when we'll we back.
-wiks: Besides, tita asked for pictures. I have to.
-adi: Just don't waste your shots.
-adi: Those polaroids take ages to find.
+	You approach Adi, who stands near the water, her hands absentmindedly playing with the camera she's holding.
+	She doesn't hear you approach.
+	wiks: Hey Adi, admiring the view?
+	She shakes her head.
+	adi: Just... thinking.
+	adi: What is it?
+	wiks: Oh, I was thinking that we've had quite the time here, so maybe let's take a picture of the place now before we forget.
+	adi: Oh right! I almost forgot. Here.
+	She hands you the camera.
+	adi: I trust your scouting eyes will find the right angles, Mister Explorer.
+if Events.get_current_pov() == Events.POV_Character.ADI:
+	Wiks leans against the side of the big tree when you approach him, camera in hand.
+	wiks: What’s up? Just catching my breath.
+	You hold out the camera.
+	adi: I think we’ve checked the place out pretty well. Wanna take a picture for tita?
+	He immediately straightens up, immediately scanning the surroundings.
+	wiks: Sure thing! As our resident artist, I’ll let your eye guide the camera.
+	You just roll your eyes at him as you chuckle and bring the viewfinder up.
 jump end
 label outro_post_camera
+Time passes.
 adi: So where are we going next?
 The two of you are sitting in a tree stump next to the boat rental. To no one's surprise, the Singer was as good as her word. The moment you said her name, they merely asked for a destination and immediately set to work. Behind you, you can hear someone barking orders.
-wiks: Cubao. Good halfway point to practically everywhere, since its a transport hub. From there, we can go to either...
+wiks: Cubo. Good halfway point to practically everywhere, since it's a transport hub. From there, we can go to either…
 adi: Hm, any chance we can go to those skyscrapers you told me about before? The ones down south?
 adi: I've always wanted to check it out.
 wiks: Sure, why not? It's a bit far from Cubo, but we should be able to reach it just before sundown. It's close to the coast though, so we might need to be careful of high tides.

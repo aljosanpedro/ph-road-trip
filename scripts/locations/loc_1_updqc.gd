@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var background = $Background
+@onready var animation_player = $AnimationPlayer
 # List of interactables
 # for wiks:
 # **stall**
@@ -49,6 +51,9 @@ func _is_everything_interacted() -> void:
 	# Initiate camera...
 	Events.open_camera()
 	await Events.camera_photo_taken
+	
+	animation_player.play("fade_to_black")
+	await animation_player.animation_finished
 	
 	# Initiate after camera photo taken.
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_scene.dtl", "outro_post_camera")

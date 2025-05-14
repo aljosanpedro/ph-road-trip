@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cr3bx2sugqsil"]
+[gd_scene load_steps=21 format=3 uid="uid://cr3bx2sugqsil"]
 
 [ext_resource type="Script" uid="uid://wx5m6c8828qu" path="res://scripts/locations/loc_2_cubao.gd" id="1_7bot1"]
 [ext_resource type="Texture2D" uid="uid://du6qv4l3n2bg1" path="res://assets/images/backgrounds/2_cubao.png" id="2_5wx0i"]
@@ -31,6 +31,42 @@ size = Vector2(215, 292.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i67qn"]
 size = Vector2(206.5, 60.8439)
+
+[sub_resource type="Animation" id="Animation_e3aox"]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xww42"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x6eh2"]
+_data = {
+&"RESET": SubResource("Animation_xww42"),
+&"fade_to_black": SubResource("Animation_e3aox")
+}
 
 [node name="Cubao" type="Node2D"]
 script = ExtResource("1_7bot1")
@@ -139,6 +175,11 @@ position = Vector2(899.026, 284.032)
 rotation = -0.6353
 shape = SubResource("RectangleShape2D_i67qn")
 debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_x6eh2")
+}
 
 [connection signal="item_clicked" from="Graffiti" to="." method="_on_graffiti_item_clicked"]
 [connection signal="item_clicked" from="Jolibee" to="." method="_on_jolibee_item_clicked"]

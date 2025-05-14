@@ -28,6 +28,28 @@ You force a smile and jerk your head towards the inside of the mall.
 adi: Let's go inside.
 jump end
 label outro_pre_camera
+if Events.get_current_pov() == Events.POV_Character.ADI:
+	Wiks is standing near the mural, his face intense and deep in thought.
+	His eyes turn as you approach, and a forced smile breaks through his features.
+	wiks: Hey. How're you holding up?
+	You let out a small laugh that comes out more tired than lively.
+	adi: Fine. How about you? You seem uneasy.
+	wiks: No no no. I'm fine. I think.
+	You know him well enough to know that he's not telling the truth.
+	wiks: I was just wondering about a few things.
+	adi: Do you want to—
+	wiks: Nah, don't worry about it.
+	wiks: Let's take a picture of the place. I think we're about done here anyways.
+	Confused, you don't press it further. You bring up the camera and start looking around.
+if Events.get_current_pov() == Events.POV_Character.WIKS:
+	You approach Adi, pacing around with a scowl on her face.
+	wiks: What's wrong?
+	She stops, and noticing the concern in your voice, her face lightens, but not completely.
+	adi: Nothing. Some of the things here struck something in me.
+	Part of you is inclined to agree, though you aren't exactly sure why.
+	wiks: Do you want to head out now?
+	adi: Yes. Let's go. It's about time anyway.
+	wiks: Okay got it, lemme just take a picture of the place.
 jump end
 label outro_post_camera
 Something hangs in the air between you two. It's quieter than usual.
