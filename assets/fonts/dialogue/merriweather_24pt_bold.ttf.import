@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cjbadvhqqxwcy"
-path="res://.godot/imported/merriweather_normal.ttf-fc1c7d656d8ab8216d0e995f7a631bcd.fontdata"
+uid="uid://eajkm23by4na"
+path="res://.godot/imported/merriweather_24pt_bold.ttf-49ec16b5522ae7cc1a6ac08582f99a87.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/dialogue/merriweather_normal.ttf"
-dest_files=["res://.godot/imported/merriweather_normal.ttf-fc1c7d656d8ab8216d0e995f7a631bcd.fontdata"]
+source_file="res://assets/fonts/dialogue/merriweather_24pt_bold.ttf"
+dest_files=["res://.godot/imported/merriweather_24pt_bold.ttf-49ec16b5522ae7cc1a6ac08582f99a87.fontdata"]
 
 [params]
 
