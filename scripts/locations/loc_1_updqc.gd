@@ -62,8 +62,6 @@ func _is_everything_interacted() -> void:
 	
 	# Disconnect to never let it fire again.
 	Events.switch_has_been_set.disconnect(_is_everything_interacted)
-	
-	
 
 #region Interactable
 func _on_chicken_item_clicked() -> void:

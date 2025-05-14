@@ -38,11 +38,21 @@ signal switch_has_been_set
 var current_pov: POV_Character = POV_Character.WIKS
 
 var switches: Dictionary[String, bool] = {
+	# Location 1
 	"loc_1_stall": false,
 	"loc_1_sunken_garden": false,
 	"loc_1_adis_mural": false,
 	"loc_1_trees": false,
 	"loc_1_loose_chicken": false,
+	
+	# Location 2
+	"loc_2_kids_playing": false,
+	"loc_2_lanterns": false,
+	"loc_2_radio": false,
+	"loc_2_graffiti": false,
+	"loc_2_clothes": false,
+	"loc_2_mannequins": false,
+	"loc_2_jabee": false,
 }
 
 
