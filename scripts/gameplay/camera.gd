@@ -57,11 +57,13 @@ func _camera_take_photo() -> void:
 	Events.camera_photo_taken.emit()
 
 func _camera_activate() -> void:
+	Events.show_item_outline(false) # Hide item outlines for picture taking.
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	camera_overlay.show()
 	camera.enabled = true
 
 func _camera_disable() -> void:
+	Events.show_item_outline(true) # Show item outlines for navigation.
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	camera_overlay.hide()
 	camera.enabled = false

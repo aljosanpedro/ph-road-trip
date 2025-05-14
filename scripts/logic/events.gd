@@ -20,6 +20,8 @@ enum Locations {
 
 signal change_map(path: String)
 
+signal set_item_outline(value: bool)
+
 signal open_camera_signal()
 signal camera_photo_taken()
 signal unlock_location(loc_name: Locations)
@@ -107,5 +109,8 @@ func reset()-> void:
 		
 	current_pov = POV_Character.ADI
 	scrapbook_pictures = []
+
+func show_item_outline(value: bool) -> void:
+	set_item_outline.emit(value)
 
 #endregion

@@ -18,11 +18,15 @@ func _ready() -> void:
 	# Connect a following switch.
 	Events.switch_has_been_set.connect(_is_everything_interacted)
 	
+	# Hide item outlines at first.
+	Events.show_item_outline(false)
+	
 	# Set dialogue immediately.
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_scene.dtl", "intro")
 	await Dialogic.timeline_ended
 	
 	Events.show_the_context_menus(true) # By default, as intro will flick it up.
+	Events.show_item_outline(true) # Interactables will now have outlines.
 
 # If everything is interacted.
 func _is_everything_interacted() -> void:
