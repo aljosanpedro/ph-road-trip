@@ -78,9 +78,12 @@ func _show_item_outline(value: bool) -> void:
 	## If true, do POV switchout as normal.
 	if value == true:
 		_pov_switch_grayout()
-	# If not, then modulate and stuff.
+		set_pickable(true)
+		
+	# If not, then modulate and stuff. And DISALLOW any mouse enter/exits.
 	else:
 		#if sprite_component != null: sprite_component.set_use_parent_material(false)
 		modulate = Color(1, 1, 1)
+		set_pickable(false)
 
 #endregion
