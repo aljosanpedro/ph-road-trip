@@ -22,6 +22,7 @@ extends Node2D
 # "loc_2_jabee": false,
 
 func _ready() -> void:
+	AudioManager.bgm_play("res://assets/audio/bgm/amynlrpfbtwaves.mp3")
 	animation_player.play("RESET")
 	# Connect a following switch.
 	Events.switch_has_been_set.connect(_is_everything_interacted)
@@ -59,6 +60,9 @@ func _is_everything_interacted() -> void:
 	# Initiate camera...
 	Events.open_camera()
 	await Events.camera_photo_taken
+	
+	# Stop music after photo is taken.
+	AudioManager.bgm_stop(1)
 	
 	animation_player.play("fade_to_black")
 	await animation_player.animation_finished
