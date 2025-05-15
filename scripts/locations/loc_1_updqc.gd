@@ -17,6 +17,7 @@ extends Node2D
 #"loc_1_loose_chicken": false,
 
 func _ready() -> void:
+	animation_player.play("RESET")
 	# Connect a following switch.
 	Events.switch_has_been_set.connect(_is_everything_interacted)
 	
