@@ -19,6 +19,7 @@ offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
 [node name="ContextMenus" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="POVSwitch" parent="ContextMenus" instance=ExtResource("3_3585q")]
 
@@ -28,6 +29,7 @@ color = Color(0, 0, 0, 1)
 visible = false
 
 [node name="Settings" type="CanvasLayer" parent="."]
+layer = 3
 
 [node name="Settings" parent="Settings" instance=ExtResource("4_qvvsl")]
 
