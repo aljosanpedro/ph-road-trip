@@ -86,7 +86,7 @@ func _on_graffiti_item_clicked() -> void:
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "graffiti")
 	await Dialogic.timeline_ended
 	Events.show_item_outline(true)
-	Events.set_switch("loc_2_kids_playing", true)
+	Events.set_switch("loc_2_graffiti", true)
 
 
 func _on_jolibee_item_clicked() -> void:
