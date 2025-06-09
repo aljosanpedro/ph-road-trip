@@ -33,6 +33,7 @@ var current_game_scene = CurrentGameScene.CURRENT_MAP
 
 #region Virtual functions
 func _ready() -> void:
+	
 	# INFO: Initialize Events singleton for a new game.
 	Events.initialize()
 	

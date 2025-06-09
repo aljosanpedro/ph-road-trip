@@ -71,6 +71,8 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
+history/simple_history_enabled=true
+choices/hotkey_behaviour=0
 
 [display]
 
@@ -79,7 +81,6 @@ window/size/viewport_height=1080
 window/size/window_width_override=1600
 window/size/window_height_override=900
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_width"
 
 [editor]
 
@@ -89,6 +90,11 @@ version_control/autoload_on_startup=true
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+
+[gui]
+
+theme/default_font_hinting=2
+theme/default_font_generate_mipmaps=true
 
 [input]
 
