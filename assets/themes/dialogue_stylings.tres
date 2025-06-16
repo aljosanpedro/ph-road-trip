@@ -108,7 +108,7 @@ overrides = {
 [resource]
 script = ExtResource("10_yawoi")
 name = "dialogue_stylings"
-layer_list = Array[String](["10", "11", "12", "13", "14", "15", "16", "17"])
+layer_list = Array[String](["10", "12", "11", "13", "14", "15", "16", "17"])
 layer_info = {
 "": SubResource("Resource_mo6pp"),
 "10": SubResource("Resource_8lchy"),
@@ -122,4 +122,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("1_xaqfk")]([])
-metadata/_latest_layer = "17"
+metadata/_latest_layer = "11"

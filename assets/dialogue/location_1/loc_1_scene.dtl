@@ -6,6 +6,7 @@ join wiks left
 Being located near your home settlement, it also serves as the first stop of your journey.
 join singer right
 As the caravan drops off their wares of commodities and scavenged goods, the two of you are approached by the Singer.
+update singer [z_index="0"]
 singer: You two drop off here. It's a nice spot, and there's a boat rental here to Cubao, if you're going there. Just drop my name and he'll know what to do.
 She looks at the two of you a wistful look forming in her features.
 singer: Oh how I long to be like you two again, discovering the world and yourselves...
