@@ -325,6 +325,7 @@ mouse_filter = 2
 [node name="NameLabelPanel" type="PanelContainer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/NameLabelHolder"]
 unique_name_in_owner = true
 self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
+z_index = 98
 layout_mode = 1
 offset_top = -50.0
 offset_right = 9.0

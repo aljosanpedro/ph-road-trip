@@ -6,7 +6,7 @@ adi: Yes! Just— Give me a moment!
 wiks: I'm coming in.
 [background arg="res://assets/images/backgrounds/intro_jabee.png" fade="5.0" transition="Simple Fade"]
 [wait time="1.0"]
-join wiks center
+join wiks left
 It's just how you remember it. It smells like the fierce chemical odor of paint and dust and sea and all the quiet days spent here with your best friend.
 update wiks left
 join adi right
