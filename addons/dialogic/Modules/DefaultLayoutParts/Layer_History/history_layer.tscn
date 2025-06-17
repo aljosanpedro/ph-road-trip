@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://lx24i8fl6uo"]
+[gd_scene load_steps=5 format=3 uid="uid://lx24i8fl6uo"]
 
 [ext_resource type="Script" uid="uid://5ghsbjuly8yn" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_History/history_layer.gd" id="1_4mqm3"]
 [ext_resource type="PackedScene" uid="uid://cuoywrmvda1yg" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_History/example_history_item.tscn" id="2_x1xgk"]
+[ext_resource type="Theme" uid="uid://ckt0ffmtkloso" path="res://assets/themes/dialogue/dialogue_history_button_theme.tres" id="3_og603"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hdvb"]
 content_margin_left = 10.0
@@ -55,10 +56,13 @@ size_flags_vertical = 3
 
 [node name="ShowHistory" type="Button" parent="."]
 layout_mode = 1
-offset_right = 64.0
-offset_bottom = 31.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 80.0
+offset_bottom = 47.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("3_og603")
 text = "History"
 
 [node name="HideHistory" type="Button" parent="."]

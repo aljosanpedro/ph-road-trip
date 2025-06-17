@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://ckt0ffmtkloso"]
+
+[ext_resource type="FontFile" uid="uid://eajkm23by4na" path="res://assets/fonts/dialogue/merriweather_24pt_bold.ttf" id="1_8buvk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o20ko"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8buvk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_csy3l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_heuih"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_smcek"]
+
+[resource]
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 6
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_8buvk")
+Button/styles/disabled = SubResource("StyleBoxEmpty_o20ko")
+Button/styles/focus = SubResource("StyleBoxEmpty_8buvk")
+Button/styles/hover = SubResource("StyleBoxEmpty_csy3l")
+Button/styles/normal = SubResource("StyleBoxEmpty_heuih")
+Button/styles/pressed = SubResource("StyleBoxEmpty_smcek")
