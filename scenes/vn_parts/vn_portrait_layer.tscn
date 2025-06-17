@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy1y14inwkplb"]
+[gd_scene load_steps=3 format=3 uid="uid://37m6bj0u2ooi"]
 
-[ext_resource type="Script" uid="uid://dnpbwyf27gbqa" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/vn_portrait_layer.gd" id="1_1i7em"]
-[ext_resource type="Script" uid="uid://cb6ud280w0q6s" path="res://addons/dialogic/Modules/Character/node_portrait_container.gd" id="1_rxdcc"]
+[ext_resource type="Script" uid="uid://dnpbwyf27gbqa" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/vn_portrait_layer.gd" id="1_u7507"]
+[ext_resource type="Script" uid="uid://cb6ud280w0q6s" path="res://addons/dialogic/Modules/Character/node_portrait_container.gd" id="2_djax3"]
 
 [node name="VN_PortraitLayer" type="Control"]
 layout_mode = 3
@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_1i7em")
+script = ExtResource("1_u7507")
 
 [node name="Portraits" type="Control" parent="."]
 unique_name_in_owner = true
@@ -32,7 +32,7 @@ offset_right = -1.52588e-05
 grow_vertical = 2
 pivot_offset = Vector2(115.2, 648)
 mouse_filter = 2
-script = ExtResource("1_rxdcc")
+script = ExtResource("2_djax3")
 container_ids = PackedStringArray("leftmost", "0")
 metadata/_edit_use_anchors_ = true
 
@@ -44,7 +44,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_rxdcc")
+script = ExtResource("2_djax3")
 container_ids = PackedStringArray("left", "1")
 metadata/_edit_use_anchors_ = true
 
@@ -56,7 +56,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_rxdcc")
+script = ExtResource("2_djax3")
 container_ids = PackedStringArray("center", "middle", "2")
 metadata/_edit_use_anchors_ = true
 
@@ -68,7 +68,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_rxdcc")
+script = ExtResource("2_djax3")
 container_ids = PackedStringArray("right", "3")
 metadata/_edit_use_anchors_ = true
 
@@ -80,6 +80,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_rxdcc")
+script = ExtResource("2_djax3")
 container_ids = PackedStringArray("rightmost", "4")
 metadata/_edit_use_anchors_ = true
