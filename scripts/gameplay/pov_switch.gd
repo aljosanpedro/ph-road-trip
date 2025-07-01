@@ -1,3 +1,6 @@
+@icon("res://nodes/pov_switch.svg")
+
+class_name POVSwitch
 extends Control
 
 #region Initialized Variables and Exports

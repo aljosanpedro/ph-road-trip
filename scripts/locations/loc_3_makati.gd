@@ -1,3 +1,6 @@
+@icon("res://nodes/loc_3_makati.svg")
+
+class_name Makati
 extends Node2D
 
 func _ready() -> void:

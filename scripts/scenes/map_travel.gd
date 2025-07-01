@@ -1,3 +1,6 @@
+@icon("res://nodes/map.svg")
+
+class_name MapTravel
 extends Control
 
 #region Initialized Variables and Exports

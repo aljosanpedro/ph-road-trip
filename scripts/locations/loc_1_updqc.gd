@@ -1,3 +1,6 @@
+@icon("res://nodes/loc_1_updqc.svg")
+
+class_name UPDQC
 extends Node2D
 
 @onready var background = $Background
@@ -59,8 +62,6 @@ func _is_everything_interacted() -> void:
 	
 	animation_player.play("fade_to_black")
 	await animation_player.animation_finished
-	
-	
 	
 	# Initiate after camera photo taken.
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_scene.dtl", "outro_post_camera")

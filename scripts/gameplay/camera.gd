@@ -1,3 +1,6 @@
+@icon("res://nodes/camera.svg")
+
+class_name CameraPlayer
 extends Control
 
 #region Initialized Variables and Exports

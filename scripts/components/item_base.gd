@@ -1,3 +1,6 @@
+@icon("res://nodes/item_base.svg")
+
+class_name ItemBase
 extends Area2D
 ## ItemBase is the base of an item that can be interacted in the map.
 ## Has a signal `item_clicked` that allows more control on the map.

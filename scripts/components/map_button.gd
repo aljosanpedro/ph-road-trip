@@ -1,3 +1,6 @@
+@icon("res://nodes/location_button.svg")
+
+class_name MapButton
 extends TextureButton
 
 @export var location: PackedScene

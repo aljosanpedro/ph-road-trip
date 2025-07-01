@@ -1,5 +1,7 @@
-extends Node
+@icon("res://nodes/game_main.svg")
 
+class_name MainGameFrame
+extends Node
 
 #region Initialized Variables and Exports
 ## INFO: Enums

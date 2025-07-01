@@ -1,3 +1,6 @@
+@icon("res://nodes/loc_2_cubao.svg")
+
+class_name Cubao
 extends Node2D
 
 @onready var background = $Background

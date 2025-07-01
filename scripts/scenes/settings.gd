@@ -2,7 +2,9 @@
 	# Screen (2) > "Gameplay" (1)
 	# Button (3) > Screen (2)
 
+@icon("res://nodes/settings.svg")
 
+class_name SettingsMenu
 extends Control
 
 
