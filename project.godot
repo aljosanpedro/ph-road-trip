@@ -14,7 +14,7 @@ config/name="Watermarked"
 config/tags=PackedStringArray("team_work")
 run/main_scene="uid://dglj23acmhple"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="uid://beq778j8hehec"
+config/icon="uid://04oxmsgrtw1t"
 config/windows_native_icon="res://icon.ico"
 
 [autoload]

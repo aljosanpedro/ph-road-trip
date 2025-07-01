@@ -1,3 +1,6 @@
+@icon("res://icon.svg")
+
+class_name TitleScreen
 extends Control
 
 @onready var animation_player = $AnimationPlayer
