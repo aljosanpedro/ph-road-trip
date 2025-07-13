@@ -22,6 +22,7 @@ config/windows_native_icon="res://icon.ico"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 AudioManager="*res://scenes/logic/audio_manager.tscn"
 Events="*res://scripts/logic/events.gd"
+GameSettings="*res://scripts/logic/game_settings.gd"
 
 [dialogic]
 

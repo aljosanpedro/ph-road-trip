@@ -25,8 +25,7 @@ mouse_filter = 2
 
 [node name="DialogicNode_PortraitContainer1" type="Control" parent="Portraits"]
 layout_mode = 1
-anchor_left = -0.0984375
-anchor_right = 0.101562
+anchor_right = 0.2
 anchor_bottom = 1.0
 offset_right = -1.52588e-05
 grow_vertical = 2
@@ -38,8 +37,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="DialogicNode_PortraitContainer2" type="Control" parent="Portraits"]
 layout_mode = 1
-anchor_left = 0.0416667
-anchor_right = 0.241667
+anchor_left = 0.0833334
+anchor_right = 0.283334
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -50,8 +49,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="DialogicNode_PortraitContainer3" type="Control" parent="Portraits"]
 layout_mode = 1
-anchor_left = 0.229167
-anchor_right = 0.429167
+anchor_left = 0.395834
+anchor_right = 0.595834
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -60,26 +59,28 @@ script = ExtResource("1_rxdcc")
 container_ids = PackedStringArray("center", "middle", "2")
 metadata/_edit_use_anchors_ = true
 
-[node name="DialogicNode_PortraitContainer4" type="Control" parent="Portraits"]
-layout_mode = 1
-anchor_left = 0.8
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("1_rxdcc")
-container_ids = PackedStringArray("right", "3")
-metadata/_edit_use_anchors_ = true
-
 [node name="DialogicNode_PortraitContainer5" type="Control" parent="Portraits"]
 layout_mode = 1
-anchor_left = 0.901042
-anchor_right = 1.10104
+anchor_left = 0.801042
+anchor_right = 1.00104
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_rxdcc")
 container_ids = PackedStringArray("rightmost", "4")
+metadata/_edit_use_anchors_ = true
+
+[node name="DialogicNode_PortraitContainer4" type="Control" parent="Portraits"]
+layout_mode = 1
+anchor_left = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_right = -160.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_rxdcc")
+container_ids = PackedStringArray("right", "3")
 metadata/_edit_use_anchors_ = true

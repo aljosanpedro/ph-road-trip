@@ -20,6 +20,11 @@ script = ExtResource("1_xaqfk")
 scene = ExtResource("2_plcj4")
 overrides = {}
 
+[sub_resource type="Resource" id="Resource_xaqfk"]
+script = ExtResource("1_xaqfk")
+scene = ExtResource("10_b7n12")
+overrides = {}
+
 [sub_resource type="Resource" id="Resource_x0fsq"]
 script = ExtResource("1_xaqfk")
 scene = ExtResource("4_ubalr")
@@ -101,11 +106,6 @@ overrides = {
 "show_join_and_leave": "false"
 }
 
-[sub_resource type="Resource" id="Resource_ubalr"]
-script = ExtResource("1_xaqfk")
-scene = ExtResource("10_b7n12")
-overrides = {}
-
 [resource]
 script = ExtResource("10_yawoi")
 name = "dialogue_stylings"
@@ -113,7 +113,7 @@ layer_list = Array[String](["10", "12", "11", "13", "14", "15", "16", "17"])
 layer_info = {
 "": SubResource("Resource_mo6pp"),
 "10": SubResource("Resource_8lchy"),
-"11": SubResource("Resource_ubalr"),
+"11": SubResource("Resource_xaqfk"),
 "12": SubResource("Resource_x0fsq"),
 "13": SubResource("Resource_7t71o"),
 "14": SubResource("Resource_xgcra"),
@@ -123,4 +123,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("1_xaqfk")]([])
-metadata/_latest_layer = "18"
+metadata/_latest_layer = "11"

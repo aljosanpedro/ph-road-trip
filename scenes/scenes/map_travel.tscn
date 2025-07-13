@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dhkep6yubnjdq"]
+[gd_scene load_steps=21 format=3 uid="uid://dhkep6yubnjdq"]
 
 [ext_resource type="Script" uid="uid://dbntfaivbsnoc" path="res://scripts/scenes/map_travel.gd" id="1_j37w6"]
 [ext_resource type="Texture2D" uid="uid://bds4ha4gntixm" path="res://assets/images/travel_map/map.png" id="2_e23lu"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://vy7bujibq7po" path="res://scenes/locations/loc5_whitesands.tscn" id="8_qr2xy"]
 [ext_resource type="PackedScene" uid="uid://b4gu5lbc4cbce" path="res://scenes/locations/jolli_location.tscn" id="10_t4heh"]
 [ext_resource type="Texture2D" uid="uid://daf2lyaokqqyb" path="res://assets/images/travel_map/player_location.png" id="11_mo0mx"]
-[ext_resource type="FontFile" uid="uid://00hlmm36oh26" path="res://assets/fonts/travel_map/CubaoFree2-Regular.ttf" id="12_tsi4x"]
+[ext_resource type="LabelSettings" uid="uid://bwok14bbdyyag" path="res://assets/themes/map_travel_label.tres" id="13_bgcp3"]
 [ext_resource type="Texture2D" uid="uid://bhlgojw3jrjxi" path="res://assets/images/travel_map/player_node.png" id="13_qr2xy"]
 
 [sub_resource type="Animation" id="Animation_t4heh"]
@@ -113,11 +113,6 @@ _data = {
 &"5_Coast2Jabee": SubResource("Animation_bgcp3"),
 &"RESET": SubResource("Animation_02dou")
 }
-
-[sub_resource type="LabelSettings" id="LabelSettings_qr2xy"]
-line_spacing = 0.0
-font = ExtResource("12_tsi4x")
-font_size = 80
 
 [node name="MapTravel" type="Control"]
 layout_mode = 3
@@ -274,7 +269,7 @@ offset_right = 519.0
 offset_bottom = 214.0
 rotation = -0.0523599
 text = "UPD"
-label_settings = SubResource("LabelSettings_qr2xy")
+label_settings = ExtResource("13_bgcp3")
 horizontal_alignment = 1
 vertical_alignment = 1
 

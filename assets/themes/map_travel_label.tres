@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bwok14bbdyyag"]
+
+[ext_resource type="FontFile" uid="uid://00hlmm36oh26" path="res://assets/fonts/travel_map/CubaoFree2-Regular.ttf" id="1_42qme"]
+
+[resource]
+line_spacing = 0.0
+font = ExtResource("1_42qme")
+font_size = 80

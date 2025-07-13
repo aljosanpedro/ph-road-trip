@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://5p4g0rpq6r3h"]
+
+[ext_resource type="Script" uid="uid://bn0f0jl7uyj" path="res://scripts/scenes/pause_menu.gd" id="1_klvc8"]
+[ext_resource type="Texture2D" uid="uid://cj8yix1poaytg" path="res://assets/images/pause/pause_menu_bg.png" id="2_agep0"]
+[ext_resource type="LabelSettings" uid="uid://bwok14bbdyyag" path="res://assets/themes/map_travel_label.tres" id="3_2obve"]
+[ext_resource type="LabelSettings" uid="uid://cj67br2gmcasj" path="res://assets/themes/pause_menu_subheadings.tres" id="4_c1i2v"]
+[ext_resource type="LabelSettings" uid="uid://d1bjlrn2g0a03" path="res://assets/themes/audio_pause_menu_label.tres" id="4_crdp3"]
+[ext_resource type="Theme" uid="uid://sla4ea07vdyr" path="res://assets/themes/audio_slider.tres" id="5_c1i2v"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_klvc8")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_agep0")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="PauseMenuLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 66.0
+offset_right = 528.0
+offset_bottom = 208.0
+rotation = -0.0523599
+text = "Pause"
+label_settings = ExtResource("3_2obve")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioSettingsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1061.0
+offset_top = 275.0
+offset_right = 1101.0
+offset_bottom = 298.0
+text = "Audio"
+label_settings = ExtResource("4_c1i2v")
+
+[node name="AudioSettings" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1053.0
+offset_top = 341.0
+offset_right = 1391.0
+offset_bottom = 633.0
+theme_override_constants/separation = 20
+
+[node name="MusicVolumeLabel" type="Label" parent="AudioSettings"]
+layout_mode = 2
+text = "Music Volume"
+label_settings = ExtResource("4_crdp3")
+
+[node name="MusicVolumeSlider" type="HSlider" parent="AudioSettings"]
+layout_mode = 2
+theme = ExtResource("5_c1i2v")
+
+[node name="SoundVolumeLabel" type="Label" parent="AudioSettings"]
+layout_mode = 2
+text = "Sound Volume"
+label_settings = ExtResource("4_crdp3")
+
+[node name="SoundVolumeSlider" type="HSlider" parent="AudioSettings"]
+layout_mode = 2
+theme = ExtResource("5_c1i2v")
+
+[node name="SFXVolumeLabel" type="Label" parent="AudioSettings"]
+layout_mode = 2
+text = "SFX Volume"
+label_settings = ExtResource("4_crdp3")
+
+[node name="SFXVolumeSlider" type="HSlider" parent="AudioSettings"]
+layout_mode = 2
+theme = ExtResource("5_c1i2v")

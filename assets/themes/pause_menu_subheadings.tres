@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cj67br2gmcasj"]
+
+[ext_resource type="FontFile" uid="uid://eajkm23by4na" path="res://assets/fonts/dialogue/merriweather_24pt_bold.ttf" id="1_1e426"]
+
+[resource]
+font = ExtResource("1_1e426")
+font_size = 48
+font_color = Color(0, 0, 0, 1)

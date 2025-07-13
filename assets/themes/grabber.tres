@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://c7qupvks06cjs"]
+
+[ext_resource type="Texture2D" uid="uid://diqjd042oygty" path="res://assets/images/audio/slide_horizontal_color.png" id="1_7agiu"]
+
+[resource]
+texture = ExtResource("1_7agiu")
+texture_margin_left = 29.0
+texture_margin_right = 30.0
+expand_margin_right = 16.0
+region_rect = Rect2(0, 0, 192, 32)

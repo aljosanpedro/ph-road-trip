@@ -56,6 +56,7 @@ wiks: Really? A windowsill this time?
 adi (angry): I swear, that wasn't—
 You laugh and turn away, grabbing her prepared bags near the door.
 wiks: Lets go, before our only chance at a vacation runs off at walking speed.
+leave --All-- [animation="Fade Out Down" wait="true"]
 [clear time="2.0" step="false"]
 [wait time="1.0"]
 The journey out of the village and into the city proper takes longer than expected. The carabaos refusing to be organized and delve into the flooded streets of what remains of the former capital.
@@ -84,7 +85,7 @@ wiks: Though why us? Don't you travel around more than us?
 The singer thinks for a moment.
 singer: Let's just say that a shared goal can start journeys that we don't expect.
 You catch her throw a glance at the guitar by her side. It's old and battered, filled with stickers from all over the place. You don't remember a time when she used it, though.
-leave --All--
+leave --All-- [animation="Fade Out Down" wait="true"]
 You barely have time to respond when you see the carabaos start to move again, and you're rushed back into your place at the caravan, next to Adi.
 It appears your journey has now begun.
 [end_timeline]
