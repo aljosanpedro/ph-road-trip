@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://dglj23acmhple"]
+[gd_scene load_steps=19 format=3 uid="uid://dglj23acmhple"]
 
 [ext_resource type="Script" uid="uid://cxw33yn604nps" path="res://scripts/scenes/title_screen.gd" id="1_p0v5f"]
-[ext_resource type="Texture2D" uid="uid://ccmqhh07aidb8" path="res://assets/images/backgrounds/cubao.png" id="2_miwe6"]
+[ext_resource type="Texture2D" uid="uid://cx01eb2grnxk0" path="res://assets/images/backgrounds/poster_illustration_only.png" id="2_miwe6"]
+[ext_resource type="Texture2D" uid="uid://beq778j8hehec" path="res://icon_only.png" id="3_q5odm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_miwe6"]
 
@@ -39,6 +40,42 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainMenuButtons:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GameLogo:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_miwe6"]
 resource_name = "fade_out"
@@ -55,10 +92,63 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_qq3hq"]
+resource_name = "intro"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 4),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -690)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainMenuButtons:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GameLogo:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qq3hq"]
 _data = {
 &"RESET": SubResource("Animation_q5odm"),
-&"fade": SubResource("Animation_miwe6")
+&"fade": SubResource("Animation_miwe6"),
+&"intro": SubResource("Animation_qq3hq")
 }
 
 [node name="TitleScreen" type="Control"]
@@ -75,24 +165,42 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 1533.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_miwe6")
-expand_mode = 1
 
-[node name="StartGame" type="Button" parent="."]
+[node name="GameLogo" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -818.0
-offset_top = 390.0
-offset_right = -600.0
-offset_bottom = 445.0
+offset_left = -311.0
+offset_top = -543.0
+offset_right = 311.0
+offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_q5odm")
+
+[node name="MainMenuButtons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -174.0
+offset_top = -160.0
+offset_right = 174.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartGame" type="Button" parent="MainMenuButtons"]
+layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 64
@@ -107,6 +215,7 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_1m84x")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_jjag5")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_xglq0")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m6ccg")
+disabled = true
 text = "Start Game"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -114,4 +223,4 @@ libraries = {
 &"": SubResource("AnimationLibrary_qq3hq")
 }
 
-[connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="MainMenuButtons/StartGame" to="." method="_on_start_game_pressed"]
