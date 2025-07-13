@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://dglj23acmhple"]
+[gd_scene load_steps=20 format=3 uid="uid://dglj23acmhple"]
 
 [ext_resource type="Script" uid="uid://cxw33yn604nps" path="res://scripts/scenes/title_screen.gd" id="1_p0v5f"]
 [ext_resource type="Texture2D" uid="uid://cx01eb2grnxk0" path="res://assets/images/backgrounds/poster_illustration_only.png" id="2_miwe6"]
 [ext_resource type="Texture2D" uid="uid://beq778j8hehec" path="res://icon_only.png" id="3_q5odm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q5odm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_miwe6"]
 
@@ -165,7 +167,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 1533.0
+offset_top = -689.997
+offset_bottom = 843.003
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_miwe6")
@@ -186,20 +189,23 @@ grow_vertical = 2
 texture = ExtResource("3_q5odm")
 
 [node name="MainMenuButtons" type="HBoxContainer" parent="."]
+material = SubResource("ShaderMaterial_q5odm")
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -174.0
-offset_top = -160.0
-offset_right = 174.0
-offset_bottom = -72.0
+offset_left = -248.0
+offset_top = -192.0
+offset_right = 224.0
+offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 0
+alignment = 1
 
 [node name="StartGame" type="Button" parent="MainMenuButtons"]
+custom_minimum_size = Vector2(400, 150)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10

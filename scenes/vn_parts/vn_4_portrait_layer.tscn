@@ -57,7 +57,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_t1m0a")
-container_ids = PackedStringArray("right", "3")
+container_ids = PackedStringArray("right", "2")
 metadata/_edit_use_anchors_ = true
 
 [node name="DialogicNode_PortraitContainer4" type="Control" parent="Portraits"]
@@ -69,5 +69,5 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_t1m0a")
-container_ids = PackedStringArray("rightmost", "4")
+container_ids = PackedStringArray("rightmost", "3")
 metadata/_edit_use_anchors_ = true
