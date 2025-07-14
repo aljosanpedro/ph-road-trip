@@ -20,7 +20,7 @@ func _on_start_game_pressed() -> void:
 	AudioManager.bgm_stop(1)
 	animation_player.play("fade")
 	await animation_player.animation_finished
-	get_tree().change_scene_to_file("res://scenes/scenes/game_main.tscn")
+	get_tree().change_scene_to_packed(preload("res://scenes/scenes/game_main.tscn"))
 
 #func _game_button_mouse_entered(the_button: Button) -> void:
 	#the_button.shader
