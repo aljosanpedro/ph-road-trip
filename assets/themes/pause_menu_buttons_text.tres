@@ -1,0 +1,43 @@
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://dgjvuohvn7vca"]
+
+[ext_resource type="FontFile" uid="uid://eajkm23by4na" path="res://assets/fonts/dialogue/merriweather_24pt_bold.ttf" id="1_rqbmk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wa7sa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4qmgp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q0wyh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0p74v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2kf7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x7t40"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_awxrq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bkccb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tkab3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e0nrr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sp7f7"]
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 10
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("1_rqbmk")
+Button/styles/disabled = SubResource("StyleBoxEmpty_wa7sa")
+Button/styles/disabled_mirrored = SubResource("StyleBoxEmpty_4qmgp")
+Button/styles/focus = SubResource("StyleBoxEmpty_q0wyh")
+Button/styles/hover = SubResource("StyleBoxEmpty_0p74v")
+Button/styles/hover_mirrored = SubResource("StyleBoxEmpty_s2kf7")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_x7t40")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_awxrq")
+Button/styles/normal = SubResource("StyleBoxEmpty_bkccb")
+Button/styles/normal_mirrored = SubResource("StyleBoxEmpty_tkab3")
+Button/styles/pressed = SubResource("StyleBoxEmpty_e0nrr")
+Button/styles/pressed_mirrored = SubResource("StyleBoxEmpty_sp7f7")

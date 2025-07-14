@@ -61,3 +61,12 @@ func _on_sfx_volume_slider_value_changed(value: float) -> void:
 	GameSettings.sfx_volume_change(value)
 	
 #endregion
+
+
+func _on_to_title_screen_button_pressed() -> void:
+	Events.reset()
+	get_tree().change_scene_to_packed(preload("res://scenes/scenes/title_screen.tscn"))
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()

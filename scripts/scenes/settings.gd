@@ -27,6 +27,7 @@ func _on_item_pressed(id) -> void:
 	match id:
 		PopupButtons.TITLE:
 			Events.reset()
+			Dialogic.end_timeline()
 			get_tree().change_scene_to_packed(title_screen)
 			
 		PopupButtons.QUIT:
