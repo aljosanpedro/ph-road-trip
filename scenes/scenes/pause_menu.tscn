@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://5p4g0rpq6r3h"]
+[gd_scene load_steps=13 format=3 uid="uid://5p4g0rpq6r3h"]
 
 [ext_resource type="Script" uid="uid://bn0f0jl7uyj" path="res://scripts/scenes/pause_menu.gd" id="1_klvc8"]
 [ext_resource type="Texture2D" uid="uid://cj8yix1poaytg" path="res://assets/images/pause/pause_menu_bg.png" id="2_agep0"]
@@ -10,6 +10,67 @@
 [ext_resource type="Theme" uid="uid://sla4ea07vdyr" path="res://assets/themes/audio_slider.tres" id="5_c1i2v"]
 [ext_resource type="Theme" uid="uid://big2m1r2rs8xx" path="res://assets/themes/pause_menu_icons.tres" id="7_yhujo"]
 
+[sub_resource type="Animation" id="Animation_yhujo"]
+resource_name = "show_menu"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseMenuItems:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(0, 1050), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackgroundColor:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.333333)]
+}
+
+[sub_resource type="Animation" id="Animation_f2hws"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseMenuItems:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackgroundColor:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.333333)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f2hws"]
+_data = {
+&"RESET": SubResource("Animation_f2hws"),
+&"show_menu": SubResource("Animation_yhujo")
+}
+
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -20,23 +81,23 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_klvc8")
 
-[node name="PauseMenuItems" type="Control" parent="."]
-visible = false
+[node name="BackgroundColor" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="PauseMenuItems"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.333333)
+
+[node name="PauseMenuItems" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Background" type="TextureRect" parent="PauseMenuItems"]
 layout_mode = 0
@@ -138,6 +199,11 @@ theme = ExtResource("7_yhujo")
 icon = ExtResource("3_wdaxk")
 icon_alignment = 1
 expand_icon = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_f2hws")
+}
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
