@@ -4,14 +4,17 @@ extends Node
 @onready var master_volume: float
 @onready var fullscreen_value: bool
 @onready var music_volume: float
+@onready var sound_volume: float
 @onready var sfx_volume: float
 @onready var game_cleared: bool
+
 
 func _ready():
 	_load_settings()
 	
 	master_volume_change(master_volume)
 	music_volume_change(music_volume)
+	sound_volume_change(sound_volume)
 	sfx_volume_change(sfx_volume)
 	fullscreen_change(fullscreen_value)
 
@@ -24,6 +27,11 @@ func music_volume_change(volume: float):
 	music_volume = volume
 	
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("BGM"),linear_to_db(music_volume))
+
+func sound_volume_change(volume: float):
+	sound_volume = volume
+	
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("BGS"),linear_to_db(music_volume))
 
 func sfx_volume_change(volume: float):
 	sfx_volume = volume
@@ -41,6 +49,7 @@ func fullscreen_change(value: bool):
 func _default_settings():
 	master_volume = 1.0
 	music_volume = 1.0
+	sound_volume = 1.0
 	sfx_volume = 1.0
 	fullscreen_value = true
 	game_cleared = false
@@ -59,10 +68,13 @@ func _load_settings():
 		return
 
 	# If not, well, we're getting values. (No need to close, Godot does its job)
-	master_volume = config.get_value("Music", "master_volume")
-	music_volume = config.get_value("Music", "music_volume")
-	sfx_volume = config.get_value("Music", "sfx_volume")
-	fullscreen_value = config.get_value("Window", "window_mode")
+	master_volume = config.get_value("Music", "master_volume", 1.0)
+	music_volume = config.get_value("Music", "music_volume", 1.0)
+	sound_volume = config.get_value("Music", "sound_volume", 1.0)
+	sfx_volume = config.get_value("Music", "sfx_volume", 1.0)
+	fullscreen_value = config.get_value("Window", "window_mode", true)
+	
+	config.set_value("Game", "cleared", false)
 
 func _save_settings():
 	# Creates new ConfigFile object.
@@ -71,6 +83,7 @@ func _save_settings():
 	# Stores some values.
 	config.set_value("Music", "master_volume", master_volume)
 	config.set_value("Music", "music_volume", music_volume)
+	config.set_value("Music", "sound_volume", sound_volume)
 	config.set_value("Music", "sfx_volume", sfx_volume)
 	config.set_value("Window", "window_mode", fullscreen_value)
 	

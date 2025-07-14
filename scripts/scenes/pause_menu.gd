@@ -37,3 +37,17 @@ func _on_pause_button_pressed() -> void:
 	await animation_player.animation_finished
 	
 	pause_menu_items.mouse_filter = Control.MOUSE_FILTER_STOP
+
+
+#region Audio Management
+
+func _on_music_volume_slider_value_changed(value: float) -> void:
+	GameSettings.music_volume_change(value)
+
+func _on_sound_volume_slider_value_changed(value: float) -> void:
+	GameSettings.sound_volume_change(value)
+
+func _on_sfx_volume_slider_value_changed(value: float) -> void:
+	GameSettings.sfx_volume_change(value)
+	
+#endregion
