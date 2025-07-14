@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://gacu2tai2u5d"]
+[gd_scene load_steps=7 format=3 uid="uid://gacu2tai2u5d"]
 
 [ext_resource type="Script" uid="uid://bar68ubop558i" path="res://scripts/scenes/game_main.gd" id="1_ee8ta"]
 [ext_resource type="PackedScene" uid="uid://l52hev016n2l" path="res://scenes/locations/intro_scene.tscn" id="2_jnjbd"]
 [ext_resource type="PackedScene" uid="uid://cwi3ojmkmngll" path="res://scenes/gameplay/pov_switch.tscn" id="3_3585q"]
 [ext_resource type="PackedScene" uid="uid://d2qa4m3blgw5m" path="res://scenes/gameplay/camera.tscn" id="3_jnjbd"]
 [ext_resource type="PackedScene" uid="uid://dhkep6yubnjdq" path="res://scenes/scenes/map_travel.tscn" id="4_3585q"]
+[ext_resource type="PackedScene" uid="uid://5p4g0rpq6r3h" path="res://scenes/scenes/pause_menu.tscn" id="6_7yowf"]
 
 [node name="GameMain" type="Node"]
 script = ExtResource("1_ee8ta")
@@ -28,5 +29,7 @@ visible = false
 
 [node name="PauseMenus" type="CanvasLayer" parent="."]
 layer = 3
+
+[node name="PauseMenu" parent="PauseMenus" instance=ExtResource("6_7yowf")]
 
 [connection signal="scene_map_travel_closed" from="ContextMenus/MapTravel" to="." method="_on_scene_map_travel_closed"]
