@@ -148,6 +148,8 @@ label_settings = ExtResource("4_crdp3")
 [node name="MusicVolumeSlider" type="HSlider" parent="PauseMenuItems/AudioSettings"]
 layout_mode = 2
 theme = ExtResource("5_c1i2v")
+max_value = 1.0
+step = 0.01
 
 [node name="SoundVolumeLabel" type="Label" parent="PauseMenuItems/AudioSettings"]
 layout_mode = 2
@@ -157,6 +159,8 @@ label_settings = ExtResource("4_crdp3")
 [node name="SoundVolumeSlider" type="HSlider" parent="PauseMenuItems/AudioSettings"]
 layout_mode = 2
 theme = ExtResource("5_c1i2v")
+max_value = 1.0
+step = 0.01
 
 [node name="SFXVolumeLabel" type="Label" parent="PauseMenuItems/AudioSettings"]
 layout_mode = 2
@@ -166,6 +170,8 @@ label_settings = ExtResource("4_crdp3")
 [node name="SFXVolumeSlider" type="HSlider" parent="PauseMenuItems/AudioSettings"]
 layout_mode = 2
 theme = ExtResource("5_c1i2v")
+max_value = 1.0
+step = 0.01
 
 [node name="PlayButton" type="Button" parent="."]
 visible = false

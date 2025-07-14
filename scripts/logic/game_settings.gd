@@ -69,9 +69,9 @@ func _load_settings():
 
 	# If not, well, we're getting values. (No need to close, Godot does its job)
 	master_volume = config.get_value("Music", "master_volume", 1.0)
-	music_volume = config.get_value("Music", "music_volume", 1.0)
-	sound_volume = config.get_value("Music", "sound_volume", 1.0)
-	sfx_volume = config.get_value("Music", "sfx_volume", 1.0)
+	music_volume = config.get_value("Music", "music_volume", 0.3)
+	sound_volume = config.get_value("Music", "sound_volume", 0.6)
+	sfx_volume = config.get_value("Music", "sfx_volume", 0.6)
 	fullscreen_value = config.get_value("Window", "window_mode", true)
 	
 	config.set_value("Game", "cleared", false)

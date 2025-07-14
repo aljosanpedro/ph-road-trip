@@ -8,8 +8,10 @@ script = ExtResource("1_qxga5")
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+bus = &"BGM"
 
 [node name="BGS" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+bus = &"BGS"
 
 [node name="SFX" type="Node" parent="."]

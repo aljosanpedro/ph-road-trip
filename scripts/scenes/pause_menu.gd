@@ -7,9 +7,17 @@ extends Control
 @onready var pause_button: Button = $PauseButton
 @onready var pause_menu_items: Control = $PauseMenuItems
 
+@onready var music_slider: HSlider = $PauseMenuItems/AudioSettings/MusicVolumeSlider
+@onready var sound_slider: HSlider = $PauseMenuItems/AudioSettings/SoundVolumeSlider
+@onready var sfx_slider: HSlider = $PauseMenuItems/AudioSettings/SFXVolumeSlider
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
+	music_slider.value = GameSettings.music_volume
+	sound_slider.value = GameSettings.sound_volume
+	sfx_slider.value = GameSettings.sfx_volume
+	
 	play_button.hide()
 	pause_menu_items.hide()
 	pause_button.show()
@@ -42,9 +50,11 @@ func _on_pause_button_pressed() -> void:
 #region Audio Management
 
 func _on_music_volume_slider_value_changed(value: float) -> void:
+	print(value)
 	GameSettings.music_volume_change(value)
 
 func _on_sound_volume_slider_value_changed(value: float) -> void:
+	print(value)
 	GameSettings.sound_volume_change(value)
 
 func _on_sfx_volume_slider_value_changed(value: float) -> void:
