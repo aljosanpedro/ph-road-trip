@@ -3,6 +3,7 @@
 class_name PauseMenu
 extends Control
 
+
 @onready var play_button: Button = $PlayButton
 @onready var pause_button: Button = $PauseButton
 @onready var pause_menu_items: Control = $PauseMenuItems
@@ -65,7 +66,11 @@ func _on_sfx_volume_slider_value_changed(value: float) -> void:
 
 func _on_to_title_screen_button_pressed() -> void:
 	Events.reset()
-	get_tree().change_scene_to_packed(preload("res://scenes/scenes/title_screen.tscn"))
+	Dialogic.end_timeline()
+	
+	await Events.wait
+	
+	get_tree().change_scene_to_file("res://scenes/scenes/title_screen.tscn")
 
 
 func _on_quit_button_pressed() -> void:

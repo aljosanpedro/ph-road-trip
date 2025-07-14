@@ -20,6 +20,7 @@ func _process(_delta):
 #region BGM
 ## Plays BGM. Replaces if BGM currently playing.
 func bgm_play(path: String, volume: float = 0):
+	
 	var new_music = load(path)
 	
 	# Check if BGM is the same

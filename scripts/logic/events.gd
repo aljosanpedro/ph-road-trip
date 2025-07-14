@@ -74,6 +74,10 @@ func initialize() -> void:
 #endregion
 
 #region Custom Functions
+## Wait, literally.
+func wait(seconds: float) -> void:
+	await get_tree().create_timer(seconds, false, false, true).timeout
+
 ## Changes area to the PackedScene [param path].
 ## Pretty much a helper function for a signal to make code readable.
 func change_area(path: String) -> void:
@@ -132,5 +136,7 @@ func show_item_outline(value: bool) -> void:
 ## Shows the travel map scene.
 func show_travel_map_scene() -> void:
 	open_travel_map.emit()
+
+
 
 #endregion
