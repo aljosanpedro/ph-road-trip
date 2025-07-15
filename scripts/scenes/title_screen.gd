@@ -4,7 +4,7 @@ class_name TitleScreen
 extends Control
 
 @onready var animation_player = $AnimationPlayer
-@onready var main_menu_buttons: HBoxContainer = $MainMenuButtons
+@onready var main_menu_buttons: HBoxContainer = $CanvasLayer/MainMenuButtons
 
 func _ready() -> void:
 	AudioManager.bgm_play("res://assets/audio/bgm/title_theme.mp3")
