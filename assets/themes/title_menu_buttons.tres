@@ -25,6 +25,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d81rf"]
 
 [resource]
+Button/colors/font_hover_color = Color(0.784314, 0.215686, 0.215686, 1)
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 10
 Button/font_sizes/font_size = 64

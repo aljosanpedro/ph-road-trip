@@ -328,27 +328,35 @@ texture = SubResource("GradientTexture1D_m6ccg")
 
 [node name="MainMenuButtons" type="HBoxContainer" parent="CanvasLayer/UIAndEverything"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -248.0
-offset_top = -206.0
-offset_right = 224.0
-offset_bottom = -56.0
-grow_horizontal = 2
-grow_vertical = 0
+offset_left = 341.0
+offset_top = 912.0
+offset_right = 1619.0
+offset_bottom = 973.0
+theme_override_constants/separation = 39
 alignment = 1
+
+[node name="Options" type="Button" parent="CanvasLayer/UIAndEverything/MainMenuButtons"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme = ExtResource("10_xglq0")
+disabled = true
+text = "Options"
 
 [node name="StartGame" type="Button" parent="CanvasLayer/UIAndEverything/MainMenuButtons"]
 use_parent_material = true
-custom_minimum_size = Vector2(400, 150)
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("10_xglq0")
 disabled = true
-text = "Start Game"
+text = "Start"
+
+[node name="QuitGame" type="Button" parent="CanvasLayer/UIAndEverything/MainMenuButtons"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme = ExtResource("10_xglq0")
+disabled = true
+text = "Quit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
