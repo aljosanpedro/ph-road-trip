@@ -1,0 +1,6 @@
+label already_interacted
+if Events.get_current_pov() == Events.POV_Character.WIKS:
+	wiks: Just checked this one out already.
+else:
+	adi: I've already checked this one out.
+[end_timeline]

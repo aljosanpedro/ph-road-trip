@@ -88,6 +88,10 @@ func _is_everything_interacted() -> void:
 
 #region Interactable
 func _on_graffiti_item_clicked() -> void:
+	if Events.get_switch("loc_2_graffiti"): 
+		Events.item_already_interacted()
+		return
+	
 	Events.show_item_outline(false)
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "graffiti")
 	await Dialogic.timeline_ended
@@ -96,6 +100,10 @@ func _on_graffiti_item_clicked() -> void:
 
 
 func _on_jolibee_item_clicked() -> void:
+	if Events.get_switch("loc_2_jabee"): 
+		Events.item_already_interacted()
+		return
+	
 	Events.show_item_outline(false)
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "jabee")
 	await Dialogic.timeline_ended
@@ -104,6 +112,10 @@ func _on_jolibee_item_clicked() -> void:
 
 
 func _on_lanterns_item_clicked() -> void:
+	if Events.get_switch("loc_2_lanterns"): 
+		Events.item_already_interacted()
+		return
+	
 	Events.show_item_outline(false)
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "lanterns")
 	await Dialogic.timeline_ended
@@ -112,6 +124,10 @@ func _on_lanterns_item_clicked() -> void:
 
 
 func _on_radio_item_clicked() -> void:
+	if Events.get_switch("loc_2_radio"): 
+		Events.item_already_interacted()
+		return
+	
 	Events.show_item_outline(false)
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "radio")
 	await Dialogic.timeline_ended
@@ -120,6 +136,10 @@ func _on_radio_item_clicked() -> void:
 
 
 func _on_kids_item_clicked() -> void:
+	if Events.get_switch("loc_2_kids_playing"): 
+		Events.item_already_interacted()
+		return
+	
 	Events.show_item_outline(false)
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "kids_playing")
 	await Dialogic.timeline_ended
@@ -128,6 +148,10 @@ func _on_kids_item_clicked() -> void:
 
 
 func _on_mannequins_item_clicked() -> void:
+	if Events.get_switch("loc_2_mannequins"): 
+		Events.item_already_interacted()
+		return
+	
 	Events.show_item_outline(false)
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "mannequins")
 	await Dialogic.timeline_ended
@@ -136,6 +160,10 @@ func _on_mannequins_item_clicked() -> void:
 
 
 func _on_clothesline_item_clicked() -> void:
+	if Events.get_switch("loc_2_clothes"): 
+		Events.item_already_interacted()
+		return
+	
 	Events.show_item_outline(false)
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "clothes")
 	await Dialogic.timeline_ended

@@ -137,6 +137,9 @@ func show_item_outline(value: bool) -> void:
 func show_travel_map_scene() -> void:
 	open_travel_map.emit()
 
-
+## Default interaction when dealing with already interacted item.
+func item_already_interacted() -> void:
+	Dialogic.start("res://assets/dialogue/default_dialogue.dtl", "already_interacted")
+	await Dialogic.timeline_ended
 
 #endregion
