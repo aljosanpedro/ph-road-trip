@@ -1,5 +1,5 @@
 singer: Oh, hello. You're {Events.get_current_pov_name()}, right?
 Choose
-- sex
-- online
+- debug
+- debug
 [end_timeline]

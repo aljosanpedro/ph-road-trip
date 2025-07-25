@@ -1,37 +1,49 @@
 [wait time="3.0"]
 wiks: Adi... the whole caravan's waiting for you!
 adi: Yes! I know!
-wiks: Got everything you need?
+wiks: Do you have everything you need?
 adi: Yes! Just— Give me a moment!
+You wait for a moment.
+- Some boxes fall...
+- Something metallic clatters...
+...and you hear Adi start muttering under her breath.
+You try to fight the smirk creeping up your face as you gently push the door open.
 wiks: I'm coming in.
 [background arg="res://assets/images/backgrounds/intro_jabee.png" fade="5.0" transition="Simple Fade"]
 [wait time="1.0"]
 join wiks left
-It's just how you remember it. It smells like the fierce chemical odor of paint and dust and sea and all the quiet days spent here with your best friend.
+It's the smell that first hits you -- the fierce chemical odor of paint and dust and sea all mixed together in a kaleidoscope of aromas.
+The space is one part ruin, one part hastily-repurposed ancient furniture.
+You pass by booth seats turned into storage units, deep fryers turned into brush holders, and walls turned into canvases filled with sketches of drowning cities, faces and hills.
+Your boots squeak as they rub against the plastic tarp on the ground that barely keeps the dripping ceiling at bay.
 update wiks left
 join adi right
-There she is now, hunched over and rummaging through a box of God-knows-what.
-wiks: What're you still looking for?
-wiks: I woke you up a few hours ago, haven't I?
+You finally see her next to the old counter, hunched over and rummaging through a box of God-knows-what. A rapidly growing mountain of detritus growing beside her.
+wiks: I'm pretty sure I woke you up a few hours ago, right?
 update adi [mirrored="true"]
 Adi pauses for a moment, then looks at you.
 adi: No, you didn't.
+She was always a bad liar.
 update adi [mirrored="false"]
-You sigh. There's more pressing matters right now than whether she actually woke up when you knocked on her door.
-She continues rummaging, plopping down personal effects, detritus, even the few knickknacks you've brought for her down to the floor.
+You raise an eyebrow, but don't push the matter further. You have more pressing things on your mind.
+Like the fact that you have to leave right now!
+You stare as she continues rummaging, plopping down personal effects, family heirlooms, old food wrappers, even the few knickknacks you've brought for her down to the floor.
 wiks: What're you looking for anyway?
 adi: My camera.
 update adi [mirrored="true"]
-adi: I don't remember leaving it anywhere but here. But it's not here. Think its the rats that got it?
+adi: I don't remember leaving it anywhere else. Think the rats that got it?
 You chuckle for a bit.
 wiks: If we've got rats that can chew through hard plastic, I think a camera's the least of our problems.
 update adi [mirrored="false"]
+adi: Just... help a girl out, will you?
 You scan your eyes, trying to see if she placed it somewhere conspicuous, like the last time she forgot where her brushes were. Or her journal. Or her keys.
 You get taken aback when your eyes land on the wall in front of you.
 wiks: Woah.
 She doesn't even look up when she responds.
 adi: Is it the mural? Yeah, I made a few changes since you were last here.
-It's her mural, painted on the widest wall of her makeshift studio. It's an abstract flurry of colors, a far cry from the near empty wall when you last saw it. Even from this far away, you can see that there are so many layers of paint that the wall feels thicker.
+It's her mural, painted on the widest wall of her makeshift studio.
+It's an abstract flurry of colors, a far cry from the near empty wall when you last saw it.
+Even from this far away, you can see that there are so many layers of paint that the wall feels thicker.
 wiks: You've certainly put a lot of progress since last time.
 adi: It's been [i]months,[/i] Wiks.
 You laugh it off, but a small pit opens at your stomach. It was certainly one topic you've been trying to avoid. Especially today of all days.
@@ -61,8 +73,8 @@ leave --All-- [animation="Fade Out Down" wait="true"]
 [wait time="1.0"]
 The journey out of the village and into the city proper takes longer than expected. The carabaos refusing to be organized and delve into the flooded streets of what remains of the former capital.
 join wiks (neutral) left [z_index="1"]
-join adi (neutral) right [z_index="1" mirrored="true"]
-join singer center
+join adi (neutral) leftmost [z_index="1" mirrored="true"]
+join singer right
 The two of you meet up with the leader of the caravan, a well-known travelling singer known by many names, but to the two of you, she's just nothing more but [i]tita[/i].
 leave adi
 update wiks left

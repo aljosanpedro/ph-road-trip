@@ -1,7 +1,8 @@
 label intro
 [background arg="res://assets/images/backgrounds/black_bg.png" fade="0.0"]
-The trip takes a few hours more, and the sun well on its way to rising when you finally reach your destination, a large pool of water located inside the campus of an old university. Nowadays, only a few buildings remained as schools, with the rest either having been abandoned due to damage or neglect, or been converted into living quarters.
-join adi center
+The trip takes a few hours more, and the sun well on its way to rising when you finally reach your destination, a large pool of water located inside the campus of an old university.
+Nowadays, only a few buildings remained as schools, with the rest either having been abandoned due to damage or neglect, or been converted into living quarters.
+join adi leftmost
 join wiks left
 Being located near your home settlement, it also serves as the first stop of your journey.
 join singer right
@@ -13,6 +14,7 @@ singer: Oh how I long to be like you two again, discovering the world and yourse
 She sniffles, wiping an imaginary tear in her eye.
 singer: [i]Ingat kayo[/i]! Don't be careless now, okay?
 leave singer
+update adi right
 Your farewells are drowned out by the noises of the caravan as they finish their drop and you hear the groans of the carabaos and the scraping of canoes as everyone begins to ride out.
 singer: I'll see you back at the village in a week or so. Bye!
 wiks: Bye tita! Thanks for the ride!
@@ -28,13 +30,14 @@ With a deep breath, the two of you turn around to survey the scene before you.
 [clear time="1.0" step="false" text="false" portraits="false" music="false" positions="false" style="false"]
 [wait time="1.0"]
 do AudioManager.bgm_play("res://assets/audio/bgm/shell.mp3")
-With a great flourish you swing your arms out, and the morning light seeps through the buildings behind you, spreading a gentle warmth across your back. Beside you, Adi chuckles at your antics as she picks up the small satchel on her feet.
+With a great flourish you swing your arms out, and the morning light seeps through the buildings behind you, spreading a gentle warmth across your back.
+Beside you, Adi chuckles at your antics as she picks up the small satchel on her feet.
 wiks: Ah, freedom!
 adi: We're literally less than half a day away from home, Wiks. Calm down.
 adi: Why don't we look around? Get a proper breakfast that's not on top of a canoe before we head deeper into the city?
 wiks: No time like the present to enjoy a week off.
 [clear time="1.0"]
-tutorial: Swap between Wiks and Adi by clicking their portraits at the top. Click on points of interest to learn more about the place, and each other. When all is done, talk to the other person! (note\: we show this text verbatim.)
+tutorial: Swap between Wiks and Adi by clicking their portraits at the top. Click on points of interest to learn more about the place, and each other. When all is done, talk to the other person!
 jump end
 label outro_pre_camera
 if Events.get_current_pov() == Events.POV_Character.WIKS:
