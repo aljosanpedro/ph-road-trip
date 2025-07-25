@@ -328,11 +328,11 @@ texture = SubResource("GradientTexture1D_m6ccg")
 
 [node name="MainMenuButtons" type="HBoxContainer" parent="CanvasLayer/UIAndEverything"]
 layout_mode = 1
-offset_left = 341.0
+offset_left = 318.0
 offset_top = 912.0
-offset_right = 1619.0
+offset_right = 1602.0
 offset_bottom = 973.0
-theme_override_constants/separation = 39
+theme_override_constants/separation = 42
 alignment = 1
 
 [node name="Options" type="Button" parent="CanvasLayer/UIAndEverything/MainMenuButtons"]
@@ -366,4 +366,6 @@ libraries = {
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
+[connection signal="pressed" from="CanvasLayer/UIAndEverything/MainMenuButtons/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="CanvasLayer/UIAndEverything/MainMenuButtons/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/UIAndEverything/MainMenuButtons/QuitGame" to="." method="_on_quit_game_pressed"]
