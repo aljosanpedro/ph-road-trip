@@ -25,7 +25,7 @@ extends Node2D
 # "loc_2_jabee": false,
 
 func _ready() -> void:
-	AudioManager.bgm_play("res://assets/audio/bgm/cubao.wav")
+	AudioManager.bgm_play("res://assets/audio/bgm/cubao.mp3")
 	animation_player.play("RESET")
 	# Connect a following switch.
 	Events.switch_has_been_set.connect(_is_everything_interacted)
