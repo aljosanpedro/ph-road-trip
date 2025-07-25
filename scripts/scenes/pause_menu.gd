@@ -84,7 +84,6 @@ func _on_sfx_volume_slider_value_changed(value: float) -> void:
 
 func _on_to_title_screen_button_pressed() -> void:
 	Events.reset()
-	Dialogic.end_timeline()
 	
 	await Events.wait(1)
 	

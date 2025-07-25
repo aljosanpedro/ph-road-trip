@@ -9,6 +9,8 @@ extends Control
 @onready var pause_menu: PauseMenu = $CanvasLayer/UIAndEverything/PauseMenu
 
 func _ready() -> void:
+	Dialogic.end_timeline()
+	
 	AudioManager.bgm_play("res://assets/audio/bgm/title_theme.mp3")
 	modulate = Color(0, 0, 0)
 	animation_player.play("intro")
