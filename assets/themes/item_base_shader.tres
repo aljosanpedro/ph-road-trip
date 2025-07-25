@@ -1,3 +1,12 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://dfsofdoufcbun"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dfsofdoufcbun"]
+
+[ext_resource type="Shader" uid="uid://c3o5qj8eq2ms3" path="res://scripts/components/item_base_shader.gdshader" id="1_gciof"]
 
 [resource]
+shader = ExtResource("1_gciof")
+shader_parameter/maxLineWidth = 10.0
+shader_parameter/minLineWidth = 5.0
+shader_parameter/speed = 4.0
+shader_parameter/blockSize = 20.0
+shader_parameter/color = Color(1, 0.81, 0.25, 1)
+shader_parameter/tolerance = 0.0

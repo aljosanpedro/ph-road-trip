@@ -14,17 +14,25 @@ func _ready() -> void:
 	await animation_player.animation_finished
 	
 	for game_button: Button in main_menu_buttons.get_children():
+		game_button.focus_entered.connect(_title_button_focus_entered.bind(game_button))
+		game_button.focus_exited.connect(_title_button_focus_exited.bind(game_button))
 		game_button.disabled = false
 
 func _on_start_game_pressed() -> void:
+	_activate_buttons(false)
 	AudioManager.bgm_stop(1)
 	animation_player.play("fade")
 	await animation_player.animation_finished
 	get_tree().change_scene_to_packed(preload("res://scenes/scenes/game_main.tscn"))
 
-#func _game_button_mouse_entered(the_button: Button) -> void:
-	#the_button.shader
-#
-#func _game_button_mouse_exited(the_button: Button) -> void:
-	#pass
-	#
+func _activate_buttons(value: bool) -> void:
+	for game_button: Button in main_menu_buttons.get_children():
+		game_button.use_parent_material = value
+		
+func _title_button_focus_entered(game_button: Button) -> void:
+	game_button.use_parent_material = true
+
+func _title_button_focus_exited(game_button: Button) -> void:
+	game_button.use_parent_material = true
+		
+	

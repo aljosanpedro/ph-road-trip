@@ -1,0 +1,42 @@
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://5mmkwd6adl0c"]
+
+[ext_resource type="FontFile" uid="uid://00hlmm36oh26" path="res://assets/fonts/travel_map/CubaoFree2-Regular.ttf" id="1_dbjt6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dbjt6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sk1l0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jb66l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bf1lu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gfj1t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hai8r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vx667"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nq0rq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lehg5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_itdd4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d81rf"]
+
+[resource]
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 10
+Button/font_sizes/font_size = 64
+Button/fonts/font = ExtResource("1_dbjt6")
+Button/styles/disabled = SubResource("StyleBoxEmpty_dbjt6")
+Button/styles/disabled_mirrored = SubResource("StyleBoxEmpty_sk1l0")
+Button/styles/focus = SubResource("StyleBoxEmpty_jb66l")
+Button/styles/hover = SubResource("StyleBoxEmpty_bf1lu")
+Button/styles/hover_mirrored = SubResource("StyleBoxEmpty_gfj1t")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_hai8r")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vx667")
+Button/styles/normal = SubResource("StyleBoxEmpty_nq0rq")
+Button/styles/normal_mirrored = SubResource("StyleBoxEmpty_lehg5")
+Button/styles/pressed = SubResource("StyleBoxEmpty_itdd4")
+Button/styles/pressed_mirrored = SubResource("StyleBoxEmpty_d81rf")

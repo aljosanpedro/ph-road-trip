@@ -255,6 +255,7 @@ metadata/_edit_lock_ = true
 [node name="Graffiti" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
+required_character = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Graffiti"]
 position = Vector2(675, 824)
@@ -279,6 +280,7 @@ debug_color = Color(1, 0, 0, 0.419608)
 [node name="Jolibee" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
+required_character = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Jolibee"]
 position = Vector2(444, 589)
@@ -293,6 +295,7 @@ debug_color = Color(1, 0, 0, 0.419608)
 [node name="Lanterns" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
+required_character = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Lanterns"]
 position = Vector2(375, 529)
@@ -306,6 +309,7 @@ shape = SubResource("RectangleShape2D_iuwtx")
 [node name="Radio" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
+required_character = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Radio"]
 position = Vector2(477, 866)
@@ -319,6 +323,7 @@ shape = SubResource("RectangleShape2D_j05l1")
 [node name="Kids" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
+required_character = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Kids"]
 position = Vector2(695, 548)
@@ -333,6 +338,7 @@ shape = SubResource("RectangleShape2D_7jojy")
 [node name="Mannequins" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
+required_character = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Mannequins"]
 position = Vector2(1215, 728)
@@ -347,6 +353,7 @@ debug_color = Color(1, 0, 0, 0.419608)
 [node name="Clothesline" parent="." node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
+required_character = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Clothesline"]
 position = Vector2(907, 240)

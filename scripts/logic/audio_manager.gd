@@ -3,8 +3,8 @@
 #===============================================================================
 extends Node
 
-@onready var background_music = %BGM
-@onready var background_sound = %BGS
+@onready var background_music: AudioStreamPlayer = %BGM
+@onready var background_sound: AudioStreamPlayer = %BGS
 @onready var sound_effect_queue = $SFX
 
 
@@ -33,8 +33,13 @@ func bgm_play(path: String, volume: float = 0):
 		bgm_stop()
 	
 	background_music.stream = load(path)
-	background_music.stream.loop = true
 	
+	match background_music.stream:
+		AudioStreamWAV:
+			background_music.stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+		_:
+			background_music.stream.loop = true
+			
 	background_music.volume_db = volume
 	background_music.play()
 

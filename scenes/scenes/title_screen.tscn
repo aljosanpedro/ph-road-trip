@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dglj23acmhple"]
+[gd_scene load_steps=17 format=3 uid="uid://dglj23acmhple"]
 
 [ext_resource type="Script" uid="uid://cxw33yn604nps" path="res://scripts/scenes/title_screen.gd" id="1_p0v5f"]
 [ext_resource type="Texture2D" uid="uid://bejsuy5y4dvvc" path="res://assets/images/title_screen/1_sky.png" id="2_1m84x"]
@@ -9,30 +9,15 @@
 [ext_resource type="Texture2D" uid="uid://5f3ojdtyoaay" path="res://assets/images/title_screen/4_leaning_towers.png" id="5_m6ccg"]
 [ext_resource type="Texture2D" uid="uid://ctvis8x671q5p" path="res://assets/images/title_screen/5_ocean.png" id="6_upga4"]
 [ext_resource type="Texture2D" uid="uid://d5664h55g7f2" path="res://assets/images/title_screen/6_adi_and_wiks.png" id="7_2w6co"]
+[ext_resource type="Theme" uid="uid://5mmkwd6adl0c" path="res://assets/themes/title_menu_buttons.tres" id="10_xglq0"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_q5odm"]
+[sub_resource type="Gradient" id="Gradient_xglq0"]
+offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.333333, 0, 0, 0, 0.333333, 0, 0, 0, 0)
+metadata/_snap_enabled = true
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_miwe6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q5odm"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qq3hq"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0or8v"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6sfx6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_45tqg"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_47nog"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1m84x"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jjag5"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xglq0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6ccg"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m6ccg"]
+gradient = SubResource("Gradient_xglq0")
 
 [sub_resource type="Animation" id="Animation_q5odm"]
 length = 0.001
@@ -103,6 +88,18 @@ tracks/5/path = NodePath("CanvasLayer/UIAndEverything:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/UIAndEverything/ButtonBackground:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -198,6 +195,29 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(0.25, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 652)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/UIAndEverything/ButtonBackground:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(4, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qq3hq"]
@@ -298,8 +318,15 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_q5odm")
 
+[node name="ButtonBackground" type="TextureRect" parent="CanvasLayer/UIAndEverything"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 896.0
+offset_right = 1856.0
+offset_bottom = 984.0
+texture = SubResource("GradientTexture1D_m6ccg")
+
 [node name="MainMenuButtons" type="HBoxContainer" parent="CanvasLayer/UIAndEverything"]
-material = SubResource("ShaderMaterial_q5odm")
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -315,22 +342,11 @@ grow_vertical = 0
 alignment = 1
 
 [node name="StartGame" type="Button" parent="CanvasLayer/UIAndEverything/MainMenuButtons"]
+use_parent_material = true
 custom_minimum_size = Vector2(400, 150)
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 64
-theme_override_styles/focus = SubResource("StyleBoxEmpty_miwe6")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_q5odm")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_qq3hq")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0or8v")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_6sfx6")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_45tqg")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_47nog")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_1m84x")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_jjag5")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_xglq0")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_m6ccg")
+size_flags_horizontal = 3
+theme = ExtResource("10_xglq0")
 disabled = true
 text = "Start Game"
 

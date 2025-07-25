@@ -68,7 +68,7 @@ func _on_to_title_screen_button_pressed() -> void:
 	Events.reset()
 	Dialogic.end_timeline()
 	
-	await Events.wait
+	await Events.wait(1)
 	
 	get_tree().change_scene_to_file("res://scenes/scenes/title_screen.tscn")
 
