@@ -6,6 +6,8 @@ extends Control
 @onready var animation_player = $AnimationPlayer
 @onready var main_menu_buttons: HBoxContainer = $CanvasLayer/UIAndEverything/MainMenuButtons
 
+@onready var pause_menu: PauseMenu = $CanvasLayer/UIAndEverything/PauseMenu
+
 func _ready() -> void:
 	AudioManager.bgm_play("res://assets/audio/bgm/title_theme.mp3")
 	modulate = Color(0, 0, 0)
@@ -23,13 +25,19 @@ func _on_start_game_pressed() -> void:
 	AudioManager.bgm_stop(1)
 	animation_player.play("fade")
 	await animation_player.animation_finished
+	
 	get_tree().change_scene_to_packed(preload("res://scenes/scenes/game_main.tscn"))
 
 func _on_quit_game_pressed() -> void:
-	pass # Replace with function body.
+	_activate_buttons(false)
+	AudioManager.bgm_stop(1)
+	animation_player.play("fade")
+	await animation_player.animation_finished
+	
+	get_tree().quit()
 
 func _on_options_pressed() -> void:
-	pass # Replace with function body.
+	pause_menu.show_settings()
 
 func _activate_buttons(value: bool) -> void:
 	for game_button: Button in main_menu_buttons.get_children():

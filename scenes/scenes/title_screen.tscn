@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dglj23acmhple"]
+[gd_scene load_steps=18 format=3 uid="uid://dglj23acmhple"]
 
 [ext_resource type="Script" uid="uid://cxw33yn604nps" path="res://scripts/scenes/title_screen.gd" id="1_p0v5f"]
 [ext_resource type="Texture2D" uid="uid://bejsuy5y4dvvc" path="res://assets/images/title_screen/1_sky.png" id="2_1m84x"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ctvis8x671q5p" path="res://assets/images/title_screen/5_ocean.png" id="6_upga4"]
 [ext_resource type="Texture2D" uid="uid://d5664h55g7f2" path="res://assets/images/title_screen/6_adi_and_wiks.png" id="7_2w6co"]
 [ext_resource type="Theme" uid="uid://5mmkwd6adl0c" path="res://assets/themes/title_menu_buttons.tres" id="10_xglq0"]
+[ext_resource type="PackedScene" uid="uid://5p4g0rpq6r3h" path="res://scenes/scenes/pause_menu.tscn" id="11_xglq0"]
 
 [sub_resource type="Gradient" id="Gradient_xglq0"]
 offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
@@ -357,6 +358,10 @@ layout_mode = 2
 theme = ExtResource("10_xglq0")
 disabled = true
 text = "Quit"
+
+[node name="PauseMenu" parent="CanvasLayer/UIAndEverything" instance=ExtResource("11_xglq0")]
+layout_mode = 1
+if_title_screen = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

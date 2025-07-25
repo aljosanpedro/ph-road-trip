@@ -125,20 +125,20 @@ metadata/_edit_lock_ = true
 
 [node name="AudioSettingsLabel" type="Label" parent="PauseMenuItems"]
 layout_mode = 0
-offset_left = 1061.0
-offset_top = 275.0
-offset_right = 1198.0
-offset_bottom = 337.0
+offset_left = 605.0
+offset_top = 341.0
+offset_right = 742.0
+offset_bottom = 403.0
 mouse_filter = 1
 text = "Audio"
 label_settings = ExtResource("4_c1i2v")
 
 [node name="AudioSettings" type="VBoxContainer" parent="PauseMenuItems"]
 layout_mode = 0
-offset_left = 1053.0
-offset_top = 341.0
-offset_right = 1391.0
-offset_bottom = 633.0
+offset_left = 597.0
+offset_top = 407.0
+offset_right = 935.0
+offset_bottom = 699.0
 theme_override_constants/separation = 20
 
 [node name="MusicVolumeLabel" type="Label" parent="PauseMenuItems/AudioSettings"]
@@ -174,23 +174,29 @@ theme = ExtResource("5_c1i2v")
 max_value = 1.0
 step = 0.01
 
-[node name="ToTitleScreenButton" type="Button" parent="PauseMenuItems"]
+[node name="ButtonList" type="VBoxContainer" parent="PauseMenuItems"]
 layout_mode = 0
-offset_left = 1139.0
-offset_top = 706.0
-offset_right = 1493.0
-offset_bottom = 768.0
+offset_left = 1014.0
+offset_top = 113.0
+offset_right = 1649.0
+offset_bottom = 928.0
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="ToTitleScreenButton" type="Button" parent="PauseMenuItems/ButtonList"]
+layout_mode = 2
 theme = ExtResource("7_f2hws")
 text = "To Title Screen"
 
-[node name="QuitButton" type="Button" parent="PauseMenuItems"]
-layout_mode = 0
-offset_left = 1254.0
-offset_top = 774.0
-offset_right = 1363.0
-offset_bottom = 849.0
+[node name="QuitButton" type="Button" parent="PauseMenuItems/ButtonList"]
+layout_mode = 2
 theme = ExtResource("7_f2hws")
 text = "Quit"
+
+[node name="ReturnButton" type="Button" parent="PauseMenuItems/ButtonList"]
+layout_mode = 2
+theme = ExtResource("7_f2hws")
+text = "Return"
 
 [node name="PlayButton" type="Button" parent="."]
 visible = false
@@ -233,7 +239,8 @@ libraries = {
 [connection signal="value_changed" from="PauseMenuItems/AudioSettings/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
 [connection signal="value_changed" from="PauseMenuItems/AudioSettings/SoundVolumeSlider" to="." method="_on_sound_volume_slider_value_changed"]
 [connection signal="value_changed" from="PauseMenuItems/AudioSettings/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
-[connection signal="pressed" from="PauseMenuItems/ToTitleScreenButton" to="." method="_on_to_title_screen_button_pressed"]
-[connection signal="pressed" from="PauseMenuItems/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PauseMenuItems/ButtonList/ToTitleScreenButton" to="." method="_on_to_title_screen_button_pressed"]
+[connection signal="pressed" from="PauseMenuItems/ButtonList/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PauseMenuItems/ButtonList/ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
