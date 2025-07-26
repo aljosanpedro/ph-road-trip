@@ -1,41 +1,45 @@
-[wait time="3.0"]
-wiks: Adi... the whole caravan's waiting for you!
-adi: Yes! I know!
-wiks: Do you have everything you need?
-adi: Yes! Just— Give me a moment!
-You wait for a moment.
-- Some boxes fall...
-- Something metallic clatters...
-...and you hear Adi start muttering under her breath.
-You try to fight the smirk creeping up your face as you gently push the door open.
-wiks: I'm coming in.
+[wait time="1.5"]
+Your footsteps smack against cracked and mossy pavement as you gently shoulder the door open. A small bell rings to signal your arrival.
+wiks: I've pulled every single favor I have. We have 15 minutes.
+wiks: Or else.
+A woman's head pops up from behind a mossy old countertop, her eyes barely peeking out from the canvas bags that lie on top of it.
+female_voice: Or else?
+wiks: Or else, we miss the low tide window and we just squandered our one chance at a vacation.
+- I dont want to walk...
+	wiks: I don't want to walk the whole way.
+	wiks: What if there are dogs?
+	female_voice: We're surrounded by deep waters, Wiks.
+	wiks: [i]Swimming[/i] dogs, then. Terrifying.
+- You can't swim...
+	wiks: The waters aren't exactly peaceful around here as well.
+	wiks: Unless you've learned how to swim...?
+You hear her groan, the sound very audible from behind the counter.
+female_voice: [i]Ugghhhhh[/i], you're starting to sound like my mother, Wiks.
+female_voice: Maybe if you help a girl out here instead of chatting, we can still reach your fifteen minute deadline?
+You chuckle and head inside.
 [background arg="res://assets/images/backgrounds/intro_jabee.png" fade="5.0" transition="Simple Fade"]
 [wait time="1.0"]
 join wiks left
 It's the smell that first hits you -- the fierce chemical odor of paint and dust and sea all mixed together in a kaleidoscope of aromas.
-The space is one part ruin, one part hastily-repurposed ancient furniture.
+The space is one part ruin, one part hastily-repurposed ancient furniture, all jumbled together into a sort-of livable space.
 You pass by booth seats turned into storage units, deep fryers turned into brush holders, and walls turned into canvases filled with sketches of drowning cities, faces and hills.
 Your boots squeak as they rub against the plastic tarp on the ground that barely keeps the dripping ceiling at bay.
+wiks: I thought we were supposed to have packed last night?
 update wiks left
+You lean across the counter and peer over the edge.
 join adi right
-You finally see her next to the old counter, hunched over and rummaging through a box of God-knows-what. A rapidly growing mountain of detritus growing beside her.
-wiks: I'm pretty sure I woke you up a few hours ago, right?
+You see Adi, your friend, hunched over and rummaging through a box of God-knows-what, a rapidly growing mountain of detritus growing beside her.
+adi: Let's just say I was busy.
 update adi [mirrored="true"]
-Adi pauses for a moment, then looks at you.
-adi: No, you didn't.
-She was always a bad liar.
+You notice flecks of paint on her hair and hold back a smile. Good to know four months hadn't changed her much.
+wiks: What're you looking for anyways?
 update adi [mirrored="false"]
-You raise an eyebrow, but don't push the matter further. You have more pressing things on your mind.
-Like the fact that you have to leave right now!
-You stare as she continues rummaging, plopping down personal effects, family heirlooms, old food wrappers, even the few knickknacks you've brought for her down to the floor.
-wiks: What're you looking for anyway?
-adi: My camera.
 update adi [mirrored="true"]
-adi: I don't remember leaving it anywhere else. Think the rats that got it?
-You chuckle for a bit.
-wiks: If we've got rats that can chew through hard plastic, I think a camera's the least of our problems.
+adi: That old camera you brought me before. I know I put it here, but it's not here, and it's not in any of my boxes.
+adi: And before you say anything, no, I did not put it in any of the fryers again.
+You close your mouth.
+wiks: My lips are sealed.
 update adi [mirrored="false"]
-adi: Just... help a girl out, will you?
 You scan your eyes, trying to see if she placed it somewhere conspicuous, like the last time she forgot where her brushes were. Or her journal. Or her keys.
 You get taken aback when your eyes land on the wall in front of you.
 wiks: Woah.
@@ -45,29 +49,21 @@ It's her mural, painted on the widest wall of her makeshift studio.
 It's an abstract flurry of colors, a far cry from the near empty wall when you last saw it.
 Even from this far away, you can see that there are so many layers of paint that the wall feels thicker.
 wiks: You've certainly put a lot of progress since last time.
-adi: It's been [i]months,[/i] Wiks.
-You laugh it off, but a small pit opens at your stomach. It was certainly one topic you've been trying to avoid. Especially today of all days.
-wiks: I... Look, I'm sorry. It's just that we've been undermanned for a while now.
-wiks: Lotta people being hurt lately, and someone's gotta make sure people don't have buildings crash on them...
-update adi (sad) [mirrored="true"]
-Adi turns to see you, and you see half her face for the first time today. For a moment, although she's as sassy as ever, there's a hint of [i]something[/i] in her eyes. Concern, maybe? Perhaps fatigue?
-adi: So long as you're okay.
-update adi (neutral) [mirrored="true"]
-Her voice is quiet as she fully meets your gaze, and whatever it is you saw vanishes. It's quick enough it could've been a trick of the light.
-A booming voice from outside interrupts your casual talk.
-female_voice: [b]Hoy[/b]! You two! I've got half the village and twenty carabao waiting here. Weren't you two supposed to be prepared hours ago?
+She gives you a small smile.
+adi: Thank you, Wiks.
+adi: I had to do something while you were off exploring, y'know?
+She chuckles a bit but you feel a sort of weight behind the words. Exhaustion, maybe?
+Before you can prod further, you hear a horn ring out.
+It's the last call before the caravan -- the same caravan you're supposed to be joining -- leaves.
+adi: I thought you asked for fifteen minutes?!
 update adi (neutral) [mirrored="false"]
-Adi makes the face she makes when she knows she's in trouble. You laugh a little at that, but notice something else. With her face in full view, a little fleck of wet paint is shimmers on her hair. Wasn't she supposed to be preparing?
-wiks: Yes, ma'am! We'll be down in one minute!
-female_voice: [i]Hay[/i]... I swear, these kids have never been early to anything. You have five minutes or I'm leaving you all behind!
-wiks: C'mon Adi, we don't want to make her wait!
+You hurriedly grab the bags on the countertop, while Adi shoves everything under the counter.
 update adi [mirrored="false"]
-Adi turns to you, exasperated, before her eyes suddenly widen.
-She rushes forward and grabs something behind you. Turns out the camera was on a windowsill.
-wiks: Really? A windowsill this time?
-adi (angry): I swear, that wasn't—
-You laugh and turn away, grabbing her prepared bags near the door.
-wiks: Lets go, before our only chance at a vacation runs off at walking speed.
+You begin to head out, when you hear Adi exclaim, and a blur shoots past you as she suddenly grabs something in a nearby windowsill.
+adi: Found it!
+wiks: Really, a windowsill this time?
+Adi rolls her eyes.
+adi: Shut up, you didn't even help look.
 leave --All-- [animation="Fade Out Down" wait="true"]
 [clear time="2.0" step="false"]
 [wait time="1.0"]
