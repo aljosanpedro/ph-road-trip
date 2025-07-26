@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://5f3ojdtyoaay" path="res://assets/images/title_screen/4_leaning_towers.png" id="5_m6ccg"]
 [ext_resource type="Texture2D" uid="uid://ctvis8x671q5p" path="res://assets/images/title_screen/5_ocean.png" id="6_upga4"]
 [ext_resource type="Texture2D" uid="uid://d5664h55g7f2" path="res://assets/images/title_screen/6_adi_and_wiks.png" id="7_2w6co"]
-[ext_resource type="Theme" path="res://assets/themes/title_menu_buttons.tres" id="10_xglq0"]
+[ext_resource type="Theme" uid="uid://5mmkwd6adl0c" path="res://assets/themes/title_menu_buttons.tres" id="10_xglq0"]
 [ext_resource type="PackedScene" uid="uid://5p4g0rpq6r3h" path="res://scenes/scenes/pause_menu.tscn" id="11_xglq0"]
 
 [sub_resource type="Gradient" id="Gradient_xglq0"]

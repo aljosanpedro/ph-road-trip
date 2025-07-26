@@ -60,8 +60,10 @@ func _is_everything_interacted() -> void:
 	# Stop music after photo is taken.
 	AudioManager.bgm_stop(1)
 	
-	# Hide item outlines immediately after.
-	Events.show_item_outline(false)
+	# Delete all items instead.
+	for item in get_children():
+		if item is ItemBase:
+			item.queue_free()
 	
 	animation_player.play("fade_to_black")
 	await animation_player.animation_finished
