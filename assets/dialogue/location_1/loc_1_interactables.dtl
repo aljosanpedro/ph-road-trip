@@ -1,17 +1,20 @@
 label stall
-There's a small food stall near the two of you. It's not particularly of note, with a weathered sign with the words [i]Bancit's Kantunan[/i] plastered in front, and an upturned cart that serves as a makeshift table in front of it. You've eaten here quite a few times now, and you feel your spirits buoyed even further when you realize its still open.
+There's a small food stall near the two of you.
+ It's not particularly of note, with a weathered sign with the words [i]Bancit's Kantunan[/i] plastered in front, and an upturned cart that serves as a makeshift table in front of it. 
+You've eaten here quite a few times now, and you feel your spirits buoyed even further when you realize its still open.
 You approach, and with a light rap on the stall counter, a wizened old man turns. It takes him a few seconds to recognize you.
 old_man: Is that you... [i]whatsyournameagain[/i]... Wiks! Yes! Ah, how you've grown!
 wiks: Good morning po, how's it going?
 old_man: It's fine it's fine, the years taking its toll on my old bones again... Oh! Is that you Adi? My, what a beautiful woman you've become!
 Adi smiles and waves bashfully behind you. The old man's voice lowers as he continues.
-old_man: Only the two of you? You didn't tell me you were--
+old_man: You brought her again? You didn't tell me you were--
 You cut him off before he gets the wrong idea.
 wiks: It's not like that. We're just passing by for a trip.
 old_man: Whatever you say, Wiks.
-He winks at you mischievously. You roll your eyes. He did like to mess with you since you were a kid.
+He winks at you mischievously. You roll your eyes. He did like to mess with you two since you were a kid.
 old_man: Well, go take a seat. I'll whip you up your favorites. And don't worry about paying – business has been booming lately! I can barely keep up with the orders.
-It doesn't take long for the food to arrive. Plates of hot stir-fry noodles mixed with local vegetables and the latest catch lay tantalizingly in front of you, their aromas beckoning the two of you to dig in. The two of you don't hesitate.
+It doesn't take long for the food to arrive. 
+Plates of hot stir-fry noodles mixed with local vegetables and the latest catch lay tantalizingly in front of you, their aromas beckoning the two of you to dig in. The two of you don't hesitate.
 Moments later, as the two of you lounge at the cart after the hearty meal, Adi pipes up, her gaze lingering on the rickety stall.
 adi: Hm, why doesn't he move out of the same old stall? It looks... dangerous? Like it might fall at any time?
 wiks: It survived the floods, the storms, the evacuations... Sure it might need some elbow grease every now and then, but I think it deserves it.
@@ -51,7 +54,8 @@ You hear a forceful laugh come from Adi.
 adi: Haha... yeah... tell him I said hi. And thanks. I guess.
 young_man: Oh I will. Thank you for your work, ma'am. Your vision of the past really keeps the world alive.
 He scrambles off, presumably to tell his family about who he just met.
-You look up at the mural the young man pointed to. It's a painting of a beautiful woman, with long black hair blown by a breeze among a bed of flowers. You vaguely recognize the woman. Is this some sort of historical figure? Compared to the more abstract and eclectic painting you saw in Adi's studio, this one was more realistic and subdued.
+You look up at the mural the young man pointed to. It's a painting of a beautiful woman, with long black hair blown by a breeze among a bed of flowers.
+ You vaguely recognize the woman. Is this some sort of historical figure? Compared to the more abstract and eclectic painting you saw in Adi's studio, this one was more realistic and subdued.
 wiks: I wouldn't have guessed that you made this... When did you do it?
 adi: Two months ago. You were on your expedition to the southeast, then.
 Her voice is quiet. You feel a small pit form in your gut. Two months ago? How much of your friend's life have you missed already?
@@ -69,7 +73,8 @@ She walks away quickly, leaving you standing there in surprise. You take one las
 You wonder if ever she'll tell you about it.
 jump end
 label trees
-A single large tree rises near the fence line, its branches sprawling away like someone stretching. Cloth strips hang from it—messages, blessings, names written in charcoal or carved into bark. A few candles flicker at its base, along with a smattering of religious figurines.
+A single large tree rises near the fence line, its branches sprawling away like someone stretching.
+ Cloth strips hang from it—messages, blessings, names written in charcoal or carved into bark. A few candles flicker at its base, along with a smattering of religious figurines. A person or two lingers, heads bowed.
 Almost instinctively, you reach out for one of the loose ribbons and tighten it on a nearby low-hanging branch.
 wiks: What'd you pray for?
 You raise an eyebrow.

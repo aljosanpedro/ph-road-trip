@@ -60,8 +60,10 @@ Wiks nods, though you don't know if he understood why you said so. He steps back
 wiks: I'll be here if you need me.
 jump end
 label clothes
-Your eyes catch sight of a row of clothes hanging on makeshift clotheslines, many of them missing buttons or frayed at the edges. Some of the garments had been repurposed into patchwork outfits, while others were left untouched.
-The fabric feels soft and well-worn under your fingertips, but you feel like it wasn't always like this. There would've been a time when the fabric was crisp, new, marked with shapes and patterns (or the lack of them) that alluded to people's tastes.
+Your eyes catch sight of a row of clothes hanging on makeshift clotheslines, many of them missing buttons or frayed at the edges. 
+Some of the garments had been repurposed into patchwork outfits, while others were left untouched.
+The fabric feels soft and well-worn under your fingertips, but you feel like it wasn't always like this.
+ There would've been a time when the fabric was crisp, new, marked with shapes and patterns (or the lack of them) that alluded to people's tastes.
 Now, they're all mashed together, old fabric with new cloth, repurposed, reused, recycled.
 The past reborn into the present, just in another form.
 Your thoughts wander into the intricacies of your work, and you wonder.
@@ -73,11 +75,13 @@ adi: It looks creepy, all posed like this.
 adi: Although…
 adi: Maybe I can ask them for one at some point, since no one seems to use them.
 adi: I could use the model.
-adi: Maybe I'd let Wiks carry it home.
+adi: Maybe I'd even let Wiks carry it home.
+You laugh to yourself as you leave.
 jump end
 label jabee
 A mascot stands before you, a cartoonishly happy bee bedecked in gold and red, its stinger pointed high in pride. It's the same mascot that you've seen at your studio.
-Tita says it's a logo of a famous fast food place, though you don't exactly have a concept of what makes food fast. While they no longer exist in the flooded cities, she said she once found an intact place far inland, where most citizens moved to, decades back.
+[i]Tita[/i] says it's a logo of a famous fast food place, though you don't exactly have a concept of what makes food fast. 
+While they no longer exist in the flooded cities, she said she once found an intact place far inland, where most citizens moved to, decades back.
 wiks: Huh, that's the mascot in your place, right? Funny we'd see it here as well.
 adi: Well, it is famous. How many of these had you seen out there?
 wiks: I don't really count, but maybe around ten? Twenty? There's actually a spot where there's a bunch of these smiling bee places clustered next to each other.

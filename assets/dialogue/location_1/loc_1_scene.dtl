@@ -4,13 +4,13 @@ The trip takes a few hours more, and the sun well on its way to rising when you 
 Nowadays, only a few buildings remained as schools, with the rest either having been abandoned due to damage or neglect, or been converted into living quarters.
 join adi leftmost
 join wiks left
-Being located near your home settlement, it also serves as the first stop of your journey.
+Being located near your home, it also serves as the first stop of your journey.
 join singer right
-As the caravan drops off their wares of commodities and scavenged goods, the two of you are approached by the Singer.
+As the caravan drops off their wares of commodities and scavenged goods, the Singer approaches the two of you.
 update singer [z_index="0"]
-singer: You two drop off here. It's a nice spot, and there's a boat rental here to Cubao, if you're going there. Just drop my name and he'll know what to do.
-She looks at the two of you a wistful look forming in her features.
-singer: Oh how I long to be like you two again, discovering the world and yourselves...
+singer: I'll drop you two off here. It's a nice spot, and there's a boat rental here to Cubao, if you're going there. Just drop my name and he'll handle everything.
+She gives you two a wistful look.
+singer: Oh how I long to be young again, discovering the world and yourselves...
 She sniffles, wiping an imaginary tear in her eye.
 singer: [i]Ingat kayo[/i]! Don't be careless now, okay?
 leave singer
@@ -33,30 +33,35 @@ do AudioManager.bgm_play("res://assets/audio/bgm/shell.mp3")
 With a great flourish you swing your arms out, and the morning light seeps through the buildings behind you, spreading a gentle warmth across your back.
 Beside you, Adi chuckles at your antics as she picks up the small satchel on her feet.
 wiks: Ah, freedom!
-adi: We're literally less than half a day away from home, Wiks. Calm down.
-adi: Why don't we look around? Get a proper breakfast that's not on top of a canoe before we head deeper into the city?
-wiks: No time like the present to enjoy a week off.
+adi: We're literally less than a few hours away from home, Wiks. Calm down.
+wiks: Make me.
+Adi rolls her eyes at you, but you can see the corner of her mouth curling up to a smile.
+adi: Well, while [i]you[/i] do that, I'm going to go around, look for a meal that's not on top of a moving boat.
+wiks: I'll be right behind you.
 [clear time="1.0"]
 tutorial: Swap between Wiks and Adi by clicking their portraits at the top. Click on points of interest to learn more about the place, and each other. When all is done, talk to the other person!
 jump end
 label outro_pre_camera
 if Events.get_current_pov() == Events.POV_Character.WIKS:
-	You approach Adi, who stands near the water, her hands absentmindedly playing with the camera she's holding.
-	She doesn't hear you approach.
+	Time passes as you wander around, finally able to drink in the sights now that you aren't in exploration duty.
+	You find Adi near the water, her hands absentmindedly playing with the camera she's holding.
+	She doesn't hear you.
 	wiks: Hey Adi, admiring the view?
 	She shakes her head.
 	adi: Just... thinking.
-	adi: What is it?
-	wiks: Oh, I was thinking that we've had quite the time here, so maybe let's take a picture of the place now before we forget.
-	adi: Oh right! I almost forgot. Here.
+	adi: Is there a problem?
+	wiks: Oh, I was thinking that we've had quite the time here, so let's take a picture now before we head out.
+	adi: Oh... Oh! I almost forgot. Here.
 	She hands you the camera.
-	adi: I trust your scouting eyes will find the right angles, Mister Explorer.
+	adi: I'll trust your scouting eyes with right angles, Wiks.
 if Events.get_current_pov() == Events.POV_Character.ADI:
-	Wiks leans against the side of the big tree when you approach him, camera in hand.
+	Time passes as you explore the place,  the sights refreshing memories you've forgotten.
+	Eventually, you head back to where you started, legs taking you to Wiks, his height and gear making him stand out in the streets.
+	He leans against the side of the big tree when you approach him, camera in your hand.
 	wiks: What’s up? Just catching my breath.
 	You hold out the camera.
-	adi: I think we’ve checked the place out pretty well. Wanna take a picture for tita?
-	He immediately straightens up, immediately scanning the surroundings.
+	adi: I think we’ve checked the place out pretty well. Wanna take a picture for [i]tita[/i]?
+	He beams at you, as he gives an enthusiastic thumbs up.
 	wiks: Sure thing! As our resident artist, I’ll let your eye guide the camera.
 	You just roll your eyes at him as you chuckle and bring the viewfinder up.
 jump end
