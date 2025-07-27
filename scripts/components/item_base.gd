@@ -71,7 +71,7 @@ func _required_character_checker() -> bool:
 func _pov_switch_grayout() -> void:
 	if not _required_character_checker():
 		if sprite_component != null: sprite_component.set_use_parent_material(false)
-		modulate = Color(0.8, 0.8, 0.8)
+		modulate = Color(0.5, 0.5, 0.5)
 	else:
 		#if sprite_component != null: sprite_component.set_use_parent_material(true)
 		modulate = Color(1, 1, 1)
