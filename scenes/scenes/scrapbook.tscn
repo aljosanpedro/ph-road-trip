@@ -109,34 +109,34 @@ offset_bottom = 227.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Intro" type="Node2D" parent="Entries"]
+[node name="UPDQC" type="Node2D" parent="Entries"]
 position = Vector2(196, -75)
 scale = Vector2(1.35, 1.35)
 
-[node name="Polaroid" parent="Entries/Intro" instance=ExtResource("2_x7omj")]
-
-[node name="Label" parent="Entries/Intro/Polaroid/Frame" index="1"]
-text = "Sunk Garden"
-
-[node name="Text" parent="Entries/Intro" instance=ExtResource("3_sxt88")]
-position = Vector2(256, 48)
-
-[node name="UPDQC" type="Node2D" parent="Entries"]
-position = Vector2(-5, 311)
-scale = Vector2(1.35, 1.35)
-
 [node name="Polaroid" parent="Entries/UPDQC" instance=ExtResource("2_x7omj")]
+
+[node name="Label" parent="Entries/UPDQC/Polaroid/Frame" index="1"]
+text = "Sunk Garden"
 
 [node name="Text" parent="Entries/UPDQC" instance=ExtResource("3_sxt88")]
 position = Vector2(256, 48)
 
 [node name="Cubao" type="Node2D" parent="Entries"]
-visible = false
-position = Vector2(29, 334)
+position = Vector2(-5, 311)
+scale = Vector2(1.35, 1.35)
 
 [node name="Polaroid" parent="Entries/Cubao" instance=ExtResource("2_x7omj")]
 
 [node name="Text" parent="Entries/Cubao" instance=ExtResource("3_sxt88")]
+position = Vector2(256, 48)
+
+[node name="Cubao2" type="Node2D" parent="Entries"]
+visible = false
+position = Vector2(29, 334)
+
+[node name="Polaroid" parent="Entries/Cubao2" instance=ExtResource("2_x7omj")]
+
+[node name="Text" parent="Entries/Cubao2" instance=ExtResource("3_sxt88")]
 position = Vector2(256, 48)
 
 [node name="Makati" type="Node2D" parent="Entries"]
@@ -201,12 +201,12 @@ libraries = {
 
 [connection signal="pressed" from="ToTitleScreenButton" to="." method="_on_to_title_screen_button_pressed"]
 
-[editable path="Entries/Intro/Polaroid"]
-[editable path="Entries/Intro/Text"]
 [editable path="Entries/UPDQC/Polaroid"]
 [editable path="Entries/UPDQC/Text"]
 [editable path="Entries/Cubao/Polaroid"]
 [editable path="Entries/Cubao/Text"]
+[editable path="Entries/Cubao2/Polaroid"]
+[editable path="Entries/Cubao2/Text"]
 [editable path="Entries/Makati/Polaroid"]
 [editable path="Entries/Makati/Text"]
 [editable path="Entries/Quiapo/Polaroid"]
