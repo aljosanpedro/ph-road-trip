@@ -3,20 +3,17 @@ extends Control
 @onready var fade_texture = $Fade
 @onready var entries = $Entries
 
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
+
 const FADE_DURATION : float = 1.5
 
 
 func _ready() -> void:
-	fade_in()
+	AudioManager.bgm_play("res://assets/audio/bgm/shell.mp3")
 	set_entries()
-
-
-func fade_in() -> void:
-	fade_texture.visible = true
 	
-	var tween = get_tree().create_tween()
+	anim_player.play("fade")
 	
-	tween.tween_property(fade_texture, "color", Color.TRANSPARENT, FADE_DURATION)
 
 
 func set_entries() -> void:
@@ -45,3 +42,13 @@ func set_label(entry) -> void:
 	var label : Node = get_node("Entries/" + entry + "/Polaroid/Frame/Label")
 		
 	label.text = entry
+
+
+func _on_to_title_screen_button_pressed() -> void:
+	Events.reset()
+
+	anim_player.play_backwards("fade")
+
+	await anim_player.animation_finished	
+	
+	get_tree().change_scene_to_file("res://scenes/scenes/title_screen.tscn")

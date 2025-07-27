@@ -1,9 +1,48 @@
-[gd_scene load_steps=5 format=3 uid="uid://bn7hmu26cutsr"]
+[gd_scene load_steps=11 format=3 uid="uid://bn7hmu26cutsr"]
 
 [ext_resource type="Script" uid="uid://dygafg6qc461k" path="res://scripts/scenes/scrapbook.gd" id="1_x7omj"]
 [ext_resource type="Texture2D" uid="uid://bax8t2y7y6i2s" path="res://assets/images/backgrounds/scrapbook.png" id="2_iieyp"]
 [ext_resource type="PackedScene" uid="uid://k14jy5i2n67d" path="res://scenes/components/scrapbook/scrapbook_polaroid.tscn" id="2_x7omj"]
+[ext_resource type="Texture2D" uid="uid://cj8yix1poaytg" path="res://assets/images/pause/pause_menu_bg.png" id="3_jiyov"]
 [ext_resource type="PackedScene" uid="uid://vcn63u6tkkxi" path="res://scenes/components/scrapbook/scrapbook_text.tscn" id="3_sxt88"]
+[ext_resource type="LabelSettings" uid="uid://bwok14bbdyyag" path="res://assets/themes/map_travel_label.tres" id="4_fwvub"]
+[ext_resource type="Theme" uid="uid://dgjvuohvn7vca" path="res://assets/themes/pause_menu_buttons_text.tres" id="7_fwvub"]
+
+[sub_resource type="Animation" id="Animation_fwvub"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oxk17"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jcilh"]
+_data = {
+&"RESET": SubResource("Animation_oxk17"),
+&"fade": SubResource("Animation_fwvub")
+}
 
 [node name="Scrapbook" type="Control"]
 layout_mode = 3
@@ -13,6 +52,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x7omj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Mockup" type="TextureRect" parent="."]
 visible = false
@@ -30,28 +78,40 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Book" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -416.0
-offset_top = -324.0
-offset_right = 472.0
-offset_bottom = 324.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_jiyov")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 95.0
+offset_right = 504.0
+offset_bottom = 171.0
+rotation = -0.0523599
+text = "Gallery"
+label_settings = ExtResource("4_fwvub")
 
 [node name="Entries" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 469.0
+offset_top = 227.0
+offset_right = 469.0
+offset_bottom = 227.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Intro" type="Node2D" parent="Entries"]
-position = Vector2(27, 30)
+position = Vector2(196, -75)
+scale = Vector2(1.35, 1.35)
 
 [node name="Polaroid" parent="Entries/Intro" instance=ExtResource("2_x7omj")]
 
@@ -62,7 +122,8 @@ text = "Sunk Garden"
 position = Vector2(256, 48)
 
 [node name="UPDQC" type="Node2D" parent="Entries"]
-position = Vector2(272, 32)
+position = Vector2(-5, 311)
+scale = Vector2(1.35, 1.35)
 
 [node name="Polaroid" parent="Entries/UPDQC" instance=ExtResource("2_x7omj")]
 
@@ -70,6 +131,7 @@ position = Vector2(272, 32)
 position = Vector2(256, 48)
 
 [node name="Cubao" type="Node2D" parent="Entries"]
+visible = false
 position = Vector2(29, 334)
 
 [node name="Polaroid" parent="Entries/Cubao" instance=ExtResource("2_x7omj")]
@@ -78,6 +140,7 @@ position = Vector2(29, 334)
 position = Vector2(256, 48)
 
 [node name="Makati" type="Node2D" parent="Entries"]
+visible = false
 position = Vector2(269, 335)
 
 [node name="Polaroid" parent="Entries/Makati" instance=ExtResource("2_x7omj")]
@@ -86,6 +149,7 @@ position = Vector2(269, 335)
 position = Vector2(256, 48)
 
 [node name="Quiapo" type="Node2D" parent="Entries"]
+visible = false
 position = Vector2(681, 31)
 
 [node name="Polaroid" parent="Entries/Quiapo" instance=ExtResource("2_x7omj")]
@@ -94,6 +158,7 @@ position = Vector2(681, 31)
 position = Vector2(256, 48)
 
 [node name="Coast" type="Node2D" parent="Entries"]
+visible = false
 position = Vector2(918, 31)
 
 [node name="Polaroid" parent="Entries/Coast" instance=ExtResource("2_x7omj")]
@@ -102,12 +167,22 @@ position = Vector2(918, 31)
 position = Vector2(256, 48)
 
 [node name="Jollibee" type="Node2D" parent="Entries"]
+visible = false
 position = Vector2(681, 337)
 
 [node name="Polaroid" parent="Entries/Jollibee" instance=ExtResource("2_x7omj")]
 
 [node name="Text" parent="Entries/Jollibee" instance=ExtResource("3_sxt88")]
 position = Vector2(256, 48)
+
+[node name="ToTitleScreenButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1087.0
+offset_top = 515.0
+offset_right = 1525.0
+offset_bottom = 561.0
+theme = ExtResource("7_fwvub")
+text = "To Title Screen"
 
 [node name="Fade" type="ColorRect" parent="."]
 visible = false
@@ -118,6 +193,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jcilh")
+}
+
+[connection signal="pressed" from="ToTitleScreenButton" to="." method="_on_to_title_screen_button_pressed"]
 
 [editable path="Entries/Intro/Polaroid"]
 [editable path="Entries/Intro/Text"]

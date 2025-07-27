@@ -15,8 +15,8 @@ func _ready() -> void:
 	Dialogic.start("res://assets/dialogue/end_of_demo.dtl")
 	await Dialogic.timeline_ended
 	
-	Events.reset()
-	get_tree().change_scene_to_packed(load("res://scenes/scenes/title_screen.tscn"))
+	get_tree().change_scene_to_packed(preload("res://scenes/scenes/scrapbook.tscn"))
+	#Events.reset()
 	
 	#Events.show_the_context_menus(true) # By default, as intro will flick it up.
 	#Events.show_item_outline(true) # Interactables will now have outlines.
