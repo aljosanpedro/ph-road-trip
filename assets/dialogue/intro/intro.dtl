@@ -77,10 +77,11 @@ update wiks left
 update singer right [z_index="0"]
 The two of you greet her as you settle in. As the three of you exchange small talk, Adi suddenly rushes off, having forgotten something.
 singer: Ah youth. I wish I was half as spry as you two.
-singer: You really can't tell what Adi's going to do next, can't you? She must be a handful.
-wiks: She has her quirks... but don't we all?
-Singer chuckles.
-You're a sweet boy. Well, make this trip count, okay? I didn't get you two this time off just to continue working.
+singer: We really can't tell what Adi's going to do next, can't we? She must be a handful.
+wiks: Well, she has her quirks... but don't we all?
+[i]Tita[/i] chuckles.
+singer: And you've always been a sweet boy. 
+Well, make this trip count, okay? I didn't get you two this time off just to continue working.
 singer: You two need a break! [i]Mga bata ngayon[/i], always working, always trying to be something...
 Your smile falters for a bit at her words.
 You wonder if she noticed.
@@ -92,7 +93,7 @@ wiks: I wouldn't worry about it, especially with Adi around.
 wiks: Though why us? Don't you travel around more than us?
 The singer thinks for a moment.
 singer: Let's just say that a shared goal can start journeys that we don't expect.
-You catch her throw a glance at the guitar by her side. It's old and battered, filled with stickers from all over the place. You don't remember a time when she used it, though.
+You catch her give a small loving tap to the guitar case by her side. It's old and battered, filled with stickers from all over the place. You don't remember a time when she used it, though.
 leave --All-- [animation="Fade Out Down" wait="true"]
 You barely have time to respond when you see the carabaos start to move again, and you're rushed back into your place at the caravan, next to Adi.
 It appears your journey has now begun.

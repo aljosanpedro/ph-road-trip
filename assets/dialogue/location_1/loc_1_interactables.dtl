@@ -1,6 +1,6 @@
 label stall
 There's a small food stall near the two of you.
- It's not particularly of note, with a weathered sign with the words [i]Bancit's Kantunan[/i] plastered in front, and an upturned cart that serves as a makeshift table in front of it. 
+It's not particularly of note, with a weathered sign with the words [i]Bancit's Kantunan[/i] plastered in front, and an upturned cart that serves as a makeshift table in front of it.
 You've eaten here quite a few times now, and you feel your spirits buoyed even further when you realize its still open.
 You approach, and with a light rap on the stall counter, a wizened old man turns. It takes him a few seconds to recognize you.
 old_man: Is that you... [i]whatsyournameagain[/i]... Wiks! Yes! Ah, how you've grown!
@@ -13,7 +13,7 @@ wiks: It's not like that. We're just passing by for a trip.
 old_man: Whatever you say, Wiks.
 He winks at you mischievously. You roll your eyes. He did like to mess with you two since you were a kid.
 old_man: Well, go take a seat. I'll whip you up your favorites. And don't worry about paying – business has been booming lately! I can barely keep up with the orders.
-It doesn't take long for the food to arrive. 
+It doesn't take long for the food to arrive.
 Plates of hot stir-fry noodles mixed with local vegetables and the latest catch lay tantalizingly in front of you, their aromas beckoning the two of you to dig in. The two of you don't hesitate.
 Moments later, as the two of you lounge at the cart after the hearty meal, Adi pipes up, her gaze lingering on the rickety stall.
 adi: Hm, why doesn't he move out of the same old stall? It looks... dangerous? Like it might fall at any time?
@@ -31,10 +31,12 @@ label sunken_garden
 The pool is wide and relatively deep, ringed with trees and rocks dragged to form seats. Floating across the surface are hundreds of flowers—wild, mismatched, beautiful. A few boats ply the surface.
 adi: It's been a while since I saw the vaunted sunken garden.
 adi: Until now I wonder where the flowers came from.
-wiks: I heard a few stories that you might be interested in. Apparently some guy lost his family to the floods a long while back, and decided to plant flowers here in their memory every day. He didn't talk, didn't say anything why he did it.
-wiks: A couple years later, he vanished. No one knows what happened to him. So they just tended to the flowers, waiting until he returned.
+wiks: I heard a few stories that you might be interested in.
+ Apparently some guy lost his family to the floods a long while back, and decided to plant flowers here in their memory every day. He didn't talk, didn't say anything why he did it.
+Just kept to himself, planting flowers whenever he can.
+wiks: A couple years later, he vanished. No one knows what happened to him. So they tended to the flowers, waiting until he returned.
 You see Adi crouch near the edge of the water, her fingers trailing through the still water.
-She takes a small blossom, cups it on her hands, gazing at it intently.
+She takes a small blossom, cups it on her hands, and gazes at it intently.
 wiks: His wife was named Lily, apparently.
 adi: It's... beautiful.
 With the gentlest motions that she can muster, you see her dry it on her dress, and tuck it on one of her pockets.
@@ -55,7 +57,7 @@ adi: Haha... yeah... tell him I said hi. And thanks. I guess.
 young_man: Oh I will. Thank you for your work, ma'am. Your vision of the past really keeps the world alive.
 He scrambles off, presumably to tell his family about who he just met.
 You look up at the mural the young man pointed to. It's a painting of a beautiful woman, with long black hair blown by a breeze among a bed of flowers.
- You vaguely recognize the woman. Is this some sort of historical figure? Compared to the more abstract and eclectic painting you saw in Adi's studio, this one was more realistic and subdued.
+You vaguely recognize the woman. Is this some sort of historical figure? Compared to the more abstract and eclectic painting you saw in Adi's studio, this one was more realistic and subdued.
 wiks: I wouldn't have guessed that you made this... When did you do it?
 adi: Two months ago. You were on your expedition to the southeast, then.
 Her voice is quiet. You feel a small pit form in your gut. Two months ago? How much of your friend's life have you missed already?
@@ -74,7 +76,7 @@ You wonder if ever she'll tell you about it.
 jump end
 label trees
 A single large tree rises near the fence line, its branches sprawling away like someone stretching.
- Cloth strips hang from it—messages, blessings, names written in charcoal or carved into bark. A few candles flicker at its base, along with a smattering of religious figurines. A person or two lingers, heads bowed.
+Cloth strips hang from it—messages, blessings, names written in charcoal or carved into bark. A few candles flicker at its base, along with a smattering of religious figurines. A person or two lingers, heads bowed.
 Almost instinctively, you reach out for one of the loose ribbons and tighten it on a nearby low-hanging branch.
 wiks: What'd you pray for?
 You raise an eyebrow.

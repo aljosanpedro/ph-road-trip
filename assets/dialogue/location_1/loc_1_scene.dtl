@@ -1,31 +1,31 @@
 label intro
 [background arg="res://assets/images/backgrounds/black_bg.png" fade="0.0"]
-The trip takes a few hours more, and the sun well on its way to rising when you finally reach your destination, a large pool of water located inside the campus of an old university.
-Nowadays, only a few buildings remained as schools, with the rest either having been abandoned due to damage or neglect, or been converted into living quarters.
+The trip takes two hours, with the sun well on its way to rising when you finally reach your destination, a large pool of water located inside the campus of an old university.
+These days, only a few buildings in the palce remained as schools, with the rest either having been abandoned due to damage or neglect, or converted into living quarters.
 join adi leftmost
 join wiks left
-Being located near your home, it also serves as the first stop of your journey.
+Being located quite close to your home, it also serves as the first stop of your journey.
 join singer right
-As the caravan drops off their wares of commodities and scavenged goods, the Singer approaches the two of you.
+As the caravan drops off their wares of commodities and scavenged goods, [i]tita[/i] approaches the two of you.
 update singer [z_index="0"]
-singer: I'll drop you two off here. It's a nice spot, and there's a boat rental here to Cubao, if you're going there. Just drop my name and he'll handle everything.
+singer: I'll drop you two off here. It's a nice spot, and there's a boat rental here to Cubao, if you're going there. Just drop my name and they'll handle everything.
 She gives you two a wistful look.
 singer: Oh how I long to be young again, discovering the world and yourselves...
 She sniffles, wiping an imaginary tear in her eye.
 singer: [i]Ingat kayo[/i]! Don't be careless now, okay?
 leave singer
 update adi right
-Your farewells are drowned out by the noises of the caravan as they finish their drop and you hear the groans of the carabaos and the scraping of canoes as everyone begins to ride out.
-singer: I'll see you back at the village in a week or so. Bye!
-wiks: Bye tita! Thanks for the ride!
-Beside you, Adi doesn't respond, her head having instead nodded off from what you can presume to be a lack of sleep.
+Your words are drowned out by the noises of the caravan as the groans of the carabaos and the scraping of canoes signals the time for everyone to head back out again.
+singer: I'll see you back at the village in two weeks or so. Bye!
+wiks: Bye [i]tita[/i]! Thanks for the ride!
+Beside you, Adi doesn't respond, her head having nodded off from what you can imagine to be a lack of sleep.
 update adi [animation="Shake X"]
 You nudge her slightly on the side, suppressing a grin as she gets jolted wide awake.
-adi: Huh? What? I'm awake.
+adi: Huh? What? I'm awake, I've always been awake, sleepyhe--
 wiks: Tita's leaving.
-Adi's eyes grow wide as she realizes her mistake. She immediately calls out to the leaving singer, who turns and beams at her before continuing to walk away.
+Adi's eyes grow wide as she immediately calls out to the leaving singer, who turns and beams at her before continuing to walk away.
 adi: Bye!
-The remainder farewells were carried off by the wind as you see the caravan began to lurch along, the singer with her wide-brimmed hat walking near the front, a beacon of confidence wherever she goes.
+Your remaining words carried off by the wind as you see the caravan began to lurch along. [i]Tita[/i], the well-known singer with a wide-brimmed hat, walks near the front, a beacon of confidence wherever she goes.
 With a deep breath, the two of you turn around to survey the scene before you.
 [clear time="1.0" step="false" text="false" portraits="false" music="false" positions="false" style="false"]
 [wait time="1.0"]
@@ -33,10 +33,10 @@ do AudioManager.bgm_play("res://assets/audio/bgm/shell.mp3")
 With a great flourish you swing your arms out, and the morning light seeps through the buildings behind you, spreading a gentle warmth across your back.
 Beside you, Adi chuckles at your antics as she picks up the small satchel on her feet.
 wiks: Ah, freedom!
-adi: We're literally less than a few hours away from home, Wiks. Calm down.
+adi: We're literally less than two hours away from home, Wiks. Calm down.
 wiks: Make me.
 Adi rolls her eyes at you, but you can see the corner of her mouth curling up to a smile.
-adi: Well, while [i]you[/i] do that, I'm going to go around, look for a meal that's not on top of a moving boat.
+adi: Whatever, while [i]you[/i] do that, I'm going to go around and look for a meal that's not on top of a moving boat.
 wiks: I'll be right behind you.
 [clear time="1.0"]
 tutorial: Swap between Wiks and Adi by clicking their portraits at the top. Click on points of interest to learn more about the place, and each other. When all is done, talk to the other person!
@@ -68,11 +68,12 @@ jump end
 label outro_post_camera
 Time passes.
 adi: So where are we going next?
-The two of you are sitting in a tree stump next to the boat rental. To no one's surprise, the Singer was as good as her word. The moment you said her name, they merely asked for a destination and immediately set to work. Behind you, you can hear someone barking orders.
-wiks: Cubo. Good halfway point to practically everywhere, since it's a transport hub. From there, we can go to either…
+The two of you are sitting in a tree stump next to the boat rental. To no one's surprise, the Singer was as good as her word.
+ The moment you said her name, they merely asked for a destination and immediately set to work. Behind you, you can hear someone barking orders.
+wiks: Cubao. Good halfway point to practically everywhere, since it's a transport hub. From there, we can go to either…
 adi: Hm, any chance we can go to those skyscrapers you told me about before? The ones down south?
 adi: I've always wanted to check it out.
-wiks: Sure, why not? It's a bit far from Cubo, but we should be able to reach it just before sundown. It's close to the coast though, so we might need to be careful of high tides.
+wiks: Sure, why not? It's a bit far from Cubao, but we should be able to reach it just before sundown. It's close to the coast though, so we might need to be careful of high tides.
 adi: Will that be a problem?
 wiks: We don't typically worry about it here, but closer to the shore, the waters rise fast. Doesn't take long entire streets to vanish.
 Adi thinks for a moment.
