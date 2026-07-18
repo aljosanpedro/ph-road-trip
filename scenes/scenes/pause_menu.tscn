@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://5p4g0rpq6r3h"]
+[gd_scene format=3 uid="uid://5p4g0rpq6r3h"]
 
 [ext_resource type="Script" uid="uid://bn0f0jl7uyj" path="res://scripts/scenes/pause_menu.gd" id="1_klvc8"]
 [ext_resource type="Texture2D" uid="uid://cj8yix1poaytg" path="res://assets/images/pause/pause_menu_bg.png" id="2_agep0"]
@@ -72,7 +72,7 @@ _data = {
 &"show_menu": SubResource("Animation_yhujo")
 }
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" unique_id=74259691]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -82,7 +82,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_klvc8")
 
-[node name="BackgroundColor" type="ColorRect" parent="."]
+[node name="BackgroundColor" type="ColorRect" parent="." unique_id=1479676917]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,7 +92,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="PauseMenuItems" type="Control" parent="."]
+[node name="PauseMenuItems" type="Control" parent="." unique_id=23916602]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -100,7 +100,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="TextureRect" parent="PauseMenuItems"]
+[node name="Background" type="TextureRect" parent="PauseMenuItems" unique_id=916477208]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -109,7 +109,7 @@ expand_mode = 2
 stretch_mode = 4
 metadata/_edit_lock_ = true
 
-[node name="PauseMenuLabel" type="Label" parent="PauseMenuItems"]
+[node name="PauseMenuLabel" type="Label" parent="PauseMenuItems" unique_id=753853012]
 layout_mode = 0
 offset_left = 67.0
 offset_top = 66.0
@@ -123,7 +123,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="AudioSettingsLabel" type="Label" parent="PauseMenuItems"]
+[node name="AudioSettingsLabel" type="Label" parent="PauseMenuItems" unique_id=2072455162]
 layout_mode = 0
 offset_left = 605.0
 offset_top = 341.0
@@ -133,7 +133,7 @@ mouse_filter = 1
 text = "Audio"
 label_settings = ExtResource("4_c1i2v")
 
-[node name="AudioSettings" type="VBoxContainer" parent="PauseMenuItems"]
+[node name="AudioSettings" type="VBoxContainer" parent="PauseMenuItems" unique_id=1627436508]
 layout_mode = 0
 offset_left = 597.0
 offset_top = 407.0
@@ -141,40 +141,40 @@ offset_right = 935.0
 offset_bottom = 699.0
 theme_override_constants/separation = 20
 
-[node name="MusicVolumeLabel" type="Label" parent="PauseMenuItems/AudioSettings"]
+[node name="MusicVolumeLabel" type="Label" parent="PauseMenuItems/AudioSettings" unique_id=1855646779]
 layout_mode = 2
 text = "Music Volume"
 label_settings = ExtResource("4_crdp3")
 
-[node name="MusicVolumeSlider" type="HSlider" parent="PauseMenuItems/AudioSettings"]
+[node name="MusicVolumeSlider" type="HSlider" parent="PauseMenuItems/AudioSettings" unique_id=1489051284]
 layout_mode = 2
 theme = ExtResource("5_c1i2v")
 max_value = 1.0
 step = 0.01
 
-[node name="SoundVolumeLabel" type="Label" parent="PauseMenuItems/AudioSettings"]
+[node name="SoundVolumeLabel" type="Label" parent="PauseMenuItems/AudioSettings" unique_id=1073309992]
 layout_mode = 2
 text = "Sound Volume"
 label_settings = ExtResource("4_crdp3")
 
-[node name="SoundVolumeSlider" type="HSlider" parent="PauseMenuItems/AudioSettings"]
+[node name="SoundVolumeSlider" type="HSlider" parent="PauseMenuItems/AudioSettings" unique_id=807484742]
 layout_mode = 2
 theme = ExtResource("5_c1i2v")
 max_value = 1.0
 step = 0.01
 
-[node name="SFXVolumeLabel" type="Label" parent="PauseMenuItems/AudioSettings"]
+[node name="SFXVolumeLabel" type="Label" parent="PauseMenuItems/AudioSettings" unique_id=1054642537]
 layout_mode = 2
 text = "SFX Volume"
 label_settings = ExtResource("4_crdp3")
 
-[node name="SFXVolumeSlider" type="HSlider" parent="PauseMenuItems/AudioSettings"]
+[node name="SFXVolumeSlider" type="HSlider" parent="PauseMenuItems/AudioSettings" unique_id=2016520457]
 layout_mode = 2
 theme = ExtResource("5_c1i2v")
 max_value = 1.0
 step = 0.01
 
-[node name="ButtonList" type="VBoxContainer" parent="PauseMenuItems"]
+[node name="ButtonList" type="VBoxContainer" parent="PauseMenuItems" unique_id=161389252]
 layout_mode = 0
 offset_left = 1014.0
 offset_top = 113.0
@@ -183,30 +183,36 @@ offset_bottom = 928.0
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="ToTitleScreenButton" type="Button" parent="PauseMenuItems/ButtonList"]
+[node name="ToTitleScreenButton" type="Button" parent="PauseMenuItems/ButtonList" unique_id=1269525068]
 layout_mode = 2
 theme = ExtResource("7_f2hws")
 text = "To Title Screen"
 
-[node name="QuitButton" type="Button" parent="PauseMenuItems/ButtonList"]
+[node name="QuitButton" type="Button" parent="PauseMenuItems/ButtonList" unique_id=1169485811]
 layout_mode = 2
 theme = ExtResource("7_f2hws")
 text = "Quit"
 
-[node name="ReturnButton" type="Button" parent="PauseMenuItems/ButtonList"]
+[node name="ReturnButton" type="Button" parent="PauseMenuItems/ButtonList" unique_id=117303842]
 layout_mode = 2
 theme = ExtResource("7_f2hws")
 text = "Return"
 
-[node name="PlayButton" type="Button" parent="."]
+[node name="ButtonLayerVisibility" type="Control" parent="." unique_id=1558135263]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayButton" type="Button" parent="ButtonLayerVisibility" unique_id=1382837099]
 visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -74.0
+offset_left = 1806.0
 offset_top = 16.0
-offset_right = -16.0
+offset_right = 1864.0
 offset_bottom = 74.0
 grow_horizontal = 0
 mouse_filter = 1
@@ -215,14 +221,14 @@ icon = ExtResource("2_di88x")
 icon_alignment = 1
 expand_icon = true
 
-[node name="PauseButton" type="Button" parent="."]
+[node name="PauseButton" type="Button" parent="ButtonLayerVisibility" unique_id=1089324080]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -74.0
+offset_left = 1806.0
 offset_top = 16.0
-offset_right = -16.0
+offset_right = 1864.0
 offset_bottom = 74.0
 grow_horizontal = 0
 mouse_filter = 1
@@ -231,10 +237,8 @@ icon = ExtResource("3_wdaxk")
 icon_alignment = 1
 expand_icon = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_f2hws")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1339087942]
+libraries/ = SubResource("AnimationLibrary_f2hws")
 
 [connection signal="value_changed" from="PauseMenuItems/AudioSettings/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
 [connection signal="value_changed" from="PauseMenuItems/AudioSettings/SoundVolumeSlider" to="." method="_on_sound_volume_slider_value_changed"]
@@ -242,5 +246,5 @@ libraries = {
 [connection signal="pressed" from="PauseMenuItems/ButtonList/ToTitleScreenButton" to="." method="_on_to_title_screen_button_pressed"]
 [connection signal="pressed" from="PauseMenuItems/ButtonList/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="PauseMenuItems/ButtonList/ReturnButton" to="." method="_on_return_button_pressed"]
-[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="ButtonLayerVisibility/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ButtonLayerVisibility/PauseButton" to="." method="_on_pause_button_pressed"]

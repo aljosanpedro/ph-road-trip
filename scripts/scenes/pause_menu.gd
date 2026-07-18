@@ -6,8 +6,9 @@ extends Control
 @export_category("Initialization Details")
 @export var if_title_screen: bool = false
 
-@onready var play_button: Button = $PlayButton
-@onready var pause_button: Button = $PauseButton
+@onready var play_button: Button = $ButtonLayerVisibility/PlayButton
+@onready var pause_button: Button = $ButtonLayerVisibility/PauseButton
+@onready var pause_button_layer: Control = $ButtonLayerVisibility
 @onready var pause_menu_items: Control = $PauseMenuItems
 
 @onready var pause_menu_label: Label = $PauseMenuItems/PauseMenuLabel
@@ -22,6 +23,9 @@ extends Control
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
+	Events.toggle_pause_menu.connect(_toggle_pause_menu)
+	Events.toggle_pause_menu_layer.connect(_toggle_pause_menu_layer)
+	
 	music_slider.value = GameSettings.music_volume
 	sound_slider.value = GameSettings.sound_volume
 	sfx_slider.value = GameSettings.sfx_volume
@@ -36,11 +40,21 @@ func _ready() -> void:
 		to_title_screen_button.hide()
 		quit_button.hide()
 	else:
-		return_button.hide()
+		#return_button.hide()
 		
 		play_button.hide()
 		pause_menu_items.hide()
 		pause_button.show()
+
+
+
+func _toggle_pause_menu(value: bool) -> void:
+	if value: _on_pause_button_pressed()
+	else: _on_play_button_pressed()
+
+func _toggle_pause_menu_layer(value: bool) -> void:
+	if value: pause_button_layer.show()
+	else: pause_button_layer.hide()
 
 func _on_play_button_pressed() -> void:
 	if animation_player.is_playing(): return

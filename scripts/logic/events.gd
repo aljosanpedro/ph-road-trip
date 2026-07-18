@@ -25,7 +25,7 @@ signal set_item_outline(value: bool)
 
 # For Camera Scene
 signal open_camera_signal()
-signal camera_photo_taken()
+# signal camera_photo_taken() # ignoring your goofy ahh
 
 # For Map Travel 
 signal unlock_location(loc_name: Locations)
@@ -33,6 +33,8 @@ signal open_travel_map()
 
 signal pov_switch()
 signal show_contextual_menus(value: bool)
+signal toggle_pause_menu(value: bool)
+signal toggle_pause_menu_layer(value: bool)
 signal switch_has_been_set
 
 var current_pov: POV_Character = POV_Character.WIKS
@@ -55,7 +57,6 @@ var switches: Dictionary[String, bool] = {
 	"loc_2_jabee": false,
 }
 
-
 # Scrapbook
 const SCRAPBOOK_ENTRIES : int = 7
 var scrapbook_pictures : Array[Node] = []
@@ -63,7 +64,8 @@ var scrapbook_pictures : Array[Node] = []
 
 #region Virtual functions
 func _ready() -> void:
-	pass
+	Dialogic.timeline_started.connect(_events_when_timeline_started)
+	Dialogic.timeline_ended.connect(_events_when_timeline_ended)
 
 ## Initializes Events for a new game.
 func initialize() -> void:
@@ -71,6 +73,16 @@ func initialize() -> void:
 		switches[sw] = false
 	current_pov = POV_Character.ADI
 	scrapbook_pictures = []
+#endregion
+
+#region Dialogic-targeting Functions
+## Function that will intercept timeline_started events to do stuff.
+func _events_when_timeline_started() -> void:
+	toggle_pause_menu_layer.emit(false)
+
+## Function that will intercept timeline_ended events to do stuff.
+func _events_when_timeline_ended() -> void:
+	toggle_pause_menu_layer.emit(true)
 #endregion
 
 #region Custom Functions
@@ -99,9 +111,17 @@ func set_current_pov(value: POV_Character) -> void:
 func get_current_pov() -> POV_Character:
 	return current_pov
 
-## Helper function to show/hid contextual menus in game
+## Helper function to show/hide contextual menus in game
 func show_the_context_menus(value: bool) -> void:
 	show_contextual_menus.emit(value)
+
+## Helper function to show/hide pause menu in game.
+func show_pause_menu(value: bool) -> void:
+	toggle_pause_menu.emit(value)
+
+## Helper function to show/hide the button of the pause menu in game.
+func show_pause_menu_button(value: bool) -> void:
+	toggle_pause_menu_layer.emit(value)
 
 ## Get the name of the current character in the POV of the game.
 func get_current_pov_name() -> String:

@@ -1,15 +1,19 @@
-[gd_scene load_steps=17 format=3 ]
+[gd_scene format=3 uid="uid://beqau5bqm2jfe"]
 
-[ext_resource type="Script" uid="uid://bl43m5qw8pso3" path="res://scenes/vn_parts/VisualNovelTextbox/vn_textbox_layer.gd" id="1_bpydr"]
-[ext_resource type="Script" uid="uid://bfc03rn8slceu" path="res://scenes/vn_parts/VisualNovelTextbox/animations.gd" id="2_xy7a2"]
+[ext_resource type="Script" uid="uid://bl43m5qw8pso3" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.gd" id="1_bpydr"]
+[ext_resource type="Script" uid="uid://bfc03rn8slceu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/animations.gd" id="2_xy7a2"]
+[ext_resource type="Script" uid="uid://jw77562nitdc" path="res://scenes/vn_parts/VisualNovelTextbox/dialogue_menus.gd" id="3_2x42n"]
 [ext_resource type="Script" uid="uid://drhfq6rmdeuri" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="3_4634k"]
+[ext_resource type="Texture2D" uid="uid://bh27ynbdkcjd8" path="res://assets/images/icons/setting.png" id="3_ge503"]
+[ext_resource type="StyleBox" uid="uid://dkv1pl1c1dq6" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_default_panel.tres" id="3_ssa84"]
+[ext_resource type="Texture2D" uid="uid://i80i5u0s3qsd" path="res://assets/images/icons/save.png" id="4_2x42n"]
 [ext_resource type="Script" uid="uid://dpv2dfiv5dhmr" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="4_ma5mw"]
 [ext_resource type="Script" uid="uid://dve1vwse2peji" path="res://addons/dialogic/Modules/Text/node_next_indicator.gd" id="5_40a50"]
-[ext_resource type="Script" uid="uid://bklme8oymw6h7" path="res://scenes/vn_parts/VisualNovelTextbox/autoadvance_indicator.gd" id="6_07xym"]
-[ext_resource type="StyleBox" uid="uid://dkv1pl1c1dq6" path="res://scenes/vn_parts/VisualNovelTextbox/vn_textbox_default_panel.tres" id="3_ssa84"]
-[ext_resource type="Texture2D" uid="uid://b0rpqfg4fhebk" path="res://scenes/vn_parts/VisualNovelTextbox/next.svg" id="6_uch03"]
+[ext_resource type="Texture2D" uid="uid://iyap428tjyd7" path="res://assets/images/icons/hamburger.png" id="5_x00mp"]
+[ext_resource type="Script" uid="uid://bklme8oymw6h7" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/autoadvance_indicator.gd" id="6_07xym"]
+[ext_resource type="Texture2D" uid="uid://b0rpqfg4fhebk" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/next.svg" id="6_uch03"]
 [ext_resource type="Script" uid="uid://bak74s0kcr0ao" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="7_bi7sh"]
-[ext_resource type="StyleBox" uid="uid://m7gyepkysu83" path="res://scenes/vn_parts/VisualNovelTextbox/vn_textbox_name_label_panel.tres" id="9_yg8ig"]
+[ext_resource type="StyleBox" uid="uid://m7gyepkysu83" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_name_label_panel.tres" id="9_yg8ig"]
 
 [sub_resource type="Animation" id="Animation_au0a2"]
 length = 0.001
@@ -202,7 +206,7 @@ _data = {
 
 [sub_resource type="FontVariation" id="FontVariation_v8y64"]
 
-[node name="VN_TextboxLayer" type="Control"]
+[node name="VN_TextboxLayer" type="Control" unique_id=1940955897]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -216,15 +220,13 @@ box_size = Vector2(550, 150)
 name_label_box_panel = "res://scenes/vn_parts/VisualNovelTextbox/vn_textbox_name_label_panel.tres"
 name_label_box_modulate = Color(0, 0, 0, 1)
 
-[node name="Animations" type="AnimationPlayer" parent="."]
+[node name="Animations" type="AnimationPlayer" parent="." unique_id=1584798997]
 unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_c14kh")
-}
-autoplay = "RESET"
+libraries/ = SubResource("AnimationLibrary_c14kh")
+autoplay = &"RESET"
 script = ExtResource("2_xy7a2")
 
-[node name="Anchor" type="Control" parent="."]
+[node name="Anchor" type="Control" parent="." unique_id=124423394]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -234,7 +236,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="AnimationParent" type="Control" parent="Anchor"]
+[node name="AnimationParent" type="Control" parent="Anchor" unique_id=545095394]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -245,7 +247,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="Sizer" type="Control" parent="Anchor/AnimationParent"]
+[node name="Sizer" type="Control" parent="Anchor/AnimationParent" unique_id=872316785]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
@@ -260,7 +262,42 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="DialogTextPanel" type="PanelContainer" parent="Anchor/AnimationParent/Sizer"]
+[node name="DialogueMenus" type="HBoxContainer" parent="Anchor/AnimationParent/Sizer" unique_id=1963849487]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -208.0
+offset_top = -56.0
+offset_bottom = -8.0
+grow_horizontal = 0
+theme_override_constants/separation = 32
+alignment = 2
+script = ExtResource("3_2x42n")
+
+[node name="SettingsButton" type="TextureButton" parent="Anchor/AnimationParent/Sizer/DialogueMenus" unique_id=64847409]
+visible = false
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("3_ge503")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="SaveLoadButton" type="TextureButton" parent="Anchor/AnimationParent/Sizer/DialogueMenus" unique_id=1182846960]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("4_2x42n")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MenuButton" type="TextureButton" parent="Anchor/AnimationParent/Sizer/DialogueMenus" unique_id=1061768022]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("5_x00mp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="DialogTextPanel" type="PanelContainer" parent="Anchor/AnimationParent/Sizer" unique_id=1216109551]
 unique_name_in_owner = true
 self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
 layout_mode = 1
@@ -273,27 +310,27 @@ mouse_filter = 2
 theme_override_styles/panel = ExtResource("3_ssa84")
 metadata/_edit_layout_mode = 1
 
-[node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/AnimationParent/Sizer/DialogTextPanel" node_paths=PackedStringArray("textbox_root")]
+[node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/AnimationParent/Sizer/DialogTextPanel" unique_id=816304910 node_paths=PackedStringArray("textbox_root")]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 15
 theme_override_font_sizes/bold_font_size = 15
-theme_override_font_sizes/italics_font_size = 15
 theme_override_font_sizes/bold_italics_font_size = 15
+theme_override_font_sizes/italics_font_size = 15
 bbcode_enabled = true
 text = "Some default text"
 visible_characters_behavior = 1
 script = ExtResource("3_4634k")
 textbox_root = NodePath("..")
 
-[node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/DialogicNode_DialogText"]
+[node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/DialogicNode_DialogText" unique_id=1028476303]
 unique_name_in_owner = true
 script = ExtResource("4_ma5mw")
 play_every_character = 0
 
-[node name="NextIndicator" type="Control" parent="Anchor/AnimationParent/Sizer/DialogTextPanel"]
+[node name="NextIndicator" type="Control" parent="Anchor/AnimationParent/Sizer/DialogTextPanel" unique_id=1614681237]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
@@ -304,7 +341,7 @@ show_on_questions = true
 texture = ExtResource("6_uch03")
 metadata/_edit_layout_mode = 1
 
-[node name="AutoAdvanceProgressbar" type="ProgressBar" parent="Anchor/AnimationParent/Sizer/DialogTextPanel"]
+[node name="AutoAdvanceProgressbar" type="ProgressBar" parent="Anchor/AnimationParent/Sizer/DialogTextPanel" unique_id=1718016089]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.188235)
 custom_minimum_size = Vector2(0, 10)
@@ -317,11 +354,11 @@ value = 0.5
 show_percentage = false
 script = ExtResource("6_07xym")
 
-[node name="NameLabelHolder" type="Control" parent="Anchor/AnimationParent/Sizer/DialogTextPanel"]
+[node name="NameLabelHolder" type="Control" parent="Anchor/AnimationParent/Sizer/DialogTextPanel" unique_id=1744982531]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="NameLabelPanel" type="PanelContainer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/NameLabelHolder"]
+[node name="NameLabelPanel" type="PanelContainer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/NameLabelHolder" unique_id=145406143]
 unique_name_in_owner = true
 self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
 layout_mode = 1
@@ -334,7 +371,7 @@ metadata/_edit_layout_mode = 1
 metadata/_edit_use_custom_anchors = true
 metadata/_edit_group_ = true
 
-[node name="DialogicNode_NameLabel" type="Label" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/NameLabelHolder/NameLabelPanel" node_paths=PackedStringArray("name_label_root")]
+[node name="DialogicNode_NameLabel" type="Label" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/NameLabelHolder/NameLabelPanel" unique_id=1618724200 node_paths=PackedStringArray("name_label_root")]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -343,3 +380,7 @@ theme_override_font_sizes/font_size = 15
 text = "S"
 script = ExtResource("7_bi7sh")
 name_label_root = NodePath("..")
+
+[connection signal="pressed" from="Anchor/AnimationParent/Sizer/DialogueMenus/SettingsButton" to="Anchor/AnimationParent/Sizer/DialogueMenus" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Anchor/AnimationParent/Sizer/DialogueMenus/SaveLoadButton" to="Anchor/AnimationParent/Sizer/DialogueMenus" method="_on_save_load_button_pressed"]
+[connection signal="pressed" from="Anchor/AnimationParent/Sizer/DialogueMenus/MenuButton" to="Anchor/AnimationParent/Sizer/DialogueMenus" method="_on_menu_button_pressed"]
