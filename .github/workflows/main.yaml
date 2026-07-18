@@ -9,7 +9,7 @@ on:
 # NOTE: If your `project.godot` is at the repository root, set `PROJECT_PATH` below to ".".
 
 env:
-    GODOT_VERSION: 4.4.1
+    GODOT_VERSION: 4.7.1
     EXPORT_NAME: watermarked
     PROJECT_PATH: .
 
@@ -20,10 +20,10 @@ jobs:
         name: Windows Export and Push to Itch.io
         runs-on: ubuntu-latest
         container:
-          image: barichello/godot-ci:4.4.1
+          image: barichello/godot-ci:4.7.1
         steps:
           - name: Checkout
-            uses: actions/checkout@v4
+            uses: actions/checkout@v7
             with:
               lfs: true
           - name: Setup
@@ -47,7 +47,7 @@ jobs:
 
           - name: Upload Artifact
             id: upload_artifact
-            uses: actions/upload-artifact@v4
+            uses: actions/upload-artifact@v7.0.1
             with:
               name: windows
               path: build/windows
@@ -76,10 +76,10 @@ jobs:
       name: Linux Export and Push to Itch.io
       runs-on: ubuntu-latest  # Use 22.04 with godot 4
       container:
-        image: barichello/godot-ci:4.4.1
+        image: barichello/godot-ci:4.7.1
       steps:
         - name: Checkout
-          uses: actions/checkout@v4
+          uses: actions/checkout@v7.0.0
           with:
             lfs: true
             
@@ -102,7 +102,7 @@ jobs:
         
         - name: Upload Artifact
           id: upload_artifact
-          uses: actions/upload-artifact@v4
+          uses: actions/upload-artifact@v7.0.1
           with:
             name: linux
             path: build/linux
@@ -130,10 +130,10 @@ jobs:
       name: Mac Export and Push to Itch.io
       runs-on: ubuntu-latest  # Use 22.04 with godot 4
       container:
-        image: barichello/godot-ci:4.4.1
+        image: barichello/godot-ci:4.7.1
       steps:
         - name: Checkout
-          uses: actions/checkout@v4
+          uses: actions/checkout@v7.0.0
           with:
             lfs: true
           
@@ -155,7 +155,7 @@ jobs:
             godot --headless --verbose --export-release "macOS" "$EXPORT_DIR/mac/$EXPORT_NAME.zip"
         
         - name: Upload Artifact
-          uses: actions/upload-artifact@v4
+          uses: actions/upload-artifact@v7.0.1
           with:
             name: mac
             path: build/mac
@@ -179,10 +179,10 @@ jobs:
         name: Web Export and Push to Itch.io
         runs-on: ubuntu-latest
         container:
-          image: barichello/godot-ci:4.4.1
+          image: barichello/godot-ci:4.7.1
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7.0.0
               with:
                 lfs: true
             - name: Setup
@@ -204,7 +204,7 @@ jobs:
 
             - name: Upload Artifact
               id: upload_artifact
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v7.0.1
               with:
                 name: web
                 path: build/web
@@ -261,25 +261,25 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Download Windows Artifact
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@v8.0.1
               with:
                 name: windows
                 path: build/windows/
             
             - name: Download Web Artifact
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@v8.0.1
               with:
                 name: web
                 path: build/web/
             
             - name: Download Linux Artifact
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@v8.0.1
               with:
                 name: windows
                 path: build/linux/
             
             - name: Download Mac Artifact
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@v8.0.1
               with:
                 name: web
                 path: build/mac/
@@ -300,7 +300,7 @@ jobs:
                 zip -r linux_${{  github.ref_name }}.zip *
               
             - name: Creating Release
-              uses: ncipollo/release-action@v1.14.0
+              uses: ncipollo/release-action@v1.21.0
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
                 generateReleaseNotes: true
@@ -314,12 +314,12 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v4
+          uses: actions/checkout@v7.0.0
           with:
             lfs: true
             
         - name: Download Web Artifact
-          uses: actions/download-artifact@v4
+          uses: actions/download-artifact@v8.0.1
           with:
             name: web
             path: build/web/
@@ -335,7 +335,7 @@ jobs:
             sed -i '3 i <script src="coi-serviceworker.js"></script>' build/web/index.html
 
         - name: Deploy
-          uses: peaceiris/actions-gh-pages@v4
+          uses: peaceiris/actions-gh-pages@v4.1.0
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
             publish_dir: ./build/web
