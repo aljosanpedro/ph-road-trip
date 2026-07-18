@@ -83,6 +83,12 @@ func _events_when_timeline_started() -> void:
 ## Function that will intercept timeline_ended events to do stuff.
 func _events_when_timeline_ended() -> void:
 	toggle_pause_menu_layer.emit(true)
+
+## Helper function to force Dialogic to open history :D
+func show_history(value: bool) -> void:
+	if value: DialogicUtil.autoload().History.open_history()
+	else: DialogicUtil.autoload().History.close_history()
+
 #endregion
 
 #region Custom Functions

@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://i80i5u0s3qsd" path="res://assets/images/icons/save.png" id="4_2x42n"]
 [ext_resource type="Script" uid="uid://dpv2dfiv5dhmr" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="4_ma5mw"]
 [ext_resource type="Script" uid="uid://dve1vwse2peji" path="res://addons/dialogic/Modules/Text/node_next_indicator.gd" id="5_40a50"]
+[ext_resource type="Texture2D" uid="uid://cchn6jt0255ca" path="res://assets/images/icons/history.png" id="5_ertl0"]
 [ext_resource type="Texture2D" uid="uid://iyap428tjyd7" path="res://assets/images/icons/hamburger.png" id="5_x00mp"]
 [ext_resource type="Script" uid="uid://bklme8oymw6h7" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/autoadvance_indicator.gd" id="6_07xym"]
 [ext_resource type="Texture2D" uid="uid://b0rpqfg4fhebk" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/next.svg" id="6_uch03"]
@@ -283,6 +284,13 @@ texture_normal = ExtResource("3_ge503")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="HistoryButton" type="TextureButton" parent="Anchor/AnimationParent/Sizer/DialogueMenus" unique_id=1255452647]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("5_ertl0")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="SaveLoadButton" type="TextureButton" parent="Anchor/AnimationParent/Sizer/DialogueMenus" unique_id=1182846960]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
@@ -382,5 +390,6 @@ script = ExtResource("7_bi7sh")
 name_label_root = NodePath("..")
 
 [connection signal="pressed" from="Anchor/AnimationParent/Sizer/DialogueMenus/SettingsButton" to="Anchor/AnimationParent/Sizer/DialogueMenus" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Anchor/AnimationParent/Sizer/DialogueMenus/HistoryButton" to="Anchor/AnimationParent/Sizer/DialogueMenus" method="_on_history_button_pressed"]
 [connection signal="pressed" from="Anchor/AnimationParent/Sizer/DialogueMenus/SaveLoadButton" to="Anchor/AnimationParent/Sizer/DialogueMenus" method="_on_save_load_button_pressed"]
 [connection signal="pressed" from="Anchor/AnimationParent/Sizer/DialogueMenus/MenuButton" to="Anchor/AnimationParent/Sizer/DialogueMenus" method="_on_menu_button_pressed"]

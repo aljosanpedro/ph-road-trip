@@ -1,7 +1,7 @@
-[gd_scene format=3 ]
+[gd_scene format=3 uid="uid://cuduybmpjc64v"]
 
-[ext_resource type="Script" uid="uid://gv8mqbjor5nu" path="res://scenes/vn_parts/OverlayHistory/history_layer.gd" id="1_4mqm3"]
-[ext_resource type="PackedScene" uid="uid://cuoywrmvda1yg" path="res://scenes/vn_parts/OverlayHistory/example_history_item.tscn" id="2_x1xgk"]
+[ext_resource type="Script" uid="uid://gv8mqbjor5nu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_History/history_layer.gd" id="1_4mqm3"]
+[ext_resource type="PackedScene" uid="uid://cuoywrmvda1yg" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_History/example_history_item.tscn" id="2_x1xgk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hdvb"]
 content_margin_left = 10.0

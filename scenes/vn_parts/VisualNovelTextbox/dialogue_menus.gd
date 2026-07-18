@@ -18,3 +18,6 @@ func _on_save_load_button_pressed() -> void:
 
 func _on_menu_button_pressed() -> void:
 	Events.show_pause_menu(true)
+
+func _on_history_button_pressed() -> void:
+	Events.show_history(true)
