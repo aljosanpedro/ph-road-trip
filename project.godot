@@ -87,6 +87,20 @@ layout/style_directory={
 "": "res://assets/themes/dialogue_stylings.tres",
 "dialogue_stylings": "res://assets/themes/dialogue_stylings.tres"
 }
+audio/channel_defaults={
+"": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": false,
+"volume": 0.0
+},
+"music": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": true,
+"volume": 0.0
+}
+}
 
 [display]
 
@@ -96,11 +110,6 @@ window/size/mode=3
 window/size/window_width_override=1600
 window/size/window_height_override=900
 window/stretch/mode="canvas_items"
-
-[editor]
-
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
 
 [editor_plugins]
 
