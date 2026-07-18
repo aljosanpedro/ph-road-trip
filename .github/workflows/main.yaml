@@ -307,40 +307,40 @@ jobs:
                 tag: ${{ github.ref_name }}
                 artifacts: "build/web/web_${{  github.ref_name }}.zip,build/windows/windows_${{  github.ref_name }}.zip,build/linux/linux_${{  github.ref_name }}.zip,build/mac/$EXPORT_NAME.zip"
 
-    publish-on-github-pages:
-      permissions: write-all
-      needs: export-web
-      name: Publishing on Github Pages
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v7.0.0
-          with:
-            lfs: true
+    # publish-on-github-pages:
+    #   permissions: write-all
+    #   needs: export-web
+    #   name: Publishing on Github Pages
+    #   runs-on: ubuntu-latest
+    #   steps:
+    #     - name: Checkout
+    #       uses: actions/checkout@v7.0.0
+    #       with:
+    #         lfs: true
             
-        - name: Download Web Artifact
-          uses: actions/download-artifact@v8.0.1
-          with:
-            name: web
-            path: build/web/
+    #     - name: Download Web Artifact
+    #       uses: actions/download-artifact@v8.0.1
+    #       with:
+    #         name: web
+    #         path: build/web/
 
-        - name: Install rsync 📚
-          run: |
-            sudo apt-get update && sudo apt-get install -y rsync
+    #     - name: Install rsync 📚
+    #       run: |
+    #         sudo apt-get update && sudo apt-get install -y rsync
 
-        - name: Add coi-service-worker
-          run: |
-            git clone https://github.com/gzuidhof/coi-serviceworker.git
-            mv coi-serviceworker/coi-serviceworker.js build/web/coi-serviceworker.js
-            sed -i '3 i <script src="coi-serviceworker.js"></script>' build/web/index.html
+    #     - name: Add coi-service-worker
+    #       run: |
+    #         git clone https://github.com/gzuidhof/coi-serviceworker.git
+    #         mv coi-serviceworker/coi-serviceworker.js build/web/coi-serviceworker.js
+    #         sed -i '3 i <script src="coi-serviceworker.js"></script>' build/web/index.html
 
-        - name: Deploy
-          uses: peaceiris/actions-gh-pages@v4.1.0
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./build/web
-            force_orphan: true
-            user_name: "github-ci[bot]"
-            user_email: "github-actions[bot]@users.noreply.github.com"
-            commit_message: "Publish to gh-pages"
+    #     - name: Deploy
+    #       uses: peaceiris/actions-gh-pages@v4.1.0
+    #       with:
+    #         github_token: ${{ secrets.GITHUB_TOKEN }}
+    #         publish_dir: ./build/web
+    #         force_orphan: true
+    #         user_name: "github-ci[bot]"
+    #         user_email: "github-actions[bot]@users.noreply.github.com"
+    #         commit_message: "Publish to gh-pages"
 
