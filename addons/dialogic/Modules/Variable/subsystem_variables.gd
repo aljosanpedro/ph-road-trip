@@ -19,6 +19,7 @@ signal variable_changed(info:Dictionary)
 ## `new_value` | [type Variant]| The value that [variable] has after the change (the result). [br]
 ## `value`     | [type Variant]| The value that the variable is changed by/to. [br]
 ## `value_str` | [type String] | Whatever has been given as the value (not interpreted, so a variable is just a string).[br]
+@warning_ignore("unused_signal") # This is emitted from the variable event
 signal variable_was_set(info:Dictionary)
 
 
@@ -59,7 +60,7 @@ func parse_variables(text:String) -> String:
 
 	# Trying to extract the curly brackets from the text
 	var regex := RegEx.new()
-	regex.compile("(?<!\\\\)\\{(?<variable>([^{}]|\\{.*\\})*)\\}")
+	regex.compile(r"(?<!\\)\{(?<variable>([^{}]|\{[^}]*\})*)\}")
 
 	var parsed := text.replace('\\{', '{')
 	for result in regex.search_all(text):
@@ -183,6 +184,7 @@ func _get(property):
 			return VariableFolder.new(dialogic.current_state_info['variables'][property], property, self)
 		else:
 			return DialogicUtil.logical_convert(dialogic.current_state_info['variables'][property])
+	return null
 
 
 func folders() -> Array:
@@ -244,6 +246,7 @@ class VariableFolder:
 				return VariableFolder.new(data[property], path+"."+property, outside)
 			else:
 				return DialogicUtil.logical_convert(data[property])
+		return null
 
 
 	func _set(property:StringName, value:Variant) -> bool:

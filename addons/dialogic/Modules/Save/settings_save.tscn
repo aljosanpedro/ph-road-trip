@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cd340w7blofak"]
 
-[ext_resource type="Script" uid="uid://crje6btivpohh" path="res://addons/dialogic/Modules/Save/settings_save.gd" id="2"]
+[ext_resource type="Script" uid="uid://bxgl1awhvasa1" path="res://addons/dialogic/Modules/Save/settings_save.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://dbpkta2tjsqim" path="res://addons/dialogic/Editor/Common/hint_tooltip_icon.tscn" id="2_v2wt8"]
 
 [sub_resource type="Image" id="Image_6yfie"]

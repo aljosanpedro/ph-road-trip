@@ -7,8 +7,10 @@ signal choice_selected(info:Dictionary)
 ## Emitted when a set of choices is reached and shown.
 ## Info includes the keys 'choices' (an array of dictionaries with infos on all the choices).
 signal question_shown(info:Dictionary)
+## Emitted when a question was reached that has no usable choice (all hidden or disabled).
+signal invalid_question_reached
 
-## Contains information on the latest question.
+## Contains information on the latest question. See [method get_current_question_info] for info on content.
 var last_question_info := {}
 
 ## The delay between the text finishing revealing and the choices appearing
@@ -31,7 +33,8 @@ enum HotkeyBehaviour {NONE, NUMBERS}
 ## Will add some hotkeys to the choices if different then HotkeyBehaviour.NONE.
 var hotkey_behaviour := HotkeyBehaviour.NONE
 
-
+enum InvalidChoiceBehaviour {NOTHING, AUTO_SKIP}
+var invalid_choice_behaviour := InvalidChoiceBehaviour.AUTO_SKIP
 ### INTERNALS
 
 ## Used to block choices from being clicked for a couple of seconds (if delay is set in settings).
@@ -70,8 +73,8 @@ func post_install() -> void:
 func hide_all_choices() -> void:
 	for node in get_tree().get_nodes_in_group('dialogic_choice_button'):
 		node.hide()
-		if node.is_connected('button_up', _on_choice_selected):
-			node.disconnect('button_up', _on_choice_selected)
+		if node.choice_selected.is_connected(_on_choice_selected):
+			node.choice_selected.disconnect(_on_choice_selected)
 
 
 ## Collects information on all the choices of the current question.
@@ -81,12 +84,13 @@ func hide_all_choices() -> void:
 ##		{'event_index':10, 'button_index':1, 'disabled':false, 'text':"My Choice", 'visible':true},
 ##		{'event_index':15, 'button_index':2, 'disabled':false, 'text':"My Choice2", 'visible':true},
 ##	]
+## 'invalid':false # is true if all choices are either invisible or disabled
+## }
 func get_current_question_info() -> Dictionary:
 	var question_info := {'choices':[]}
 
 	var button_idx := 1
-	last_question_info = {'choices':[]}
-
+	var any_valid := false
 	for choice_index in get_current_choice_indexes():
 		var event: DialogicEvent = dialogic.current_timeline_events[choice_index]
 
@@ -102,6 +106,7 @@ func get_current_question_info() -> Dictionary:
 		var condition: String = choice_event.condition
 
 		if condition.is_empty() or dialogic.Expressions.execute_condition(choice_event.condition):
+			any_valid = true
 			choice_info['disabled'] = false
 			choice_info['text'] = choice_event.get_property_translated('text')
 			choice_info['visible'] = true
@@ -120,7 +125,7 @@ func get_current_question_info() -> Dictionary:
 			if not hide:
 				button_idx += 1
 
-		choice_info.text = dialogic.Text.parse_text(choice_info.text, true, true, false, true, false, false)
+		choice_info.text = dialogic.Text.parse_text(choice_info.text, 1)
 
 		choice_info.merge(choice_event.extra_data)
 
@@ -129,6 +134,7 @@ func get_current_question_info() -> Dictionary:
 
 		question_info['choices'].append(choice_info)
 
+	question_info["invalid"] = not any_valid
 	return question_info
 
 
@@ -136,6 +142,7 @@ func get_current_question_info() -> Dictionary:
 func show_current_question(instant:=true) -> void:
 	hide_all_choices()
 	_choice_blocker.stop()
+	last_question_info = get_current_question_info()
 
 	if !instant and (reveal_delay != 0 or reveal_by_input):
 		if reveal_delay != 0:
@@ -155,13 +162,14 @@ func show_current_question(instant:=true) -> void:
 	var question_info := get_current_question_info()
 
 	for choice in question_info.choices:
-		var node: DialogicNode_ChoiceButton = get_choice_button_node(choice.button_index)
+		var node: DialogicNode_ChoiceButton = get_choice_button(choice.button_index)
 
 		if not node:
 			missing_button = true
 			continue
 
 		node._load_info(choice)
+
 
 		if choice.button_index == 1 and autofocus_first_choice:
 			node.grab_focus()
@@ -181,19 +189,51 @@ func show_current_question(instant:=true) -> void:
 					shortcut.events.append(input_key)
 					node.shortcut = shortcut
 
-		if node.pressed.is_connected(_on_choice_selected):
-			node.pressed.disconnect(_on_choice_selected)
-		node.pressed.connect(_on_choice_selected.bind(choice))
+		if node.choice_selected.is_connected(_on_choice_selected):
+			node.choice_selected.disconnect(_on_choice_selected)
+		node.choice_selected.connect(_on_choice_selected.bind(choice))
 
 	_choice_blocker.start(block_delay)
 	question_shown.emit(question_info)
+	if question_info.invalid:
+		invalid_question_reached.emit()
+		printerr("[Dialogic] An invalid question was reached (all choices disabled or invisible).")
+		dialogic.print_debug_moment()
+		if invalid_choice_behaviour == InvalidChoiceBehaviour.AUTO_SKIP:
+			skip_question()
 
 	if missing_button:
 		printerr("[Dialogic] The layout you are using doesn't have enough Choice Buttons for the choices you are trying to display.")
 
 
+## Skips to the end of the current question.
+func skip_question() -> void:
+	if not last_question_info:
+		return
+	hide_all_choices()
+	dialogic.current_state = dialogic.States.IDLE
+	dialogic.current_event_idx = dialogic.current_timeline.get_event(last_question_info.choices[0].event_index).get_end_branch_index()-1
+	dialogic.handle_next_event()
 
-func get_choice_button_node(button_index:int) -> DialogicNode_ChoiceButton:
+
+func focus_choice(button_index:int) -> void:
+	var node: DialogicNode_ChoiceButton = get_choice_button(button_index)
+	if node:
+		node.grab_focus()
+
+
+func select_choice(button_index:int) -> void:
+	var node: DialogicNode_ChoiceButton = get_choice_button(button_index)
+	if node:
+		node.choice_selected.emit()
+
+
+func select_focused_choice() -> void:
+	if get_viewport().gui_get_focus_owner() is DialogicNode_ChoiceButton:
+		(get_viewport().gui_get_focus_owner() as DialogicNode_ChoiceButton).choice_selected.emit()
+
+
+func get_choice_button(button_index:int) -> DialogicNode_ChoiceButton:
 	var idx := 1
 	for node: DialogicNode_ChoiceButton in get_tree().get_nodes_in_group('dialogic_choice_button'):
 		if !node.get_parent().is_visible_in_tree():
@@ -204,7 +244,6 @@ func get_choice_button_node(button_index:int) -> DialogicNode_ChoiceButton:
 		if node.choice_index > 0:
 			idx = node.choice_index
 		idx += 1
-
 	return null
 
 
@@ -213,7 +252,7 @@ func _on_choice_selected(choice_info := {}) -> void:
 		return
 
 	if dialogic.has_subsystem('History'):
-		var all_choices: Array = dialogic.Choices.last_question_info['choices']
+		var all_choices: Array = last_question_info['choices'].map(func(x): return x["text"])
 		if dialogic.has_subsystem('VAR'):
 			dialogic.History.store_simple_history_entry(dialogic.VAR.parse_variables(choice_info.text), "Choice", {'all_choices': all_choices})
 		else:
@@ -227,33 +266,29 @@ func _on_choice_selected(choice_info := {}) -> void:
 	dialogic.handle_event(choice_info.event_index + 1)
 
 
-
+## Returns the indexes of the choice events related to the current question.
 func get_current_choice_indexes() -> Array:
 	var choices := []
-	var evt_idx := dialogic.current_event_idx
-	var ignore := 0
+	var index := dialogic.current_event_idx-1
 	while true:
-		if evt_idx >= len(dialogic.current_timeline_events):
+		index += 1
+		if index >= len(dialogic.current_timeline_events):
 			break
-		if dialogic.current_timeline_events[evt_idx] is DialogicChoiceEvent:
-			if ignore == 0:
-				choices.append(evt_idx)
-			ignore += 1
-		elif dialogic.current_timeline_events[evt_idx].can_contain_events:
-			ignore += 1
-		else:
-			if ignore == 0:
-				break
 
-		if dialogic.current_timeline_events[evt_idx] is DialogicEndBranchEvent:
-			ignore -= 1
-		evt_idx += 1
+		var event: DialogicEvent = dialogic.current_timeline_events[index]
+		if event is DialogicChoiceEvent:
+			choices.append(index)
+			index = event.get_end_branch_index()
+		else:
+			break
+
 	return choices
 
 
+## Forward the dialogic action to the focused button
 func _on_dialogic_action() -> void:
-	if get_viewport().gui_get_focus_owner() is DialogicNode_ChoiceButton and use_input_action and not dialogic.Inputs.input_was_mouse_input:
-		get_viewport().gui_get_focus_owner().pressed.emit()
+	if use_input_action and not dialogic.Inputs.input_was_mouse_input:
+		select_focused_choice()
 
 
 #endregion
@@ -262,20 +297,27 @@ func _on_dialogic_action() -> void:
 #region HELPERS
 ####################################################################################################
 
+## Returns `true` if the given index is a text event before a question or the first choice event of a question.
 func is_question(index:int) -> bool:
-	if dialogic.current_timeline_events[index] is DialogicTextEvent:
+	var event: DialogicEvent = dialogic.current_timeline_events[index]
+	if event is DialogicTextEvent:
 		if len(dialogic.current_timeline_events)-1 != index:
-			if dialogic.current_timeline_events[index+1] is DialogicChoiceEvent:
+			var next_event: DialogicEvent = dialogic.current_timeline_events[index+1]
+			if next_event is DialogicChoiceEvent:
 				return true
 
-	if dialogic.current_timeline_events[index] is DialogicChoiceEvent:
-		if index != 0 and dialogic.current_timeline_events[index-1] is DialogicEndBranchEvent:
-			if dialogic.current_timeline_events[dialogic.current_timeline_events[index-1].find_opening_index(index-1)] is DialogicChoiceEvent:
-				return false
-			else:
-				return true
+	if event is DialogicChoiceEvent:
+		if index == 0:
+			return true
+		var prev_event: DialogicEvent = dialogic.current_timeline_events[index-1]
+		if not prev_event is DialogicEndBranchEvent:
+			return true
+		var prev_event_opener: DialogicEvent = dialogic.current_timeline_events[prev_event.get_opening_index()]
+		if prev_event_opener is DialogicChoiceEvent:
+			return false
 		else:
 			return true
+
 	return false
 
 #endregion

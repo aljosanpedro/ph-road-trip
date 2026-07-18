@@ -19,8 +19,12 @@ func _ready() -> void:
 
 	## REFERENCES
 	editors_manager = $EditorsManager
-	var button: Button = editors_manager.add_icon_button(
-		get_theme_icon("MakeFloating", "EditorIcons"), "Make floating"
+	var button: Button = editors_manager.add_button(
+		get_theme_icon("MakeFloating", "EditorIcons"), 
+		"",
+		"Make the dialogic editor floating.",
+		null,
+		editors_manager.ButtonPlacement.TOOLBAR_MAIN
 	)
 	button.pressed.connect(toggle_floating_window)
 
@@ -53,61 +57,46 @@ func _on_sidebar_toggled(sidebar_shown: bool) -> void:
 
 
 func update_theme_additions() -> void:
-	add_theme_stylebox_override(
-		"panel",
-		(
-			DCSS
-			. inline(
-				{
-					"background": get_theme_color("base_color", "Editor"),
-					"padding":
-					[5 * DialogicUtil.get_editor_scale(), 5 * DialogicUtil.get_editor_scale()],
-				}
-			)
-		)
-	)
-	var holder_panel := (
-		DCSS
-		. inline(
-			{
-				"border-radius": 5,
-				#'border': 2,
-				#'border-color': get_theme_color("base_color", "Editor"),
-				"background": get_theme_color("dark_color_2", "Editor"),
-				"padding":
-				[5 * DialogicUtil.get_editor_scale(), 5 * DialogicUtil.get_editor_scale()],
-			}
-		)
-	)
+	var scale := DialogicUtil.get_editor_scale()
+	add_theme_stylebox_override("panel", DCSS.inline({
+		"background": get_theme_color("base_color", "Editor"),
+		"padding":
+		[5 * scale, 5 * scale],
+		}))
+	var holder_panel := (DCSS.inline({
+		"border-radius": 5,
+		"background": get_theme_color("dark_color_2", "Editor"),
+		"padding":
+		[5 * scale, 5 * scale],
+		}))
+
 	holder_panel.border_width_top = 0
 	holder_panel.corner_radius_top_left = 0
 	editors_manager.editors_holder.add_theme_stylebox_override("panel", holder_panel)
 
-	if theme == null:
-		theme = Theme.new()
-	theme.clear()
+	var new_theme := Theme.new()
 
-	theme.set_type_variation("DialogicTitle", "Label")
-	theme.set_font("font", "DialogicTitle", get_theme_font("title", "EditorFonts"))
-	theme.set_color("font_color", "DialogicTitle", get_theme_color("warning_color", "Editor"))
-	theme.set_color(
+	new_theme.set_type_variation("DialogicTitle", "Label")
+	new_theme.set_font("font", "DialogicTitle", get_theme_font("title", "EditorFonts"))
+	new_theme.set_color("font_color", "DialogicTitle", get_theme_color("warning_color", "Editor"))
+	new_theme.set_color(
 		"font_uneditable_color", "DialogicTitle", get_theme_color("warning_color", "Editor")
 	)
-	theme.set_color(
+	new_theme.set_color(
 		"font_selected_color", "DialogicTitle", get_theme_color("warning_color", "Editor")
 	)
-	theme.set_font_size(
+	new_theme.set_font_size(
 		"font_size", "DialogicTitle", get_theme_font_size("doc_size", "EditorFonts")
 	)
 
-	theme.set_type_variation("DialogicSubTitle", "Label")
-	theme.set_font("font", "DialogicSubTitle", get_theme_font("title", "EditorFonts"))
-	theme.set_font_size(
+	new_theme.set_type_variation("DialogicSubTitle", "Label")
+	new_theme.set_font("font", "DialogicSubTitle", get_theme_font("title", "EditorFonts"))
+	new_theme.set_font_size(
 		"font_size", "DialogicSubTitle", get_theme_font_size("doc_size", "EditorFonts")
 	)
-	theme.set_color("font_color", "DialogicSubTitle", get_theme_color("accent_color", "Editor"))
+	new_theme.set_color("font_color", "DialogicSubTitle", get_theme_color("accent_color", "Editor"))
 
-	theme.set_type_variation("DialogicPanelA", "PanelContainer")
+	new_theme.set_type_variation("DialogicPanelA", "PanelContainer")
 	var panel_style := (
 		DCSS
 		. inline(
@@ -118,19 +107,19 @@ func update_theme_additions() -> void:
 			}
 		)
 	)
-	theme.set_stylebox("panel", "DialogicPanelA", panel_style)
-	theme.set_stylebox("normal", "DialogicPanelA", panel_style)
+	new_theme.set_stylebox("panel", "DialogicPanelA", panel_style)
+	new_theme.set_stylebox("normal", "DialogicPanelA", panel_style)
 
 	var dark_panel := panel_style.duplicate()
 	dark_panel.bg_color = get_theme_color("dark_color_3", "Editor")
-	theme.set_stylebox("panel", "DialogicPanelDarkA", dark_panel)
+	new_theme.set_stylebox("panel", "DialogicPanelDarkA", dark_panel)
 
 	var cornerless_panel := panel_style.duplicate()
 	cornerless_panel.corner_radius_top_left = 0
-	theme.set_stylebox("panel", "DialogicPanelA_cornerless", cornerless_panel)
+	new_theme.set_stylebox("panel", "DialogicPanelA_cornerless", cornerless_panel)
 
 	# panel used for example for portrait previews in character editor
-	theme.set_type_variation("DialogicPanelB", "PanelContainer")
+	new_theme.set_type_variation("DialogicPanelB", "PanelContainer")
 	var side_panel: StyleBoxFlat = panel_style.duplicate()
 	side_panel.corner_radius_top_left = 0
 	side_panel.corner_radius_bottom_left = 0
@@ -138,10 +127,28 @@ func update_theme_additions() -> void:
 	side_panel.bg_color = get_theme_color("dark_color_2", "Editor")
 	side_panel.set_border_width_all(1)
 	side_panel.border_width_left = 0
+	side_panel.content_margin_left = 0
 	side_panel.border_color = get_theme_color("contrast_color_2", "Editor")
-	theme.set_stylebox("panel", "DialogicPanelB", side_panel)
+	new_theme.set_stylebox("panel", "DialogicPanelB", side_panel)
 
-	theme.set_type_variation("DialogicEventEdit", "Control")
+	new_theme.set_type_variation("DialogicTabs", "TabBar")
+	new_theme.set_color("icon_selected_color", "DialogicTabs", get_theme_color("accent_color", "Editor"))
+	var selected_tab: StyleBoxFlat = get_theme_stylebox("tab_selected", "TabBar").duplicate()
+	selected_tab.bg_color = get_theme_color("background", "Editor")
+	new_theme.set_stylebox("tab_selected", "DialogicTabs", selected_tab)
+	var unselected_tab: StyleBoxFlat = get_theme_stylebox("tab_unselected", "TabBar").duplicate()
+	unselected_tab.bg_color = get_theme_color("disabled_bg_color", "Editor")
+	new_theme.set_stylebox("tab_unselected", "DialogicTabs", unselected_tab)
+
+	new_theme.set_type_variation("DialogicSidebarList", "ItemList")
+	var stylebox: StyleBoxFlat = get_theme_stylebox("panel", "ItemList").duplicate()
+	stylebox.bg_color = get_theme_color("disabled_bg_color", "Editor")
+	new_theme.set_stylebox("panel", "DialogicSidebarList", stylebox)
+
+	new_theme.set_type_variation("DialogicSidebarTree", "Tree")
+	new_theme.set_stylebox("panel", "DialogicSidebarTree", stylebox)
+
+	new_theme.set_type_variation("DialogicEventEdit", "Control")
 	var edit_panel := StyleBoxFlat.new()
 	edit_panel.draw_center = true
 	edit_panel.bg_color = get_theme_color("accent_color", "Editor")
@@ -153,96 +160,81 @@ func update_theme_additions() -> void:
 	edit_panel.content_margin_left = 5
 	edit_panel.content_margin_right = 5
 	edit_panel.set_corner_radius_all(1)
-	theme.set_stylebox("panel", "DialogicEventEdit", edit_panel)
-	theme.set_stylebox("normal", "DialogicEventEdit", edit_panel)
+	new_theme.set_stylebox("panel", "DialogicEventEdit", edit_panel)
+	new_theme.set_stylebox("normal", "DialogicEventEdit", edit_panel)
 
 	var focus_edit := edit_panel.duplicate()
 	focus_edit.border_color = get_theme_color("property_color_z", "Editor")
 	focus_edit.draw_center = false
-	theme.set_stylebox("focus", "DialogicEventEdit", focus_edit)
+	new_theme.set_stylebox("focus", "DialogicEventEdit", focus_edit)
 
 	var hover_edit := edit_panel.duplicate()
 	hover_edit.border_color = get_theme_color("warning_color", "Editor")
 
-	theme.set_stylebox("hover", "DialogicEventEdit", hover_edit)
+	new_theme.set_stylebox("hover", "DialogicEventEdit", hover_edit)
 	var disabled_edit := edit_panel.duplicate()
 	disabled_edit.border_color = get_theme_color("property_color", "Editor")
-	theme.set_stylebox("disabled", "DialogicEventEdit", disabled_edit)
+	new_theme.set_stylebox("disabled", "DialogicEventEdit", disabled_edit)
 
-	theme.set_type_variation("DialogicHintText", "Label")
-	theme.set_color("font_color", "DialogicHintText", get_theme_color("readonly_color", "Editor"))
-	theme.set_font("font", "DialogicHintText", get_theme_font("doc_italic", "EditorFonts"))
+	new_theme.set_type_variation("DialogicHintText", "Label")
+	new_theme.set_color("font_color", "DialogicHintText", get_theme_color("readonly_color", "Editor"))
+	new_theme.set_font("font", "DialogicHintText", get_theme_font("doc_italic", "EditorFonts"))
 
-	theme.set_type_variation("DialogicHintText2", "Label")
-	theme.set_color(
+	new_theme.set_type_variation("DialogicHintText2", "Label")
+	new_theme.set_color(
 		"font_color", "DialogicHintText2", get_theme_color("property_color_w", "Editor")
 	)
-	theme.set_font("font", "DialogicHintText2", get_theme_font("doc_italic", "EditorFonts"))
+	new_theme.set_font("font", "DialogicHintText2", get_theme_font("doc_italic", "EditorFonts"))
 
-	theme.set_type_variation("DialogicSection", "Label")
-	theme.set_font("font", "DialogicSection", get_theme_font("main_msdf", "EditorFonts"))
-	theme.set_color("font_color", "DialogicSection", get_theme_color("property_color_z", "Editor"))
-	theme.set_font_size(
+	new_theme.set_type_variation("DialogicSection", "Label")
+	new_theme.set_font("font", "DialogicSection", get_theme_font("main_msdf", "EditorFonts"))
+	new_theme.set_color("font_color", "DialogicSection", get_theme_color("property_color_z", "Editor"))
+	new_theme.set_font_size(
 		"font_size", "DialogicSection", get_theme_font_size("doc_size", "EditorFonts")
 	)
 
-	theme.set_type_variation("DialogicSettingsSection", "DialogicSection")
-	theme.set_font("font", "DialogicSettingsSection", get_theme_font("main_msdf", "EditorFonts"))
-	theme.set_color(
+	new_theme.set_type_variation("DialogicSettingsSection", "DialogicSection")
+	new_theme.set_font("font", "DialogicSettingsSection", get_theme_font("main_msdf", "EditorFonts"))
+	new_theme.set_color(
 		"font_color", "DialogicSettingsSection", get_theme_color("property_color_z", "Editor")
 	)
-	theme.set_font_size(
+	new_theme.set_font_size(
 		"font_size", "DialogicSettingsSection", get_theme_font_size("doc_size", "EditorFonts")
 	)
 
-	theme.set_type_variation("DialogicSectionBig", "DialogicSection")
-	theme.set_color("font_color", "DialogicSectionBig", get_theme_color("accent_color", "Editor"))
-	theme.set_font_size(
+	new_theme.set_type_variation("DialogicSectionBig", "DialogicSection")
+	new_theme.set_color("font_color", "DialogicSectionBig", get_theme_color("accent_color", "Editor"))
+	new_theme.set_font_size(
 		"font_size", "DialogicSectionBig", get_theme_font_size("doc_title_size", "EditorFonts")
 	)
 
-	theme.set_type_variation("DialogicLink", "LinkButton")
-	theme.set_color("font_hover_color", "DialogicLink", get_theme_color("warning_color", "Editor"))
+	new_theme.set_type_variation("DialogicLink", "LinkButton")
+	new_theme.set_color("font_hover_color", "DialogicLink", get_theme_color("warning_color", "Editor"))
 
-	theme.set_type_variation("DialogicMegaSeparator", "HSeparator")
-	(
-		theme
-		. set_stylebox(
-			"separator",
-			"DialogicMegaSeparator",
-			(
-				DCSS
-				. inline(
-					{
+	new_theme.set_type_variation("DialogicMegaSeparator", "HSeparator")
+	new_theme.set_stylebox("separator", "DialogicMegaSeparator",
+				DCSS.inline({
 						"border-radius": 10,
 						"border": 0,
 						"background": get_theme_color("accent_color", "Editor"),
 						"padding": [5, 5],
-					}
+					})
 				)
-			)
-		)
-	)
-	theme.set_constant("separation", "DialogicMegaSeparator", 50)
+	new_theme.set_constant("separation", "DialogicMegaSeparator", 50)
 
-	theme.set_type_variation("DialogicTextEventTextEdit", "CodeEdit")
-	var editor_settings := plugin_reference.get_editor_interface().get_editor_settings()
-	var text_panel := (
-		DCSS
-		. inline(
-			{
+	new_theme.set_type_variation("DialogicTextEventTextEdit", "CodeEdit")
+	var editor_settings := EditorInterface.get_editor_settings()
+	var text_panel := DCSS.inline({
 				"border-radius": 8,
 				"background":
 				editor_settings.get_setting("text_editor/theme/highlighting/background_color").lerp(
 					editor_settings.get_setting("text_editor/theme/highlighting/text_color"), 0.05
 				),
 				"padding": [8, 8],
-			}
-		)
-	)
+			})
 	text_panel.content_margin_bottom = 5
 	text_panel.content_margin_left = 13
-	theme.set_stylebox("normal", "DialogicTextEventTextEdit", text_panel)
+	new_theme.set_stylebox("normal", "DialogicTextEventTextEdit", text_panel)
 
 	var event_field_group_panel := DCSS.inline({
 		'border-radius': 8,
@@ -250,10 +242,12 @@ func update_theme_additions() -> void:
 		"padding":2,
 		"boder-color": get_theme_color("property_color", "Editor"),
 		"background":"none"})
-	theme.set_type_variation("DialogicEventEditGroup", "PanelContainer")
-	theme.set_stylebox("panel", "DialogicEventEditGroup", event_field_group_panel)
+	new_theme.set_type_variation("DialogicEventEditGroup", "PanelContainer")
+	new_theme.set_stylebox("panel", "DialogicEventEditGroup", event_field_group_panel)
 
-	theme.set_icon('Plugin', 'Dialogic', load("res://addons/dialogic/Editor/Images/plugin-icon.svg"))
+	new_theme.set_icon('Plugin', 'Dialogic', load("res://addons/dialogic/Editor/Images/plugin-icon.svg"))
+
+	theme = new_theme
 
 
 ## Switches from floating window mode to embedded mode based on current mode
@@ -284,7 +278,7 @@ func swap_to_floating_window() -> void:
 	window.disable_3d = true
 	window.wrap_controls = true
 	window.popup_centered()
-	plugin_reference.get_editor_interface().set_main_screen_editor("2D")
+	EditorInterface.set_main_screen_editor("2D")
 
 
 ## Removes the main control from the window node and adds it to it's grandparent
@@ -295,27 +289,38 @@ func swap_to_embedded_editor() -> void:
 
 	var window := get_parent()
 	get_parent().remove_child(self)
-	plugin_reference.get_editor_interface().set_main_screen_editor("Dialogic")
+	EditorInterface.set_main_screen_editor("Dialogic")
 	window.get_parent().add_child(self)
 	window.queue_free()
 
 
 func godot_file_dialog(
-	callable: Callable,
-	filter: String,
-	mode := EditorFileDialog.FILE_MODE_OPEN_FILE,
-	window_title := "Save",
-	current_file_name := "New_File",
-	saving_something := false,
-	extra_message: String = ""
-) -> EditorFileDialog:
+		callable: Callable, filter: String, mode := EditorFileDialog.FILE_MODE_OPEN_FILE,
+		window_title := "Save",
+		current_file_name := "New_File",
+		saving_something := false,
+		extra_message: String = ""
+		) -> EditorFileDialog:
+
 	for connection in editor_file_dialog.file_selected.get_connections():
 		editor_file_dialog.file_selected.disconnect(connection.callable)
+	for connection in editor_file_dialog.files_selected.get_connections():
+		editor_file_dialog.files_selected.disconnect(connection.callable)
 	for connection in editor_file_dialog.dir_selected.get_connections():
 		editor_file_dialog.dir_selected.disconnect(connection.callable)
+
+	if mode == EditorFileDialog.FILE_MODE_OPEN_FILE or mode == EditorFileDialog.FILE_MODE_SAVE_FILE:
+		editor_file_dialog.file_selected.connect(callable)
+	elif mode == EditorFileDialog.FILE_MODE_OPEN_FILES:
+		editor_file_dialog.files_selected.connect(callable)
+	elif mode == EditorFileDialog.FILE_MODE_OPEN_DIR:
+		editor_file_dialog.dir_selected.connect(callable)
+	elif mode == EditorFileDialog.FILE_MODE_OPEN_ANY:
+		editor_file_dialog.dir_selected.connect(callable)
+		editor_file_dialog.file_selected.connect(callable)
+
 	editor_file_dialog.file_mode = mode
 	editor_file_dialog.clear_filters()
-	editor_file_dialog.popup_centered_ratio(0.6)
 	editor_file_dialog.add_filter(filter)
 	editor_file_dialog.title = window_title
 	editor_file_dialog.current_file = current_file_name
@@ -325,12 +330,7 @@ func godot_file_dialog(
 		editor_file_dialog.get_meta("info_message_label").text = extra_message
 	else:
 		editor_file_dialog.get_meta("info_message_label").hide()
+	editor_file_dialog.popup_centered_ratio(0.6)
 
-	if mode == EditorFileDialog.FILE_MODE_OPEN_FILE or mode == EditorFileDialog.FILE_MODE_SAVE_FILE:
-		editor_file_dialog.file_selected.connect(callable)
-	elif mode == EditorFileDialog.FILE_MODE_OPEN_DIR:
-		editor_file_dialog.dir_selected.connect(callable)
-	elif mode == EditorFileDialog.FILE_MODE_OPEN_ANY:
-		editor_file_dialog.dir_selected.connect(callable)
-		editor_file_dialog.file_selected.connect(callable)
+
 	return editor_file_dialog

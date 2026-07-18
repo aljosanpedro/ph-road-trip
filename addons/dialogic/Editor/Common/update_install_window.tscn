@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://vv3m5m68fwg7"]
 
-[ext_resource type="Script" uid="uid://cjs8yf4fskhs6" path="res://addons/dialogic/Editor/Common/update_install_window.gd" id="1_p1pbx"]
+[ext_resource type="Script" uid="uid://cskkip1wso0pu" path="res://addons/dialogic/Editor/Common/update_install_window.gd" id="1_p1pbx"]
 [ext_resource type="Texture2D" uid="uid://dybg3l5pwetne" path="res://addons/dialogic/Editor/Images/plugin-icon.svg" id="2_20ke0"]
 
 [sub_resource type="Gradient" id="Gradient_lt7uf"]
@@ -282,7 +282,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_utju1")
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Be careful. This will delete the addons/dialogic folder and install the new version. Any custom changes in that folder will be lost.
-To be on the save side, use version control!"
+To be on the safe side, use version control!"
 autowrap_mode = 3
 
 [node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer2"]

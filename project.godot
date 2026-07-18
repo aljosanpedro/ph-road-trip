@@ -8,18 +8,26 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Watermarked"
 config/tags=PackedStringArray("team_work")
 run/main_scene="uid://dglj23acmhple"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="uid://04oxmsgrtw1t"
 config/windows_native_icon="res://icon.ico"
 
+[audio]
+
+buses/default_bus_layout="uid://dfm88e6k1av4b"
+
 [autoload]
 
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Dialogic="*uid://ds2q0uclmolvu"
 AudioManager="*res://scenes/logic/audio_manager.tscn"
 Events="*res://scripts/logic/events.gd"
 GameSettings="*res://scripts/logic/game_settings.gd"
@@ -75,6 +83,10 @@ save/encryption_on_exports_only=true
 text/autopauses={}
 history/simple_history_enabled=true
 choices/hotkey_behaviour=0
+layout/style_directory={
+"": "res://assets/themes/dialogue_stylings.tres",
+"dialogue_stylings": "res://assets/themes/dialogue_stylings.tres"
+}
 
 [display]
 

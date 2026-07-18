@@ -22,7 +22,7 @@ signal timeline_loaded
 ################################################################################
 var _batches := []
 var _building_timeline := false
-var _timeline_changed_while_loading := false
+var _cancel_loading := false
 var _initialized := false
 
 ################## TIMELINE EVENT MANAGEMENT ###################################
@@ -75,11 +75,8 @@ func _notification(what:int) -> void:
 
 
 func load_timeline(resource:DialogicTimeline) -> void:
-	if _building_timeline:
-		_timeline_changed_while_loading = true
-		await batch_loaded
-		_timeline_changed_while_loading = false
-		_building_timeline = false
+	# In case another timeline is still loading
+	cancel_loading()
 
 	clear_timeline_nodes()
 
@@ -99,9 +96,23 @@ func load_timeline(resource:DialogicTimeline) -> void:
 		while batch_events(data, batch_size, page).size() != 0:
 			_batches.append(batch_events(data, batch_size, page))
 			page += 1
+		set_meta("batch_count", len(_batches))
 		batch_loaded.emit()
+
 	# Reset the scroll position
 	%TimelineArea.scroll_vertical = 0
+
+
+func is_loading_timeline() -> bool:
+	return _building_timeline
+
+func cancel_loading() -> void:
+	timeline_editor.set_progress(1)
+	if _building_timeline:
+		_cancel_loading = true
+		await batch_loaded
+		_cancel_loading = false
+		_building_timeline = false
 
 
 func batch_events(array: Array, size: int, batch_number: int) -> Array:
@@ -127,18 +138,26 @@ func load_batch(data:Array) -> void:
 
 
 func _on_batch_loaded() -> void:
-	if _timeline_changed_while_loading:
+	if _cancel_loading:
 		return
+
 	if _batches.size() > 0:
 		indent_events()
+		var progress: float = 1-(1.0/get_meta("batch_count")*len(_batches))
+		timeline_editor.set_progress(progress)
 		await get_tree().process_frame
 		load_batch(_batches)
 		return
+
+	# This hides the progress bar again
+	timeline_editor.set_progress(1)
 
 	if opener_events_stack:
 		for ev in opener_events_stack:
 			if is_instance_valid(ev):
 				create_end_branch_event(%Timeline.get_child_count(), ev)
+
+	timeline_loaded.emit()
 
 	opener_events_stack = []
 	indent_events()
@@ -157,6 +176,9 @@ func clear_timeline_nodes() -> void:
 ################################################################################
 
 func _ready() -> void:
+	if get_parent() is SubViewport or owner.get_parent() is SubViewport:
+		return
+
 	event_node = load("res://addons/dialogic/Editor/Events/EventBlock/event_block.tscn")
 
 	batch_loaded.connect(_on_batch_loaded)
@@ -173,6 +195,12 @@ func _ready() -> void:
 	load_event_buttons()
 	_on_right_sidebar_resized()
 	_initialized = true
+
+	TimelineUndoRedo.version_changed.connect(_on_undoredo_changed)
+
+
+func _on_undoredo_changed() -> void:
+	update_content_list()
 
 
 func load_event_buttons() -> void:
@@ -195,11 +223,11 @@ func load_event_buttons() -> void:
 	var button_scene := load("res://addons/dialogic/Editor/TimelineEditor/VisualEditor/AddEventButton.tscn")
 
 	var scripts := DialogicResourceUtil.get_event_cache()
-	var hidden_buttons :Array = DialogicUtil.get_editor_setting('hidden_event_buttons', [])
+	var hidden_buttons: Array = DialogicUtil.get_editor_setting('hidden_event_buttons', [])
 	var sections := {}
 
 	for event_script in scripts:
-		var event_resource: Variant
+		var event_resource: DialogicEvent
 
 		if typeof(event_script) == TYPE_STRING:
 			event_resource = load(event_script).new()
@@ -215,6 +243,7 @@ func load_event_buttons() -> void:
 		var button: Button = button_scene.instantiate()
 		button.resource = event_resource
 		button.visible_name = event_resource.event_name
+		button.tooltip_text = event_resource.event_name + "\n" + event_resource.event_description
 		button.event_icon = event_resource._get_icon()
 		button.set_color(event_resource.event_color)
 		button.dialogic_color_name = event_resource.dialogic_color_name
@@ -269,12 +298,16 @@ func load_event_buttons() -> void:
 
 func _on_content_item_clicked(label:String) -> void:
 	if label == "~ Top":
+		selected_items = []
+		select_item(%Timeline.get_child(0))
 		%TimelineArea.scroll_vertical = 0
 		return
 
 	for event in %Timeline.get_children():
 		if 'event_name' in event.resource and event.resource is DialogicLabelEvent:
 			if event.resource.name == label:
+				selected_items = []
+				select_item(event)
 				scroll_to_piece(event.get_index())
 				return
 
@@ -283,6 +316,7 @@ func update_content_list() -> void:
 	if not is_inside_tree():
 		return
 
+	var channels: PackedStringArray = []
 	var labels: PackedStringArray = []
 
 	for event in %Timeline.get_children():
@@ -290,7 +324,12 @@ func update_content_list() -> void:
 		if 'event_name' in event.resource and event.resource is DialogicLabelEvent:
 			labels.append(event.resource.name)
 
-	timeline_editor.editors_manager.sidebar.update_content_list(labels)
+		if 'event_name' in event.resource and event.resource is DialogicAudioEvent:
+			if not event.resource.channel_name in channels:
+				channels.append(event.resource.channel_name)
+
+	timeline_editor.update_label_cache(labels)
+	timeline_editor.update_audio_channel_cache(channels)
 
 
 #endregion
@@ -312,11 +351,59 @@ func _on_event_block_gui_input(event: InputEvent, item: Node) -> void:
 
 			drag_allowed = true
 
+		if event.is_released() and not %TimelineArea.dragging and not Input.is_key_pressed(KEY_SHIFT):
+			if len(selected_items) > 1 and item in selected_items and not Input.is_key_pressed(KEY_CTRL):
+				deselect_all_items()
+				select_item(item)
+
 	if len(selected_items) > 0 and event is InputEventMouseMotion:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			if !%TimelineArea.dragging and !get_viewport().gui_is_dragging() and drag_allowed:
+			if not %TimelineArea.dragging and not get_viewport().gui_is_dragging() and drag_allowed:
 				sort_selection()
 				%TimelineArea.start_dragging(%TimelineArea.DragTypes.EXISTING_EVENTS, selected_items)
+
+
+func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+	if %TimelineArea.dragging:
+		return %TimelineArea.drag_type == %TimelineArea.DragTypes.GENERATED_EVENT
+	if typeof(data) == TYPE_DICTIONARY and 'files' in data.keys() and len(data.files) == 1:
+		match data.files[0].get_extension().to_lower():
+			"dch":
+				var chr := load(data.files[0])
+				var resource : DialogicEvent
+				if (chr as DialogicCharacter).portraits.is_empty():
+					resource = DialogicTextEvent.new()
+				else:
+					resource = DialogicCharacterEvent.new()
+				resource._load_custom_defaults()
+				resource.character = chr
+				%TimelineArea.start_dragging(%TimelineArea.DragTypes.GENERATED_EVENT, resource)
+				return true
+			"dtl":
+				var resource := DialogicJumpEvent.new()
+				resource._load_custom_defaults()
+				resource.timeline = load(data.files[0])
+				%TimelineArea.start_dragging(%TimelineArea.DragTypes.GENERATED_EVENT, resource)
+				return true
+			"mp3", "wav", "ogg":
+				var resource := DialogicAudioEvent.new()
+				resource._load_custom_defaults()
+				resource.file_path = data.files[0]
+				%TimelineArea.start_dragging(%TimelineArea.DragTypes.GENERATED_EVENT, resource)
+				return true
+			"png", "jpg", "jpeg":
+				var resource := DialogicBackgroundEvent.new()
+				resource._load_custom_defaults()
+				resource.argument = data.files[0]
+				%TimelineArea.start_dragging(%TimelineArea.DragTypes.GENERATED_EVENT, resource)
+				return true
+			"tscn":
+				var resource := DialogicBackgroundEvent.new()
+				resource._load_custom_defaults()
+				resource.scene = data.files[0]
+				%TimelineArea.start_dragging(%TimelineArea.DragTypes.GENERATED_EVENT, resource)
+				return true
+	return false
 
 
 ## Activated by TimelineArea drag_completed
@@ -324,8 +411,11 @@ func _on_timeline_area_drag_completed(type:int, index:int, data:Variant) -> void
 	if type == %TimelineArea.DragTypes.NEW_EVENT:
 		var resource: DialogicEvent = data.duplicate()
 		resource._load_custom_defaults()
-
 		add_event_undoable(resource, index)
+
+	elif type == %TimelineArea.DragTypes.GENERATED_EVENT:
+		add_event_undoable(data, index)
+		get_viewport().gui_cancel_drag()
 
 	elif type == %TimelineArea.DragTypes.EXISTING_EVENTS:
 		if not (len(data) == 1 and data[0].get_index()+1 == index):
@@ -357,6 +447,8 @@ func add_event_node(event_resource:DialogicEvent, at_index:int = -1, auto_select
 
 	if event_resource.event_name == "Label":
 		block.content_changed.connect(update_content_list)
+	if event_resource.event_name == "Audio":
+		block.content_changed.connect(update_content_list)
 	if at_index == -1:
 		if len(selected_items) != 0:
 			selected_items[0].add_sibling(block)
@@ -387,7 +479,7 @@ func create_end_branch_event(at_index:int, parent_node:Node) -> Node:
 	end_branch_event.gui_input.connect(_on_event_block_gui_input.bind(end_branch_event))
 	parent_node.end_node = end_branch_event
 	end_branch_event.parent_node = parent_node
-	end_branch_event.add_end_control(parent_node.resource.get_end_branch_control())
+	end_branch_event.add_end_control(parent_node.resource._get_end_branch_control())
 	%Timeline.add_child(end_branch_event)
 	%Timeline.move_child(end_branch_event, at_index)
 	return end_branch_event
@@ -425,12 +517,12 @@ func get_events_indexed(events:Array) -> Dictionary:
 		if event.resource is DialogicEndBranchEvent:
 			continue
 
-		indexed_dict[event.get_index()] = event.resource.to_text()
+		indexed_dict[event.get_index()] = event.resource._store_as_string()
 
 		# store an end branch if it is selected or connected to a selected event
 		if 'end_node' in event and event.end_node:
 			event = event.end_node
-			indexed_dict[event.get_index()] = event.resource.to_text()
+			indexed_dict[event.get_index()] = event.resource._store_as_string()
 		elif event.resource is DialogicEndBranchEvent:
 			if event.parent_node in events: # add local index
 				indexed_dict[event.get_index()] += str(events.find(event.parent_node))
@@ -465,13 +557,13 @@ func add_events_indexed(indexed_events:Dictionary) -> void:
 	var events := []
 	for event_idx in indexes:
 		# first get a new resource from the text version
-		var event_resource :DialogicEvent
+		var event_resource: DialogicEvent
 		for i in DialogicResourceUtil.get_event_cache():
 			if i._test_event_string(indexed_events[event_idx]):
 				event_resource = i.duplicate()
 				break
 
-		event_resource.from_text(indexed_events[event_idx])
+		event_resource._load_from_string(indexed_events[event_idx])
 
 		# now create the visual block.
 		deselect_all_items()
@@ -540,14 +632,16 @@ func copy_selected_events() -> void:
 	if len(selected_items) == 0:
 		return
 
+	sort_selection()
 	var event_copy_array := []
 	for item in selected_items:
-		event_copy_array.append(item.resource.to_text())
+		event_copy_array.append(item.resource._store_as_string())
 		if item.resource is DialogicEndBranchEvent:
 			if item.parent_node in selected_items: # add local index
 				event_copy_array[-1] += str(selected_items.find(item.parent_node))
 			else: # add global index
 				event_copy_array[-1] += '#'+str(item.parent_node.get_index())
+
 	DisplayServer.clipboard_set(var_to_str({
 			"events":event_copy_array,
 			"project_name": ProjectSettings.get_setting("application/config/name")
@@ -597,13 +691,7 @@ func select_item(item: Node, multi_possible:bool = true) -> void:
 	if item == null:
 		return
 
-	if Input.is_key_pressed(KEY_CTRL) and multi_possible:
-		# deselect the item if it is selected
-		if _is_item_selected(item):
-			selected_items.erase(item)
-		else:
-			selected_items.append(item)
-	elif Input.is_key_pressed(KEY_SHIFT) and multi_possible:
+	if Input.is_key_pressed(KEY_SHIFT) and multi_possible:
 		if len(selected_items) == 0:
 			selected_items = [item]
 		else:
@@ -617,6 +705,12 @@ func select_item(item: Node, multi_possible:bool = true) -> void:
 
 				if index == goal_idx:
 					break
+	elif Input.is_key_pressed(KEY_CTRL) and multi_possible:
+		# deselect the item if it is selected
+		if _is_item_selected(item):
+			selected_items.erase(item)
+		else:
+			selected_items.append(item)
 	else:
 		if len(selected_items) == 1:
 			if _is_item_selected(item):
@@ -857,6 +951,8 @@ func indent_events() -> void:
 	# will be applied to the indent after the current event
 	var delayed_indent: int = 0
 
+	var current_contain_events := []
+
 	for block in event_list:
 		if (not "resource" in block):
 			continue
@@ -864,38 +960,39 @@ func indent_events() -> void:
 		if (not currently_hidden) and block.resource.can_contain_events and block.end_node and block.collapsed:
 			currently_hidden = true
 			hidden_until = block.end_node
-			hidden_count = 0
 		elif currently_hidden and block == hidden_until:
-			block.update_hidden_events_indicator(hidden_count)
 			currently_hidden = false
 			hidden_until = null
 		elif currently_hidden:
 			block.hide()
-			hidden_count += 1
 		else:
 			block.show()
-			if block.resource is DialogicEndBranchEvent:
-				block.update_hidden_events_indicator(0)
+
 
 		delayed_indent = 0
-
-		if block.resource.can_contain_events:
-			delayed_indent = 1
-
 		if block.resource.wants_to_group:
 			indent += 1
 
-		elif block.resource is DialogicEndBranchEvent:
+		if block.resource is DialogicEndBranchEvent:
 			block.parent_node_changed()
 			delayed_indent -= 1
 			if block.parent_node.resource.wants_to_group:
 				delayed_indent -= 1
+			if block.parent_node.resource.can_contain_events:
+				var contained : Array = current_contain_events.pop_back()
+				contained[0].contained_events = contained[1]
+		if current_contain_events:
+			current_contain_events[-1][1].append(block.resource)
+		if block.resource.can_contain_events:
+			delayed_indent = 1
+			current_contain_events.append([block, []])
 
 		if indent >= 0:
-			block.set_indent(indent)
+			block.set_indent.call_deferred(indent)
 		else:
-			block.set_indent(0)
+			block.set_indent.call_deferred(0)
 		indent += delayed_indent
+
 
 	await get_tree().process_frame
 	await get_tree().process_frame
@@ -905,25 +1002,30 @@ func indent_events() -> void:
 #region SPECIAL BLOCK OPERATIONS
 ################################################################################
 
-func _on_event_popup_menu_index_pressed(index:int) -> void:
+func _on_event_popup_menu_id_pressed(id:int) -> void:
 	var item: Control = %EventPopupMenu.current_event
-	if index == 0:
+	if id == 0:
 		if not item in selected_items:
 			selected_items = [item]
 		duplicate_selected()
-	elif index == 2:
+
+	elif id == 1:
+		play_from_here(%EventPopupMenu.current_event.get_index())
+
+	elif id == 2:
 		if not item.resource.help_page_path.is_empty():
 			OS.shell_open(item.resource.help_page_path)
-	elif index == 3:
-		find_parent('EditorView').plugin_reference.get_editor_interface().set_main_screen_editor('Script')
-		find_parent('EditorView').plugin_reference.get_editor_interface().edit_script(item.resource.get_script(), 1, 1)
-	elif index == 5 or index == 6:
-		if index == 5:
+
+	elif id == 3:
+		EditorInterface.set_main_screen_editor('Script')
+		EditorInterface.edit_script(item.resource.get_script(), 1, 1)
+	elif id == 4 or id == 5:
+		if id == 4:
 			offset_blocks_by_index(selected_items, -1)
 		else:
 			offset_blocks_by_index(selected_items, +1)
 
-	elif index == 8:
+	elif id == 6:
 		var events_indexed : Dictionary
 		if item in selected_items:
 			events_indexed =  get_events_indexed(selected_items)
@@ -935,6 +1037,12 @@ func _on_event_popup_menu_index_pressed(index:int) -> void:
 		TimelineUndoRedo.commit_action()
 		indent_events()
 
+
+func play_from_here(index:=-1) -> void:
+	if index == -1:
+		if not selected_items.is_empty():
+			index = selected_items[0].get_index()
+	timeline_editor.play_timeline(index)
 
 func _on_right_sidebar_resized() -> void:
 	var _scale := DialogicUtil.get_editor_scale()
@@ -1012,38 +1120,44 @@ func _input(event:InputEvent) -> void:
 
 	## Some shortcuts should always work
 	match event.as_text():
-		"Ctrl+T": # Add text event
+		"Ctrl+T", "Command+T":  # Add text event
 			_add_event_button_pressed(DialogicTextEvent.new(), true)
 			get_viewport().set_input_as_handled()
 
-		"Ctrl+Shift+T", "Ctrl+Alt+T", "Ctrl+Option+T": # Add text event with current or previous character
+		"Ctrl+Shift+T", "Ctrl+Alt+T", "Shift+Command+T", "Option+Command+T":  # Add text event with current or previous character
 			get_viewport().set_input_as_handled()
 			var ev := DialogicTextEvent.new()
-			ev.character = get_previous_character(event.as_text() == "Ctrl+Alt+T" or event.as_text() == "Ctrl+Option+T")
+			ev.character = get_previous_character(event.as_text() == "Ctrl+Alt+T" or event.as_text() == "Option+Command+T")
 			_add_event_button_pressed(ev, true)
 
-		"Ctrl+E": # Add character join event
+		"Ctrl+E", "Command+E":  # Add character join event
 			_add_event_button_pressed(DialogicCharacterEvent.new(), true)
 			get_viewport().set_input_as_handled()
 
-		"Ctrl+Shift+E": # Add character update event
+		"Ctrl+Shift+E", "Shift+Command+E":  # Add character update event
 			var ev := DialogicCharacterEvent.new()
 			ev.action = DialogicCharacterEvent.Actions.UPDATE
+			ev.character = get_previous_character()
 			_add_event_button_pressed(ev, true)
 			get_viewport().set_input_as_handled()
 
-		"Ctrl+Alt+E", "Ctrl+Option+E": # Add character leave event
+		"Ctrl+Alt+E", "Ctrl+Option+E", "Option+Command+E":  # Add character leave event
 			var ev := DialogicCharacterEvent.new()
 			ev.action = DialogicCharacterEvent.Actions.LEAVE
 			_add_event_button_pressed(ev, true)
 			get_viewport().set_input_as_handled()
 
-		"Ctrl+J": # Add jump event
+		"Ctrl+J", "Command+J":  # Add jump event
 			_add_event_button_pressed(DialogicJumpEvent.new(), true)
 			get_viewport().set_input_as_handled()
-		"Ctrl+L": # Add label event
+		"Ctrl+L", "Command+L":  # Add label event
 			_add_event_button_pressed(DialogicLabelEvent.new(), true)
 			get_viewport().set_input_as_handled()
+
+		"Ctrl+F6" when OS.get_name() != "macOS":  # Play from here
+			play_from_here()
+		"Ctrl+Shift+B" when OS.get_name() == "macOS":  # Play from here
+			play_from_here()
 
 	## Some shortcuts should be disabled when writing text.
 	var focus_owner: Control = get_viewport().gui_get_focus_owner()
@@ -1051,12 +1165,12 @@ func _input(event:InputEvent) -> void:
 		return
 
 	match event.as_text():
-		"Ctrl+Z": # UNDO
+		"Ctrl+Z", "Command+Z":  # UNDO
 			TimelineUndoRedo.undo()
 			indent_events()
 			get_viewport().set_input_as_handled()
 
-		"Ctrl+Shift+Z", "Ctrl+Y": # REDO
+		"Ctrl+Shift+Z", "Ctrl+Y", "Shift+Command+Z", "Command+Y":  # REDO
 			TimelineUndoRedo.redo()
 			indent_events()
 			get_viewport().set_input_as_handled()
@@ -1088,27 +1202,28 @@ func _input(event:InputEvent) -> void:
 				TimelineUndoRedo.commit_action()
 				get_viewport().set_input_as_handled()
 
-		"Ctrl+A": # select all
+		"Ctrl+A", "Command+A":  # select all
 			if (len(selected_items) != 0):
 				select_all_items()
 			get_viewport().set_input_as_handled()
 
-		"Ctrl+Shift+A": # deselect all
+		"Ctrl+Shift+A", "Shift+Command+A":  # deselect all
 			if (len(selected_items) != 0):
 				deselect_all_items()
 			get_viewport().set_input_as_handled()
 
-		"Ctrl+C":
+		"Ctrl+C", "Command+C":
+			select_events_indexed(get_events_indexed(selected_items))
 			copy_selected_events()
 			get_viewport().set_input_as_handled()
 
-		"Ctrl+V":
+		"Ctrl+V", "Command+V":
 			var events_list := get_clipboard_data()
-			var paste_position := -1
+			var paste_position := 0
 			if selected_items:
 				paste_position = selected_items[-1].get_index()+1
 			else:
-				paste_position = %Timeline.get_child_count()-1
+				paste_position = %Timeline.get_child_count()
 			if events_list:
 				TimelineUndoRedo.create_action("[D] Pasting "+str(len(events_list))+" event(s).")
 				TimelineUndoRedo.add_do_method(add_events_at_index.bind(events_list, paste_position))
@@ -1117,7 +1232,7 @@ func _input(event:InputEvent) -> void:
 				get_viewport().set_input_as_handled()
 
 
-		"Ctrl+X":
+		"Ctrl+X", "Command+X":
 			var events_indexed := get_events_indexed(selected_items)
 			TimelineUndoRedo.create_action("[D] Cut "+str(len(selected_items))+" event(s).")
 			TimelineUndoRedo.add_do_method(cut_events_indexed.bind(events_indexed))
@@ -1125,7 +1240,7 @@ func _input(event:InputEvent) -> void:
 			TimelineUndoRedo.commit_action()
 			get_viewport().set_input_as_handled()
 
-		"Ctrl+D":
+		"Ctrl+D", "Command+D":
 			duplicate_selected()
 			get_viewport().set_input_as_handled()
 
@@ -1178,23 +1293,37 @@ func get_previous_character(double_previous := false) -> DialogicCharacter:
 ################################################################################
 
 var search_results := {}
-func _search_timeline(search_text:String) -> bool:
-	for event in search_results:
-		if is_instance_valid(search_results[event]):
-			search_results[event].set_search_text("")
-			search_results[event].deselect()
-			search_results[event].queue_redraw()
+func _search_timeline(search_text:String, match_case := false, whole_words := false) -> bool:
+	var flags := 0
+	if match_case:
+		flags = flags | TextEdit.SEARCH_MATCH_CASE
+	if whole_words:
+		flags = flags | TextEdit.SEARCH_WHOLE_WORDS
+
 	search_results.clear()
+
+	# This checks all text events for whether they contain the text.
+	# If so, the text field is stored in search_results
+	# which is later used to navigate through only the relevant text fields.
 
 	for block in %Timeline.get_children():
 		if block.resource is DialogicTextEvent:
-			var text_field: TextEdit = block.get_node("%BodyContent").find_child("Field_Text_Multiline", true, false)
+			var text_field: TextEdit = block.get_field_node("text")
+
+			text_field.deselect()
 			text_field.set_search_text(search_text)
-			if text_field.search(search_text, 0, 0, 0).x != -1:
+			text_field.set_search_flags(flags)
+
+			if text_field.search(search_text, flags, 0, 0).x != -1:
 				search_results[block] = text_field
-				text_field.queue_redraw()
+
+			text_field.queue_redraw()
+
 	set_meta("current_search", search_text)
+	set_meta("current_search_flags", flags)
+
 	search_navigate(false)
+
 	return not search_results.is_empty()
 
 
@@ -1207,25 +1336,61 @@ func _search_navigate_up() -> void:
 
 
 func search_navigate(navigate_up := false) -> void:
+	var next_pos := get_next_search_position(navigate_up)
+	if next_pos:
+		var event: Node = next_pos[0]
+		var field: TextEdit = next_pos[1]
+		var result: Vector2i = next_pos[2]
+		if not event in selected_items:
+			select_item(next_pos[0], false)
+		%TimelineArea.ensure_control_visible(event)
+		event._on_ToggleBodyVisibility_toggled(true)
+		field.call_deferred("select", result.y, result.x, result.y, result.x+len(get_meta("current_search")))
+
+
+func get_next_search_position(navigate_up:= false, include_current := false) -> Array:
 	var search_text: String = get_meta("current_search", "")
+	var search_flags: int = get_meta("current_search_flags", 0)
 
 	if search_results.is_empty() or %Timeline.get_child_count() == 0:
-		return
-	if selected_items.is_empty():
-		select_item(%Timeline.get_child(0), false)
+		return []
 
-	while not selected_items[0] in search_results:
-		select_item(%Timeline.get_child(wrapi(selected_items[0].get_index()+1, 0, %Timeline.get_child_count()-1)), false)
+	# We start the search on the selected item,
+	# so these checks make sure something sensible is selected
+
+	# Try to select the event that has focus
+	if get_viewport().gui_get_focus_owner() is TextEdit and get_viewport().gui_get_focus_owner() is DialogicVisualEditorField:
+		select_item(get_viewport().gui_get_focus_owner().event_resource.editor_node, false)
+		get_viewport().gui_get_focus_owner().deselect()
+
+	# Select the first event if nothing is selected
+	if selected_items.is_empty():
+		select_item(search_results.keys()[0], false)
+
+	# Loop to the next event that where something was found
+	if not selected_items[0] in search_results:
+		var index: int = selected_items[0].get_index()
+		while not %Timeline.get_child(index) in search_results:
+			index = wrapi(index+1, 0, %Timeline.get_child_count()-1)
+		select_item(%Timeline.get_child(index), false)
+
 
 	var event: Node = selected_items[0]
 	var counter := 0
+	var first := true
 	while true:
 		counter += 1
 		var field: TextEdit = search_results[event]
 		field.queue_redraw()
-		var result := search_text_field(field, search_text, navigate_up)
+
+		# First locates the next result in this field
+		var result := search_text_field(field, search_text, search_flags, navigate_up, first and include_current)
 		var current_line := field.get_selection_from_line() if field.has_selection() else -1
 		var current_column := field.get_selection_from_column() if field.has_selection() else -1
+
+		first = false
+
+		# Determines if the found result is valid or navigation should continue into the next event
 		var next_is_in_this_event := false
 		if result.y == -1:
 			next_is_in_this_event = false
@@ -1234,28 +1399,27 @@ func search_navigate(navigate_up := false) -> void:
 				current_line = field.get_line_count()-1
 				current_column = field.get_line(current_line).length()
 			next_is_in_this_event = result.x < current_column or result.y < current_line
+		elif include_current:
+			next_is_in_this_event = true
 		else:
 			next_is_in_this_event = result.x > current_column or result.y > current_line
 
+		# If the next result was found return it
 		if next_is_in_this_event:
-			if not event in selected_items:
-				select_item(event, false)
-			%TimelineArea.ensure_control_visible(event)
-			event._on_ToggleBodyVisibility_toggled(true)
-			field.select(result.y, result.x, result.y, result.x+len(search_text))
-			break
+			return [event, field, result]
 
-		else:
-			field.deselect()
-			var index := search_results.keys().find(event)
-			event = search_results.keys()[wrapi(index+(-1 if navigate_up else 1), 0, search_results.size())]
+		# Otherwise deselct this field and continue in the next/previous
+		field.deselect()
+		var index := search_results.keys().find(event)
+		event = search_results.keys()[wrapi(index+(-1 if navigate_up else 1), 0, search_results.size())]
 
 		if counter > 5:
 			print("[Dialogic] Search failed.")
 			break
+	return []
 
 
-func search_text_field(field:TextEdit, search_text := "", navigate_up:= false) -> Vector2i:
+func search_text_field(field:TextEdit, search_text := "", flags:= 0, navigate_up:= false, include_current := false) -> Vector2i:
 	var search_from_line: int = 0
 	var search_from_column: int = 0
 	if field.has_selection():
@@ -1267,6 +1431,9 @@ func search_text_field(field:TextEdit, search_text := "", navigate_up:= false) -
 				if search_from_line == -1:
 					return Vector2i(-1, -1)
 				search_from_column = field.get_line(search_from_line).length()-1
+		elif include_current:
+			search_from_line = field.get_selection_from_line()
+			search_from_column = field.get_selection_from_column()
 		else:
 			search_from_line = field.get_selection_to_line()
 			search_from_column = field.get_selection_to_column()
@@ -1275,7 +1442,62 @@ func search_text_field(field:TextEdit, search_text := "", navigate_up:= false) -
 			search_from_line = field.get_line_count()-1
 			search_from_column = field.get_line(search_from_line).length()-1
 
-	var search := field.search(search_text, 4 if navigate_up else 0, search_from_line, search_from_column)
+	if navigate_up:
+		flags = flags | TextEdit.SEARCH_BACKWARDS
+
+	var search := field.search(search_text, flags, search_from_line, search_from_column)
 	return search
+
+
+func replace(replace_text:String) -> void:
+	var next_pos := get_next_search_position(false, true)
+	var event: Node = next_pos[0]
+	var field: TextEdit = next_pos[1]
+	var result: Vector2i = next_pos[2]
+
+	if field.has_selection():
+		field.set_caret_column(field.get_selection_from_column())
+		field.set_caret_line(field.get_selection_from_line())
+
+	field.begin_complex_operation()
+	field.insert_text("@@", result.y, result.x)
+	if get_meta("current_search_flags") & TextEdit.SEARCH_MATCH_CASE:
+		field.text = field.text.replace("@@"+get_meta("current_search"), replace_text)
+	else:
+		field.text = field.text.replacen("@@"+get_meta("current_search"), replace_text)
+	field.end_complex_operation()
+
+	timeline_editor.replace_in_timeline()
+
+
+func replace_all(replace_text:String) -> void:
+	var next_pos := get_next_search_position()
+	if not next_pos:
+		return
+	var event: Node = next_pos[0]
+	var field: TextEdit = next_pos[1]
+	var result: Vector2i = next_pos[2]
+	field.begin_complex_operation()
+	while next_pos:
+		event = next_pos[0]
+		if field != next_pos[1]:
+			field.end_complex_operation()
+			field = next_pos[1]
+			field.begin_complex_operation()
+		result = next_pos[2]
+
+		if field.has_selection():
+			field.set_caret_column(field.get_selection_from_column())
+			field.set_caret_line(field.get_selection_from_line())
+
+		field.insert_text("@@", result.y, result.x)
+		if get_meta("current_search_flags") & TextEdit.SEARCH_MATCH_CASE:
+			field.text = field.text.replace("@@"+get_meta("current_search"), replace_text)
+		else:
+			field.text = field.text.replacen("@@"+get_meta("current_search"), replace_text)
+
+		next_pos = get_next_search_position()
+	field.end_complex_operation()
+	timeline_editor.replace_in_timeline()
 
 #endregion

@@ -34,8 +34,12 @@ var regex := RegEx.create_from_string(r'- (?<text>(?>\\\||(?(?=.*\|)[^|]|(?!\[if
 
 func _execute() -> void:
 	if dialogic.Choices.is_question(dialogic.current_event_idx):
-		dialogic.Choices.show_current_question(false)
 		dialogic.current_state = dialogic.States.AWAITING_CHOICE
+		dialogic.Choices.show_current_question(false)
+
+
+func _is_branch_starter() -> bool:
+	return dialogic.Choices.is_question(dialogic.current_timeline_events.find(self))
 
 #endregion
 
@@ -45,15 +49,17 @@ func _execute() -> void:
 
 func _init() -> void:
 	event_name = "Choice"
+	event_description = "Shows a clickable option. Should be grouped together with other choices. Contains events that are played when chosen. Can have a condition."
 	set_default_color('Color3')
 	event_category = "Flow"
 	event_sorting_index = 0
 	can_contain_events = true
 	wants_to_group = true
+	collapse_on_create = true
 
 
 # return a control node that should show on the END BRANCH node
-func get_end_branch_control() -> Control:
+func _get_end_branch_control() -> Control:
 	return load(get_script().resource_path.get_base_dir().path_join('ui_choice_end.tscn')).instantiate()
 #endregion
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dglj23acmhple"]
+[gd_scene format=3 uid="uid://dglj23acmhple"]
 
 [ext_resource type="Script" uid="uid://cxw33yn604nps" path="res://scripts/scenes/title_screen.gd" id="1_p0v5f"]
 [ext_resource type="Texture2D" uid="uid://bejsuy5y4dvvc" path="res://assets/images/title_screen/1_sky.png" id="2_1m84x"]
@@ -228,7 +228,7 @@ _data = {
 &"intro": SubResource("Animation_qq3hq")
 }
 
-[node name="TitleScreen" type="Control"]
+[node name="TitleScreen" type="Control" unique_id=1384659585]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -237,53 +237,53 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p0v5f")
 
-[node name="Sky" type="Parallax2D" parent="."]
+[node name="Sky" type="Parallax2D" parent="." unique_id=225394305]
 
-[node name="Sprite2D" type="Sprite2D" parent="Sky"]
+[node name="Sprite2D" type="Sprite2D" parent="Sky" unique_id=1719830481]
 scale = Vector2(1.035, 1.035)
 texture = ExtResource("2_1m84x")
 centered = false
 
-[node name="City" type="Parallax2D" parent="."]
+[node name="City" type="Parallax2D" parent="." unique_id=1384955370]
 scroll_scale = Vector2(0.8, 0.8)
 scroll_offset = Vector2(0, -100)
 
-[node name="Sprite2D" type="Sprite2D" parent="City"]
+[node name="Sprite2D" type="Sprite2D" parent="City" unique_id=1221768103]
 scale = Vector2(1.035, 1.035)
 texture = ExtResource("3_jjag5")
 centered = false
 
-[node name="Clouds" type="Parallax2D" parent="."]
+[node name="Clouds" type="Parallax2D" parent="." unique_id=361941757]
 scroll_scale = Vector2(0.9, 0.9)
 repeat_times = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Clouds"]
+[node name="Sprite2D" type="Sprite2D" parent="Clouds" unique_id=1678177851]
 scale = Vector2(1.035, 1.035)
 texture = ExtResource("4_xglq0")
 centered = false
 
-[node name="LeaningTowers" type="Parallax2D" parent="."]
+[node name="LeaningTowers" type="Parallax2D" parent="." unique_id=2064677586]
 
-[node name="Sprite2D" type="Sprite2D" parent="LeaningTowers"]
+[node name="Sprite2D" type="Sprite2D" parent="LeaningTowers" unique_id=328963448]
 scale = Vector2(1.035, 1.035)
 texture = ExtResource("5_m6ccg")
 centered = false
 
-[node name="Sea" type="Parallax2D" parent="."]
+[node name="Sea" type="Parallax2D" parent="." unique_id=830067816]
 
-[node name="Sprite2D" type="Sprite2D" parent="Sea"]
+[node name="Sprite2D" type="Sprite2D" parent="Sea" unique_id=1604109975]
 scale = Vector2(1.035, 1.035)
 texture = ExtResource("6_upga4")
 centered = false
 
-[node name="AdiWiks" type="Parallax2D" parent="."]
+[node name="AdiWiks" type="Parallax2D" parent="." unique_id=1225337170]
 
-[node name="Sprite2D" type="Sprite2D" parent="AdiWiks"]
+[node name="Sprite2D" type="Sprite2D" parent="AdiWiks" unique_id=1614723037]
 scale = Vector2(1.035, 1.035)
 texture = ExtResource("7_2w6co")
 centered = false
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1681035305]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -294,9 +294,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_miwe6")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2079253013]
 
-[node name="UIAndEverything" type="Control" parent="CanvasLayer"]
+[node name="UIAndEverything" type="Control" parent="CanvasLayer" unique_id=2031352897]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -304,7 +304,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GameLogo" type="TextureRect" parent="CanvasLayer/UIAndEverything"]
+[node name="GameLogo" type="TextureRect" parent="CanvasLayer/UIAndEverything" unique_id=1569088333]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -319,7 +319,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_q5odm")
 
-[node name="ButtonBackground" type="TextureRect" parent="CanvasLayer/UIAndEverything"]
+[node name="ButtonBackground" type="TextureRect" parent="CanvasLayer/UIAndEverything" unique_id=1306048127]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 896.0
@@ -327,7 +327,7 @@ offset_right = 1856.0
 offset_bottom = 984.0
 texture = SubResource("GradientTexture1D_m6ccg")
 
-[node name="MainMenuButtons" type="HBoxContainer" parent="CanvasLayer/UIAndEverything"]
+[node name="MainMenuButtons" type="HBoxContainer" parent="CanvasLayer/UIAndEverything" unique_id=1895933864]
 layout_mode = 1
 offset_left = 318.0
 offset_top = 912.0
@@ -336,14 +336,14 @@ offset_bottom = 973.0
 theme_override_constants/separation = 42
 alignment = 1
 
-[node name="Options" type="Button" parent="CanvasLayer/UIAndEverything/MainMenuButtons"]
+[node name="Options" type="Button" parent="CanvasLayer/UIAndEverything/MainMenuButtons" unique_id=1951069708]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme = ExtResource("10_xglq0")
 disabled = true
 text = "Options"
 
-[node name="StartGame" type="Button" parent="CanvasLayer/UIAndEverything/MainMenuButtons"]
+[node name="StartGame" type="Button" parent="CanvasLayer/UIAndEverything/MainMenuButtons" unique_id=53556030]
 use_parent_material = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
@@ -352,23 +352,21 @@ theme = ExtResource("10_xglq0")
 disabled = true
 text = "Start"
 
-[node name="QuitGame" type="Button" parent="CanvasLayer/UIAndEverything/MainMenuButtons"]
+[node name="QuitGame" type="Button" parent="CanvasLayer/UIAndEverything/MainMenuButtons" unique_id=508996309]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme = ExtResource("10_xglq0")
 disabled = true
 text = "Quit"
 
-[node name="PauseMenu" parent="CanvasLayer/UIAndEverything" instance=ExtResource("11_xglq0")]
+[node name="PauseMenu" parent="CanvasLayer/UIAndEverything" unique_id=1291430429 instance=ExtResource("11_xglq0")]
 layout_mode = 1
 if_title_screen = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_qq3hq")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1138350158]
+libraries/ = SubResource("AnimationLibrary_qq3hq")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=543243961]
 anchor_mode = 0
 
 [connection signal="pressed" from="CanvasLayer/UIAndEverything/MainMenuButtons/Options" to="." method="_on_options_pressed"]
