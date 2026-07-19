@@ -10,8 +10,10 @@
 [ext_resource type="Script" uid="uid://dpv2dfiv5dhmr" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="4_ma5mw"]
 [ext_resource type="Script" uid="uid://dve1vwse2peji" path="res://addons/dialogic/Modules/Text/node_next_indicator.gd" id="5_40a50"]
 [ext_resource type="Texture2D" uid="uid://cchn6jt0255ca" path="res://assets/images/icons/history.png" id="5_ertl0"]
+[ext_resource type="Texture2D" uid="uid://dkm08o7upu0l0" path="res://assets/images/icons/auto-skip-off.png" id="5_jeodr"]
 [ext_resource type="Texture2D" uid="uid://iyap428tjyd7" path="res://assets/images/icons/hamburger.png" id="5_x00mp"]
 [ext_resource type="Script" uid="uid://bklme8oymw6h7" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/autoadvance_indicator.gd" id="6_07xym"]
+[ext_resource type="Texture2D" uid="uid://hgu3suqlx74t" path="res://assets/images/icons/auto-play.png" id="6_i31js"]
 [ext_resource type="Texture2D" uid="uid://b0rpqfg4fhebk" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/next.svg" id="6_uch03"]
 [ext_resource type="Script" uid="uid://bak74s0kcr0ao" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="7_bi7sh"]
 [ext_resource type="StyleBox" uid="uid://m7gyepkysu83" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_name_label_panel.tres" id="9_yg8ig"]
@@ -281,6 +283,28 @@ visible = false
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture_normal = ExtResource("3_ge503")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TemplateButton" type="TextureButton" parent="Anchor/AnimationParent/Sizer/DialogueMenus" unique_id=1117848946]
+visible = false
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("3_ge503")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="AutoSkipButton" type="TextureButton" parent="Anchor/AnimationParent/Sizer/DialogueMenus" unique_id=268451808]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("5_jeodr")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="AutoPlayButton" type="TextureButton" parent="Anchor/AnimationParent/Sizer/DialogueMenus" unique_id=616297816]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("6_i31js")
 ignore_texture_size = true
 stretch_mode = 5
 

@@ -1,16 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2qa4m3blgw5m"]
+[gd_scene format=3 uid="uid://d2qa4m3blgw5m"]
 
 [ext_resource type="Script" uid="uid://cxlg206amdtrg" path="res://scripts/gameplay/camera.gd" id="1_s88o6"]
 [ext_resource type="Texture2D" uid="uid://dwx3lwth150pw" path="res://assets/images/camera_overlay.png" id="3_2l8hh"]
 [ext_resource type="Texture2D" uid="uid://closdhmh7qoek" path="res://assets/images/camera_shutter_overlay.png" id="4_4ic5v"]
 [ext_resource type="Script" uid="uid://bvrocktppbd7h" path="res://scripts/scenes/gallery_menu.gd" id="5_5a6y4"]
 
-[node name="Camera" type="Control"]
+[node name="Camera" type="Control" unique_id=1447610193]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_s88o6")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=487906877]
 enabled = false
 limit_left = -371
 limit_top = -94
@@ -18,11 +18,11 @@ limit_right = 1514
 limit_bottom = 825
 editor_draw_limits = true
 
-[node name="CameraLayer" type="CanvasLayer" parent="."]
+[node name="CameraLayer" type="CanvasLayer" parent="." unique_id=1458104643]
 layer = 2
 visible = false
 
-[node name="CameraOverlay" type="TextureRect" parent="CameraLayer"]
+[node name="CameraOverlay" type="TextureRect" parent="CameraLayer" unique_id=1739140945]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -32,7 +32,7 @@ mouse_filter = 0
 texture = ExtResource("3_2l8hh")
 expand_mode = 1
 
-[node name="CameraShutter" type="TextureRect" parent="CameraLayer"]
+[node name="CameraShutter" type="TextureRect" parent="CameraLayer" unique_id=2079726760]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -42,11 +42,11 @@ mouse_filter = 0
 texture = ExtResource("4_4ic5v")
 expand_mode = 1
 
-[node name="GalleryMenu" type="CanvasLayer" parent="."]
+[node name="GalleryMenu" type="CanvasLayer" parent="." unique_id=423589410]
 visible = false
 script = ExtResource("5_5a6y4")
 
-[node name="ColorRect" type="ColorRect" parent="GalleryMenu"]
+[node name="ColorRect" type="ColorRect" parent="GalleryMenu" unique_id=1936053361]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -60,7 +60,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ImageContainer" type="GridContainer" parent="GalleryMenu"]
+[node name="ImageContainer" type="GridContainer" parent="GalleryMenu" unique_id=2106966494]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

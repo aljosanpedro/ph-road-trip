@@ -67,6 +67,14 @@ func _ready() -> void:
 	Dialogic.timeline_started.connect(_events_when_timeline_started)
 	Dialogic.timeline_ended.connect(_events_when_timeline_ended)
 
+# For more global handling
+func _unhandled_key_input(event: InputEvent) -> void:
+	# Handle fullscreen toggling.
+	if Input.is_action_just_pressed("shortcut_fullscreen"):
+		_fullscreen_shortcut_pressed()
+		
+	print("Events Event captured:", event)
+
 ## Initializes Events for a new game.
 func initialize() -> void:
 	for sw in switches:
@@ -168,4 +176,13 @@ func item_already_interacted() -> void:
 	Dialogic.start("res://assets/dialogue/default_dialogue.dtl", "already_interacted")
 	await Dialogic.timeline_ended
 
+#endregion
+
+#region Custom Shortcut Handling
+func _fullscreen_shortcut_pressed() -> void:
+	match DisplayServer.window_get_mode():
+		DisplayServer.WINDOW_MODE_FULLSCREEN:
+			GameSettings.fullscreen_change(false)
+		_:
+			GameSettings.fullscreen_change(true)
 #endregion
