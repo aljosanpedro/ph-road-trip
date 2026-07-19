@@ -28,3 +28,9 @@ func _on_menu_button_pressed() -> void:
 
 func _on_history_button_pressed() -> void:
 	Events.show_history(true)
+
+func _on_auto_play_button_toggled(toggled_on: bool) -> void:
+	pass # Replace with function body.
+
+func _on_auto_skip_button_toggled(toggled_on: bool) -> void:
+	pass # Replace with function body.

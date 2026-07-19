@@ -14,8 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://iyap428tjyd7" path="res://assets/images/icons/hamburger.png" id="5_x00mp"]
 [ext_resource type="Script" uid="uid://bklme8oymw6h7" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/autoadvance_indicator.gd" id="6_07xym"]
 [ext_resource type="Texture2D" uid="uid://hgu3suqlx74t" path="res://assets/images/icons/auto-play.png" id="6_i31js"]
+[ext_resource type="Texture2D" uid="uid://d3o31cow7sg18" path="res://assets/images/icons/auto-skip-on.png" id="6_ogrft"]
 [ext_resource type="Texture2D" uid="uid://b0rpqfg4fhebk" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/next.svg" id="6_uch03"]
 [ext_resource type="Script" uid="uid://bak74s0kcr0ao" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="7_bi7sh"]
+[ext_resource type="Texture2D" uid="uid://d3w1furpnyc0d" path="res://assets/images/icons/auto-pause.png" id="8_ogrft"]
 [ext_resource type="StyleBox" uid="uid://m7gyepkysu83" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_name_label_panel.tres" id="9_yg8ig"]
 
 [sub_resource type="Animation" id="Animation_au0a2"]
@@ -297,14 +299,18 @@ stretch_mode = 5
 [node name="AutoSkipButton" type="TextureButton" parent="Anchor/AnimationParent/Sizer/DialogueMenus" unique_id=268451808]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+toggle_mode = true
 texture_normal = ExtResource("5_jeodr")
+texture_pressed = ExtResource("6_ogrft")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="AutoPlayButton" type="TextureButton" parent="Anchor/AnimationParent/Sizer/DialogueMenus" unique_id=616297816]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+toggle_mode = true
 texture_normal = ExtResource("6_i31js")
+texture_pressed = ExtResource("8_ogrft")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -414,6 +420,8 @@ script = ExtResource("7_bi7sh")
 name_label_root = NodePath("..")
 
 [connection signal="pressed" from="Anchor/AnimationParent/Sizer/DialogueMenus/SettingsButton" to="Anchor/AnimationParent/Sizer/DialogueMenus" method="_on_settings_button_pressed"]
+[connection signal="toggled" from="Anchor/AnimationParent/Sizer/DialogueMenus/AutoSkipButton" to="Anchor/AnimationParent/Sizer/DialogueMenus" method="_on_auto_skip_button_toggled"]
+[connection signal="toggled" from="Anchor/AnimationParent/Sizer/DialogueMenus/AutoPlayButton" to="Anchor/AnimationParent/Sizer/DialogueMenus" method="_on_auto_play_button_toggled"]
 [connection signal="pressed" from="Anchor/AnimationParent/Sizer/DialogueMenus/HistoryButton" to="Anchor/AnimationParent/Sizer/DialogueMenus" method="_on_history_button_pressed"]
 [connection signal="pressed" from="Anchor/AnimationParent/Sizer/DialogueMenus/SaveLoadButton" to="Anchor/AnimationParent/Sizer/DialogueMenus" method="_on_save_load_button_pressed"]
 [connection signal="pressed" from="Anchor/AnimationParent/Sizer/DialogueMenus/MenuButton" to="Anchor/AnimationParent/Sizer/DialogueMenus" method="_on_menu_button_pressed"]
