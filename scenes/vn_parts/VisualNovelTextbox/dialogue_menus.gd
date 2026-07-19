@@ -3,10 +3,15 @@ extends HBoxContainer
 @onready var auto_skip_button: TextureButton = $AutoSkipButton
 @onready var auto_play_button: TextureButton = $AutoPlayButton
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+# Early instantiation.
+func _init() -> void:
 	Dialogic.Inputs.auto_skip.toggled.connect(_on_auto_skip_toggled)
 	Dialogic.Inputs.auto_advance.toggled.connect(_on_autoadvance_toggled)
+	
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	if Dialogic.Inputs.auto_advance.is_enabled(): auto_play_button.set_pressed_no_signal(true)
+	if Dialogic.Inputs.auto_skip.enabled: auto_skip_button.set_pressed_no_signal(true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

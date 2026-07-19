@@ -73,8 +73,6 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("shortcut_fullscreen"):
 		_fullscreen_shortcut_pressed()
 		
-	print("Events Event captured:", event)
-
 ## Initializes Events for a new game.
 func initialize() -> void:
 	for sw in switches:
