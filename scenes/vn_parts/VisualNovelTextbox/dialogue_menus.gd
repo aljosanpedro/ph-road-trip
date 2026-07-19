@@ -6,16 +6,36 @@ extends HBoxContainer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Dialogic.Inputs.auto_skip.toggled.connect(_on_auto_skip_toggled)
+	Dialogic.Inputs.auto_advance.toggled.connect(_on_autoadvance_toggled)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 func _unhandled_key_input(event: InputEvent) -> void:
-	print("Dialogue Menus Event captured:", event)
+	if Input.is_action_just_pressed("dialogic_auto_advance_action"):
+		# Hacky way to act like a button is pressed.
+		auto_play_button.button_pressed = !auto_play_button.button_pressed
+		
+	if Input.is_action_just_pressed("dialogic_auto_skip_button"):
+		auto_skip_button.button_pressed = !auto_skip_button.button_pressed
+		
+	if Input.is_action_just_pressed("dialogic_history_button"):
+		_on_history_button_pressed()
 
-func _on_auto_skip_toggled(is_enabled: bool) -> void:
-	pass
+#region Dialogic connections
+
+## Connection to Dialogic's nonsense.
+## Changes only graphically.
+func _on_auto_skip_toggled(enabled: bool) -> void:
+	auto_skip_button.button_pressed = enabled
+	#auto_skip_button.button_pressed = is_enabled
+	
+func _on_autoadvance_toggled(enabled: bool) -> void:
+	auto_play_button.button_pressed = enabled
+	
+#endregion
+
 
 func _on_settings_button_pressed() -> void:
 	pass # Replace with function body.
@@ -30,7 +50,9 @@ func _on_history_button_pressed() -> void:
 	Events.show_history(true)
 
 func _on_auto_play_button_toggled(toggled_on: bool) -> void:
-	pass # Replace with function body.
+	print("being toggled", toggled_on)
+	Dialogic.Inputs.auto_advance.enabled_until_user_input = toggled_on
 
 func _on_auto_skip_button_toggled(toggled_on: bool) -> void:
-	pass # Replace with function body.
+	print("being skipped", toggled_on)
+	Dialogic.Inputs.auto_skip.enabled = toggled_on
