@@ -8,11 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://bxv37vji0vyio" path="res://assets/images/items/loc_1/loc_1_trees_interactable.png" id="4_tyg5k"]
 [ext_resource type="Texture2D" uid="uid://bsmeprl6deob1" path="res://assets/images/items/loc_1/loc_1_loose_chicken_interactable.png" id="5_gsp0h"]
 [ext_resource type="Texture2D" uid="uid://cmpm3xbyem1j" path="res://assets/images/items/loc_1/loc_1_sunken_garden_interactable.png" id="7_bs6ud"]
+[ext_resource type="Texture2D" uid="uid://ccv1y830n3wje" path="res://assets/images/items/adi_interactable.png" id="9_npvej"]
+[ext_resource type="Texture2D" uid="uid://c8nhnqsopvc4" path="res://assets/images/items/wiks_interactable.png" id="10_kgfg1"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t66bq"]
 load_path = "res://.godot/imported/1_upd.png-f5f3523330a41720651a94e24edb9027.ctex"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gsp0h"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_enp3f"]
 resource_local_to_scene = true
 shader = ExtResource("3_gsp0h")
 shader_parameter/maxLineWidth = 0.0
@@ -25,7 +27,7 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_au5bx"]
 size = Vector2(523.25, 223.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bs6ud"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q876p"]
 resource_local_to_scene = true
 shader = ExtResource("3_gsp0h")
 shader_parameter/maxLineWidth = 0.0
@@ -38,7 +40,7 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyg5k"]
 size = Vector2(310, 128)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_npvej"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_clc1c"]
 resource_local_to_scene = true
 shader = ExtResource("3_gsp0h")
 shader_parameter/maxLineWidth = 0.0
@@ -51,7 +53,7 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3x12"]
 size = Vector2(81.75, 89)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kgfg1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s5xj5"]
 resource_local_to_scene = true
 shader = ExtResource("3_gsp0h")
 shader_parameter/maxLineWidth = 0.0
@@ -67,7 +69,7 @@ size = Vector2(1358.5, 385)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btlh7"]
 size = Vector2(262, 522.25)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_enp3f"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_liux3"]
 resource_local_to_scene = true
 shader = ExtResource("3_gsp0h")
 shader_parameter/maxLineWidth = 0.0
@@ -236,6 +238,32 @@ _data = {
 &"fade_to_black": SubResource("Animation_btlh7")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eydqa"]
+resource_local_to_scene = true
+shader = ExtResource("3_gsp0h")
+shader_parameter/maxLineWidth = 0.0
+shader_parameter/minLineWidth = 5.0
+shader_parameter/speed = 4.0
+shader_parameter/blockSize = 20.0
+shader_parameter/color = Color(1, 0.81, 0.25, 1)
+shader_parameter/tolerance = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(138, 382)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8tpox"]
+resource_local_to_scene = true
+shader = ExtResource("3_gsp0h")
+shader_parameter/maxLineWidth = 0.0
+shader_parameter/minLineWidth = 5.0
+shader_parameter/speed = 4.0
+shader_parameter/blockSize = 20.0
+shader_parameter/color = Color(1, 0.81, 0.25, 1)
+shader_parameter/tolerance = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrbww"]
+size = Vector2(138, 382)
+
 [node name="UPDQC" type="Node2D" unique_id=757965373]
 script = ExtResource("1_it7vl")
 
@@ -246,7 +274,7 @@ texture = SubResource("CompressedTexture2D_t66bq")
 metadata/_edit_lock_ = true
 
 [node name="Adi\'sMural" parent="." unique_id=855729573 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
-material = SubResource("ShaderMaterial_gsp0h")
+material = SubResource("ShaderMaterial_enp3f")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 1
@@ -260,7 +288,7 @@ position = Vector2(1189.38, 504.25)
 shape = SubResource("RectangleShape2D_au5bx")
 
 [node name="Stall" parent="." unique_id=549817294 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
-material = SubResource("ShaderMaterial_bs6ud")
+material = SubResource("ShaderMaterial_q876p")
 position = Vector2(523, 332)
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
@@ -275,7 +303,7 @@ position = Vector2(629, 351)
 shape = SubResource("RectangleShape2D_tyg5k")
 
 [node name="Chicken" parent="." unique_id=1719294075 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
-material = SubResource("ShaderMaterial_npvej")
+material = SubResource("ShaderMaterial_clc1c")
 position = Vector2(337, 443)
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
@@ -291,7 +319,7 @@ shape = SubResource("RectangleShape2D_j3x12")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Trees" parent="." unique_id=1936591882 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
-material = SubResource("ShaderMaterial_kgfg1")
+material = SubResource("ShaderMaterial_s5xj5")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 0
@@ -299,19 +327,22 @@ required_character = 0
 [node name="Sprite2D" type="Sprite2D" parent="Trees" unique_id=63407363]
 position = Vector2(683, 460)
 texture = ExtResource("4_tyg5k")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trees" unique_id=1759207577]
 position = Vector2(678.75, 192.5)
 shape = SubResource("RectangleShape2D_u16s0")
 debug_color = Color(1, 0, 0, 0.419608)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Trees" unique_id=1179703314]
 position = Vector2(454, 648.875)
 shape = SubResource("RectangleShape2D_btlh7")
 debug_color = Color(1, 0, 0, 0.419608)
+metadata/_edit_lock_ = true
 
 [node name="SunkenGarden" parent="." unique_id=1701169771 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
-material = SubResource("ShaderMaterial_enp3f")
+material = SubResource("ShaderMaterial_liux3")
 position = Vector2(102, 469)
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
@@ -320,13 +351,47 @@ required_character = 1
 [node name="Sprite2D" type="Sprite2D" parent="SunkenGarden" unique_id=1728279202]
 position = Vector2(76, 371)
 texture = ExtResource("7_bs6ud")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SunkenGarden" unique_id=311323827]
 position = Vector2(77.25, 348.75)
 shape = SubResource("RectangleShape2D_bs6ud")
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1586842838]
 libraries/ = SubResource("AnimationLibrary_bs6ud")
+
+[node name="Adi" parent="." unique_id=1443207821 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
+material = SubResource("ShaderMaterial_eydqa")
+hitbox_component = NodePath("CollisionShape2D")
+sprite_component = NodePath("Sprite2D")
+required_character = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Adi" unique_id=1931774958]
+position = Vector2(551.00006, 755)
+scale = Vector2(0.24666667, 0.24666668)
+texture = ExtResource("9_npvej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Adi" unique_id=1882592510]
+position = Vector2(551, 755)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Wiks" parent="." unique_id=1373181299 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
+material = SubResource("ShaderMaterial_8tpox")
+position = Vector2(1123, 12)
+hitbox_component = NodePath("CollisionShape2D")
+sprite_component = NodePath("Sprite2D")
+required_character = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Wiks" unique_id=626510108]
+position = Vector2(551.00006, 755)
+scale = Vector2(0.24666667, 0.24666668)
+texture = ExtResource("10_kgfg1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wiks" unique_id=1228395386]
+position = Vector2(551, 755)
+shape = SubResource("RectangleShape2D_hrbww")
+debug_color = Color(1, 0, 0, 0.41960785)
 
 [connection signal="item_clicked" from="Adi\'sMural" to="." method="_on_adis_mural_item_clicked"]
 [connection signal="item_clicked" from="Stall" to="." method="_on_stall_item_clicked"]

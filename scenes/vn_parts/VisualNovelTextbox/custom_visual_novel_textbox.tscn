@@ -342,6 +342,8 @@ texture_normal = ExtResource("5_x00mp")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Anchor/AnimationParent/Sizer/DialogueMenus" unique_id=1826956632]
+
 [node name="DialogTextPanel" type="PanelContainer" parent="Anchor/AnimationParent/Sizer" unique_id=1216109551]
 unique_name_in_owner = true
 self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
