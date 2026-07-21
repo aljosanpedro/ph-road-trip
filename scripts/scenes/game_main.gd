@@ -39,6 +39,9 @@ func _ready() -> void:
 	# INFO: Initialize Events singleton for a new game.
 	Events.initialize()
 	
+	# INFO: Tell events that you are the GameMainFrame.
+	Events.game_main = self
+	
 	# INFO: ???????????? What the sigma?
 	scene_map_travel.visible = false
 	
@@ -135,7 +138,13 @@ func _on_scene_map_travel_closed() -> void:
 func _show_game_contextual_menus(value: bool) -> void:
 	context_menu_layer.visible = value
 	
+## INFO: Does not account for POVSwitch, Camera and MapTravel
+func _any_menu_opened(node: Control) -> void:
+	Events.any_menu_opened(node)
+
+	
 #endregion
+
 
 #func _on_settings_opened() -> void:
 	#$Settings/Pause._on_button_toggled(true)

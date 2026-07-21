@@ -18,6 +18,12 @@ enum Locations {
 	Jabee
 }
 
+# Scene context
+enum SCENE_CONTEXT {
+	IN_GAME,
+	IN_MENU
+}
+
 signal change_map(path: String)
 
 # Item_Base
@@ -36,6 +42,9 @@ signal show_contextual_menus(value: bool)
 signal toggle_pause_menu(value: bool)
 signal toggle_pause_menu_layer(value: bool)
 signal switch_has_been_set
+
+# For menus opening/closing
+#signal any_menu_opened_closed(node: Control)
 
 var current_pov: POV_Character = POV_Character.WIKS
 
@@ -60,6 +69,16 @@ var switches: Dictionary[String, bool] = {
 # Scrapbook
 const SCRAPBOOK_ENTRIES : int = 7
 var scrapbook_pictures : Array[Node] = []
+
+## Exposing game main instead because this architecture BLOWS.
+var game_main: MainGameFrame
+
+## Current Scene Context.
+var current_scene_context: SCENE_CONTEXT = SCENE_CONTEXT.IN_GAME
+
+
+# TODO: Remember to propagate this to everwhere else.
+
 #endregion
 
 #region Virtual functions
@@ -75,6 +94,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		
 ## Initializes Events for a new game.
 func initialize() -> void:
+	current_scene_context = SCENE_CONTEXT.IN_GAME
 	for sw in switches:
 		switches[sw] = false
 	current_pov = POV_Character.ADI
@@ -174,6 +194,20 @@ func item_already_interacted() -> void:
 	Dialogic.start("res://assets/dialogue/default_dialogue.dtl", "already_interacted")
 	await Dialogic.timeline_ended
 
+## Universal helper function to check if there's any changes for menus elsewhere.
+func any_menu_opened(node: Control) -> void:
+	if node.visible: 
+		DialogicUtil.autoload().Inputs.auto_skip.enabled = false
+		DialogicUtil.autoload().Inputs.auto_advance.enabled_until_user_input = false
+		
+		# Least breaking idea:
+		# Remove actual player agency when in a menu.
+		Dialogic.Inputs.manual_advance.system_enabled = false
+		
+		Events.current_scene_context = Events.SCENE_CONTEXT.IN_MENU
+	else:
+		Dialogic.Inputs.manual_advance.system_enabled = true
+		Events.current_scene_context = Events.SCENE_CONTEXT.IN_GAME
 #endregion
 
 #region Custom Shortcut Handling
