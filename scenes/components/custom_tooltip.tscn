@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dkjcef15y75xs"]
+
+[ext_resource type="Script" uid="uid://b76uvkmqooy8s" path="res://scripts/components/custom_tooltip.gd" id="1_5i1y4"]
+[ext_resource type="FontFile" uid="uid://j1t0rda8kqg1" path="res://assets/fonts/dialogue/cause-extrabold.ttf" id="2_molti"]
+
+[sub_resource type="Gradient" id="Gradient_molti"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.625, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_57qmd"]
+gradient = SubResource("Gradient_molti")
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+repeat = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4v7s"]
+texture = SubResource("GradientTexture2D_57qmd")
+
+[sub_resource type="LabelSettings" id="LabelSettings_molti"]
+font = ExtResource("2_molti")
+
+[node name="CustomTooltip" type="Panel" unique_id=44466708]
+offset_right = 129.0
+offset_bottom = 48.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_g4v7s")
+script = ExtResource("1_5i1y4")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1824062473]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 14
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=622858060]
+layout_mode = 2
+text = "asdasdasd"
+label_settings = SubResource("LabelSettings_molti")

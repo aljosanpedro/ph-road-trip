@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://i80i5u0s3qsd" path="res://assets/images/icons/save.png" id="4_2x42n"]
 [ext_resource type="Script" uid="uid://dpv2dfiv5dhmr" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="4_ma5mw"]
 [ext_resource type="Script" uid="uid://dve1vwse2peji" path="res://addons/dialogic/Modules/Text/node_next_indicator.gd" id="5_40a50"]
+[ext_resource type="Script" uid="uid://dj24hkdln36c7" path="res://scripts/scenes/vn_textbox/tooltip_button.gd" id="5_e6atv"]
 [ext_resource type="Texture2D" uid="uid://cchn6jt0255ca" path="res://assets/images/icons/history.png" id="5_ertl0"]
 [ext_resource type="Texture2D" uid="uid://dkm08o7upu0l0" path="res://assets/images/icons/auto-skip-off.png" id="5_jeodr"]
 [ext_resource type="Texture2D" uid="uid://iyap428tjyd7" path="res://assets/images/icons/hamburger.png" id="5_x00mp"]
@@ -324,6 +325,7 @@ layout_mode = 2
 texture_normal = ExtResource("3_ge503")
 ignore_texture_size = true
 stretch_mode = 5
+script = ExtResource("5_e6atv")
 
 [node name="TemplateButton" type="TextureButton" parent="Anchor/AnimationParent/Sizer/DialogueMenus" unique_id=1117848946]
 visible = false
@@ -332,6 +334,7 @@ layout_mode = 2
 texture_normal = ExtResource("3_ge503")
 ignore_texture_size = true
 stretch_mode = 5
+script = ExtResource("5_e6atv")
 
 [node name="AutoSkipButton" type="TextureButton" parent="Anchor/AnimationParent/Sizer/DialogueMenus" unique_id=268451808]
 custom_minimum_size = Vector2(48, 48)
@@ -341,6 +344,7 @@ texture_normal = ExtResource("5_jeodr")
 texture_pressed = ExtResource("6_ogrft")
 ignore_texture_size = true
 stretch_mode = 5
+script = ExtResource("5_e6atv")
 
 [node name="AutoPlayButton" type="TextureButton" parent="Anchor/AnimationParent/Sizer/DialogueMenus" unique_id=616297816]
 custom_minimum_size = Vector2(48, 48)
@@ -350,6 +354,7 @@ texture_normal = ExtResource("6_i31js")
 texture_pressed = ExtResource("8_ogrft")
 ignore_texture_size = true
 stretch_mode = 5
+script = ExtResource("5_e6atv")
 
 [node name="HistoryButton" type="TextureButton" parent="Anchor/AnimationParent/Sizer/DialogueMenus" unique_id=1255452647]
 custom_minimum_size = Vector2(48, 48)
@@ -357,6 +362,7 @@ layout_mode = 2
 texture_normal = ExtResource("5_ertl0")
 ignore_texture_size = true
 stretch_mode = 5
+script = ExtResource("5_e6atv")
 
 [node name="SaveButton" type="TextureButton" parent="Anchor/AnimationParent/Sizer/DialogueMenus" unique_id=1182846960]
 custom_minimum_size = Vector2(48, 48)
@@ -364,6 +370,7 @@ layout_mode = 2
 texture_normal = ExtResource("4_2x42n")
 ignore_texture_size = true
 stretch_mode = 5
+script = ExtResource("5_e6atv")
 
 [node name="LoadButton" type="TextureButton" parent="Anchor/AnimationParent/Sizer/DialogueMenus" unique_id=932462008]
 custom_minimum_size = Vector2(48, 48)
@@ -371,6 +378,7 @@ layout_mode = 2
 texture_normal = ExtResource("4_2x42n")
 ignore_texture_size = true
 stretch_mode = 5
+script = ExtResource("5_e6atv")
 
 [node name="MenuButton" type="TextureButton" parent="Anchor/AnimationParent/Sizer/DialogueMenus" unique_id=1061768022]
 custom_minimum_size = Vector2(48, 48)
@@ -378,6 +386,7 @@ layout_mode = 2
 texture_normal = ExtResource("5_x00mp")
 ignore_texture_size = true
 stretch_mode = 5
+script = ExtResource("5_e6atv")
 
 [node name="DialogTextPanel" type="PanelContainer" parent="Anchor/AnimationParent/Sizer" unique_id=1216109551]
 unique_name_in_owner = true
