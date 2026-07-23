@@ -1,6 +1,6 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://5mmkwd6adl0c"]
+[gd_resource type="Theme" format=3 uid="uid://5mmkwd6adl0c"]
 
-[ext_resource type="FontFile" uid="uid://00hlmm36oh26" path="res://assets/fonts/travel_map/CubaoFree2-Regular.ttf" id="1_dbjt6"]
+[ext_resource type="FontFile" uid="uid://cpw5l35rjvnqc" path="res://assets/fonts/dialogue/cause_variable.ttf" id="1_dbjt6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dbjt6"]
 
