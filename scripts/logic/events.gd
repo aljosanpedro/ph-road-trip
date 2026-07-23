@@ -74,7 +74,7 @@ var scrapbook_pictures : Array[Node] = []
 var game_main: MainGameFrame
 
 ## Current Scene Context.
-var current_scene_context: SCENE_CONTEXT = SCENE_CONTEXT.IN_GAME
+var current_scene_context: SCENE_CONTEXT = SCENE_CONTEXT.IN_MENU
 
 
 # TODO: Remember to propagate this to everwhere else.
@@ -91,6 +91,11 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	# Handle fullscreen toggling.
 	if Input.is_action_just_pressed("shortcut_fullscreen"):
 		_fullscreen_shortcut_pressed()
+		get_viewport().set_input_as_handled()
+	
+	if Input.is_action_just_pressed("show_menu") and current_scene_context != SCENE_CONTEXT.IN_MENU:
+		show_pause_menu(true)
+		get_viewport().set_input_as_handled()
 		
 ## Initializes Events for a new game.
 func initialize() -> void:
@@ -204,10 +209,10 @@ func any_menu_opened(node: Control) -> void:
 		# Remove actual player agency when in a menu.
 		Dialogic.Inputs.manual_advance.system_enabled = false
 		
-		Events.current_scene_context = Events.SCENE_CONTEXT.IN_MENU
+		current_scene_context = SCENE_CONTEXT.IN_MENU
 	else:
 		Dialogic.Inputs.manual_advance.system_enabled = true
-		Events.current_scene_context = Events.SCENE_CONTEXT.IN_GAME
+		current_scene_context = SCENE_CONTEXT.IN_GAME
 #endregion
 
 #region Custom Shortcut Handling

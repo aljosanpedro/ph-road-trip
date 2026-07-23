@@ -56,8 +56,8 @@ if Events.get_current_pov() == Events.POV_Character.ADI:
     adi: I think we’ve checked the place out pretty well. Wanna take a picture for the road before we head out?
     He gives a thumbs up.
     wiks: Sure, if the camera works.
-    You roll your eyes at him and he chuckles.
-    wiks: Okay, okay, I was just joking. Come on, I think that spot has a good angle.
+ You roll your eyes at him and he chuckles.
+ wiks: Okay, okay, I was just joking. Come on, I think that spot has a good angle.
 jump end
 label outro_post_camera
 Time passes.
@@ -67,9 +67,9 @@ wiks: Cubao. Good halfway point to practically everywhere, since it's a transpor
 adi: Hm, any chance we can go to those skyscrapers you told me about before? The ones down south?
 adi: I've always wanted to check it out.
 wiks: Sure, why not?
-It doesn't take long before you two are shuffled with a series of other travelers: merchants, by the looks of them. Those with urgent business who can't wait for another caravan.
+It doesn't take long before you two are shuffled with a series of other travelers\: merchants, by the looks of them. Those with urgent business who can't wait for another caravan.
 The trees vanish, and the waters start turning gray and dusty as you start inching closer to the heart of the old city. The merchants keep to themselves, leaving you two in a small bench with nothing to do but talk.
-Adi notices Wiks play with something in his hands: a broken latch, from the chicken saga. She's surprised he kept it.
+Adi notices Wiks play with something in his hands\: a broken latch, from the chicken saga. She's surprised he kept it.
 adi: You kept it.
 wiks: You never know when you'll need a spare part.
 Adi pauses before continuing.
