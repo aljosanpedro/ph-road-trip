@@ -206,10 +206,14 @@ func _on_overwrite_yes_pressed() -> void:
 
 func show_menu() -> void:
 	Events.current_scene_context = Events.SCENE_CONTEXT.IN_MENU
+	DialogicUtil.autoload().Inputs.auto_skip.enabled = false
+	DialogicUtil.autoload().Inputs.auto_advance.enabled_until_user_input = false
+	Dialogic.Inputs.manual_advance.system_enabled = false
 	animation_player.play("show_menu")
 
 func hide_menu() -> void:
 	Events.current_scene_context = Events.SCENE_CONTEXT.IN_GAME
+	Dialogic.Inputs.manual_advance.system_enabled = true
 	animation_player.play_backwards("show_menu")
 
 func _on_return_button_pressed() -> void:
