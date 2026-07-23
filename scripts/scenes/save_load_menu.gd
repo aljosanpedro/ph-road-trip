@@ -71,8 +71,8 @@ func _save_load_slot_pressed(slot_name: String, slot_button_ref: SaveSlot) -> vo
 				Dialogic.Inputs.manual_advance.system_enabled = true
 			else:
 				var info = Dialogic.Save.get_slot_info(slot_name)
+				await _restore_game_state(slot_name, info)
 				Dialogic.Save.load(slot_name)
-				_restore_game_state(slot_name, info)
 				Dialogic.Inputs.manual_advance.system_enabled = true
 				hide_menu()
 
@@ -157,6 +157,7 @@ func _restore_game_state(slot_name: String, info: Dictionary) -> void:
 	# Restore current scene path and load the location.
 	if info.has("current_scene_path") and info["current_scene_path"] != "":
 		Events.change_area(info["current_scene_path"])
+		await Events.area_change_completed
 	# Restore scrapbook pictures.
 	_load_scrapbook_pictures(slot_name, info.get("scrapbook_count", 0))
 

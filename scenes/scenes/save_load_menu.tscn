@@ -164,35 +164,35 @@ columns = 4
 
 [node name="SaveSlot" parent="PauseMenuItems/GridContainer" unique_id=798463298 instance=ExtResource("4_a6ypk")]
 layout_mode = 2
-focus_mode = 1
+focus_mode = 0
 
 [node name="SaveSlot2" parent="PauseMenuItems/GridContainer" unique_id=1852495614 instance=ExtResource("4_a6ypk")]
 layout_mode = 2
-focus_mode = 1
+focus_mode = 0
 
 [node name="SaveSlot3" parent="PauseMenuItems/GridContainer" unique_id=1262038680 instance=ExtResource("4_a6ypk")]
 layout_mode = 2
-focus_mode = 1
+focus_mode = 0
 
 [node name="SaveSlot4" parent="PauseMenuItems/GridContainer" unique_id=323766310 instance=ExtResource("4_a6ypk")]
 layout_mode = 2
-focus_mode = 1
+focus_mode = 0
 
 [node name="SaveSlot5" parent="PauseMenuItems/GridContainer" unique_id=1283331410 instance=ExtResource("4_a6ypk")]
 layout_mode = 2
-focus_mode = 1
+focus_mode = 0
 
 [node name="SaveSlot6" parent="PauseMenuItems/GridContainer" unique_id=39639953 instance=ExtResource("4_a6ypk")]
 layout_mode = 2
-focus_mode = 1
+focus_mode = 0
 
 [node name="SaveSlot7" parent="PauseMenuItems/GridContainer" unique_id=1567667070 instance=ExtResource("4_a6ypk")]
 layout_mode = 2
-focus_mode = 1
+focus_mode = 0
 
 [node name="SaveSlot8" parent="PauseMenuItems/GridContainer" unique_id=469568663 instance=ExtResource("4_a6ypk")]
 layout_mode = 2
-focus_mode = 1
+focus_mode = 0
 
 [node name="ButtonList" type="VBoxContainer" parent="PauseMenuItems" unique_id=161389252]
 layout_mode = 0
@@ -206,7 +206,7 @@ metadata/_edit_lock_ = true
 
 [node name="ReturnButton" type="Button" parent="PauseMenuItems/ButtonList" unique_id=117303842]
 layout_mode = 2
-focus_mode = 1
+focus_mode = 0
 theme = ExtResource("7_rjth2")
 text = "Return"
 

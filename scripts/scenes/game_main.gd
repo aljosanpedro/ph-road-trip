@@ -61,7 +61,7 @@ func _ready() -> void:
 		Engine.remove_meta("pending_load_slot")
 		Engine.remove_meta("pending_game_state")
 		
-		save_load_menu._restore_game_state(slot_name, game_state)
+		await save_load_menu._restore_game_state(slot_name, game_state)
 		Dialogic.Save.load(slot_name)
 		Dialogic.Inputs.manual_advance.system_enabled = true
 		Events.current_scene_context = Events.SCENE_CONTEXT.IN_GAME
@@ -117,6 +117,7 @@ func _deferred_change_area(path: String) -> void:
 	move_child(current_scene, 0)
 	
 	_fade_in_to_scene(current_scene)
+	Events.area_change_completed.emit()
 	
 #endregion
 

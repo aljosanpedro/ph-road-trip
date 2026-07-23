@@ -25,6 +25,7 @@ enum SCENE_CONTEXT {
 }
 
 signal change_map(path: String)
+signal area_change_completed
 
 # Item_Base
 signal set_item_outline(value: bool)
