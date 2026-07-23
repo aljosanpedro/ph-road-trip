@@ -1,19 +1,111 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwi3ojmkmngll"]
+[gd_scene format=3 uid="uid://cwi3ojmkmngll"]
 
 [ext_resource type="Material" uid="uid://dfsofdoufcbun" path="res://assets/themes/item_base_shader.tres" id="1_0t5ca"]
 [ext_resource type="Script" uid="uid://7t870qpbkra0" path="res://scripts/gameplay/pov_switch.gd" id="1_e2evw"]
-[ext_resource type="Texture2D" uid="uid://cr76qkljvh0rb" path="res://assets/images/characters/adi/bust.png" id="2_0j368"]
-[ext_resource type="Texture2D" uid="uid://con3smvs1dxbs" path="res://assets/images/characters/wiks/bust.png" id="3_0t5ca"]
+[ext_resource type="Texture2D" uid="uid://ddaxlfb7o1ytk" path="res://assets/images/characters/adi/adi_map.png" id="3_0t5ca"]
+[ext_resource type="Texture2D" uid="uid://v2tqcqiwbtqk" path="res://assets/images/characters/wiks/wiks_map.png" id="4_q60do"]
 
-[sub_resource type="Gradient" id="Gradient_xglq0"]
-offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.666667, 0, 0, 0, 0.666667, 0, 0, 0, 0)
-metadata/_snap_enabled = true
+[sub_resource type="Gradient" id="Gradient_hpwg6"]
+offsets = PackedFloat32Array(0, 0.5306604, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.2735849, 0.2735849, 0.2735849, 0.7264151, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_0j368"]
-gradient = SubResource("Gradient_xglq0")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nmghn"]
+gradient = SubResource("Gradient_hpwg6")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.85897434, 0.16666667)
 
-[node name="POVSwitch" type="Control"]
+[sub_resource type="Animation" id="Animation_0t5ca"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AdiButton:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WiksButton:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.141592653589793]
+}
+
+[sub_resource type="Animation" id="Animation_q60do"]
+resource_name = "pick_adi"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AdiButton:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.3, 0.3),
+"update": 0,
+"values": [3.141592653589793, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WiksButton:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.3, 0.3),
+"update": 0,
+"values": [0.0, -3.141592653589793]
+}
+
+[sub_resource type="Animation" id="Animation_hpwg6"]
+resource_name = "pick_wiks"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AdiButton:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.3, 0.3),
+"update": 0,
+"values": [0.0, 3.141592653589793]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WiksButton:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.3, 0.3),
+"update": 0,
+"values": [-3.141592653589793, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b0lsd"]
+_data = {
+&"RESET": SubResource("Animation_0t5ca"),
+&"pick_adi": SubResource("Animation_q60do"),
+&"pick_wiks": SubResource("Animation_hpwg6")
+}
+
+[node name="POVSwitch" type="Control" unique_id=448521209]
 material = ExtResource("1_0t5ca")
 layout_mode = 3
 anchors_preset = 10
@@ -24,42 +116,51 @@ offset_bottom = 88.0
 grow_horizontal = 2
 script = ExtResource("1_e2evw")
 
-[node name="ButtonBackground" type="TextureRect" parent="."]
+[node name="ButtonBackground" type="TextureRect" parent="." unique_id=1266178023]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -416.0
+offset_right = -1312.0
+offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture1D_0j368")
+texture = SubResource("GradientTexture2D_nmghn")
 
-[node name="AdiButton" type="TextureButton" parent="."]
+[node name="AdiButton" type="TextureButton" parent="." unique_id=834886993]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -155.0
+offset_left = -944.0
 offset_top = 16.0
-offset_right = -5.0
-offset_bottom = 72.0
+offset_right = -784.0
+offset_bottom = 176.0
 grow_horizontal = 2
-texture_normal = ExtResource("2_0j368")
-ignore_texture_size = true
-stretch_mode = 6
-
-[node name="WiksButton" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 5.0
-offset_top = 16.0
-offset_right = 155.0
-offset_bottom = 72.0
-grow_horizontal = 2
+focus_mode = 0
 texture_normal = ExtResource("3_0t5ca")
 ignore_texture_size = true
 stretch_mode = 6
+
+[node name="WiksButton" type="TextureButton" parent="." unique_id=1260930521]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -944.0
+offset_top = 16.0
+offset_right = -784.0
+offset_bottom = 176.0
+grow_horizontal = 2
+rotation = 3.1415927
+focus_mode = 0
+texture_normal = ExtResource("4_q60do")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=720941442]
+libraries/ = SubResource("AnimationLibrary_b0lsd")
 
 [connection signal="pressed" from="AdiButton" to="." method="_on_adi_button_pressed"]
 [connection signal="pressed" from="WiksButton" to="." method="_on_wiks_button_pressed"]

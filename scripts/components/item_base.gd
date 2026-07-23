@@ -18,6 +18,10 @@ extends Area2D
 ## Item base checks which character can only interact with it. 
 ## Default: Both can interact with it.
 @export var required_character: Events.POV_Character = Events.POV_Character.BOTH
+## A simple check that indicates if the item is instead a character.
+## No need for additional changes. Just make sure that the different
+## required character is the opposite. i.e. RC = Wiks => Adi Interactable.
+@export var is_character_interactable: bool = false
 
 ## Required in order to interact with the map instead of having its own separate
 ## standalones.
@@ -32,6 +36,11 @@ func _ready() -> void:
 	
 	# Call for the first time.
 	_pov_switch_grayout()
+	
+	# However, check if it turns out they need to be removed from existence when
+	# scene starts.
+	if is_character_interactable:
+		hide()
 
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if not _required_character_checker(): return
@@ -72,9 +81,15 @@ func _pov_switch_grayout() -> void:
 	if not _required_character_checker():
 		if sprite_component != null: sprite_component.set_use_parent_material(false)
 		modulate = Color(0.5, 0.5, 0.5)
+		
+		# If current character, and is character interactable, REMOVE
+		if is_character_interactable: hide()
 	else:
 		#if sprite_component != null: sprite_component.set_use_parent_material(true)
 		modulate = Color(1, 1, 1)
+		
+		# If not current character, and is character interactable, SHOW
+		if is_character_interactable: show()
 
 ## INFO: Shows/hides item outline when called.
 func _show_item_outline(value: bool) -> void:
