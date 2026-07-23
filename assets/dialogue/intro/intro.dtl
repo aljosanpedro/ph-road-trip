@@ -1,100 +1,116 @@
 [wait time="1.5"]
-Your footsteps smack against cracked and mossy pavement as you gently shoulder the door open. A small bell rings to signal your arrival.
-wiks: I've pulled every single favor I have. We have 15 minutes.
-wiks: Or else.
-A woman's head pops up from behind a mossy old countertop, her eyes barely peeking out from the canvas bags that lie on top of it.
-female_voice: Or else?
-wiks: Or else, we miss the low tide window and we just squandered our one chance at a vacation.
-- I dont want to walk...
-	wiks: I don't want to walk the whole way.
-	wiks: What if there are dogs?
-	female_voice: We're surrounded by deep waters, Wiks.
-	wiks: [i]Swimming[/i] dogs, then. Terrifying.
-- You can't swim...
-	wiks: The waters aren't exactly peaceful around here as well.
-	wiks: Unless you've learned how to swim...?
-You hear her groan, the sound very audible from behind the counter.
-female_voice: [i]Ugghhhhh[/i], you're starting to sound like my mother, Wiks.
-female_voice: Maybe if you help a girl out here instead of chatting, we can still reach your fifteen minute deadline?
-You chuckle and head inside.
+The morning doesn't start off quiet. Even before the first rooster crows, hurried footsteps echo around town, feet splashing on puddles of last night's rain.
+
+Your own footsteps smack on cracked and mossy pavement as around you, the sound of poles whacking on wooden hulls while a warm, heavy ring of a brass bell reverberates around the street.
+
+A smaller bell rings as you roughly shoulder a door open, the old hinge complaining as your eyes adjust to the darkness.
+wiks: Its the third bell!
+wiks: Where the heck are you? 
+A shadow of a woman's head pops up from behind an old countertop, her voice coming from behind a pile of canvas bags.
+female_voice: Here. The whole time.
+The shadow ducks back down and you hear her grunt, before she pops up again.
+female_voice: Wait. There's a third bell? Don't they only ring two?
+You roll your eyes and step inside.
 [background arg="res://assets/images/backgrounds/intro_jabee.png" fade="5.0" transition="Simple Fade"]
 [wait time="1.0"]
 join wiks left
-It's the smell that first hits you -- the fierce chemical odor of paint and dust and sea all mixed together in a kaleidoscope of aromas.
-The space is one part ruin, one part hastily-repurposed ancient furniture, all jumbled together into a sort-of livable space.
-You pass by booth seats turned into storage units, deep fryers turned into brush holders, and walls turned into canvases filled with sketches of drowning cities, faces and hills.
-Your boots squeak as they rub against the plastic tarp on the ground that barely keeps the dripping ceiling at bay.
-wiks: I thought we were supposed to have packed last night?
+It's the smell that first hits you -- the fierce chemical odor of paint and dust and sea all mixed together in a heady kaleidoscope.
+You elbow past seats turned into storage units, seeing walls painted white then not white then white again, as your boots squeak past tarps meant to keep dripping ceilings at bay.
+wiks: Adi, the third bell means they're [i]leaving[/i].
 update wiks left
 You lean across the counter and peer over the edge.
 join adi right
 You see Adi, your friend, hunched over and rummaging through a box of God-knows-what, a rapidly growing mountain of detritus growing beside her.
-adi: Let's just say I was busy.
+wiks: They're not gonna wait for--
+adi: The caravans always stop for Kara's grandma every single trip, and she takes approximately fifteen minutes to an hour to find her old glasses.
+wiks: She's seventy.
+adi: And you sound like her.
+She briefly flashes you a glare. She's won the argument. For now.
+adi: Now, where is it? It was here before. It's supposed to be here.
 update adi [mirrored="true"]
-You notice flecks of paint on her hair and hold back a smile. Good to know four months hadn't changed her much.
-wiks: What're you looking for anyways?
+You sigh and notice fresh flecks of paint on her hair and hands. That explains things.
+wiks: What's supposed to be there?
 update adi [mirrored="false"]
 update adi [mirrored="true"]
 adi: That old camera you brought me before. I know I put it here, but it's not here, and it's not in any of my boxes.
-adi: And before you say anything, no, I did not put it in any of the fryers again.
-You close your mouth.
-wiks: My lips are sealed.
+adi: And before you say anything, no, I did not put it in any of the pots again.
+You clear your throat.
+wiks: You've had four months to pack that camera.
+adi: I've had four months of learning to use it. 
 update adi [mirrored="false"]
-You scan your eyes, trying to see if she placed it somewhere conspicuous, like the last time she forgot where her brushes were. Or her journal. Or her keys.
-You get taken aback when your eyes land on the wall in front of you.
-wiks: Woah.
-She doesn't even look up when she responds.
-adi: Is it the mural? Yeah, I made a few changes since you were last here.
-It's her mural, painted on the widest wall of her makeshift studio.
-It's an abstract flurry of colors, a far cry from the near empty wall when you last saw it.
-Even from this far away, you can see that there are so many layers of paint that the wall feels thicker.
-wiks: You've certainly put a lot of progress since last time.
-She gives you a small smile.
-adi: Thank you, Wiks.
-adi: I had to do something while you were off exploring, y'know?
-She chuckles a bit but you feel a sort of weight behind the words. Exhaustion, maybe?
-Before you can prod further, you hear a horn ring out.
-It's the last call before the caravan -- the same caravan you're supposed to be joining -- leaves.
-adi: I thought you asked for fifteen minutes?!
+You scan your eyes, trying to see if she placed it somewhere conspicuous, like the last time she forgot where her brushes were. Or her journal. Or her goggles.
+You get taken aback when your eyes land on a piece of canvas behind her. It's a painting, but unlike one you've seen before: instead of people, its abstract flurry of colors, shapes and symbols arranged in ways you haven't seen.
+wiks: Is that…? When did…?
+She takes a glance at it and quickly shuffles it away.
+adi: That's… a work in progress. Don't think about it too much.
+Her voice is quiet.
+Before you can prod further, you hear a horn ring out, and a bell is rung three times.
+wiks: Third bell. Time's up.
 update adi (neutral) [mirrored="false"]
-You hurriedly grab the bags on the countertop, while Adi shoves everything under the counter.
+Adi's eyes open wide as you suddenly sweep all the bags in the counter in one motion, her assortment of stuff hanging off of your arms.
 update adi [mirrored="false"]
-You begin to head out, when you hear Adi exclaim, and a blur shoots past you as she suddenly grabs something in a nearby windowsill.
+adi: Hey-- Wiks! Be careful!
+You rush to head out, when suddenly Adi exclaims, and she shoots past you as she grabs something in a nearby windowsill.
 adi: Found it!
-wiks: Really, a windowsill this time?
+wiks: A windowsill this time? Really?
 Adi rolls her eyes.
 adi: Shut up, you didn't even help look.
+wiks: If I wasn't here you wouldn't have even known that a third bell [i]existed.[/i]
+The door swings shut on your argument as you run towards the caravan.
 leave --All-- [animation="Fade Out Down" wait="true"]
 [clear time="2.0" step="false"]
 [wait time="1.0"]
-The journey out of the village and into the city proper takes longer than expected. The carabaos refusing to be organized and delve into the flooded streets of what remains of the former capital.
+The caravan is less of an organized line and more of a slow-moving mass of flat-bottomed boats with detachable wheels, old cars and trucks, some chugging along, and others pulled by carabaos.
 join wiks (neutral) left [z_index="1"]
 join adi (neutral) leftmost [z_index="1" mirrored="true"]
+The two of you meet up with the leader of the caravan, a well-known singer and musician known by many names, a new one added to the list with her every journey. The two of you just call her the Singer, but she frequently asks you two to just call her [i]tita[/i].
+She doesn't look back as the two of you settle into her car-turned-carriage.
 join singer right
-The two of you meet up with the leader of the caravan, a well-known travelling singer known by many names, but to the two of you, she's just nothing more but [i]tita[/i].
+singer: Cutting it close, you two. Let me guess, you argued all the way here?
+You catch your breath before you plop down beside her on the back of the vehicle. Her hands are on her lap, holding sheafs of paper. Logistics, most likely, of cargo and people and settlements the caravan's passing through. You took a look at it once and got a headache.
+wiks: No, we were just very excited.
+She huffs, almost the sound of laughter. 
+singer: Mhmm, and your excitement has you both winded, haphazardly carrying your packs, and conveniently forgetting what the bells mean?
+You shrug as she turns around to raise an eyebrow at Adi.
+singer: Water?
+Adi nods.
+singer: Clothes?
+She gives a thumbs up.
+A teasing smile enters the Singer's lips.
+singer: Sleeping pack?
+You see the color drain out of Adi's face. The Singer snickers and turns her head back to the road.
+singer: There's a spare one on the cargo space. [i]Mga bata talaga ngayon[i]… You two are so predictable. 
+You see Adi leave to settle in and grab the spare pack, as well as reorganize your stuff.
 leave adi
 update wiks left
 update singer right [z_index="0"]
-The two of you greet her as you settle in. As the three of you exchange small talk, Adi suddenly rushes off, having forgotten something.
-singer: Ah youth. I wish I was half as spry as you two.
-singer: We really can't tell what Adi's going to do next, can't we? She must be a handful.
-wiks: Well, she has her quirks... but don't we all?
-[i]Tita[/i] chuckles.
-singer: And you've always been a sweet boy. 
-Well, make this trip count, okay? I didn't get you two this time off just to continue working.
-singer: You two need a break! [i]Mga bata ngayon[/i], always working, always trying to be something...
-Your smile falters for a bit at her words.
-You wonder if she noticed.
-singer: Well, anyways. You remember my favor, yes?
-wiks: Yes ma'am.
-wiks: The landmarks that we pass by right? You wanted to see them as well?
-singer: Indeed! Make sure those pictures are good alright?
-wiks: I wouldn't worry about it, especially with Adi around.
-wiks: Though why us? Don't you travel around more than us?
-The singer thinks for a moment.
-singer: Let's just say that a shared goal can start journeys that we don't expect.
-You catch her give a small loving tap to the guitar case by her side. It's old and battered, filled with stickers from all over the place. You don't remember a time when she used it, though.
+singer: Well, that's done. The university, yes?
+wiks: As usual. How's it been? Hadn't been there in half a year.
+singer: Still standing, still arguing if its a school or a town or a school town or a town school.
+She glances behind her, at Adi.
+singer: I have a feeling she'll like it. Lots of history in there. Stories. Spaces waiting for someone to give them meaning.
+There's a small falter in Adi's smile.
+singer: If not… I guess you two'll just have to tolerate it.
+wiks: She tolerates a lot of things. Like being late.
+Adi quickly recovers to flick your arm.
+adi: You're lucky I tolerate [i]you[/i].
+The singer snorts as the caravan and the three of you settle into its rhythm: creaking wheels, clattering cargo, the din of a moving caravan echoing throughout the broken city roads.
+Adi gazes outside the window, staring at the old buildings pass by.
+adi: It's been a while since I've been out like this.
+singer: Mhmm, and we'll have around two hours to enjoy the view. Three, if that damned street past the old church is flooded again.
+singer: Anyway, that's why I nudged wiks here to bring you with him.
+adi: I reckon some time outside town'll do you some good.
+wiks: Well, its her first time out on the waters and she spends goodness knows how long finding a camera.
+You turn to her.
+wiks: Does it even take pictures?
+adi groans.
+adi: Of course it does. You just have to… negotiate with the picture.
+The singer chuckles beside you, and you catch her give a small loving tap to the guitar case by her side. It's old and battered, filled with stickers from all over the place. 
+singer: You two sound like some people I knew long ago.
+The wagon rolls on, the sound of conversation pouring out the window. Behind you, home is hidden from view by a bunch of broken buildings, overgrown bridges and rusted piles of metal.
+In front of you, the road dips into water. Someone in front barks orders, and word snakes through the caravan as locks release, wheels rise, and the wagons transform into a simple flotilla.
+singer: Take pictures, will you? I have a feeling this'll be memorable.
+You nod and stare ahead. 
+You wonder what this water-marked city has in store for the two of you.
 leave --All-- [animation="Fade Out Down" wait="true"]
-You barely have time to respond when you see the carabaos start to move again, and you're rushed back into your place at the caravan, next to Adi.
-It appears your journey has now begun.
 [end_timeline]
