@@ -4,9 +4,11 @@
 &"_translation_id": "",
 &"color": Color(0.964706, 0.815686, 0.556863, 1),
 &"custom_info": {
+"prefix": "",
 "sound_mood_default": "",
 "sound_moods": {},
-"style": ""
+"style": "",
+"suffix": ""
 },
 &"default_portrait": "neutral",
 &"description": "",
@@ -22,7 +24,7 @@
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1,
-"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+"scene": "res://addons/dialogic/Modules/Character/default_portrait.tscn"
 },
 "neutral": {
 "export_overrides": {
@@ -31,7 +33,7 @@
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1,
-"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+"scene": "res://addons/dialogic/Modules/Character/default_portrait.tscn"
 },
 "thinking": {
 "export_overrides": {
@@ -40,7 +42,7 @@
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1,
-"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+"scene": "res://addons/dialogic/Modules/Character/default_portrait.tscn"
 }
 },
 &"scale": 1.0
