@@ -32,8 +32,6 @@ scene = ExtResource("5_xaqfk")
 overrides = {
 "bold_font": "\"res://assets/fonts/dialogue/cause_variable.ttf\"",
 "bold_italics_font": "\"res://assets/fonts/dialogue/cause_variable.ttf\"",
-"box_animation_in": "0",
-"box_animation_out": "0",
 "box_color_custom": "Color(1, 1, 1, 1)",
 "box_color_use_global": "false",
 "box_panel": "\"res://assets/themes/dialogue/dialogue_background.tres\"",

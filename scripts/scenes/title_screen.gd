@@ -4,7 +4,7 @@ class_name TitleScreen
 extends Control
 
 @onready var animation_player = $AnimationPlayer
-@onready var main_menu_buttons: HBoxContainer = $CanvasLayer/UIAndEverything/MainMenuButtons
+@onready var main_menu_buttons: VBoxContainer = $CanvasLayer/UIAndEverything/MainMenuButtons
 
 @onready var pause_menu: PauseMenu = $CanvasLayer/UIAndEverything/PauseMenu
 

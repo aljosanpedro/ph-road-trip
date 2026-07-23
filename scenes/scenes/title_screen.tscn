@@ -322,18 +322,18 @@ texture = ExtResource("3_q5odm")
 [node name="ButtonBackground" type="TextureRect" parent="CanvasLayer/UIAndEverything" unique_id=1306048127]
 layout_mode = 0
 offset_left = 576.0
-offset_top = 896.0
+offset_top = 696.0
 offset_right = 1344.0
-offset_bottom = 1184.0
+offset_bottom = 984.0
 texture = SubResource("GradientTexture1D_m6ccg")
 
 [node name="MainMenuButtons" type="VBoxContainer" parent="CanvasLayer/UIAndEverything" unique_id=1986546869]
 layout_mode = 1
 offset_left = 318.0
-offset_top = 912.0
+offset_top = 683.0
 offset_right = 1602.0
-offset_bottom = 1179.0
-theme_override_constants/separation = 42
+offset_bottom = 998.0
+theme_override_constants/separation = 24
 alignment = 1
 
 [node name="StartGame" type="Button" parent="CanvasLayer/UIAndEverything/MainMenuButtons" unique_id=53556030]
