@@ -1,10 +1,5 @@
 extends HBoxContainer
 
-enum SCENE_CONTEXT {
-	IN_GAME,
-	IN_MENU
-}
-
 @onready var auto_skip_button: TextureButton = $AutoSkipButton
 @onready var auto_play_button: TextureButton = $AutoPlayButton
 

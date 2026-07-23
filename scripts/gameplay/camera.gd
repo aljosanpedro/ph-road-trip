@@ -71,6 +71,7 @@ func _camera_disable() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	camera_overlay.hide()
 	camera.enabled = false
+	Events.current_scene_context = Events.SCENE_CONTEXT.IN_GAME
 
 ## Function that recalculates the limits of a camera, especially when it is
 ## zooming in/out.

@@ -31,7 +31,7 @@ signal set_item_outline(value: bool)
 
 # For Camera Scene
 signal open_camera_signal()
-# signal camera_photo_taken() # ignoring your goofy ahh
+signal camera_photo_taken()
 
 # For Map Travel 
 signal unlock_location(loc_name: Locations)
@@ -81,7 +81,7 @@ var current_scene_context: SCENE_CONTEXT = SCENE_CONTEXT.IN_MENU:
 		print("Current scene context: ", SCENE_CONTEXT.keys()[value])
 		current_scene_context = value
 
-# TODO: Remember to propagate this to everwhere else.
+	# INFO: Set via open_camera(), any_menu_opened(), pause_menu.gd, game_main.gd, camera.gd
 
 #endregion
 
