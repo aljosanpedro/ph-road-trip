@@ -138,6 +138,7 @@ offset_left = 8.0
 offset_top = 171.0
 offset_right = 232.0
 offset_bottom = 235.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0.654902)
 
 [node name="InfoContainer" type="VBoxContainer" parent="." unique_id=768488808]
