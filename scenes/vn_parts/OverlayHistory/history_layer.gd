@@ -93,6 +93,7 @@ func _process(_delta : float) -> void:
 
 
 func _on_show_history_pressed() -> void:
+	Events.current_scene_context = Events.SCENE_CONTEXT.IN_MENU
 	DialogicUtil.autoload().paused = true
 	show_history()
 
@@ -144,6 +145,7 @@ func show_history() -> void:
 
 
 func _on_hide_history_pressed() -> void:
+	Events.current_scene_context = Events.SCENE_CONTEXT.IN_GAME
 	DialogicUtil.autoload().paused = false
 	get_history_box().hide()
 	get_hide_history_button().hide()

@@ -81,7 +81,7 @@ var current_scene_context: SCENE_CONTEXT = SCENE_CONTEXT.IN_MENU:
 		print("Current scene context: ", SCENE_CONTEXT.keys()[value])
 		current_scene_context = value
 
-	# INFO: Set via open_camera(), any_menu_opened(), pause_menu.gd, game_main.gd, camera.gd
+	# INFO: Set via open_camera(), any_menu_opened(), pause_menu.gd, game_main.gd, camera.gd, history_layer.gd
 
 #endregion
 
