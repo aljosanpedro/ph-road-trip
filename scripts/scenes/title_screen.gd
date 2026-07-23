@@ -32,7 +32,7 @@ func _on_start_game_pressed() -> void:
 	get_tree().change_scene_to_packed(preload("res://scenes/scenes/game_main.tscn"))
 
 func _on_load_game_pressed() -> void:
-	save_load_menu.show_save_load_menu(save_load_menu.ContextualType.LOADING)
+	save_load_menu.show_save_load_menu(save_load_menu.ContextualType.LOADING, true)
 
 func _on_quit_game_pressed() -> void:
 	_activate_buttons(false)

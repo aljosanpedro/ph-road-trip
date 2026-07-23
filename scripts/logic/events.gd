@@ -47,6 +47,10 @@ signal switch_has_been_set
 signal shortcut_save_pressed
 signal shortcut_load_pressed
 
+# For opening save/load menu
+signal open_save_menu
+signal open_load_menu
+
 # For menus opening/closing
 #signal any_menu_opened_closed(node: Control)
 
@@ -77,6 +81,12 @@ var scrapbook_pictures : Array[Node] = []
 ## Exposing game main instead because this architecture BLOWS.
 var game_main: MainGameFrame
 
+## Exposing save/load menu for shortcut access.
+var save_load_menu: SaveLoadMenu
+
+## Tracks the currently loaded location scene path for save/load.
+var current_scene_path: String = ""
+
 ## Current Scene Context.
 var current_scene_context: SCENE_CONTEXT = SCENE_CONTEXT.IN_MENU:
 	get:
@@ -105,6 +115,11 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		show_pause_menu(true)
 		get_viewport().set_input_as_handled()
 	
+	# Escape also closes the save/load menu if it's open.
+	if Input.is_action_just_pressed("show_menu") and save_load_menu and save_load_menu.visible:
+		save_load_menu.hide_menu()
+		get_viewport().set_input_as_handled()
+	
 	if Input.is_action_just_pressed("shortcut_save") and current_scene_context == SCENE_CONTEXT.IN_GAME:
 		shortcut_save_pressed.emit()
 		get_viewport().set_input_as_handled()
@@ -116,6 +131,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 ## Initializes Events for a new game.
 func initialize() -> void:
 	current_scene_context = SCENE_CONTEXT.IN_GAME
+	current_scene_path = ""
 	for sw in switches:
 		switches[sw] = false
 	current_pov = POV_Character.ADI
@@ -146,6 +162,7 @@ func wait(seconds: float) -> void:
 ## Changes area to the PackedScene [param path].
 ## Pretty much a helper function for a signal to make code readable.
 func change_area(path: String) -> void:
+	current_scene_path = path
 	change_map.emit(path)
 
 func enable_route(loc_name: Locations) -> void:
@@ -172,6 +189,14 @@ func show_the_context_menus(value: bool) -> void:
 func show_pause_menu(value: bool) -> void:
 	toggle_pause_menu.emit(value)
 
+## Helper function to show save menu.
+func show_save_menu() -> void:
+	open_save_menu.emit()
+
+## Helper function to show load menu.
+func show_load_menu() -> void:
+	open_load_menu.emit()
+
 ## Helper function to show/hide the button of the pause menu in game.
 func show_pause_menu_button(value: bool) -> void:
 	toggle_pause_menu_layer.emit(value)
@@ -197,6 +222,7 @@ func get_switch(switch_name) -> bool:
 
 ## Resets everything when going back to main menu.
 func reset()-> void:
+	current_scene_path = ""
 	for sw in switches:
 		switches[sw] = false
 		

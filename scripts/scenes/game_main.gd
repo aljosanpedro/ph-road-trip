@@ -25,6 +25,8 @@ enum CurrentGameScene {
 @onready var scene_camera = $ContextMenus/Camera
 @onready var scene_map_travel = $ContextMenus/MapTravel
 @onready var pov_switch_graphic = $ContextMenus/POVSwitch
+@onready var pause_menu: PauseMenu = $PauseMenus/PauseMenu
+@onready var save_load_menu: SaveLoadMenu = $PauseMenus/SaveLoadMenu
 
 
 ## INFO: Other variables
@@ -36,11 +38,11 @@ var current_game_scene = CurrentGameScene.CURRENT_MAP
 #region Virtual functions
 func _ready() -> void:
 	
-	# INFO: Initialize Events singleton for a new game.
-	Events.initialize()
-	
 	# INFO: Tell events that you are the GameMainFrame.
 	Events.game_main = self
+	
+	# INFO: Expose save/load menu to Events for shortcut access.
+	Events.save_load_menu = save_load_menu
 	
 	# INFO: ???????????? What the sigma?
 	scene_map_travel.visible = false
@@ -49,11 +51,27 @@ func _ready() -> void:
 	Events.change_map.connect(_goto_area)
 	Events.show_contextual_menus.connect(_show_game_contextual_menus)
 	Events.open_travel_map.connect(_map_travel_scene_call)
+	Events.open_save_menu.connect(_on_open_save_menu)
+	Events.open_load_menu.connect(_on_open_load_menu)
 	
-	# INFO: Start game. Kinda funny we're doing loop-de-loops here.
-	Events.change_area(current_scene.resource_path)
-	Events.show_the_context_menus(false) # By default, as intro will flick it up.
-	Events.set_current_pov(initial_character_pov)
+	# INFO: Check if we're loading a saved game from title screen.
+	if Engine.has_meta("pending_load_slot"):
+		var slot_name = Engine.get_meta("pending_load_slot")
+		var game_state = Engine.get_meta("pending_game_state")
+		Engine.remove_meta("pending_load_slot")
+		Engine.remove_meta("pending_game_state")
+		
+		save_load_menu._restore_game_state(slot_name, game_state)
+		Dialogic.Save.load(slot_name)
+		Dialogic.Inputs.manual_advance.system_enabled = true
+	else:
+		# INFO: Initialize Events singleton for a new game.
+		Events.initialize()
+		
+		# INFO: Start game. Kinda funny we're doing loop-de-loops here.
+		Events.change_area(current_scene.resource_path)
+		Events.show_the_context_menus(false) # By default, as intro will flick it up.
+		Events.set_current_pov(initial_character_pov)
 	
 #endregion
 
@@ -143,6 +161,14 @@ func _show_game_contextual_menus(value: bool) -> void:
 ## INFO: Does not account for POVSwitch, Camera and MapTravel
 func _any_menu_opened(node: Control) -> void:
 	Events.any_menu_opened(node)
+
+func _on_open_save_menu() -> void:
+	pause_menu._on_play_button_pressed()
+	save_load_menu.show_save_load_menu(SaveLoadMenu.ContextualType.SAVING)
+
+func _on_open_load_menu() -> void:
+	pause_menu._on_play_button_pressed()
+	save_load_menu.show_save_load_menu(SaveLoadMenu.ContextualType.LOADING)
 
 	
 #endregion

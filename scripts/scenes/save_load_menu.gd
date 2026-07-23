@@ -64,11 +64,15 @@ func _save_load_slot_pressed(slot_name: String, slot_button_ref: SaveSlot) -> vo
 			if not Dialogic.Save.has_slot(slot_name):
 				return
 			if _from_title:
+				var info = Dialogic.Save.get_slot_info(slot_name)
 				Engine.set_meta("pending_load_slot", slot_name)
-				get_tree().change_scene_to_file("res://scenes/GameCore.tscn")
+				Engine.set_meta("pending_game_state", info)
+				get_tree().change_scene_to_file("res://scenes/scenes/game_main.tscn")
 				Dialogic.Inputs.manual_advance.system_enabled = true
 			else:
+				var info = Dialogic.Save.get_slot_info(slot_name)
 				Dialogic.Save.load(slot_name)
+				_restore_game_state(slot_name, info)
 				Dialogic.Inputs.manual_advance.system_enabled = true
 				hide_menu()
 
@@ -77,6 +81,11 @@ func _perform_save(slot_name: String, slot_button_ref: SaveSlot) -> void:
 	var extra_info := {}
 	extra_info["date_time"] = Time.get_datetime_string_from_system(false, true)
 	extra_info["location"] = _get_current_location()
+	extra_info["current_pov"] = Events.current_pov
+	extra_info["switches"] = Events.switches.duplicate()
+	extra_info["current_scene_path"] = Events.current_scene_path
+	_save_scrapbook_pictures(slot_name)
+	extra_info["scrapbook_count"] = len(Events.scrapbook_pictures)
 	Dialogic.Save.save(slot_name, false, Dialogic.Save.ThumbnailMode.STORE_ONLY, extra_info)
 
 	# Then update the node.
@@ -121,6 +130,55 @@ func _on_back_to_menu_button_pressed() -> void:
 func _on_delete_slot_pressed(slot_name: String) -> void:
 	Dialogic.Save.delete_slot(slot_name)
 	_refresh_all_slots()
+
+#region Game State Save/Load
+
+func _save_scrapbook_pictures(slot_name: String) -> void:
+	var slot_path = Dialogic.Save.get_slot_path(slot_name)
+	for i in len(Events.scrapbook_pictures):
+		var tex_rect: TextureRect = Events.scrapbook_pictures[i]
+		if tex_rect.texture is ImageTexture:
+			var img: Image = tex_rect.texture.get_image()
+			img.save_png(slot_path.path_join("scrapbook_%d.png" % i))
+
+func _restore_game_state(slot_name: String, info: Dictionary) -> void:
+	if info.is_empty():
+		return
+	# Restore POV.
+	if info.has("current_pov"):
+		Events.current_pov = info["current_pov"]
+		Events.pov_switch.emit()
+	# Restore switches.
+	if info.has("switches"):
+		var saved_switches: Dictionary = info["switches"]
+		for key in saved_switches:
+			Events.switches[key] = saved_switches[key]
+		Events.switch_has_been_set.emit()
+	# Restore current scene path and load the location.
+	if info.has("current_scene_path") and info["current_scene_path"] != "":
+		Events.change_area(info["current_scene_path"])
+	# Restore scrapbook pictures.
+	_load_scrapbook_pictures(slot_name, info.get("scrapbook_count", 0))
+
+func _load_scrapbook_pictures(slot_name: String, count: int) -> void:
+	Events.scrapbook_pictures = []
+	if count == 0:
+		return
+	var slot_path = Dialogic.Save.get_slot_path(slot_name)
+	for i in count:
+		var img_path = slot_path.path_join("scrapbook_%d.png" % i)
+		if FileAccess.file_exists(img_path):
+			var img = Image.load_from_file(img_path)
+			var tex_rect = TextureRect.new()
+			tex_rect.texture = ImageTexture.create_from_image(img)
+			tex_rect.custom_minimum_size = Vector2(200, 181)
+			tex_rect.expand_mode = TextureRect.EXPAND_FIT_WIDTH
+			tex_rect.scale = Vector2(0.18, 0.17)
+			tex_rect.position.x += 1.9
+			tex_rect.position.y += 1.5
+			Events.scrapbook_pictures.append(tex_rect)
+
+#endregion
 
 #region Overwriting Save Logic
 

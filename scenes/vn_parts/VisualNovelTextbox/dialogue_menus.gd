@@ -49,10 +49,10 @@ func _on_settings_button_pressed() -> void:
 
 
 func _on_save_button_pressed() -> void:
-	Events.current_scene_context = Events.SCENE_CONTEXT.IN_MENU
+	Events.show_save_menu()
 
 func _on_load_button_pressed() -> void:
-	Events.current_scene_context = Events.SCENE_CONTEXT.IN_MENU
+	Events.show_load_menu()
 
 
 func _on_menu_button_pressed() -> void:

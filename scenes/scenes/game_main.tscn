@@ -48,5 +48,3 @@ layer = 3
 [node name="SaveLoadMenu" parent="PauseMenus" unique_id=74259691 instance=ExtResource("8_nmghn")]
 
 [connection signal="scene_map_travel_closed" from="ContextMenus/MapTravel" to="." method="_on_scene_map_travel_closed"]
-[connection signal="visibility_changed" from="PauseMenus/PauseMenu" to="." method="_any_menu_opened" flags=18]
-[connection signal="visibility_changed" from="PauseMenus/SaveLoadMenu" to="." method="_any_menu_opened" flags=18]
