@@ -105,11 +105,11 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		show_pause_menu(true)
 		get_viewport().set_input_as_handled()
 	
-	if Input.is_action_just_pressed("shortcut_save"):
+	if Input.is_action_just_pressed("shortcut_save") and current_scene_context == SCENE_CONTEXT.IN_GAME:
 		shortcut_save_pressed.emit()
 		get_viewport().set_input_as_handled()
 	
-	if Input.is_action_just_pressed("shortcut_load"):
+	if Input.is_action_just_pressed("shortcut_load") and current_scene_context == SCENE_CONTEXT.IN_GAME:
 		shortcut_load_pressed.emit()
 		get_viewport().set_input_as_handled()
 		
