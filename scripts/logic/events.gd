@@ -74,8 +74,12 @@ var scrapbook_pictures : Array[Node] = []
 var game_main: MainGameFrame
 
 ## Current Scene Context.
-var current_scene_context: SCENE_CONTEXT = SCENE_CONTEXT.IN_MENU
-
+var current_scene_context: SCENE_CONTEXT = SCENE_CONTEXT.IN_MENU:
+	get:
+		return current_scene_context
+	set(value):
+		print("Current scene context: ", SCENE_CONTEXT.keys()[value])
+		current_scene_context = value
 
 # TODO: Remember to propagate this to everwhere else.
 
@@ -166,6 +170,7 @@ func get_current_pov_name() -> String:
 
 ## Helper function to make code easier to read.
 func open_camera() -> void:
+	current_scene_context = SCENE_CONTEXT.IN_MENU
 	open_camera_signal.emit()
 
 # Sets [b]Events.switch[/b] [param name] to the following [param value]

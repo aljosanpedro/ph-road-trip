@@ -58,6 +58,7 @@ func _camera_take_photo() -> void:
 	
 	# Once photo taken, tell Events.
 	Events.camera_photo_taken.emit()
+	Events.current_scene_context = Events.SCENE_CONTEXT.IN_GAME
 
 func _camera_activate() -> void:
 	Events.show_item_outline(false) # Hide item outlines for picture taking.

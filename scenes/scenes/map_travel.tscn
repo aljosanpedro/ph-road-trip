@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dhkep6yubnjdq"]
+[gd_scene format=3 uid="uid://dhkep6yubnjdq"]
 
 [ext_resource type="Script" uid="uid://dbntfaivbsnoc" path="res://scripts/scenes/map_travel.gd" id="1_j37w6"]
 [ext_resource type="Texture2D" uid="uid://bds4ha4gntixm" path="res://assets/images/travel_map/map.png" id="2_e23lu"]
@@ -114,7 +114,7 @@ _data = {
 &"RESET": SubResource("Animation_02dou")
 }
 
-[node name="MapTravel" type="Control"]
+[node name="MapTravel" type="Control" unique_id=507334035]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -123,7 +123,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_j37w6")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1840570163]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -133,7 +133,7 @@ grow_vertical = 2
 texture = ExtResource("2_e23lu")
 expand_mode = 1
 
-[node name="Background2" type="TextureRect" parent="."]
+[node name="Background2" type="TextureRect" parent="." unique_id=1961393198]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -144,7 +144,7 @@ grow_vertical = 2
 texture = ExtResource("3_02dou")
 expand_mode = 1
 
-[node name="Routing" type="Line2D" parent="."]
+[node name="Routing" type="Line2D" parent="." unique_id=231626179]
 position = Vector2(1340, 394)
 points = PackedVector2Array(-115, -33, -116, -34)
 width = 2.0
@@ -153,7 +153,7 @@ joint_mode = 1
 round_precision = 32
 antialiased = true
 
-[node name="UPD-QC" parent="." groups=["locations"] instance=ExtResource("3_e23lu")]
+[node name="UPD-QC" parent="." unique_id=922928070 groups=["locations"] instance=ExtResource("3_e23lu")]
 layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
@@ -167,7 +167,7 @@ grow_vertical = 1
 scale = Vector2(1, 1)
 location = ExtResource("4_02dou")
 
-[node name="Cubao" parent="." groups=["locations"] instance=ExtResource("3_e23lu")]
+[node name="Cubao" parent="." unique_id=384543420 groups=["locations"] instance=ExtResource("3_e23lu")]
 layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
@@ -181,7 +181,7 @@ grow_vertical = 1
 scale = Vector2(1, 1)
 location = ExtResource("5_t4heh")
 
-[node name="Makati" parent="." groups=["locations"] instance=ExtResource("3_e23lu")]
+[node name="Makati" parent="." unique_id=457369196 groups=["locations"] instance=ExtResource("3_e23lu")]
 layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
@@ -195,7 +195,7 @@ grow_vertical = 1
 scale = Vector2(1, 1)
 location = ExtResource("6_mo0mx")
 
-[node name="Quiapo" parent="." groups=["locations"] instance=ExtResource("3_e23lu")]
+[node name="Quiapo" parent="." unique_id=120676079 groups=["locations"] instance=ExtResource("3_e23lu")]
 layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
@@ -209,7 +209,7 @@ grow_vertical = 1
 scale = Vector2(1, 1)
 location = ExtResource("7_tsi4x")
 
-[node name="Coast" parent="." groups=["locations"] instance=ExtResource("3_e23lu")]
+[node name="Coast" parent="." unique_id=2133103335 groups=["locations"] instance=ExtResource("3_e23lu")]
 layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
@@ -223,7 +223,7 @@ grow_vertical = 1
 scale = Vector2(1, 1)
 location = ExtResource("8_qr2xy")
 
-[node name="Jabee" parent="." groups=["locations"] instance=ExtResource("3_e23lu")]
+[node name="Jabee" parent="." unique_id=535270422 groups=["locations"] instance=ExtResource("3_e23lu")]
 layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
@@ -237,7 +237,7 @@ grow_vertical = 1
 scale = Vector2(1, 1)
 location = ExtResource("10_t4heh")
 
-[node name="CurrentLocationPlayer" type="TextureRect" parent="."]
+[node name="CurrentLocationPlayer" type="TextureRect" parent="." unique_id=1114450169]
 layout_mode = 0
 offset_left = 1203.0
 offset_top = 342.0
@@ -245,7 +245,7 @@ offset_right = 1243.0
 offset_bottom = 382.0
 texture = ExtResource("13_qr2xy")
 
-[node name="TargetArea" type="TextureRect" parent="."]
+[node name="TargetArea" type="TextureRect" parent="." unique_id=181883169]
 visible = false
 layout_mode = 0
 offset_left = 1.0
@@ -256,12 +256,10 @@ texture = ExtResource("11_mo0mx")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_qr2xy")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=759193679]
+libraries/ = SubResource("AnimationLibrary_qr2xy")
 
-[node name="LocationLabel" type="Label" parent="."]
+[node name="LocationLabel" type="Label" parent="." unique_id=429235871]
 layout_mode = 0
 offset_left = 65.0
 offset_top = 65.0

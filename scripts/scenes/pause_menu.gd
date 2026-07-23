@@ -67,6 +67,7 @@ func _on_play_button_pressed() -> void:
 
 	pause_menu_items.hide()
 	pause_menu_items.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	Events.current_scene_context = Events.SCENE_CONTEXT.IN_GAME
 
 func _on_pause_button_pressed() -> void:
 	if animation_player.is_playing(): return
@@ -79,6 +80,7 @@ func _on_pause_button_pressed() -> void:
 	await animation_player.animation_finished
 	
 	pause_menu_items.mouse_filter = Control.MOUSE_FILTER_STOP
+	Events.current_scene_context = Events.SCENE_CONTEXT.IN_MENU
 
 
 #region Audio Management

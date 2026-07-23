@@ -19,6 +19,7 @@ func _ready() -> void:
 ## Initializes Events for a new game.
 func initialize() -> void:
 	_switch_character_pov(Events.get_current_pov())
+	_sync_with_pov_change()
 
 func _sync_with_pov_change() -> void:
 	#_switch_character_pov(Events.get_current_pov())

@@ -52,7 +52,7 @@ overrides = {
 "next_indicator_texture": "\"res://assets/images/dialogue/next_indicator.png\"",
 "normal_font": "\"res://assets/fonts/dialogue/cause_variable.ttf\"",
 "text_custom_color": "Color(0, 0, 0, 1)",
-"text_size": "32.0",
+"text_size": "28.0",
 "text_use_global_color": "false",
 "text_use_global_font": "false",
 "text_use_global_size": "false"

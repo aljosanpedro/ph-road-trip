@@ -123,11 +123,13 @@ func _fade_in_to_scene(game_area: Node2D) -> void:
 func _map_travel_scene_call() -> void:
 	if current_game_scene != CurrentGameScene.MAP_TRAVEL:
 		current_game_scene = CurrentGameScene.MAP_TRAVEL
+		Events.current_scene_context = Events.SCENE_CONTEXT.IN_MENU
 		scene_map_travel.visible = true
 		return
 		
 	elif current_game_scene == CurrentGameScene.MAP_TRAVEL:
 		current_game_scene = CurrentGameScene.CURRENT_MAP
+		Events.current_scene_context = Events.SCENE_CONTEXT.IN_GAME
 		scene_map_travel.visible = false
 		return
 
