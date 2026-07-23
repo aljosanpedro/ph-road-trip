@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://5p4g0rpq6r3h" path="res://scenes/scenes/pause_menu.tscn" id="6_7yowf"]
 [ext_resource type="PackedScene" uid="uid://bskhqpm1wk0ic" path="res://scenes/scenes/save_load_menu.tscn" id="8_nmghn"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f54fw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nmghn"]
 resource_local_to_scene = true
 shader = ExtResource("4_qvvsl")
 shader_parameter/maxLineWidth = 0.0
@@ -33,7 +33,7 @@ color = Color(0, 0, 0, 1)
 [node name="ContextMenus" type="CanvasLayer" parent="." unique_id=384825259]
 
 [node name="POVSwitch" parent="ContextMenus" unique_id=2004892030 instance=ExtResource("3_3585q")]
-material = SubResource("ShaderMaterial_f54fw")
+material = SubResource("ShaderMaterial_nmghn")
 
 [node name="Camera" parent="ContextMenus" unique_id=1385623746 instance=ExtResource("3_jnjbd")]
 
