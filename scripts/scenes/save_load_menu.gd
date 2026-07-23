@@ -1,5 +1,7 @@
 extends Control
 
+class_name SaveLoadMenu
+
 enum ContextualType {SAVING, LOADING}
 
 @export_category("Setup")
@@ -25,8 +27,6 @@ func _ready() -> void:
 	# dynamic.
 	slot_children = find_children("SaveSlot*", "SaveSlot")
 	_setup_all_save_load_slots()
-	
-	show_save_load_menu(ContextualType.SAVING)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -150,4 +150,7 @@ func show_menu() -> void:
 	animation_player.play("show_menu")
 
 func hide_menu() -> void:
+	animation_player.play_backwards("show_menu")
+
+func _on_return_button_pressed() -> void:
 	animation_player.play_backwards("show_menu")

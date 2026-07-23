@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d5664h55g7f2" path="res://assets/images/title_screen/6_adi_and_wiks.png" id="7_2w6co"]
 [ext_resource type="Theme" uid="uid://5mmkwd6adl0c" path="res://assets/themes/title_menu_buttons.tres" id="10_xglq0"]
 [ext_resource type="PackedScene" uid="uid://5p4g0rpq6r3h" path="res://scenes/scenes/pause_menu.tscn" id="11_xglq0"]
+[ext_resource type="PackedScene" uid="uid://bskhqpm1wk0ic" path="res://scenes/scenes/save_load_menu.tscn" id="12_m6ccg"]
 
 [sub_resource type="Gradient" id="Gradient_xglq0"]
 offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
@@ -322,17 +323,17 @@ texture = ExtResource("3_q5odm")
 [node name="ButtonBackground" type="TextureRect" parent="CanvasLayer/UIAndEverything" unique_id=1306048127]
 layout_mode = 0
 offset_left = 576.0
-offset_top = 696.0
+offset_top = 624.0
 offset_right = 1344.0
-offset_bottom = 984.0
+offset_bottom = 1040.0
 texture = SubResource("GradientTexture1D_m6ccg")
 
 [node name="MainMenuButtons" type="VBoxContainer" parent="CanvasLayer/UIAndEverything" unique_id=1986546869]
 layout_mode = 1
 offset_left = 318.0
-offset_top = 683.0
+offset_top = 643.0
 offset_right = 1602.0
-offset_bottom = 998.0
+offset_bottom = 1023.0
 theme_override_constants/separation = 24
 alignment = 1
 
@@ -344,6 +345,15 @@ size_flags_horizontal = 3
 theme = ExtResource("10_xglq0")
 disabled = true
 text = "Start"
+
+[node name="LoadGame" type="Button" parent="CanvasLayer/UIAndEverything/MainMenuButtons" unique_id=318208543]
+use_parent_material = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("10_xglq0")
+disabled = true
+text = "Load"
 
 [node name="Options" type="Button" parent="CanvasLayer/UIAndEverything/MainMenuButtons" unique_id=1951069708]
 custom_minimum_size = Vector2(400, 0)
@@ -363,6 +373,9 @@ text = "Quit"
 layout_mode = 1
 if_title_screen = true
 
+[node name="SaveLoadMenu" parent="CanvasLayer/UIAndEverything" unique_id=74259691 instance=ExtResource("12_m6ccg")]
+layout_mode = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1138350158]
 libraries/ = SubResource("AnimationLibrary_qq3hq")
 
@@ -370,5 +383,6 @@ libraries/ = SubResource("AnimationLibrary_qq3hq")
 anchor_mode = 0
 
 [connection signal="pressed" from="CanvasLayer/UIAndEverything/MainMenuButtons/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/UIAndEverything/MainMenuButtons/LoadGame" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/UIAndEverything/MainMenuButtons/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="CanvasLayer/UIAndEverything/MainMenuButtons/QuitGame" to="." method="_on_quit_game_pressed"]

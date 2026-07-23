@@ -7,6 +7,7 @@ extends Control
 @onready var main_menu_buttons: VBoxContainer = $CanvasLayer/UIAndEverything/MainMenuButtons
 
 @onready var pause_menu: PauseMenu = $CanvasLayer/UIAndEverything/PauseMenu
+@onready var save_load_menu: SaveLoadMenu = $CanvasLayer/UIAndEverything/SaveLoadMenu
 
 func _ready() -> void:
 	Dialogic.end_timeline()
@@ -29,6 +30,9 @@ func _on_start_game_pressed() -> void:
 	await animation_player.animation_finished
 	
 	get_tree().change_scene_to_packed(preload("res://scenes/scenes/game_main.tscn"))
+
+func _on_load_game_pressed() -> void:
+	save_load_menu.show_save_load_menu(save_load_menu.ContextualType.LOADING)
 
 func _on_quit_game_pressed() -> void:
 	_activate_buttons(false)
