@@ -205,10 +205,12 @@ func _on_overwrite_yes_pressed() -> void:
 #endregion
 
 func show_menu() -> void:
+	Events.current_scene_context = Events.SCENE_CONTEXT.IN_MENU
 	animation_player.play("show_menu")
 
 func hide_menu() -> void:
+	Events.current_scene_context = Events.SCENE_CONTEXT.IN_GAME
 	animation_player.play_backwards("show_menu")
 
 func _on_return_button_pressed() -> void:
-	animation_player.play_backwards("show_menu")
+	hide_menu()
