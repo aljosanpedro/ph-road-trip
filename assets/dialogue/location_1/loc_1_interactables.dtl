@@ -49,7 +49,7 @@ adi: This used to be a memorial.
 With the gentlest motions that she can muster, you see her dry it on her dress, and tuck it on one of her pockets.
 You look around, at the people milling about, the few workers on a side grinding petals to powder, and give a noncommittal shrug.
 wiks: I guess you can see it that way.
-You cock your head when she stays still for a while longer than you expect, just staring into the water. One of the workers watches you curiously: the two of you are technically tourists playing about with their exports. 
+You cock your head when she stays still for a while longer than you expect, just staring into the water. One of the workers watches you curiously\: the two of you are technically tourists playing about with their exports. 
 adi: And now its a farm.
 wiks: Maybe. We don't even know if the story's true. It could've been a farm all along.
 Adi shrugs.
@@ -87,9 +87,12 @@ jump end
 label trees
 You walk along the street and pass a single large tree that rises near the fence line, its branches sprawling away like someone stretching.
 Cloth strips hang from it—messages, blessings, names written in charcoal or carved into bark. A few candles flicker at its base, along with a smattering of religious figurines. A broken circuit board in a piece of string swings loosely in the breeze. A person or two lingers, heads bowed.
+[background arg="res://assets/images/cgs/tree-ribbon-loose.png" fade="0.0"]
 Below it is a bunch of loose ribbons.
+[background arg="res://assets/images/cgs/tree-adi.png" fade="0.0"]
 Almost instinctively, you reach out for one of the loose ribbons and tighten it on a nearby low-hanging branch.
 wiks: What'd you pray for?
+[background arg="res://assets/images/cgs/tree-one-ribbon.png" fade="0.0"]
 You shrug, taking a step back.
 adi: Nothing. It just… felt right.
 wiks: Well, it's certainly something; big tree in the middle of where everyone passes by.
@@ -97,7 +100,9 @@ wiks: Must be why people decided to use it as a shrine.
 You shrug.
 adi: Maybe. Or maybe we're just following along with something someone started long ago.
 adi: No one wants their wishes to fly off now, after all.
+[background arg="res://assets/images/cgs/tree-wiks.png" fade="0.0"]
 Wiks stares at you, quiet. After a brief pause, he picks up a fallen ribbon, then ties it back into the branch, right next to yours.
+[background arg="res://assets/images/cgs/tree-two-ribbons.png" fade="0.0"]
 Two blank ribbons, the ink in them smudged beyond comprehension, fluttering in the breeze.
 The two of you don't say anything more.
 With a small nod to Wiks, the two of you leave the tree to its solitude.
