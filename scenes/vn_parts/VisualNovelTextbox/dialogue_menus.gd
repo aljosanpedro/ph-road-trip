@@ -7,6 +7,8 @@ extends HBoxContainer
 func _init() -> void:
 	Dialogic.Inputs.auto_skip.toggled.connect(_on_auto_skip_toggled)
 	Dialogic.Inputs.auto_advance.toggled.connect(_on_autoadvance_toggled)
+	Events.shortcut_save_pressed.connect(_on_save_load_button_pressed)
+	Events.shortcut_load_pressed.connect(_on_save_load_button_pressed)
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

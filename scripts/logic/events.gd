@@ -43,6 +43,10 @@ signal toggle_pause_menu(value: bool)
 signal toggle_pause_menu_layer(value: bool)
 signal switch_has_been_set
 
+# For save/load shortcuts
+signal shortcut_save_pressed
+signal shortcut_load_pressed
+
 # For menus opening/closing
 #signal any_menu_opened_closed(node: Control)
 
@@ -99,6 +103,14 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	
 	if Input.is_action_just_pressed("show_menu") and current_scene_context != SCENE_CONTEXT.IN_MENU:
 		show_pause_menu(true)
+		get_viewport().set_input_as_handled()
+	
+	if Input.is_action_just_pressed("shortcut_save"):
+		shortcut_save_pressed.emit()
+		get_viewport().set_input_as_handled()
+	
+	if Input.is_action_just_pressed("shortcut_load"):
+		shortcut_load_pressed.emit()
 		get_viewport().set_input_as_handled()
 		
 ## Initializes Events for a new game.
