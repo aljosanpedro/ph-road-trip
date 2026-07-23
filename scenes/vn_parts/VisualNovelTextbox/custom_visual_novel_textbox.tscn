@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://bak74s0kcr0ao" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="7_bi7sh"]
 [ext_resource type="Texture2D" uid="uid://d3w1furpnyc0d" path="res://assets/images/icons/auto-pause.png" id="8_ogrft"]
 [ext_resource type="StyleBox" uid="uid://m7gyepkysu83" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_name_label_panel.tres" id="9_yg8ig"]
+[ext_resource type="Texture2D" uid="uid://cgn1pfo4mh35u" path="res://assets/images/icons/load.png" id="12_v32yu"]
 
 [sub_resource type="Animation" id="Animation_au0a2"]
 length = 0.001
@@ -380,7 +381,7 @@ script = ExtResource("5_e6atv")
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 tooltip_text = "Load (F6)"
-texture_normal = ExtResource("4_2x42n")
+texture_normal = ExtResource("12_v32yu")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("5_e6atv")

@@ -64,6 +64,7 @@ func _ready() -> void:
 		save_load_menu._restore_game_state(slot_name, game_state)
 		Dialogic.Save.load(slot_name)
 		Dialogic.Inputs.manual_advance.system_enabled = true
+		Events.current_scene_context = Events.SCENE_CONTEXT.IN_GAME
 	else:
 		# INFO: Initialize Events singleton for a new game.
 		Events.initialize()
