@@ -14,7 +14,7 @@ func _ready() -> void:
 	initialize()
 	
 	# To track changes.
-	#Events.pov_switch.connect(_sync_with_pov_change)
+	Events.pov_switch.connect(_sync_with_pov_change)
 
 ## Initializes Events for a new game.
 func initialize() -> void:
@@ -47,12 +47,12 @@ func _switch_character_pov(new_pov: Events.POV_Character) -> void:
 	match new_pov:
 		Events.POV_Character.ADI:
 			Events.set_current_pov(Events.POV_Character.WIKS)
-			wiks_button_picture.modulate = Color(1,1,1)
-			adi_button_picture.modulate = Color(0.5,0.5,0.5)
+			#wiks_button_picture.modulate = Color(1,1,1)
+			#adi_button_picture.modulate = Color(0.5,0.5,0.5)
 		Events.POV_Character.WIKS:
 			Events.set_current_pov(Events.POV_Character.ADI)
-			adi_button_picture.modulate = Color(1,1,1)
-			wiks_button_picture.modulate = Color(0.5,0.5,0.5)
+			#adi_button_picture.modulate = Color(1,1,1)
+			#wiks_button_picture.modulate = Color(0.5,0.5,0.5)
 	
 	# Then, change POV based on new_pov.
 	_sync_with_pov_change()
