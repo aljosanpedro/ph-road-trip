@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://dgjvuohvn7vca"]
 
-[ext_resource type="FontFile" uid="uid://eajkm23by4na" path="res://assets/fonts/dialogue/merriweather_24pt_bold.ttf" id="1_rqbmk"]
+[ext_resource type="FontFile" uid="uid://pr4dg23ninu0" path="res://assets/fonts/dialogue/cause-bold.ttf" id="1_rqbmk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wa7sa"]
 

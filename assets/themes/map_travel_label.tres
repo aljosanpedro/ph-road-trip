@@ -1,6 +1,6 @@
 [gd_resource type="LabelSettings" format=3 uid="uid://bwok14bbdyyag"]
 
-[ext_resource type="FontFile" uid="uid://cpw5l35rjvnqc" path="res://assets/fonts/dialogue/cause_variable.ttf" id="1_42qme"]
+[ext_resource type="FontFile" uid="uid://j1t0rda8kqg1" path="res://assets/fonts/dialogue/cause-extrabold.ttf" id="1_42qme"]
 
 [resource]
 line_spacing = 0.0

@@ -30,6 +30,7 @@ scene = ExtResource("4_ubalr")
 script = ExtResource("1_xaqfk")
 scene = ExtResource("5_xaqfk")
 overrides = {
+"autoadvance_progressbar": "false",
 "bold_font": "\"res://assets/fonts/dialogue/cause_variable.ttf\"",
 "bold_italics_font": "\"res://assets/fonts/dialogue/cause_variable.ttf\"",
 "box_color_custom": "Color(1, 1, 1, 1)",
@@ -42,11 +43,12 @@ overrides = {
 "name_label_box_panel": "\"res://assets/themes/dialogue/dialogue_namebox_background.tres\"",
 "name_label_box_use_global_color": "false",
 "name_label_custom_font_size": "28.0",
-"name_label_font": "\"res://assets/fonts/dialogue/cause_variable.ttf\"",
+"name_label_font": "\"res://assets/fonts/dialogue/cause-bold.ttf\"",
 "name_label_use_global_color": "false",
 "name_label_use_global_font": "false",
 "name_label_use_global_font_size": "false",
-"next_indicator_size": "Vector2(15, 15)",
+"next_indicator_position_offset": "Vector2(-25, -64)",
+"next_indicator_size": "Vector2(48, 48)",
 "next_indicator_texture": "\"res://assets/images/dialogue/next_indicator.png\"",
 "normal_font": "\"res://assets/fonts/dialogue/cause_variable.ttf\"",
 "text_custom_color": "Color(0, 0, 0, 1)",
