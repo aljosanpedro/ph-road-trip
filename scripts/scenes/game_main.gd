@@ -163,11 +163,9 @@ func _any_menu_opened(node: Control) -> void:
 	Events.any_menu_opened(node)
 
 func _on_open_save_menu() -> void:
-	pause_menu._on_play_button_pressed()
 	save_load_menu.show_save_load_menu(SaveLoadMenu.ContextualType.SAVING)
 
 func _on_open_load_menu() -> void:
-	pause_menu._on_play_button_pressed()
 	save_load_menu.show_save_load_menu(SaveLoadMenu.ContextualType.LOADING)
 
 	
