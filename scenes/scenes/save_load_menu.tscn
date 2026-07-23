@@ -1,0 +1,272 @@
+[gd_scene format=3 uid="uid://bskhqpm1wk0ic"]
+
+[ext_resource type="Script" uid="uid://bf1an0y18ttew" path="res://scripts/scenes/save_load_menu.gd" id="1_qx2ab"]
+[ext_resource type="Texture2D" uid="uid://cj8yix1poaytg" path="res://assets/images/pause/pause_menu_bg.png" id="2_547xl"]
+[ext_resource type="LabelSettings" uid="uid://bwok14bbdyyag" path="res://assets/themes/map_travel_label.tres" id="3_6x8lm"]
+[ext_resource type="PackedScene" uid="uid://c0fwu6hkbs1l5" path="res://scenes/components/save_slot.tscn" id="4_a6ypk"]
+[ext_resource type="Texture2D" uid="uid://byi0lmahk8pno" path="res://assets/images/dialogue/dialogue_background.png" id="6_4bls1"]
+[ext_resource type="FontFile" uid="uid://pr4dg23ninu0" path="res://assets/fonts/dialogue/cause-bold.ttf" id="7_4fbt0"]
+[ext_resource type="Theme" uid="uid://dgjvuohvn7vca" path="res://assets/themes/pause_menu_buttons_text.tres" id="7_rjth2"]
+
+[sub_resource type="Animation" id="Animation_f2hws"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseMenuItems:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackgroundColor:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_yhujo"]
+resource_name = "show_menu"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseMenuItems:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(0, 1050), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackgroundColor:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.333333)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f2hws"]
+_data = {
+&"RESET": SubResource("Animation_f2hws"),
+&"show_menu": SubResource("Animation_yhujo")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b5lyj"]
+texture = ExtResource("6_4bls1")
+
+[sub_resource type="LabelSettings" id="LabelSettings_q6f0e"]
+line_spacing = -4.0
+font = ExtResource("7_4fbt0")
+font_size = 36
+font_color = Color(0, 0, 0, 1)
+
+[node name="SaveLoadMenu" type="Control" unique_id=74259691]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_qx2ab")
+
+[node name="BackgroundColor" type="ColorRect" parent="." unique_id=1479676917]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="PauseMenuItems" type="Control" parent="." unique_id=23916602]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="PauseMenuItems" unique_id=916477208]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_547xl")
+expand_mode = 2
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="SaveLoadMenuLabel" type="Label" parent="PauseMenuItems" unique_id=753853012]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 66.0
+offset_right = 528.0
+offset_bottom = 208.0
+rotation = -0.0523599
+mouse_filter = 1
+text = "PAUSE"
+label_settings = ExtResource("3_6x8lm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="PauseMenuItems" unique_id=1283772128]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 240.0
+offset_right = 1602.0
+offset_bottom = 891.0
+theme_override_constants/h_separation = 54
+theme_override_constants/v_separation = 91
+columns = 4
+
+[node name="SaveSlot" parent="PauseMenuItems/GridContainer" unique_id=798463298 instance=ExtResource("4_a6ypk")]
+layout_mode = 2
+
+[node name="SaveSlot2" parent="PauseMenuItems/GridContainer" unique_id=1852495614 instance=ExtResource("4_a6ypk")]
+layout_mode = 2
+
+[node name="SaveSlot3" parent="PauseMenuItems/GridContainer" unique_id=1262038680 instance=ExtResource("4_a6ypk")]
+layout_mode = 2
+
+[node name="SaveSlot4" parent="PauseMenuItems/GridContainer" unique_id=323766310 instance=ExtResource("4_a6ypk")]
+layout_mode = 2
+
+[node name="SaveSlot5" parent="PauseMenuItems/GridContainer" unique_id=1283331410 instance=ExtResource("4_a6ypk")]
+layout_mode = 2
+
+[node name="SaveSlot6" parent="PauseMenuItems/GridContainer" unique_id=39639953 instance=ExtResource("4_a6ypk")]
+layout_mode = 2
+
+[node name="SaveSlot7" parent="PauseMenuItems/GridContainer" unique_id=1567667070 instance=ExtResource("4_a6ypk")]
+layout_mode = 2
+
+[node name="SaveSlot8" parent="PauseMenuItems/GridContainer" unique_id=469568663 instance=ExtResource("4_a6ypk")]
+layout_mode = 2
+
+[node name="ButtonList" type="VBoxContainer" parent="PauseMenuItems" unique_id=161389252]
+layout_mode = 0
+offset_left = 1402.0
+offset_top = 116.0
+offset_right = 1642.0
+offset_bottom = 213.0
+theme_override_constants/separation = 30
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="ReturnButton" type="Button" parent="PauseMenuItems/ButtonList" unique_id=117303842]
+layout_mode = 2
+theme = ExtResource("7_rjth2")
+text = "Return"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1339087942]
+libraries/ = SubResource("AnimationLibrary_f2hws")
+
+[node name="OverwriteLayer" type="Control" parent="." unique_id=2017304995]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="OverlayStopper" type="ColorRect" parent="OverwriteLayer" unique_id=1001414934]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.2627451)
+
+[node name="OverwriteWarning" type="PanelContainer" parent="OverwriteLayer" unique_id=910241688]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -160.0
+offset_right = 320.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_b5lyj")
+
+[node name="BoxContainer" type="VBoxContainer" parent="OverwriteLayer/OverwriteWarning" unique_id=239188221]
+layout_mode = 2
+
+[node name="OverwriteLabel" type="Label" parent="OverwriteLayer/OverwriteWarning/BoxContainer" unique_id=614714283]
+layout_mode = 2
+text = "
+
+Saving here will overwrite this slot.
+Proceed?
+"
+label_settings = SubResource("LabelSettings_q6f0e")
+horizontal_alignment = 1
+
+[node name="ButtonContainer" type="HBoxContainer" parent="OverwriteLayer/OverwriteWarning/BoxContainer" unique_id=1888461960]
+layout_mode = 2
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="OverwriteYes" type="Button" parent="OverwriteLayer/OverwriteWarning/BoxContainer/ButtonContainer" unique_id=2077461152]
+layout_mode = 2
+theme = ExtResource("7_rjth2")
+text = "Yes"
+
+[node name="OverwriteNo" type="Button" parent="OverwriteLayer/OverwriteWarning/BoxContainer/ButtonContainer" unique_id=665051807]
+layout_mode = 2
+theme = ExtResource("7_rjth2")
+text = "No"
+
+[connection signal="pressed" from="PauseMenuItems/ButtonList/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="gui_input" from="OverwriteLayer/OverlayStopper" to="." method="_on_overlay_stopper_gui_input"]
+[connection signal="pressed" from="OverwriteLayer/OverwriteWarning/BoxContainer/ButtonContainer/OverwriteYes" to="." method="_on_overwrite_yes_pressed"]
+[connection signal="pressed" from="OverwriteLayer/OverwriteWarning/BoxContainer/ButtonContainer/OverwriteNo" to="." method="_on_overwrite_no_pressed"]

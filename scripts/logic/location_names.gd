@@ -1,0 +1,28 @@
+extends Node
+
+const NAMES: Dictionary = {
+	"scene1": "Classroom",
+	"scene2": "Branching Point",
+	"scene2_altareroute": "Altare Route",
+	"scene2_altareroute_optionA": "Follow Altare",
+	"scene2_altareroute_optionA1": "Altare - Rooftop",
+	"scene2_altareroute_optionA2": "Altare - Auditorium",
+	"scene2_altareroute_optionA3": "Altare - Library",
+	"scene2_altareroute_optionB": "Altare - Split Up",
+	"scene2_axelroute": "Axel Route",
+	"scene2_axelroute_optionA": "Follow Axel",
+	"scene2_axelroute_optionA1": "Axel - Cafeteria",
+	"scene2_axelroute_optionA2": "Axel - Gym",
+	"scene2_axelroute_optionA3": "Axel - Music Room",
+	"scene2_axelroute_optionA4": "Axel - Faculty Office",
+	"scene2_axelroute_optionB": "Axel - Split Up",
+	"scene2_afterscene": "Aftermath",
+	"scene2_afterscene_a": "Aftermath - Path A",
+	"scene2_afterscene_b": "Aftermath - Path B",
+	"scene3": "Final Confrontation",
+	"scene3_question2": "The Choice",
+	"scene3_question3": "The Choice",
+	"scene3_question4": "The Choice",
+	"GOOD_ENDING": "Good Ending",
+	"BAD_ENDING": "Bad Ending",
+}
