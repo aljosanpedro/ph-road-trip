@@ -47,6 +47,7 @@ overrides = {
 "name_label_use_global_font": "false",
 "name_label_use_global_font_size": "false",
 "next_indicator_size": "Vector2(15, 15)",
+"next_indicator_texture": "\"res://assets/images/dialogue/next_indicator.png\"",
 "normal_font": "\"res://assets/fonts/dialogue/cause_variable.ttf\"",
 "text_custom_color": "Color(0, 0, 0, 1)",
 "text_size": "32.0",
