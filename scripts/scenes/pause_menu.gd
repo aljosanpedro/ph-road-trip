@@ -133,3 +133,14 @@ func show_settings() -> void:
 	
 
 #endregion
+
+
+func _on_save_game_pressed() -> void:
+	if animation_player.is_playing(): return
+	await _on_play_button_pressed()
+	Events.show_save_menu()
+
+func _on_load_game_pressed() -> void:
+	if animation_player.is_playing(): return
+	await _on_play_button_pressed()
+	Events.show_load_menu()

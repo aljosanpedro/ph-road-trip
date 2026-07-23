@@ -206,6 +206,21 @@ offset_bottom = 928.0
 theme_override_constants/separation = 30
 alignment = 1
 
+[node name="ReturnButton" type="Button" parent="PauseMenuItems/ButtonList" unique_id=117303842]
+layout_mode = 2
+theme = ExtResource("7_f2hws")
+text = "Back to Game"
+
+[node name="SaveGame" type="Button" parent="PauseMenuItems/ButtonList" unique_id=1585079657]
+layout_mode = 2
+theme = ExtResource("7_f2hws")
+text = "Save Game"
+
+[node name="LoadGame" type="Button" parent="PauseMenuItems/ButtonList" unique_id=2036749367]
+layout_mode = 2
+theme = ExtResource("7_f2hws")
+text = "Load Game"
+
 [node name="ToTitleScreenButton" type="Button" parent="PauseMenuItems/ButtonList" unique_id=1269525068]
 layout_mode = 2
 theme = ExtResource("7_f2hws")
@@ -215,11 +230,6 @@ text = "To Title Screen"
 layout_mode = 2
 theme = ExtResource("7_f2hws")
 text = "Quit"
-
-[node name="ReturnButton" type="Button" parent="PauseMenuItems/ButtonList" unique_id=117303842]
-layout_mode = 2
-theme = ExtResource("7_f2hws")
-text = "Return"
 
 [node name="ButtonLayerVisibility" type="Control" parent="." unique_id=1558135263]
 visible = false
@@ -267,8 +277,10 @@ libraries/ = SubResource("AnimationLibrary_f2hws")
 [connection signal="value_changed" from="PauseMenuItems/AudioSettings/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
 [connection signal="value_changed" from="PauseMenuItems/AudioSettings/SoundVolumeSlider" to="." method="_on_sound_volume_slider_value_changed"]
 [connection signal="value_changed" from="PauseMenuItems/AudioSettings/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="pressed" from="PauseMenuItems/ButtonList/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="PauseMenuItems/ButtonList/SaveGame" to="." method="_on_save_game_pressed"]
+[connection signal="pressed" from="PauseMenuItems/ButtonList/LoadGame" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="PauseMenuItems/ButtonList/ToTitleScreenButton" to="." method="_on_to_title_screen_button_pressed"]
 [connection signal="pressed" from="PauseMenuItems/ButtonList/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="PauseMenuItems/ButtonList/ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="ButtonLayerVisibility/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="ButtonLayerVisibility/PauseButton" to="." method="_on_pause_button_pressed"]
