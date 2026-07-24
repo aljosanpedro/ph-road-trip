@@ -91,6 +91,10 @@ func _perform_save(slot_name: String, slot_button_ref: SaveSlot) -> void:
 	extra_info["pending_interactable_switch"] = Events.pending_interactable_switch
 	_save_scrapbook_pictures(slot_name)
 	extra_info["scrapbook_count"] = len(Events.scrapbook_pictures)
+	# Save BGM state.
+	if AudioManager.background_music.playing and AudioManager.background_music.stream:
+		extra_info["bgm_path"] = AudioManager.background_music.stream.resource_path
+		extra_info["bgm_volume"] = AudioManager.background_music.volume_db
 	Dialogic.Save.save(slot_name, false, Dialogic.Save.ThumbnailMode.STORE_ONLY, extra_info)
 
 	# Then update the node.
@@ -171,6 +175,9 @@ func _restore_game_state(slot_name: String, info: Dictionary) -> void:
 		await Events.area_change_completed
 	# Restore scrapbook pictures.
 	_load_scrapbook_pictures(slot_name, info.get("scrapbook_count", 0))
+	# Restore BGM.
+	if info.has("bgm_path"):
+		AudioManager.bgm_play(info["bgm_path"], info.get("bgm_volume", 0))
 
 func _load_scrapbook_pictures(slot_name: String, count: int) -> void:
 	Events.scrapbook_pictures = []
