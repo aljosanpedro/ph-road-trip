@@ -152,10 +152,12 @@ func initialize() -> void:
 #region Dialogic-targeting Functions
 ## Function that will intercept timeline_started events to do stuff.
 func _events_when_timeline_started() -> void:
+	show_contextual_menus.emit(false)
 	toggle_pause_menu_layer.emit(false)
 
 ## Function that will intercept timeline_ended events to do stuff.
 func _events_when_timeline_ended() -> void:
+	show_contextual_menus.emit(true)
 	toggle_pause_menu_layer.emit(true)
 
 ## Helper function to force Dialogic to open history :D
