@@ -121,6 +121,9 @@ func _on_quit_button_pressed() -> void:
 ## For title screen only.
 func _on_return_button_pressed() -> void:
 	if animation_player.is_playing(): return
+
+	play_button.hide()
+	pause_button.show()
 	
 	animation_player.play_backwards("show_menu")
 	await animation_player.animation_finished
