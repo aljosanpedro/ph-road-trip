@@ -41,6 +41,10 @@ func _ready() -> void:
 	
 	Events.show_the_context_menus(true) # By default, as intro will flick it up.
 	Events.show_item_outline(true) # Interactables will now have outlines.
+	
+	# If all switches are already true (e.g. after loading), check immediately.
+	if not Events.is_restoring_timeline:
+		_is_everything_interacted()
 
 # If everything is interacted.
 func _is_everything_interacted() -> void:
