@@ -400,3 +400,5 @@ debug_color = Color(1, 0, 0, 0.41960785)
 [connection signal="item_clicked" from="Chicken" to="." method="_on_chicken_item_clicked"]
 [connection signal="item_clicked" from="Trees" to="." method="_on_trees_item_clicked"]
 [connection signal="item_clicked" from="SunkenGarden" to="." method="_on_sunken_garden_item_clicked"]
+[connection signal="item_clicked" from="Adi" to="." method="_on_adi_item_clicked"]
+[connection signal="item_clicked" from="Wiks" to="." method="_on_wiks_item_clicked"]

@@ -60,7 +60,8 @@ func _ready() -> void:
 func _apply_export_overrides() -> void:
 	var history_subsystem: Node = DialogicUtil.autoload().get(&'History')
 	if history_subsystem != null:
-		get_show_history_button().visible = show_open_button and history_subsystem.get(&'simple_history_enabled')
+		pass
+		#get_show_history_button().visible = show_open_button and history_subsystem.get(&'simple_history_enabled')
 	else:
 		set(&'visible', false)
 
@@ -150,4 +151,4 @@ func _on_hide_history_pressed() -> void:
 	get_history_box().hide()
 	get_hide_history_button().hide()
 	var history_subsystem: Node = DialogicUtil.autoload().get(&'History')
-	get_show_history_button().visible = show_open_button and history_subsystem.get(&'simple_history_enabled')
+	#get_show_history_button().visible = show_open_button and history_subsystem.get(&'simple_history_enabled')

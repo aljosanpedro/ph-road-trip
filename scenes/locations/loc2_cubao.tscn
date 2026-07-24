@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ccv1y830n3wje" path="res://assets/images/items/adi_interactable.png" id="12_j05l1"]
 [ext_resource type="Texture2D" uid="uid://c8nhnqsopvc4" path="res://assets/images/items/wiks_interactable.png" id="13_iuwtx"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7jojy"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j05l1"]
 resource_local_to_scene = true
 shader = ExtResource("4_xww42")
 shader_parameter/maxLineWidth = 0.0
@@ -33,7 +33,7 @@ size = Vector2(531, 249)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0d5x"]
 size = Vector2(141, 49.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i67qn"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iuwtx"]
 resource_local_to_scene = true
 shader = ExtResource("4_xww42")
 shader_parameter/maxLineWidth = 0.0
@@ -46,7 +46,7 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xww42"]
 size = Vector2(63, 82.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_iadbw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7jojy"]
 resource_local_to_scene = true
 shader = ExtResource("4_xww42")
 shader_parameter/maxLineWidth = 0.0
@@ -59,7 +59,7 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iuwtx"]
 size = Vector2(22.25, 104)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i0d5x"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i67qn"]
 resource_local_to_scene = true
 shader = ExtResource("4_xww42")
 shader_parameter/maxLineWidth = 0.0
@@ -72,7 +72,7 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j05l1"]
 size = Vector2(74.5, 118)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_q82dk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iadbw"]
 resource_local_to_scene = true
 shader = ExtResource("4_xww42")
 shader_parameter/maxLineWidth = 0.0
@@ -85,7 +85,7 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jojy"]
 size = Vector2(139.25, 88)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_576nd"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i0d5x"]
 resource_local_to_scene = true
 shader = ExtResource("4_xww42")
 shader_parameter/maxLineWidth = 0.0
@@ -98,7 +98,7 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6eh2"]
 size = Vector2(215, 292.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dmavs"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q82dk"]
 resource_local_to_scene = true
 shader = ExtResource("4_xww42")
 shader_parameter/maxLineWidth = 0.0
@@ -315,7 +315,7 @@ _data = {
 &"fade_to_black": SubResource("Animation_e3aox")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j05l1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_576nd"]
 resource_local_to_scene = true
 shader = ExtResource("4_xww42")
 shader_parameter/maxLineWidth = 0.0
@@ -328,7 +328,7 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q82dk"]
 size = Vector2(138, 382)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kgt01"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dmavs"]
 resource_local_to_scene = true
 shader = ExtResource("4_xww42")
 shader_parameter/maxLineWidth = 0.0
@@ -352,7 +352,7 @@ expand_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="Graffiti" parent="." unique_id=918383326 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
-material = SubResource("ShaderMaterial_7jojy")
+material = SubResource("ShaderMaterial_j05l1")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 0
@@ -378,7 +378,7 @@ shape = SubResource("RectangleShape2D_i0d5x")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Jolibee" parent="." unique_id=1679238870 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
-material = SubResource("ShaderMaterial_i67qn")
+material = SubResource("ShaderMaterial_iuwtx")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 0
@@ -394,7 +394,7 @@ shape = SubResource("RectangleShape2D_xww42")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Lanterns" parent="." unique_id=1250161382 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
-material = SubResource("ShaderMaterial_iadbw")
+material = SubResource("ShaderMaterial_7jojy")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 1
@@ -409,7 +409,7 @@ position = Vector2(373.875, 529)
 shape = SubResource("RectangleShape2D_iuwtx")
 
 [node name="Radio" parent="." unique_id=2123809075 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
-material = SubResource("ShaderMaterial_i0d5x")
+material = SubResource("ShaderMaterial_i67qn")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 1
@@ -424,7 +424,7 @@ position = Vector2(470.75, 865)
 shape = SubResource("RectangleShape2D_j05l1")
 
 [node name="Kids" parent="." unique_id=564104444 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
-material = SubResource("ShaderMaterial_q82dk")
+material = SubResource("ShaderMaterial_iadbw")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 1
@@ -440,7 +440,7 @@ position = Vector2(696.375, 548)
 shape = SubResource("RectangleShape2D_7jojy")
 
 [node name="Mannequins" parent="." unique_id=396230566 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
-material = SubResource("ShaderMaterial_576nd")
+material = SubResource("ShaderMaterial_i0d5x")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 0
@@ -456,7 +456,7 @@ shape = SubResource("RectangleShape2D_x6eh2")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Clothesline" parent="." unique_id=1951268596 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
-material = SubResource("ShaderMaterial_dmavs")
+material = SubResource("ShaderMaterial_q82dk")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 0
@@ -477,7 +477,7 @@ debug_color = Color(1, 0, 0, 0.419608)
 libraries/ = SubResource("AnimationLibrary_x6eh2")
 
 [node name="Adi" parent="." unique_id=1750703924 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
-material = SubResource("ShaderMaterial_j05l1")
+material = SubResource("ShaderMaterial_576nd")
 position = Vector2(1121, 12)
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
@@ -494,7 +494,7 @@ position = Vector2(551, 755)
 shape = SubResource("RectangleShape2D_q82dk")
 
 [node name="Wiks" parent="." unique_id=1031270667 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
-material = SubResource("ShaderMaterial_kgt01")
+material = SubResource("ShaderMaterial_dmavs")
 position = Vector2(-255, -26)
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
@@ -517,3 +517,5 @@ debug_color = Color(1, 0, 0, 0.41960785)
 [connection signal="item_clicked" from="Kids" to="." method="_on_kids_item_clicked"]
 [connection signal="item_clicked" from="Mannequins" to="." method="_on_mannequins_item_clicked"]
 [connection signal="item_clicked" from="Clothesline" to="." method="_on_clothesline_item_clicked"]
+[connection signal="item_clicked" from="Adi" to="." method="_on_adi_item_clicked"]
+[connection signal="item_clicked" from="Wiks" to="." method="_on_wiks_item_clicked"]

@@ -143,5 +143,12 @@ func _on_sunken_garden_item_clicked() -> void:
 	await Dialogic.timeline_ended
 	Events.finish_interactable("loc_1_sunken_garden")
 
+func _on_adi_item_clicked() -> void:
+	Events.set_current_pov(Events.POV_Character.ADI)
+	get_viewport().set_input_as_handled()
+
+func _on_wiks_item_clicked() -> void:
+	Events.set_current_pov(Events.POV_Character.WIKS)
+	
 
 #endregion

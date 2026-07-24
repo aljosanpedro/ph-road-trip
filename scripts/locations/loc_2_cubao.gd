@@ -177,5 +177,12 @@ func _on_clothesline_item_clicked() -> void:
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "clothes")
 	await Dialogic.timeline_ended
 	Events.finish_interactable("loc_2_clothes")
-	
+
+func _on_adi_item_clicked() -> void:
+	Events.set_current_pov(Events.POV_Character.ADI)
+	get_viewport().set_input_as_handled()
+
+func _on_wiks_item_clicked() -> void:
+	Events.set_current_pov(Events.POV_Character.WIKS)
+	get_viewport().set_input_as_handled()
 #endregion
