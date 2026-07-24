@@ -60,8 +60,7 @@ func _ready() -> void:
 func _apply_export_overrides() -> void:
 	var history_subsystem: Node = DialogicUtil.autoload().get(&'History')
 	if history_subsystem != null:
-		#get_show_history_button().visible = show_open_button and history_subsystem.get(&'simple_history_enabled')
-		pass
+		get_show_history_button().visible = show_open_button and history_subsystem.get(&'simple_history_enabled')
 	else:
 		set(&'visible', false)
 
@@ -123,13 +122,15 @@ func show_history() -> void:
 			"Choice":
 				var choices_text: String = ""
 				if show_all_choices:
-					for i : String in info['all_choices']:
-						if i.ends_with('#disabled'):
-							choices_text += "-  [i]("+i.trim_suffix('#disabled')+")[/i]\n"
-						elif i == info['text']:
-							choices_text += "-> [b]"+i+"[/b]\n"
+					for i:Dictionary in info['all_choices']:
+						if not i.visible:
+							continue
+						if i.disabled:
+							choices_text += "-  [i]("+i.text+")[/i]\n"
+						elif i.text == info['text']:
+							choices_text += "-> [b]"+i.text+"[/b]\n"
 						else:
-							choices_text += "-> "+i+"\n"
+							choices_text += "-> "+i.text+"\n"
 				else:
 					choices_text += "- [b]"+info['text']+"[/b]\n"
 				history_item.call(&'load_info', choices_text)
@@ -149,4 +150,4 @@ func _on_hide_history_pressed() -> void:
 	get_history_box().hide()
 	get_hide_history_button().hide()
 	var history_subsystem: Node = DialogicUtil.autoload().get(&'History')
-	#get_show_history_button().visible = show_open_button and history_subsystem.get(&'simple_history_enabled')
+	get_show_history_button().visible = show_open_button and history_subsystem.get(&'simple_history_enabled')
