@@ -94,6 +94,10 @@ var is_restoring_timeline: bool = false
 ## Tracks which location intros have already been played.
 var intros_played: Dictionary = {}
 
+## Tracks a pending interactable switch to set when its dialogue ends.
+## Used for save/load: if set, a one-time timeline_ended handler will finish it.
+var pending_interactable_switch: String = ""
+
 ## Current Scene Context.
 var current_scene_context: SCENE_CONTEXT = SCENE_CONTEXT.IN_MENU:
 	get:
@@ -138,6 +142,7 @@ func initialize() -> void:
 	current_scene_path = ""
 	is_restoring_timeline = false
 	intros_played = {}
+	pending_interactable_switch = ""
 	for sw in switches:
 		switches[sw] = false
 	current_pov = POV_Character.ADI
@@ -157,6 +162,12 @@ func _events_when_timeline_ended() -> void:
 func show_history(value: bool) -> void:
 	if value: DialogicUtil.autoload().History.open_history()
 	else: DialogicUtil.autoload().History.close_history()
+
+## Finishes an interactable after its dialogue ends.
+func finish_interactable(switch_name: String) -> void:
+	show_item_outline(true)
+	set_switch(switch_name, true)
+	pending_interactable_switch = ""
 
 #endregion
 
@@ -231,6 +242,7 @@ func reset()-> void:
 	current_scene_path = ""
 	is_restoring_timeline = false
 	intros_played = {}
+	pending_interactable_switch = ""
 	for sw in switches:
 		switches[sw] = false
 		

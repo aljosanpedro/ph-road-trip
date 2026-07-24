@@ -101,10 +101,10 @@ func _on_graffiti_item_clicked() -> void:
 		return
 	
 	Events.show_item_outline(false)
+	Events.pending_interactable_switch = "loc_2_graffiti"
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "graffiti")
 	await Dialogic.timeline_ended
-	Events.show_item_outline(true)
-	Events.set_switch("loc_2_graffiti", true)
+	Events.finish_interactable("loc_2_graffiti")
 
 
 func _on_jolibee_item_clicked() -> void:
@@ -113,10 +113,10 @@ func _on_jolibee_item_clicked() -> void:
 		return
 	
 	Events.show_item_outline(false)
+	Events.pending_interactable_switch = "loc_2_jabee"
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "jabee")
 	await Dialogic.timeline_ended
-	Events.show_item_outline(true)
-	Events.set_switch("loc_2_jabee", true)
+	Events.finish_interactable("loc_2_jabee")
 
 
 func _on_lanterns_item_clicked() -> void:
@@ -125,10 +125,10 @@ func _on_lanterns_item_clicked() -> void:
 		return
 	
 	Events.show_item_outline(false)
+	Events.pending_interactable_switch = "loc_2_lanterns"
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "lanterns")
 	await Dialogic.timeline_ended
-	Events.show_item_outline(true)
-	Events.set_switch("loc_2_lanterns", true)
+	Events.finish_interactable("loc_2_lanterns")
 
 
 func _on_radio_item_clicked() -> void:
@@ -137,10 +137,10 @@ func _on_radio_item_clicked() -> void:
 		return
 	
 	Events.show_item_outline(false)
+	Events.pending_interactable_switch = "loc_2_radio"
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "radio")
 	await Dialogic.timeline_ended
-	Events.show_item_outline(true)
-	Events.set_switch("loc_2_radio", true)
+	Events.finish_interactable("loc_2_radio")
 
 
 func _on_kids_item_clicked() -> void:
@@ -149,10 +149,10 @@ func _on_kids_item_clicked() -> void:
 		return
 	
 	Events.show_item_outline(false)
+	Events.pending_interactable_switch = "loc_2_kids_playing"
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "kids_playing")
 	await Dialogic.timeline_ended
-	Events.show_item_outline(true)
-	Events.set_switch("loc_2_kids_playing", true)
+	Events.finish_interactable("loc_2_kids_playing")
 
 
 func _on_mannequins_item_clicked() -> void:
@@ -161,10 +161,10 @@ func _on_mannequins_item_clicked() -> void:
 		return
 	
 	Events.show_item_outline(false)
+	Events.pending_interactable_switch = "loc_2_mannequins"
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "mannequins")
 	await Dialogic.timeline_ended
-	Events.show_item_outline(true)
-	Events.set_switch("loc_2_mannequins", true)
+	Events.finish_interactable("loc_2_mannequins")
 
 
 func _on_clothesline_item_clicked() -> void:
@@ -173,9 +173,9 @@ func _on_clothesline_item_clicked() -> void:
 		return
 	
 	Events.show_item_outline(false)
+	Events.pending_interactable_switch = "loc_2_clothes"
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "clothes")
 	await Dialogic.timeline_ended
-	Events.show_item_outline(true)
-	Events.set_switch("loc_2_clothes", true)
+	Events.finish_interactable("loc_2_clothes")
 	
 #endregion

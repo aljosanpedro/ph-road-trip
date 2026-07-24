@@ -65,6 +65,7 @@ func _ready() -> void:
 		await save_load_menu._restore_game_state(slot_name, game_state)
 		Events.is_restoring_timeline = false
 		Dialogic.Save.load(slot_name)
+		save_load_menu._finish_pending_interactable()
 		Dialogic.Inputs.manual_advance.system_enabled = true
 		Events.current_scene_context = Events.SCENE_CONTEXT.IN_GAME
 	else:

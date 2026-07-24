@@ -75,6 +75,7 @@ func _save_load_slot_pressed(slot_name: String, slot_button_ref: SaveSlot) -> vo
 				await _restore_game_state(slot_name, info)
 				Events.is_restoring_timeline = false
 				Dialogic.Save.load(slot_name)
+				_finish_pending_interactable()
 				Dialogic.Inputs.manual_advance.system_enabled = true
 				hide_menu()
 
@@ -87,6 +88,7 @@ func _perform_save(slot_name: String, slot_button_ref: SaveSlot) -> void:
 	extra_info["switches"] = Events.switches.duplicate()
 	extra_info["current_scene_path"] = Events.current_scene_path
 	extra_info["intros_played"] = Events.intros_played.duplicate()
+	extra_info["pending_interactable_switch"] = Events.pending_interactable_switch
 	_save_scrapbook_pictures(slot_name)
 	extra_info["scrapbook_count"] = len(Events.scrapbook_pictures)
 	Dialogic.Save.save(slot_name, false, Dialogic.Save.ThumbnailMode.STORE_ONLY, extra_info)
@@ -160,6 +162,9 @@ func _restore_game_state(slot_name: String, info: Dictionary) -> void:
 	# Restore intros played.
 	if info.has("intros_played"):
 		Events.intros_played = info["intros_played"].duplicate()
+	# Restore pending interactable switch.
+	if info.has("pending_interactable_switch"):
+		Events.pending_interactable_switch = info["pending_interactable_switch"]
 	# Restore current scene path and load the location.
 	if info.has("current_scene_path") and info["current_scene_path"] != "":
 		Events.change_area(info["current_scene_path"])
@@ -184,6 +189,13 @@ func _load_scrapbook_pictures(slot_name: String, count: int) -> void:
 			tex_rect.position.x += 1.9
 			tex_rect.position.y += 1.5
 			Events.scrapbook_pictures.append(tex_rect)
+
+func _finish_pending_interactable() -> void:
+	if Events.pending_interactable_switch != "":
+		var switch_name = Events.pending_interactable_switch
+		Dialogic.timeline_ended.connect(func():
+			Events.finish_interactable(switch_name)
+		, CONNECT_ONE_SHOT)
 
 #endregion
 

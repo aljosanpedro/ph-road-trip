@@ -94,10 +94,10 @@ func _on_chicken_item_clicked() -> void:
 		return
 	
 	Events.show_item_outline(false)
+	Events.pending_interactable_switch = "loc_1_loose_chicken"
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "loose_chicken")
 	await Dialogic.timeline_ended
-	Events.show_item_outline(true)
-	Events.set_switch("loc_1_loose_chicken", true)
+	Events.finish_interactable("loc_1_loose_chicken")
 
 func _on_stall_item_clicked() -> void:
 	if Events.get_switch("loc_1_stall"): 
@@ -105,10 +105,10 @@ func _on_stall_item_clicked() -> void:
 		return
 	
 	Events.show_item_outline(false)
+	Events.pending_interactable_switch = "loc_1_stall"
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "stall")
 	await Dialogic.timeline_ended
-	Events.show_item_outline(true)
-	Events.set_switch("loc_1_stall", true)
+	Events.finish_interactable("loc_1_stall")
 
 func _on_adis_mural_item_clicked() -> void:
 	if Events.get_switch("loc_1_adis_mural"): 
@@ -116,10 +116,10 @@ func _on_adis_mural_item_clicked() -> void:
 		return
 	
 	Events.show_item_outline(false)
+	Events.pending_interactable_switch = "loc_1_adis_mural"
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "adis_mural")
 	await Dialogic.timeline_ended
-	Events.show_item_outline(true)
-	Events.set_switch("loc_1_adis_mural", true)
+	Events.finish_interactable("loc_1_adis_mural")
 
 func _on_trees_item_clicked() -> void:
 	if Events.get_switch("loc_1_trees"): 
@@ -127,10 +127,10 @@ func _on_trees_item_clicked() -> void:
 		return
 	
 	Events.show_item_outline(false)
+	Events.pending_interactable_switch = "loc_1_trees"
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "trees")
 	await Dialogic.timeline_ended
-	Events.show_item_outline(true)
-	Events.set_switch("loc_1_trees", true)
+	Events.finish_interactable("loc_1_trees")
 
 func _on_sunken_garden_item_clicked() -> void:
 	if Events.get_switch("loc_1_sunken_garden"): 
@@ -138,10 +138,10 @@ func _on_sunken_garden_item_clicked() -> void:
 		return
 	
 	Events.show_item_outline(false)
+	Events.pending_interactable_switch = "loc_1_sunken_garden"
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "sunken_garden")
 	await Dialogic.timeline_ended
-	Events.show_item_outline(true)
-	Events.set_switch("loc_1_sunken_garden", true)
+	Events.finish_interactable("loc_1_sunken_garden")
 
 
 #endregion
