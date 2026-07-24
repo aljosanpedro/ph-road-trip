@@ -478,7 +478,7 @@ libraries/ = SubResource("AnimationLibrary_x6eh2")
 
 [node name="Adi" parent="." unique_id=1750703924 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
 material = SubResource("ShaderMaterial_576nd")
-position = Vector2(1121, 12)
+position = Vector2(920, 69)
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 1
