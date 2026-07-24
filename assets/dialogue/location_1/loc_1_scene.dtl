@@ -1,6 +1,7 @@
 label intro
 [background arg="res://assets/images/backgrounds/black_bg.png" fade="0.0"]
-The old campus rises out of the water-logged streets like it never got the memo that it was supposed to be flooded. The caravan passes through lecture halls turned into food storage, banners fluttering between classroom windows, smoke rising from lunchtime cookfires.
+The old campus rises out of the water-logged streets like it never got the memo that it was supposed to be flooded. 
+The caravan passes through lecture halls turned into food storage, banners fluttering between classroom windows, smoke rising from lunchtime cookfires.
 There's a music that sings through the trees, some stringed instruments being plucked between the branches. Beside you, the Singer hums something to the same tune.
 join adi leftmost
 join wiks left

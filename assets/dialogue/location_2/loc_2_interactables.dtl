@@ -1,5 +1,5 @@
 label kids_playing
-The two of you are walking when you hear loud footsteps running towards you. You barely have time to turn around when—BAM! A young kid, no more than six years old, slams head first into your thigh.
+The two of you are walking when you hear loud footsteps running towards you. You barely have time to turn around when-- BAM! A young kid, no more than six years old, slams head first into your thigh.
 wiks: Woah! Are you alright?
 You grab the kid before he falls to the ground. He’s dazed, but seemed unharmed. Behind him, you see a bunch of kids around his age stop before you. They were probably chasing each other.
 random_kid: Oy Lian, what happened?
@@ -60,7 +60,7 @@ Wiks nods, though you don't know if he understood why you said so. He steps back
 wiks: I'll be here if you need me.
 jump end
 label clothes
-Your eyes catch sight of a row of clothes hanging on makeshift clotheslines, many of them missing buttons or frayed at the edges. 
+Your eyes catch sight of a row of clothes hanging on makeshift clotheslines, many of them missing buttons or frayed at the edges.
 Some of the garments had been repurposed into patchwork outfits, while others were left untouched.
 The fabric feels soft and well-worn under your fingertips, but you feel like it wasn't always like this.
 There would've been a time when the fabric was crisp, new, marked with shapes and patterns (or the lack of them) that alluded to people's tastes.
@@ -71,16 +71,22 @@ Why must you now be the one to decide which past gets reborn into the present?
 jump end
 label mannequins
 adi: Why'd they just leave the mannequins in one place like this?
-adi: It looks creepy, all posed like this.
+adi: It looks out of place, all posed like this.
 adi: Although…
-adi: Maybe I can ask them for one at some point, since no one seems to use them.
-adi: I could use the model.
-adi: Maybe I'd even let Wiks carry it home.
-You laugh to yourself as you leave.
+adi: Hey Wiks!
+You shout his name and he scampers into view.
+He peers into the mannequins.
+wiks: Hm, that one's missing an arm. And that one's beheaded. They all seem to be in wonderful condition though. Barely warped, still solid.
+wiks: What's it for? I though you already have a model.
+adi: Does it have to be used for something?
+adi: It's probably already worn everything it needs to wear.
+He hums, then gives it a light push. It doesn't budge.
+wiks: No, guess not. Seems too heavy to bring home though.
+adi: Maybe we can pick it up once we get back home.
 jump end
 label jabee
 A mascot stands before you, a cartoonishly happy bee bedecked in gold and red, its stinger pointed high in pride. It's the same mascot that you've seen at your studio.
-[i]Tita[/i] says it's a logo of a famous fast food place, though you don't exactly have a concept of what makes food fast. 
+[i]Tita[/i] says it's a logo of a famous fast food place, though you don't exactly have a concept of what makes food fast.
 While they no longer exist in the flooded cities, she said she once found an intact place far inland, where most citizens moved to, decades back.
 wiks: Huh, that's the mascot in your place, right? Funny we'd see it here as well.
 adi: Well, it is famous. How many of these had you seen out there?

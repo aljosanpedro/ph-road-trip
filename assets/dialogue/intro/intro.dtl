@@ -67,10 +67,11 @@ The two of you meet up with the leader of the caravan, a well-known singer and m
 She doesn't look back as the two of you settle into her car-turned-carriage.
 join singer right
 singer: Cutting it close, you two. Let me guess, you argued all the way here?
-You catch your breath before you plop down beside her on the back of the vehicle. Her hands are on her lap, holding sheafs of paper. Logistics, most likely, of cargo and people and settlements the caravan's passing through. You took a look at it once and got a headache.
+You catch your breath before you plop down beside her on the back of the vehicle. Her hands are on her lap, holding sheafs of paper. 
+Logistics, most likely, of cargo and people and settlements the caravan's passing through. You took a look at it once and got a headache.
 wiks: No, we were just very excited.
-She huffs, almost the sound of laughter. 
-singer: Mhmm, and your excitement has you both winded, haphazardly carrying your packs, and conveniently forgetting what the bells mean?
+She huffs, sounding like barely-contained laughter. 
+singer: Mhmm, and your excitement has you both winded, haphazardly carrying your packs, and conveniently forgetting why we had those massive bells ringing early in the morning?
 You shrug as she turns around to raise an eyebrow at Adi.
 singer: Water?
 Adi nods.
@@ -78,13 +79,14 @@ singer: Clothes?
 She gives a thumbs up.
 A teasing smile enters the Singer's lips.
 singer: Sleeping pack?
-You see the color drain out of Adi's face. The Singer snickers and turns her head back to the road.
-singer: There's a spare one on the cargo space. [i]Mga bata talaga ngayon[i]… You two are so predictable. 
+You see the color drain out of Adi's face. 
+The Singer snickers and turns her head back to the road.
+singer (happy): There's a spare one on the cargo space. [i]Mga bata talaga ngayon[/i]… You two are so predictable. 
 You see Adi leave to settle in and grab the spare pack, as well as reorganize your stuff.
 leave adi
 update wiks left
 update singer right [z_index="0"]
-singer: Well, that's done. The university, yes?
+singer (neutral): Well, that's done. The university, yes?
 wiks: As usual. How's it been? Hadn't been there in half a year.
 singer: Still standing, still arguing if its a school or a town or a school town or a town school.
 She glances behind her, at Adi.
@@ -93,12 +95,12 @@ There's a small falter in Adi's smile.
 singer: If not… I guess you two'll just have to tolerate it.
 wiks: She tolerates a lot of things. Like being late.
 Adi quickly recovers to flick your arm.
-adi: You're lucky I tolerate [i]you[/i].
+adi (happy): You're lucky I tolerate [i]you[/i].
 The singer snorts as the caravan and the three of you settle into its rhythm: creaking wheels, clattering cargo, the din of a moving caravan echoing throughout the broken city roads.
 Adi gazes outside the window, staring at the old buildings pass by.
-adi: It's been a while since I've been out like this.
+adi (neutral): It's been a while since I've been out like this.
 singer: Mhmm, and we'll have around two hours to enjoy the view. Three, if that damned street past the old church is flooded again.
-singer: Anyway, that's why I nudged wiks here to bring you with him.
+singer: Anyway, that's why I nudged Wiks here to bring you with him.
 adi: I reckon some time outside town'll do you some good.
 wiks: Well, its her first time out on the waters and she spends goodness knows how long finding a camera.
 You turn to her.

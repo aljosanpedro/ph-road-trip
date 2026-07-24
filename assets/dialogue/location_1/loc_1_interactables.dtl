@@ -1,7 +1,10 @@
 label stall
 Near the caravan drop off point is a small, weathered stall selling food.
-It's not particularly of note, with a weathered sign with the words [i]Bancit's Kantunan[/i] plastered in front, and an upturned cart that serves as a makeshift table in front of it. The wood's been painted and repainted multiple times, and you can pick out the colors if you squint. Some of the planks are newer than others, and the metal roof is half rusted, half newly scavenged.
+It's not particularly of note, with a weathered sign with the words [i]Bancit's Kantunan[/i] plastered in front, and an upturned cart that serves as a makeshift table in front of it. 
+The wood's been painted and repainted multiple times, and you can pick out the colors if you squint. Some of the planks are newer than others, and the metal roof is half rusted, half newly scavenged.
 The two of you approach, and with a light rap on the stall counter, a wizened old man turns. It takes him a few seconds before he suddenly brightens up and looks at Wiks.
+join wiks left
+join adi right
 old_man: Is that you... [i]whatsyournameagain[/i]... Wiks! Yes! Ah, how you've grown!
 wiks: Good morning, how's the business doing?
 old_man: It's fine it's fine, even if my fingers are getting a bit sore from all the chopping... Oh! My apologies, greetings to you as well, my beautiful young lady!
@@ -35,6 +38,8 @@ jump end
 label sunken_garden
 It doesn't take long to find the so-called floating garden in the middle of the town.
 The pool is wide and relatively deep, ringed with trees and old cement blocks dragged to form surfaces where petals and leaves dry off in dappled sunlight. Floating across the surface are hundreds of flowers—wild, vibrant, beautiful. A boat plies the surface, harvesting flowers into a bag.
+join wiks left
+join adi right
 adi: So this is the floating garden.
 adi: I wonder how it came to be?
 wiks: I heard a few stories that you might be interested in.
@@ -57,7 +62,10 @@ adi: I don't think it was. It's too beautiful for it to be a happy accident.
 She tugs at your arm, and you two head back into the main street.
 jump end
 label adis_mural
-As the two of you wander around, a young man stops the two of you. He's lanky, just a few years younger than the two of you, with a mop of black hair and a large grin in his face. He appears to recognize Adi.
+As the two of you wander around, a young man stops the two of you. 
+He's lanky, just a few years younger than the two of you, with a mop of black hair and a large grin in his face. He appears to recognize Adi.
+join wiks left
+join adi right
 young_man: Oh hey, hi! It's you right?
 Adi blinks, confused.
 adi: Huh?
@@ -86,7 +94,8 @@ You wonder if ever she'll tell you about it.
 jump end
 label trees
 You walk along the street and pass a single large tree that rises near the fence line, its branches sprawling away like someone stretching.
-Cloth strips hang from it—messages, blessings, names written in charcoal or carved into bark. A few candles flicker at its base, along with a smattering of religious figurines. A broken circuit board in a piece of string swings loosely in the breeze. A person or two lingers, heads bowed.
+Cloth strips hang from it—messages, blessings, names written in charcoal or carved into bark. A few candles flicker at its base, along with a smattering of religious figurines. 
+A broken circuit board in a piece of string swings loosely in the breeze. A person or two lingers, heads bowed.
 [background arg="res://assets/images/cgs/tree-ribbon-loose.png" fade="0.0"]
 Below it is a bunch of loose ribbons.
 [background arg="res://assets/images/cgs/tree-adi.png" fade="0.0"]
@@ -108,6 +117,8 @@ The two of you don't say anything more.
 With a small nod to Wiks, the two of you leave the tree to its solitude.
 jump end
 label loose_chicken
+join wiks left
+join adi right
 You hear a squawk, then a blur of feathers, and in a blink of an eye, everything devolves to chaos.
 Something wooden snaps, you hear the panicked shouts of people, and spot a wagon with six cages, and six chickens who were decisively trying their damnedest to not be in those cages.
 Before you can react, you see Wiks in the thick of it, hands outstretched, leg splayed out, herding and lunging in some weird dance.
