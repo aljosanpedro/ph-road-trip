@@ -12,8 +12,9 @@ func _ready() -> void:
 	Events.show_the_context_menus(false) # End of demo.
 	
 	# Set dialogue immediately.
-	Dialogic.start("res://assets/dialogue/end_of_demo.dtl")
-	await Dialogic.timeline_ended
+	if not Events.is_restoring_timeline:
+		Dialogic.start("res://assets/dialogue/end_of_demo.dtl")
+		await Dialogic.timeline_ended
 	
 	get_tree().change_scene_to_packed(preload("res://scenes/scenes/scrapbook.tscn"))
 	#Events.reset()

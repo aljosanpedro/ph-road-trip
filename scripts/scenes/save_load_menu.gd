@@ -71,7 +71,9 @@ func _save_load_slot_pressed(slot_name: String, slot_button_ref: SaveSlot) -> vo
 				Dialogic.Inputs.manual_advance.system_enabled = true
 			else:
 				var info = Dialogic.Save.get_slot_info(slot_name)
+				Events.is_restoring_timeline = true
 				await _restore_game_state(slot_name, info)
+				Events.is_restoring_timeline = false
 				Dialogic.Save.load(slot_name)
 				Dialogic.Inputs.manual_advance.system_enabled = true
 				hide_menu()
@@ -84,6 +86,7 @@ func _perform_save(slot_name: String, slot_button_ref: SaveSlot) -> void:
 	extra_info["current_pov"] = Events.current_pov
 	extra_info["switches"] = Events.switches.duplicate()
 	extra_info["current_scene_path"] = Events.current_scene_path
+	extra_info["intros_played"] = Events.intros_played.duplicate()
 	_save_scrapbook_pictures(slot_name)
 	extra_info["scrapbook_count"] = len(Events.scrapbook_pictures)
 	Dialogic.Save.save(slot_name, false, Dialogic.Save.ThumbnailMode.STORE_ONLY, extra_info)
@@ -154,6 +157,9 @@ func _restore_game_state(slot_name: String, info: Dictionary) -> void:
 		for key in saved_switches:
 			Events.switches[key] = saved_switches[key]
 		Events.switch_has_been_set.emit()
+	# Restore intros played.
+	if info.has("intros_played"):
+		Events.intros_played = info["intros_played"].duplicate()
 	# Restore current scene path and load the location.
 	if info.has("current_scene_path") and info["current_scene_path"] != "":
 		Events.change_area(info["current_scene_path"])

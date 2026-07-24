@@ -34,8 +34,10 @@ func _ready() -> void:
 	Events.show_item_outline(false)
 	
 	# Set dialogue immediately.
-	Dialogic.start("res://assets/dialogue/location_2/loc_2_scene.dtl", "intro")
-	await Dialogic.timeline_ended
+	if not Events.is_restoring_timeline and not Events.intros_played.has("loc_2"):
+		Dialogic.start("res://assets/dialogue/location_2/loc_2_scene.dtl", "intro")
+		await Dialogic.timeline_ended
+		Events.intros_played["loc_2"] = true
 	
 	Events.show_the_context_menus(true) # By default, as intro will flick it up.
 	Events.show_item_outline(true) # Interactables will now have outlines.

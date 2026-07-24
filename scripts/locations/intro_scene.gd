@@ -1,7 +1,8 @@
 extends Node2D
 
 func _ready() -> void:
-	_intro()
+	if not Events.is_restoring_timeline:
+		_intro()
 	
 ## Call upon intro to start the game.
 func _intro() -> void:

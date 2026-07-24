@@ -88,6 +88,12 @@ var save_load_menu: SaveLoadMenu
 ## Tracks the currently loaded location scene path for save/load.
 var current_scene_path: String = ""
 
+## Flag to skip scene _ready() logic during save load.
+var is_restoring_timeline: bool = false
+
+## Tracks which location intros have already been played.
+var intros_played: Dictionary = {}
+
 ## Current Scene Context.
 var current_scene_context: SCENE_CONTEXT = SCENE_CONTEXT.IN_MENU:
 	get:
@@ -99,11 +105,13 @@ var current_scene_context: SCENE_CONTEXT = SCENE_CONTEXT.IN_MENU:
 	# INFO: Set via open_camera(), any_menu_opened(), pause_menu.gd, game_main.gd, camera.gd, history_layer.gd
 
 #endregion
+func _init() -> void:
+	Dialogic.timeline_started.connect(_events_when_timeline_started)
+	Dialogic.timeline_ended.connect(_events_when_timeline_ended)
 
 #region Virtual functions
 func _ready() -> void:
-	Dialogic.timeline_started.connect(_events_when_timeline_started)
-	Dialogic.timeline_ended.connect(_events_when_timeline_ended)
+	false
 
 # For more global handling
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -128,6 +136,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 func initialize() -> void:
 	current_scene_context = SCENE_CONTEXT.IN_GAME
 	current_scene_path = ""
+	is_restoring_timeline = false
+	intros_played = {}
 	for sw in switches:
 		switches[sw] = false
 	current_pov = POV_Character.ADI
@@ -219,6 +229,8 @@ func get_switch(switch_name) -> bool:
 ## Resets everything when going back to main menu.
 func reset()-> void:
 	current_scene_path = ""
+	is_restoring_timeline = false
+	intros_played = {}
 	for sw in switches:
 		switches[sw] = false
 		
