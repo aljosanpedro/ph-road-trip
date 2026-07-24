@@ -54,14 +54,14 @@ func _on_mouse_entered() -> void:
 	if not _required_character_checker(): return
 	if sprite_component != null: sprite_component.set_use_parent_material(true)  # Show outline.
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
-	modulate = Color(2, 2, 2)
+	#modulate = Color(2, 2, 2)
 
 ## INFO: De-highlights item when mouse hovers away from the item.
 func _on_mouse_exited() -> void:
 	if not _required_character_checker(): return
 	if sprite_component != null: sprite_component.set_use_parent_material(false) # Hide outline.
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-	modulate = Color(1, 1, 1)
+	#modulate = Color(1, 1, 1)
 	
 ## INFO: Checks for the current character POV. [b]Returns true[/b] if its the 
 ## character we want, [b]returns false[/b] otherwise.
