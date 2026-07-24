@@ -8,6 +8,8 @@ extends Node
 @onready var sfx_volume: float
 @onready var game_cleared: bool
 
+@onready var text_speed: float
+@onready var auto_speed: float
 
 func _ready():
 	_load_settings()
@@ -17,6 +19,9 @@ func _ready():
 	sound_volume_change(sound_volume)
 	sfx_volume_change(sfx_volume)
 	fullscreen_change(fullscreen_value)
+	
+	text_speed_change(text_speed)
+	auto_speed_change(auto_speed)
 
 func master_volume_change(volume: float):
 	master_volume = volume
@@ -53,6 +58,9 @@ func _default_settings():
 	sfx_volume = 1.0
 	fullscreen_value = true
 	game_cleared = false
+	
+	text_speed = 0.5
+	auto_speed = 0.5
 
 func _load_settings():
 	# Creates new ConfigFile object
@@ -64,7 +72,7 @@ func _load_settings():
 	# If there's no settings, then make some.
 	if err != OK:
 		_default_settings()
-		_save_settings()
+		save_settings()
 		return
 
 	# If not, well, we're getting values. (No need to close, Godot does its job)
@@ -74,9 +82,12 @@ func _load_settings():
 	sfx_volume = config.get_value("Music", "sfx_volume", 0.6)
 	fullscreen_value = config.get_value("Window", "window_mode", true)
 	
+	text_speed = config.get_value("Game", "text_speed", 0.5)
+	auto_speed = config.get_value("Game", "auto_speed", 0.5)
+	
 	config.set_value("Game", "cleared", false)
 
-func _save_settings():
+func save_settings():
 	# Creates new ConfigFile object.
 	var config = ConfigFile.new()
 	
@@ -86,6 +97,9 @@ func _save_settings():
 	config.set_value("Music", "sound_volume", sound_volume)
 	config.set_value("Music", "sfx_volume", sfx_volume)
 	config.set_value("Window", "window_mode", fullscreen_value)
+	
+	config.set_value("Game", "auto_speed", auto_speed)
+	config.set_value("Game", "text_speed", text_speed)
 	
 	config.set_value("Game", "cleared", game_cleared)
 
@@ -102,6 +116,21 @@ func check_if_cleared():
 		return true
 	else:
 		game_cleared = true
-		_save_settings()
+		save_settings()
 		return false
 		
+# Different calculations.
+func text_speed_change(value: float):
+	# Save first then calculate
+	text_speed = value
+	
+	# Inverse of value, so a flat of 1.0 = instant
+	Dialogic.Settings.text_speed = abs(value - 1.0)
+
+# Different calculations.
+func auto_speed_change(value: float):
+	# Save first then calculate
+	auto_speed = value
+	
+	# Inverse of value, so a flat of 1.0 = instant
+	Dialogic.Inputs.auto_skip.time_per_event = abs(value - 1.0)

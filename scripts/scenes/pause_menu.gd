@@ -16,9 +16,12 @@ extends Control
 @onready var quit_button: Button = $PauseMenuItems/ButtonList/QuitButton
 @onready var return_button: Button = $PauseMenuItems/ButtonList/ReturnButton
 
-@onready var music_slider: HSlider = $PauseMenuItems/AudioSettings/MusicVolumeSlider
-@onready var sound_slider: HSlider = $PauseMenuItems/AudioSettings/SoundVolumeSlider
-@onready var sfx_slider: HSlider = $PauseMenuItems/AudioSettings/SFXVolumeSlider
+@onready var music_slider: HSlider = $PauseMenuItems/AudioContainer/AudioSettings/MusicVolumeSlider
+@onready var sound_slider: HSlider = $PauseMenuItems/AudioContainer/AudioSettings/SoundVolumeSlider
+@onready var sfx_slider: HSlider = $PauseMenuItems/AudioContainer/AudioSettings/SFXVolumeSlider
+
+@onready var text_speed_slider: HSlider = $PauseMenuItems/TextContainer/TextSettings/TextSpeedSlider
+@onready var auto_skip_slider: HSlider = $PauseMenuItems/TextContainer/TextSettings/AutoSkipSlider
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -29,6 +32,9 @@ func _ready() -> void:
 	music_slider.value = GameSettings.music_volume
 	sound_slider.value = GameSettings.sound_volume
 	sfx_slider.value = GameSettings.sfx_volume
+	
+	text_speed_slider.value = GameSettings.text_speed
+	auto_skip_slider.value = GameSettings.auto_speed
 	
 	if if_title_screen:
 		pause_menu_label.text = "Settings"
@@ -58,6 +64,8 @@ func _toggle_pause_menu_layer(value: bool) -> void:
 
 func _on_play_button_pressed() -> void:
 	if animation_player.is_playing(): return
+	
+	GameSettings.save_settings()
 	
 	play_button.hide()
 	pause_button.show()
@@ -131,6 +139,12 @@ func show_settings() -> void:
 	animation_player.play("show_menu")
 	await animation_player.animation_finished
 	
+
+func _on_text_speed_slider_value_changed(value: float) -> void:
+	GameSettings.text_speed_change(value)
+
+func _on_auto_skip_slider_value_changed(value: float) -> void:
+	GameSettings.auto_speed_change(value)
 
 #endregion
 

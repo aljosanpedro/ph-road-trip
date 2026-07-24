@@ -146,52 +146,90 @@ label_settings = ExtResource("3_2obve")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioSettingsLabel" type="Label" parent="PauseMenuItems" unique_id=2072455162]
+[node name="AudioContainer" type="VBoxContainer" parent="PauseMenuItems" unique_id=2105889142]
 layout_mode = 0
-offset_left = 605.0
-offset_top = 307.0
-offset_right = 742.0
-offset_bottom = 369.0
+offset_left = 512.0
+offset_top = 496.0
+offset_right = 992.0
+offset_bottom = 854.0
+
+[node name="AudioSettingsLabel" type="Label" parent="PauseMenuItems/AudioContainer" unique_id=2072455162]
+layout_mode = 2
 mouse_filter = 1
 text = "Audio"
 label_settings = ExtResource("4_c1i2v")
 
-[node name="AudioSettings" type="VBoxContainer" parent="PauseMenuItems" unique_id=1627436508]
-layout_mode = 0
-offset_left = 597.0
-offset_top = 407.0
-offset_right = 935.0
-offset_bottom = 699.0
+[node name="AudioSettings" type="VBoxContainer" parent="PauseMenuItems/AudioContainer" unique_id=1627436508]
+layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="MusicVolumeLabel" type="Label" parent="PauseMenuItems/AudioSettings" unique_id=1855646779]
+[node name="MusicVolumeLabel" type="Label" parent="PauseMenuItems/AudioContainer/AudioSettings" unique_id=1855646779]
 layout_mode = 2
 text = "Music Volume"
 label_settings = ExtResource("4_crdp3")
 
-[node name="MusicVolumeSlider" type="HSlider" parent="PauseMenuItems/AudioSettings" unique_id=1489051284]
+[node name="MusicVolumeSlider" type="HSlider" parent="PauseMenuItems/AudioContainer/AudioSettings" unique_id=1489051284]
 layout_mode = 2
 theme = ExtResource("5_c1i2v")
 max_value = 1.0
 step = 0.01
 
-[node name="SoundVolumeLabel" type="Label" parent="PauseMenuItems/AudioSettings" unique_id=1073309992]
+[node name="SoundVolumeLabel" type="Label" parent="PauseMenuItems/AudioContainer/AudioSettings" unique_id=1073309992]
 layout_mode = 2
 text = "Sound Volume"
 label_settings = ExtResource("4_crdp3")
 
-[node name="SoundVolumeSlider" type="HSlider" parent="PauseMenuItems/AudioSettings" unique_id=807484742]
+[node name="SoundVolumeSlider" type="HSlider" parent="PauseMenuItems/AudioContainer/AudioSettings" unique_id=807484742]
 layout_mode = 2
 theme = ExtResource("5_c1i2v")
 max_value = 1.0
 step = 0.01
 
-[node name="SFXVolumeLabel" type="Label" parent="PauseMenuItems/AudioSettings" unique_id=1054642537]
+[node name="SFXVolumeLabel" type="Label" parent="PauseMenuItems/AudioContainer/AudioSettings" unique_id=1054642537]
 layout_mode = 2
 text = "SFX Volume"
 label_settings = ExtResource("4_crdp3")
 
-[node name="SFXVolumeSlider" type="HSlider" parent="PauseMenuItems/AudioSettings" unique_id=2016520457]
+[node name="SFXVolumeSlider" type="HSlider" parent="PauseMenuItems/AudioContainer/AudioSettings" unique_id=2016520457]
+layout_mode = 2
+theme = ExtResource("5_c1i2v")
+max_value = 1.0
+step = 0.01
+
+[node name="TextContainer" type="VBoxContainer" parent="PauseMenuItems" unique_id=12596005]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 208.0
+offset_right = 984.0
+offset_bottom = 462.0
+
+[node name="TextSettingsLabel" type="Label" parent="PauseMenuItems/TextContainer" unique_id=944999666]
+layout_mode = 2
+mouse_filter = 1
+text = "Text"
+label_settings = ExtResource("4_c1i2v")
+
+[node name="TextSettings" type="VBoxContainer" parent="PauseMenuItems/TextContainer" unique_id=1382331472]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="AutoAdvanceLabel" type="Label" parent="PauseMenuItems/TextContainer/TextSettings" unique_id=384297333]
+layout_mode = 2
+text = "Text Speed"
+label_settings = ExtResource("4_crdp3")
+
+[node name="TextSpeedSlider" type="HSlider" parent="PauseMenuItems/TextContainer/TextSettings" unique_id=1982276237]
+layout_mode = 2
+theme = ExtResource("5_c1i2v")
+max_value = 1.0
+step = 0.01
+
+[node name="AutoSkipLabel" type="Label" parent="PauseMenuItems/TextContainer/TextSettings" unique_id=75030063]
+layout_mode = 2
+text = "Auto skip Speed"
+label_settings = ExtResource("4_crdp3")
+
+[node name="AutoSkipSlider" type="HSlider" parent="PauseMenuItems/TextContainer/TextSettings" unique_id=635967446]
 layout_mode = 2
 theme = ExtResource("5_c1i2v")
 max_value = 1.0
@@ -274,9 +312,11 @@ expand_icon = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1339087942]
 libraries/ = SubResource("AnimationLibrary_f2hws")
 
-[connection signal="value_changed" from="PauseMenuItems/AudioSettings/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
-[connection signal="value_changed" from="PauseMenuItems/AudioSettings/SoundVolumeSlider" to="." method="_on_sound_volume_slider_value_changed"]
-[connection signal="value_changed" from="PauseMenuItems/AudioSettings/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="value_changed" from="PauseMenuItems/AudioContainer/AudioSettings/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="PauseMenuItems/AudioContainer/AudioSettings/SoundVolumeSlider" to="." method="_on_sound_volume_slider_value_changed"]
+[connection signal="value_changed" from="PauseMenuItems/AudioContainer/AudioSettings/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="value_changed" from="PauseMenuItems/TextContainer/TextSettings/TextSpeedSlider" to="." method="_on_text_speed_slider_value_changed"]
+[connection signal="value_changed" from="PauseMenuItems/TextContainer/TextSettings/AutoSkipSlider" to="." method="_on_auto_skip_slider_value_changed"]
 [connection signal="pressed" from="PauseMenuItems/ButtonList/ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="PauseMenuItems/ButtonList/SaveGame" to="." method="_on_save_game_pressed"]
 [connection signal="pressed" from="PauseMenuItems/ButtonList/LoadGame" to="." method="_on_load_game_pressed"]
