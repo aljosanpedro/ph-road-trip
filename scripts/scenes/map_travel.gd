@@ -44,6 +44,18 @@ func _on_visibility_changed() -> void:
 
 ## When pressing location, change player marker location and switch scene.
 func _on_location_pressed(button: TextureButton) -> void:
+	match button.name:
+		"Cubao":
+			animation_player.play("1_QCtoCubao")
+		"Makati":
+			animation_player.play("2_Cubao2Makati")
+		"Quiapo":
+			animation_player.play("3_Makati2Quiapo")
+		"Coast":
+			animation_player.play("4_Quiapo2Coast")
+		"Jabee":
+			animation_player.play("5_Coast2Jabee")
+				
 	Events.change_area(button.location.resource_path)
 	player_marker.position = Vector2(button.position.x, button.position.y)
 	scene_map_travel_closed.emit()
