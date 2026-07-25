@@ -55,6 +55,8 @@ func _on_location_pressed(button: TextureButton) -> void:
 			animation_player.play("4_Quiapo2Coast")
 		"Jabee":
 			animation_player.play("5_Coast2Jabee")
+	
+	await animation_player.animation_finished
 				
 	Events.change_area(button.location.resource_path)
 	player_marker.position = Vector2(button.position.x, button.position.y)
