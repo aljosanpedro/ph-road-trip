@@ -1,49 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://k14jy5i2n67d"]
+[gd_scene format=3 uid="uid://k14jy5i2n67d"]
 
 [ext_resource type="Texture2D" uid="uid://bg581qxvxpddi" path="res://assets/images/scrapbook/scrapbook-image.png" id="1_20x0q"]
 [ext_resource type="FontFile" uid="uid://u86swj21yivi" path="res://assets/fonts/scrapbook/JumkidsTwilight.ttf" id="2_sx2fh"]
 
-[node name="Polaroid" type="Node2D"]
+[node name="Polaroid" type="Control" unique_id=1807941692]
+layout_mode = 3
+anchors_preset = 0
 
-[node name="Frame" type="ColorRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Frame" type="ColorRect" parent="." unique_id=1328717682]
+layout_mode = 0
+offset_right = 59.633026
+offset_bottom = 59.633026
 scale = Vector2(5.45, 6.59)
 
-[node name="Picture" type="TextureRect" parent="Frame"]
+[node name="Picture" type="TextureRect" parent="Frame" unique_id=491678822]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 1544.0
-offset_bottom = 1080.0
+offset_left = 2.93578
+offset_top = 2.427921
+offset_right = 2364.324
+offset_bottom = 1693.3015
 scale = Vector2(0.023, 0.028)
 texture = ExtResource("1_20x0q")
 
-[node name="Label" type="Label" parent="Frame"]
+[node name="Label" type="Label" parent="Frame" unique_id=1656197531]
 layout_mode = 0
-offset_left = 1.02585
-offset_top = 33.6981
-offset_right = 39.0259
-offset_bottom = 38.6981
+offset_left = 2.9357796
+offset_top = 52.200302
+offset_right = 57.247707
+offset_bottom = 58.414265
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_sx2fh")
 theme_override_font_sizes/font_size = 5
 text = "sunk garden"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Tape" type="Node2D" parent="."]
+[node name="Tape" type="Control" parent="." unique_id=1412404946]
+anchors_preset = 0
 
-[node name="Tape1" type="ColorRect" parent="Tape"]
-offset_left = 13.0003
-offset_top = 249.319
-offset_right = 155.0
-offset_bottom = 284.319
+[node name="Tape1" type="ColorRect" parent="Tape" unique_id=1843843504]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 380.0
+offset_right = 231.9997
+offset_bottom = 415.0
 color = Color(0.929412, 0.847059, 0.72549, 0.588235)
 
-[node name="Tape2" type="ColorRect" parent="Tape"]
-offset_left = 199.673
-offset_top = -26.1264
-offset_right = 291.673
-offset_bottom = 8.87355
+[node name="Tape2" type="ColorRect" parent="Tape" unique_id=567453957]
+layout_mode = 0
+offset_left = 315.0
+offset_top = -34.999996
+offset_right = 407.0
+offset_bottom = -4.5776367e-05
 rotation = 1.00299
 color = Color(0.929412, 0.847059, 0.72549, 0.588235)
