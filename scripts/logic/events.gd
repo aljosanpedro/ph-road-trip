@@ -153,12 +153,12 @@ func initialize() -> void:
 ## Function that will intercept timeline_started events to do stuff.
 func _events_when_timeline_started() -> void:
 	show_contextual_menus.emit(false)
-	toggle_pause_menu_layer.emit(false)
+	#toggle_pause_menu_layer.emit(false)
 
 ## Function that will intercept timeline_ended events to do stuff.
 func _events_when_timeline_ended() -> void:
 	show_contextual_menus.emit(true)
-	toggle_pause_menu_layer.emit(true)
+	#toggle_pause_menu_layer.emit(true)
 
 ## Helper function to force Dialogic to open history :D
 func show_history(value: bool) -> void:
@@ -218,7 +218,8 @@ func show_load_menu() -> void:
 
 ## Helper function to show/hide the button of the pause menu in game.
 func show_pause_menu_button(value: bool) -> void:
-	toggle_pause_menu_layer.emit(value)
+	#toggle_pause_menu_layer.emit(value)
+	pass
 
 ## Get the name of the current character in the POV of the game.
 func get_current_pov_name() -> String:
