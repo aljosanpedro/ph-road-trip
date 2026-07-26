@@ -72,7 +72,7 @@ func _save_load_slot_pressed(slot_name: String, slot_button_ref: SaveSlot) -> vo
 			else:
 				var info = Dialogic.Save.get_slot_info(slot_name)
 				Events.is_restoring_timeline = true
-				await _restore_game_state(slot_name, info)
+				await restore_game_state(slot_name, info)
 				Events.is_restoring_timeline = false
 				Dialogic.Save.load(slot_name)
 				_finish_pending_interactable()
@@ -150,7 +150,7 @@ func _save_scrapbook_pictures(slot_name: String) -> void:
 			var img: Image = tex_rect.texture.get_image()
 			img.save_png(slot_path.path_join("scrapbook_%d.png" % i))
 
-func _restore_game_state(slot_name: String, info: Dictionary) -> void:
+func restore_game_state(slot_name: String, info: Dictionary) -> void:
 	if info.is_empty():
 		return
 	# Restore POV.

@@ -62,7 +62,7 @@ func _ready() -> void:
 		Engine.remove_meta("pending_game_state")
 		
 		Events.is_restoring_timeline = true
-		await save_load_menu._restore_game_state(slot_name, game_state)
+		await save_load_menu.restore_game_state(slot_name, game_state)
 		Events.is_restoring_timeline = false
 		Dialogic.Save.load(slot_name)
 		save_load_menu._finish_pending_interactable()
