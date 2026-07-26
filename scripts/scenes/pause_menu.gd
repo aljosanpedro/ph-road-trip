@@ -118,9 +118,10 @@ func _on_quit_button_pressed() -> void:
 
 #region Title screen only function
 
-## For title screen only.
 func _on_return_button_pressed() -> void:
 	if animation_player.is_playing(): return
+
+	GameSettings.save_settings()
 
 	play_button.hide()
 	pause_button.show()
