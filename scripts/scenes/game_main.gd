@@ -74,7 +74,7 @@ func _ready() -> void:
 		
 		# INFO: Start game. Kinda funny we're doing loop-de-loops here.
 		Events.change_area(current_scene.resource_path)
-		Events.show_the_context_menus(false) # By default, as intro will flick it up.
+		#Events.show_the_context_menus(false) # By default, as intro will flick it up.
 		Events.set_current_pov(initial_character_pov)
 	
 #endregion

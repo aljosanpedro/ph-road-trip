@@ -9,7 +9,7 @@ func _ready() -> void:
 	
 	# Hide item outlines at first.
 	Events.show_item_outline(false)
-	Events.show_the_context_menus(false) # End of demo.
+	#Events.show_the_context_menus(false) # End of demo.
 	
 	# Set dialogue immediately.
 	if not Events.is_restoring_timeline:

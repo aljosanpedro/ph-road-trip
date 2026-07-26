@@ -39,7 +39,7 @@ func _ready() -> void:
 		await Dialogic.timeline_ended
 		Events.intros_played["loc_2"] = true
 	
-	Events.show_the_context_menus(true) # By default, as intro will flick it up.
+	#Events.show_the_context_menus(true) # By default, as intro will flick it up.
 	Events.show_item_outline(true) # Interactables will now have outlines.
 	
 	# If all switches are already true (e.g. after loading), check immediately.
