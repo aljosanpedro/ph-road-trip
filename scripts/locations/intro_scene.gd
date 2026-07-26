@@ -6,6 +6,7 @@ func _ready() -> void:
 	
 ## Call upon intro to start the game.
 func _intro() -> void:
+	Events.show_the_context_menus(false)
 	AudioManager.bgm_play("res://assets/audio/bgm/shell.mp3")
 	
 	# Call Dialogic
