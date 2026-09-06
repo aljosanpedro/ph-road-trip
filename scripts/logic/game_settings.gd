@@ -11,6 +11,14 @@ extends Node
 @onready var text_speed: float
 @onready var auto_speed: float
 
+# Made loose for usage.
+var variables: Dictionary[String, Variant] = {
+	# CGs
+	"cg_1_unlocked": false,
+	"cg_2_unlocked": false,
+	"cg_3_unlocked": false,
+}
+
 func _ready():
 	_load_settings()
 	
@@ -134,3 +142,7 @@ func auto_speed_change(value: float):
 	
 	# Inverse of value, so a flat of 1.0 = instant
 	Dialogic.Inputs.auto_skip.time_per_event = abs(value - 1.0)
+
+## Unlocks CG. Make sure that it is the proper one!
+func unlock_cg():
+	pass
