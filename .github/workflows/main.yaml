@@ -9,7 +9,7 @@ on:
 # NOTE: If your `project.godot` is at the repository root, set `PROJECT_PATH` below to ".".
 
 env:
-    GODOT_VERSION: 4.7.1
+    GODOT_VERSION: 4.7.2
     EXPORT_NAME: watermarked
     PROJECT_PATH: .
 
@@ -20,7 +20,7 @@ jobs:
         name: Windows Export and Push to Itch.io
         runs-on: ubuntu-latest
         container:
-          image: barichello/godot-ci:4.7.1
+          image: barichello/godot-ci:4.7.2
         steps:
           - name: Checkout
             uses: actions/checkout@v7.0.0
@@ -76,7 +76,7 @@ jobs:
       name: Linux Export and Push to Itch.io
       runs-on: ubuntu-latest  # Use 22.04 with godot 4
       container:
-        image: barichello/godot-ci:4.7.1
+        image: barichello/godot-ci:4.7.2
       steps:
         - name: Checkout
           uses: actions/checkout@v7.0.0
@@ -130,7 +130,7 @@ jobs:
       name: Mac Export and Push to Itch.io
       runs-on: ubuntu-latest  # Use 22.04 with godot 4
       container:
-        image: barichello/godot-ci:4.7.1
+        image: barichello/godot-ci:4.7.2
       steps:
         - name: Checkout
           uses: actions/checkout@v7.0.0
@@ -179,7 +179,7 @@ jobs:
         name: Web Export and Push to Itch.io
         runs-on: ubuntu-latest
         container:
-          image: barichello/godot-ci:4.7.1
+          image: barichello/godot-ci:4.7.2
         steps:
             - name: Checkout
               uses: actions/checkout@v7.0.0
