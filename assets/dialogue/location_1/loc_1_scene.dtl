@@ -1,8 +1,8 @@
 label intro
-[background arg="res://assets/images/backgrounds/black_bg.png" fade="0.0"]
-The old campus rises out of the water-logged streets like it never got the memo that it was supposed to be flooded. 
+The old campus comes out of the water-logged streets like it never got the update that it was supposed to be  flooded.
 The caravan passes through lecture halls turned into food storage, banners fluttering between classroom windows, smoke rising from lunchtime cookfires.
 There's a music that sings through the trees, some stringed instruments being plucked between the branches. Beside you, the Singer hums something to the same tune.
+Another flash of activity courses through the caravan as the detached axles get brought back and the boats become wagons again.
 join adi leftmost
 join wiks left
 join singer right
@@ -26,7 +26,7 @@ Your remaining words carried off by the wind as you see the caravan began to lur
 With a deep breath, the two of you turn around to survey the scene before you.
 [clear time="1.0" step="false" text="false" portraits="false" music="false" positions="false" style="false"]
 [wait time="1.0"]
-do AudioManager.bgm_play("res://assets/audio/bgm/shell.mp3")
+do AudioManager.bgm_play("res://assets/audio/bgm/upd_main.mp3")
 With a great flourish you swing your arms out, and the late morning light seeps through the buildings behind you, spreading a warmth across your back.
 Beside you, Adi chuckles at your antics as she picks up a satchel on her feet.
 wiks: Ah, freedom!

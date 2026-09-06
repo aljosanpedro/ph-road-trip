@@ -1,17 +1,15 @@
 label intro
-Your journey brings you deeper in the city, away from the wider spaces of home or the sunken garden.
-It’s almost like a maze—one of overgrown and crumbling buildings, half-submerged streets and collapsing flyovers.
+Your journey brings you deeper in the city, away from the wider spaces of the housing districts into the urban heartlands of what they said was the capital region.
+It’s a maze—one of overgrown and crumbling buildings, half-submerged streets and collapsing flyovers.
 Your stop is only a place known as “The Gateway”, partially due to its central location making it a transport hub, but also because of the large broken sign that says the same thing.
-Inside is a city of echoes.
-Despite the people living here, the place is still and empty. 
+Inside is a cacophony of noise.
 Mossy mannequins stand in store windows, arms twisted to form crude poses. Stalls, counters, kiosks, all have been repurposed by the myriad families living here, forming huts and houses.
-But there is life.
+Everywhere you look is a semblance of life.
 Lanterns light up every corner of the mall.
 Old people sit in broken massage chairs.
 Men and women carry steaming pots and pans towards the communal kitchens.
 Youngsters push each other on carts with rusted wheels.
-Perhaps it isn’t as lively as it had once been, but it is lively nevertheless.
-adi: Holy crap.
+adi: Woah.
 wiks: Welcome to the Gateway.
 wiks: The home of your dreams. Where memories are made, and where happiness can be bought. For a price.
 if Events.get_current_pov() == Events.POV_Character.WIKS:
@@ -20,7 +18,7 @@ if Events.get_current_pov() == Events.POV_Character.ADI:
 	You see Adi's eyes open in disbelief, before she realizes you've been reading the lines from an old weathered ad in front of you.
 MAKE MEMORIES... HAPPINESS AT THE... A... PRICE, it said.
 if Events.get_current_pov() == Events.POV_Character.WIKS:
-	You hear Adi let out a weak laugh, before giving you a playful flick on the arm. You chuckle, but a slight sense of unease worms its way into you.
+	You hear Adi let out a weak laugh, before giving you a playful punch on the arm. You chuckle, but a slight sense of unease worms its way into you.
 	You take a glance at her, and see a small frown on her face. She notices your glance, and immediately smiles.
 	She motions towards the main portion of the building, and you ignore the worry for now. There'll be time later to ask.
 	adi: Let's go inside.

@@ -39,7 +39,7 @@ wiks: You've had four months to pack that camera.
 adi: I've had four months of learning to use it. 
 update adi [mirrored="false"]
 You scan your eyes, trying to see if she placed it somewhere conspicuous, like the last time she forgot where her brushes were. Or her journal. Or her goggles.
-You get taken aback when your eyes land on a piece of canvas behind her. It's a painting, but unlike one you've seen before: instead of people, its abstract flurry of colors, shapes and symbols arranged in ways you haven't seen.
+You get taken aback when your eyes land on a piece of canvas behind her. It's a painting, but unlike one you've seen before\: instead of people, its abstract flurry of colors, shapes and symbols arranged in ways you haven't seen.
 wiks: Is that…? When did…?
 She takes a glance at it and quickly shuffles it away.
 adi: That's… a work in progress. Don't think about it too much.
@@ -61,13 +61,13 @@ leave --All-- [animation="Fade Out Down" wait="true"]
 [clear time="2.0" step="false"]
 [wait time="1.0"]
 The caravan is less of an organized line and more of a slow-moving mass of flat-bottomed boats with detachable wheels, old cars and trucks, some chugging along, and others pulled by carabaos.
-join wiks (neutral) left [z_index="1"]
-join adi (neutral) leftmost [z_index="1" mirrored="true"]
-The two of you meet up with the leader of the caravan, a well-known singer and musician known by many names, a new one added to the list with her every journey. The two of you just call her the Singer, but she frequently asks you two to just call her [i]tita[/i].
-She doesn't look back as the two of you settle into her car-turned-carriage.
 join singer right
+The two of you meet up with the leader of the caravan, a well-known singer and musician known by many names, a new one added to the list with her every journey. The two of you just call her the Singer, but she frequently asks you two to just call her [i]tita[/i].
+She gives the two of you a look of amusement as you settle into her car-turned-carriage.
+[background arg="res://assets/images/cgs/intro-caravan.png" fade="0.0"]
+leave singer
 singer: Cutting it close, you two. Let me guess, you argued all the way here?
-You catch your breath before you plop down beside her on the back of the vehicle. Her hands are on her lap, holding sheafs of paper. 
+You catch your breath before you plop down beside her on the back of the vehicle. Her hands are on her lap, holding sheafs of paper.
 Logistics, most likely, of cargo and people and settlements the caravan's passing through. You took a look at it once and got a headache.
 wiks: No, we were just very excited.
 She huffs, sounding like barely-contained laughter. 
@@ -79,7 +79,7 @@ singer: Clothes?
 She gives a thumbs up.
 A teasing smile enters the Singer's lips.
 singer: Sleeping pack?
-You see the color drain out of Adi's face. 
+You see the color drain out of Adi's face.
 The Singer snickers and turns her head back to the road.
 singer (happy): There's a spare one on the cargo space. [i]Mga bata talaga ngayon[/i]… You two are so predictable. 
 You see Adi leave to settle in and grab the spare pack, as well as reorganize your stuff.
@@ -96,7 +96,7 @@ singer: If not… I guess you two'll just have to tolerate it.
 wiks: She tolerates a lot of things. Like being late.
 Adi quickly recovers to flick your arm.
 adi (happy): You're lucky I tolerate [i]you[/i].
-The singer snorts as the caravan and the three of you settle into its rhythm: creaking wheels, clattering cargo, the din of a moving caravan echoing throughout the broken city roads.
+The singer snorts as the caravan and the three of you settle into its rhythm\: creaking wheels, clattering cargo, the din of a moving caravan echoing throughout the broken city roads.
 Adi gazes outside the window, staring at the old buildings pass by.
 adi (neutral): It's been a while since I've been out like this.
 singer: Mhmm, and we'll have around two hours to enjoy the view. Three, if that damned street past the old church is flooded again.
@@ -105,10 +105,12 @@ adi: I reckon some time outside town'll do you some good.
 wiks: Well, its her first time out on the waters and she spends goodness knows how long finding a camera.
 You turn to her.
 wiks: Does it even take pictures?
-adi groans.
+Adi groans.
 adi: Of course it does. You just have to… negotiate with the picture.
 The singer chuckles beside you, and you catch her give a small loving tap to the guitar case by her side. It's old and battered, filled with stickers from all over the place. 
 singer: You two sound like some people I knew long ago.
+[background fade="0.5"]
+[background arg="res://assets/images/transitions/TRANSITION_TO_UPD.png" fade="0.0"]
 The wagon rolls on, the sound of conversation pouring out the window. Behind you, home is hidden from view by a bunch of broken buildings, overgrown bridges and rusted piles of metal.
 In front of you, the road dips into water. Someone in front barks orders, and word snakes through the caravan as locks release, wheels rise, and the wagons transform into a simple flotilla.
 singer: Take pictures, will you? I have a feeling this'll be memorable.
