@@ -32,6 +32,7 @@ AudioManager="*res://scenes/logic/audio_manager.tscn"
 Events="*res://scripts/logic/events.gd"
 GameSettings="*res://scripts/logic/game_settings.gd"
 LocationNames="*uid://cip4g5i6rhae0"
+DataManager="*uid://bsm3x0dnk6hy0"
 
 [dialogic]
 
