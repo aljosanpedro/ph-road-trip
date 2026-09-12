@@ -23,7 +23,7 @@ func _ready() -> void:
 	animation_player.play("RESET")
 	
 	# Connect a following switch.
-	Events.switch_has_been_set.connect(_is_everything_interacted)
+	DataManager.switch_has_been_set.connect(_is_everything_interacted)
 	
 	# Hide item outlines at first.
 	Events.show_item_outline(false)
@@ -53,7 +53,7 @@ func _is_everything_interacted() -> void:
 	
 	# If not all are interacted, return.
 	for switches in relevant_switches:
-		if not Events.get_switch(switches): return
+		if not DataManager.get_switch(switches): return
 	
 	# Initiate outro if true...
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_scene.dtl", "outro_pre_camera")
@@ -85,33 +85,31 @@ func _is_everything_interacted() -> void:
 	Events.show_travel_map_scene()
 	
 	# Disconnect to never let it fire again.
-	Events.switch_has_been_set.disconnect(_is_everything_interacted)
+	DataManager.switch_has_been_set.disconnect(_is_everything_interacted)
 
 #region Interactable
 func _on_chicken_item_clicked() -> void:
-	if Events.get_switch("loc_1_loose_chicken"): 
+	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_1_LOOSE_CHICKEN): 
 		Events.item_already_interacted()
 		return
 	
 	Events.show_item_outline(false)
-	Events.pending_interactable_switch = "loc_1_loose_chicken"
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "loose_chicken")
 	await Dialogic.timeline_ended
-	Events.finish_interactable("loc_1_loose_chicken")
+	Events.finish_interactable(DataManager.SWCH_NAME.LOC_1_LOOSE_CHICKEN)
 
 func _on_stall_item_clicked() -> void:
-	if Events.get_switch("loc_1_stall"): 
+	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_1_STALL): 
 		Events.item_already_interacted()
 		return
 	
 	Events.show_item_outline(false)
-	Events.pending_interactable_switch = "loc_1_stall"
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "stall")
 	await Dialogic.timeline_ended
-	Events.finish_interactable("loc_1_stall")
+	Events.finish_interactable(DataManager.SWCH_NAME.LOC_1_STALL)
 
 func _on_adis_mural_item_clicked() -> void:
-	if Events.get_switch("loc_1_adis_mural"): 
+	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_1_ADIS_MURAL): 
 		Events.item_already_interacted()
 		return
 	
@@ -119,10 +117,10 @@ func _on_adis_mural_item_clicked() -> void:
 	Events.pending_interactable_switch = "loc_1_adis_mural"
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "adis_mural")
 	await Dialogic.timeline_ended
-	Events.finish_interactable("loc_1_adis_mural")
+	Events.finish_interactable(DataManager.SWCH_NAME.LOC_1_ADIS_MURAL)
 
 func _on_trees_item_clicked() -> void:
-	if Events.get_switch("loc_1_trees"): 
+	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_1_TREES): 
 		Events.item_already_interacted()
 		return
 	
@@ -130,10 +128,10 @@ func _on_trees_item_clicked() -> void:
 	Events.pending_interactable_switch = "loc_1_trees"
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "trees")
 	await Dialogic.timeline_ended
-	Events.finish_interactable("loc_1_trees")
+	Events.finish_interactable(DataManager.SWCH_NAME.LOC_1_TREES)
 
 func _on_sunken_garden_item_clicked() -> void:
-	if Events.get_switch("loc_1_sunken_garden"): 
+	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_1_SUNKEN_GARDEN): 
 		Events.item_already_interacted()
 		return
 	
@@ -141,7 +139,7 @@ func _on_sunken_garden_item_clicked() -> void:
 	Events.pending_interactable_switch = "loc_1_sunken_garden"
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "sunken_garden")
 	await Dialogic.timeline_ended
-	Events.finish_interactable("loc_1_sunken_garden")
+	Events.finish_interactable(DataManager.SWCH_NAME.LOC_1_SUNKEN_GARDEN)
 
 func _on_adi_item_clicked() -> void:
 	Events.set_current_pov(Events.POV_Character.ADI)

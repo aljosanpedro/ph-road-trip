@@ -5,7 +5,7 @@ extends Node2D
 
 func _ready() -> void:
 	# Connect a following switch.
-	#Events.switch_has_been_set.connect(_is_everything_interacted)
+	#DataManager.switch_has_been_set.connect(_is_everything_interacted)
 	
 	# Hide item outlines at first.
 	Events.show_item_outline(false)

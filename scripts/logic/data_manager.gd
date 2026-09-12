@@ -22,42 +22,47 @@ enum VAR_NAME {
 	VAR_2,
 }
 
-var switches: Dictionary[SWCH_NAME, bool] = {}
-var variables: Dictionary[VAR_NAME, Variant] = {}
+var _switches: Dictionary[SWCH_NAME, bool] = {}
+var _variables: Dictionary[VAR_NAME, Variant] = {}
+
+# All Signals
+signal switch_has_been_set
 
 ## Initializes everything.
 func _init() -> void:
-	# Initialize switches
+	# Initialize _switches
 	for id in SWCH_NAME.values():
-		switches[id] = false
+		_switches[id] = false
 	
-	# Initialize variables
+	# Initialize _variables
 	for id in VAR_NAME.values():
-		variables[id] = false
+		_variables[id] = false
 	
-	print(switches)
-	print(variables)
+	print(_switches)
+	print(_variables)
 
 ## Get the value of a switch.
 func get_switch(id: SWCH_NAME) -> bool:
-	return switches.get(id, false)
+	return _switches.get(id, false)
 
 ## Set up the boolean for a switch.
 func set_switch(id: SWCH_NAME, value: bool) -> void:
 	# Return if we're just going to do the same thing.
-	if switches.get(id, false) == value: return
+	if _switches.get(id, false) == value: return
 	
 	# Set switch.
-	switches[id] = value
+	_switches[id] = value
+	
+	switch_has_been_set.emit()
 
 ## Get the value of a variable.
 func get_variable(id: VAR_NAME) -> Variant:
-	return variables.get(id, 0)
+	return _variables.get(id, 0)
 
 ## Get the value of a variable.
 func set_variable(id: VAR_NAME, value: Variant) -> void:
 	# Return if we're just going to do the same thing.
-	if variables.get(id, false) == value: return
+	if _variables.get(id, false) == value: return
 	
 	# Set switch.
-	variables[id] = value
+	_variables[id] = value

@@ -42,7 +42,7 @@ signal pov_switch()
 signal show_contextual_menus(value: bool)
 signal toggle_pause_menu(value: bool)
 signal toggle_pause_menu_layer(value: bool)
-signal switch_has_been_set
+#signal switch_has_been_set
 
 # For save/load shortcuts
 signal shortcut_save_pressed
@@ -166,9 +166,9 @@ func show_history(value: bool) -> void:
 	else: DialogicUtil.autoload().History.close_history()
 
 ## Finishes an interactable after its dialogue ends.
-func finish_interactable(switch_name: String) -> void:
+func finish_interactable(switch_name: DataManager.SWCH_NAME) -> void:
 	show_item_outline(true)
-	set_switch(switch_name, true)
+	DataManager.set_switch(switch_name, true)
 	pending_interactable_switch = ""
 
 #endregion
@@ -234,7 +234,7 @@ func open_camera() -> void:
 # Also emits a switch set in case for anything that needs it.
 func set_switch(switch_name: String, value: bool) -> void:
 	switches[switch_name] = value
-	switch_has_been_set.emit()
+	#switch_has_been_set.emit()
 
 # Get the switch's value.
 func get_switch(switch_name) -> bool:

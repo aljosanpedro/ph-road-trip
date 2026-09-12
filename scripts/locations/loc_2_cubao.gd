@@ -28,7 +28,7 @@ func _ready() -> void:
 	AudioManager.bgm_play("res://assets/audio/bgm/cubao_2.mp3")
 	animation_player.play("RESET")
 	# Connect a following switch.
-	Events.switch_has_been_set.connect(_is_everything_interacted)
+	DataManager.switch_has_been_set.connect(_is_everything_interacted)
 	
 	# Hide item outlines at first.
 	Events.show_item_outline(false)
@@ -60,7 +60,7 @@ func _is_everything_interacted() -> void:
 	
 	# If not all are interacted, return.
 	for switches in relevant_switches:
-		if not Events.get_switch(switches): return
+		if not DataManager.get_switch(switches): return
 	
 	# Initiate outro if true...
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_scene.dtl", "outro_pre_camera")
@@ -92,11 +92,11 @@ func _is_everything_interacted() -> void:
 	Events.show_travel_map_scene()
 	
 	# Disconnect to never let it fire again.
-	Events.switch_has_been_set.disconnect(_is_everything_interacted)
+	DataManager.switch_has_been_set.disconnect(_is_everything_interacted)
 
 #region Interactable
 func _on_graffiti_item_clicked() -> void:
-	if Events.get_switch("loc_2_graffiti"): 
+	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_2_GRAFFITI): 
 		Events.item_already_interacted()
 		return
 	
@@ -104,11 +104,11 @@ func _on_graffiti_item_clicked() -> void:
 	Events.pending_interactable_switch = "loc_2_graffiti"
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "graffiti")
 	await Dialogic.timeline_ended
-	Events.finish_interactable("loc_2_graffiti")
+	Events.finish_interactable(DataManager.SWCH_NAME.LOC_2_GRAFFITI)
 
 
 func _on_jolibee_item_clicked() -> void:
-	if Events.get_switch("loc_2_jabee"): 
+	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_2_JABEE): 
 		Events.item_already_interacted()
 		return
 	
@@ -116,11 +116,11 @@ func _on_jolibee_item_clicked() -> void:
 	Events.pending_interactable_switch = "loc_2_jabee"
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "jabee")
 	await Dialogic.timeline_ended
-	Events.finish_interactable("loc_2_jabee")
+	Events.finish_interactable(DataManager.SWCH_NAME.LOC_2_JABEE)
 
 
 func _on_lanterns_item_clicked() -> void:
-	if Events.get_switch("loc_2_lanterns"): 
+	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_2_LANTERNS): 
 		Events.item_already_interacted()
 		return
 	
@@ -128,11 +128,11 @@ func _on_lanterns_item_clicked() -> void:
 	Events.pending_interactable_switch = "loc_2_lanterns"
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "lanterns")
 	await Dialogic.timeline_ended
-	Events.finish_interactable("loc_2_lanterns")
+	Events.finish_interactable(DataManager.SWCH_NAME.LOC_2_LANTERNS)
 
 
 func _on_radio_item_clicked() -> void:
-	if Events.get_switch("loc_2_radio"): 
+	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_2_RADIO): 
 		Events.item_already_interacted()
 		return
 	
@@ -140,11 +140,11 @@ func _on_radio_item_clicked() -> void:
 	Events.pending_interactable_switch = "loc_2_radio"
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "radio")
 	await Dialogic.timeline_ended
-	Events.finish_interactable("loc_2_radio")
+	Events.finish_interactable(DataManager.SWCH_NAME.LOC_2_RADIO)
 
 
 func _on_kids_item_clicked() -> void:
-	if Events.get_switch("loc_2_kids_playing"): 
+	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_2_KIDS_PLAYING): 
 		Events.item_already_interacted()
 		return
 	
@@ -152,11 +152,11 @@ func _on_kids_item_clicked() -> void:
 	Events.pending_interactable_switch = "loc_2_kids_playing"
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "kids_playing")
 	await Dialogic.timeline_ended
-	Events.finish_interactable("loc_2_kids_playing")
+	Events.finish_interactable(DataManager.SWCH_NAME.LOC_2_KIDS_PLAYING)
 
 
 func _on_mannequins_item_clicked() -> void:
-	if Events.get_switch("loc_2_mannequins"): 
+	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_2_MANNEQUINS): 
 		Events.item_already_interacted()
 		return
 	
@@ -164,11 +164,11 @@ func _on_mannequins_item_clicked() -> void:
 	Events.pending_interactable_switch = "loc_2_mannequins"
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "mannequins")
 	await Dialogic.timeline_ended
-	Events.finish_interactable("loc_2_mannequins")
+	Events.finish_interactable(DataManager.SWCH_NAME.LOC_2_MANNEQUINS)
 
 
 func _on_clothesline_item_clicked() -> void:
-	if Events.get_switch("loc_2_clothes"): 
+	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_2_CLOTHES): 
 		Events.item_already_interacted()
 		return
 	
@@ -176,7 +176,7 @@ func _on_clothesline_item_clicked() -> void:
 	Events.pending_interactable_switch = "loc_2_clothes"
 	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "clothes")
 	await Dialogic.timeline_ended
-	Events.finish_interactable("loc_2_clothes")
+	Events.finish_interactable(DataManager.SWCH_NAME.LOC_2_CLOTHES)
 
 func _on_adi_item_clicked() -> void:
 	Events.set_current_pov(Events.POV_Character.ADI)

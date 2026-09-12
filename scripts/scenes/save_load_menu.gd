@@ -162,7 +162,7 @@ func restore_game_state(slot_name: String, info: Dictionary) -> void:
 		var saved_switches: Dictionary = info["switches"]
 		for key in saved_switches:
 			Events.switches[key] = saved_switches[key]
-		Events.switch_has_been_set.emit()
+		DataManager.switch_has_been_set.emit()
 	# Restore intros played.
 	if info.has("intros_played"):
 		Events.intros_played = info["intros_played"].duplicate()
