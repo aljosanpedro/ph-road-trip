@@ -59,14 +59,14 @@ func _on_location_pressed(button: TextureButton) -> void:
 	await animation_player.animation_finished
 				
 	Events.change_area(button.location.resource_path)
-	player_marker.position = Vector2(button.position.x, button.position.y)
+	player_marker.position = Vector2(button.position.x - 10, button.position.y - 10)
 	scene_map_travel_closed.emit()
 
 ## Basically, when hovering over a location, change target area location.
 func _on_loc_mouse_entered(button: TextureButton) -> void:
 	if button.disabled: return
 	location_label.text = button.name
-	target_area.position = Vector2(button.position.x - 3, button.position.y - 36)
+	target_area.position = Vector2(button.position.x - 15, button.position.y - 56)
 	target_area.show()
 
 func _on_loc_mouse_exited(button: TextureButton) -> void:
