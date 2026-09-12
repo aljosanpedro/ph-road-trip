@@ -39,11 +39,11 @@ func _on_visibility_changed() -> void:
 	if visible:
 		mouse_filter = Control.MOUSE_FILTER_STOP
 		
-	else: 
+	else:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 ## When pressing location, change player marker location and switch scene.
-func _on_location_pressed(button: TextureButton) -> void:
+func _on_location_pressed(button: MapButton) -> void:
 	match button.name:
 		"Cubao":
 			animation_player.play("1_QCtoCubao")
@@ -56,11 +56,20 @@ func _on_location_pressed(button: TextureButton) -> void:
 		"Jabee":
 			animation_player.play("5_Coast2Jabee")
 	
+	# And then disable mouse after pressing it.
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 	await animation_player.animation_finished
 				
 	Events.change_area(button.location.resource_path)
 	player_marker.position = Vector2(button.position.x - 10, button.position.y - 10)
+	
+	# Disable button and return mouse input.
+	button.enable_button(false)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 	scene_map_travel_closed.emit()
+	
 
 ## Basically, when hovering over a location, change target area location.
 func _on_loc_mouse_entered(button: TextureButton) -> void:
