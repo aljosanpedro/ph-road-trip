@@ -36,7 +36,7 @@ func _init() -> void:
 	
 	# Initialize _variables
 	for id in VAR_NAME.values():
-		_variables[id] = false
+		_variables[id] = 0
 	
 	print(_switches)
 	print(_variables)

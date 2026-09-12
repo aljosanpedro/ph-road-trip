@@ -114,7 +114,6 @@ func _on_adis_mural_item_clicked() -> void:
 		return
 	
 	Events.show_item_outline(false)
-	Events.pending_interactable_switch = "loc_1_adis_mural"
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "adis_mural")
 	await Dialogic.timeline_ended
 	Events.finish_interactable(DataManager.SWCH_NAME.LOC_1_ADIS_MURAL)
@@ -125,7 +124,6 @@ func _on_trees_item_clicked() -> void:
 		return
 	
 	Events.show_item_outline(false)
-	Events.pending_interactable_switch = "loc_1_trees"
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "trees")
 	await Dialogic.timeline_ended
 	Events.finish_interactable(DataManager.SWCH_NAME.LOC_1_TREES)
@@ -136,7 +134,6 @@ func _on_sunken_garden_item_clicked() -> void:
 		return
 	
 	Events.show_item_outline(false)
-	Events.pending_interactable_switch = "loc_1_sunken_garden"
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "sunken_garden")
 	await Dialogic.timeline_ended
 	Events.finish_interactable(DataManager.SWCH_NAME.LOC_1_SUNKEN_GARDEN)
