@@ -25,9 +25,6 @@ extends Area2D
 ## required character is the opposite. i.e. RC = Wiks => Adi Interactable.
 @export var is_character_interactable: bool = false
 
-
-
-
 ## Required in order to interact with the map instead of having its own separate
 ## standalones.
 signal item_clicked()

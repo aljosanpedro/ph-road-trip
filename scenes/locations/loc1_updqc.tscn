@@ -5,14 +5,9 @@
 [ext_resource type="Shader" uid="uid://c3o5qj8eq2ms3" path="res://scripts/components/item_base_shader.gdshader" id="3_gsp0h"]
 [ext_resource type="Texture2D" uid="uid://c2j6stnrbc4wd" path="res://assets/images/items/loc_1/loc_1_adis_mural_interactable.png" id="3_j3x12"]
 [ext_resource type="Texture2D" uid="uid://1142vxlskcbl" path="res://assets/images/items/loc_1/loc_1_stall_interactable.png" id="4_btlh7"]
-[ext_resource type="Script" uid="uid://c5bsi3j84v3a7" path="res://scripts/resources/commands/command_template.gd" id="4_kgfg1"]
 [ext_resource type="Texture2D" uid="uid://bxv37vji0vyio" path="res://assets/images/items/loc_1/loc_1_trees_interactable.png" id="4_tyg5k"]
 [ext_resource type="Texture2D" uid="uid://bsmeprl6deob1" path="res://assets/images/items/loc_1/loc_1_loose_chicken_interactable.png" id="5_gsp0h"]
-[ext_resource type="Resource" uid="uid://c2r5a416sj7ge" path="res://assets/dialogue/intro/intro.dtl" id="5_s5xj5"]
-[ext_resource type="Script" uid="uid://dbi2qtclckev3" path="res://scripts/resources/commands/command_dialogue.gd" id="6_liux3"]
 [ext_resource type="Texture2D" uid="uid://cmpm3xbyem1j" path="res://assets/images/items/loc_1/loc_1_sunken_garden_interactable.png" id="7_bs6ud"]
-[ext_resource type="Script" uid="uid://bpcjtfjha2x4w" path="res://scripts/resources/commands/command_enable_route.gd" id="7_eydqa"]
-[ext_resource type="Script" uid="uid://cjla6nkibs8dp" path="res://scripts/resources/commands/command_map.gd" id="8_8tpox"]
 [ext_resource type="Texture2D" uid="uid://ccv1y830n3wje" path="res://assets/images/items/adi_interactable.png" id="9_npvej"]
 [ext_resource type="Texture2D" uid="uid://c8nhnqsopvc4" path="res://assets/images/items/wiks_interactable.png" id="10_kgfg1"]
 
@@ -28,20 +23,6 @@ shader_parameter/speed = 4.0
 shader_parameter/blockSize = 20.0
 shader_parameter/color = Color(1, 0.81, 0.25, 1)
 shader_parameter/tolerance = 0.0
-
-[sub_resource type="Resource" id="Resource_xaqfk"]
-script = ExtResource("6_liux3")
-dialogic_file = ExtResource("5_s5xj5")
-metadata/_custom_type_script = "uid://dbi2qtclckev3"
-
-[sub_resource type="Resource" id="Resource_plcj4"]
-script = ExtResource("7_eydqa")
-route = 1
-metadata/_custom_type_script = "uid://bpcjtfjha2x4w"
-
-[sub_resource type="Resource" id="Resource_b7n12"]
-script = ExtResource("8_8tpox")
-metadata/_custom_type_script = "uid://cjla6nkibs8dp"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_au5bx"]
 size = Vector2(523.25, 223.5)
@@ -294,7 +275,6 @@ metadata/_edit_lock_ = true
 
 [node name="Adi\'sMural" parent="." unique_id=855729573 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
 material = SubResource("ShaderMaterial_npvej")
-commands = Array[ExtResource("4_kgfg1")]([SubResource("Resource_xaqfk"), SubResource("Resource_plcj4"), SubResource("Resource_b7n12")])
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 1
