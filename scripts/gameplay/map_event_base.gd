@@ -11,8 +11,7 @@ class_name MapEventBase
 extends Node2D
 
 ## What counts as triggers to activate stuff.
-@export var switch_trigger: Array[DataManager.SWCH_NAME]
-@export var variable_trigger: Array[DataManager.VAR_NAME]
+
 
 ## Used to track the current event that is running.
 var index: int = 0
@@ -21,6 +20,12 @@ var index: int = 0
 func _ready() -> void:
 	pass # Replace with function body.
 
+# DEPRECATED: Would like to use this... but you know what would happen honestly.
+# Plus, observer paradigm is a thing... so why are we trying to chase race
+# conditions?
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+#func _process(delta: float) -> void:
+	#pass
+
+func _observing_triggers() -> void:
 	pass
