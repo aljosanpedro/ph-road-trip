@@ -23,7 +23,7 @@ func _ready() -> void:
 	animation_player.play("RESET")
 	
 	# Connect a following switch.
-	DataManager.switch_has_been_set.connect(_is_everything_interacted)
+	DataManager.data_changed.connect(_is_everything_interacted)
 	
 	# Hide item outlines at first.
 	Events.show_item_outline(false)
@@ -78,7 +78,7 @@ func _is_everything_interacted() -> void:
 	Events.show_travel_map_scene()
 	
 	# Disconnect to never let it fire again.
-	DataManager.switch_has_been_set.disconnect(_is_everything_interacted)
+	DataManager.data_changed.disconnect(_is_everything_interacted)
 
 #region Interactable
 func _on_chicken_item_clicked() -> void:
