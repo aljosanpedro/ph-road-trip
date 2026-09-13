@@ -9,6 +9,8 @@ extends Area2D
 ## Sprite2D to manipulate
 ## CollisionShape2D for it to directly reference the shape.
 
+@export var commands: Array[Commands]
+
 #region Initialized Variables and Exports
 @export_group("Required")
 ## The Hitbox for the component.
@@ -22,6 +24,9 @@ extends Area2D
 ## No need for additional changes. Just make sure that the different
 ## required character is the opposite. i.e. RC = Wiks => Adi Interactable.
 @export var is_character_interactable: bool = false
+
+
+
 
 ## Required in order to interact with the map instead of having its own separate
 ## standalones.
