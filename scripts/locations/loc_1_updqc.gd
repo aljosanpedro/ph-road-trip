@@ -28,18 +28,11 @@ func _ready() -> void:
 	# Hide item outlines at first.
 	Events.show_item_outline(false)
 	
-	# Set dialogue immediately.
-	if not Events.is_restoring_timeline and not Events.intros_played.has("loc_1"):
-		Dialogic.start("res://assets/dialogue/location_1/loc_1_scene.dtl", "intro")
-		await Dialogic.timeline_ended
-		Events.intros_played["loc_1"] = true
+	Dialogic.start("res://assets/dialogue/location_1/loc_1_scene.dtl", "intro")
+	await Dialogic.timeline_ended
 	
 	Events.show_the_context_menus(true) # By default, as intro will flick it up.
 	Events.show_item_outline(true) # Interactables will now have outlines.
-	
-	# If all switches are already true (e.g. after loading), check immediately.
-	if not Events.is_restoring_timeline:
-		_is_everything_interacted()
 
 # If everything is interacted.
 func _is_everything_interacted() -> void:

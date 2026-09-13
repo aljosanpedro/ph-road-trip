@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://l52hev016n2l"]
+[gd_scene format=3 uid="uid://l52hev016n2l"]
 
 [ext_resource type="Script" uid="uid://2i3wod8cgavr" path="res://scripts/locations/intro_scene.gd" id="1_gbg58"]
 
-[node name="IntroScene" type="Node2D"]
+[node name="IntroScene" type="Node2D" unique_id=630215984]
 script = ExtResource("1_gbg58")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1278652546]
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
