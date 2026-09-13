@@ -1,20 +1,20 @@
 extends Node2D
 
 func _ready() -> void:
-	if not Events.is_restoring_timeline:
-		_intro()
+	pass
 	
 ## Call upon intro to start the game.
 func _intro() -> void:
-	Events.show_the_context_menus(false)
-	AudioManager.bgm_play("res://assets/audio/bgm/shell.mp3")
-	
-	# Call Dialogic
-	Dialogic.start("res://assets/dialogue/intro/intro.dtl")
-	await Dialogic.timeline_ended
-	
-	AudioManager.bgm_stop()
-	Events.change_area("res://scenes/locations/loc_1_updqc.tscn")
+	pass
+	#Events.show_the_context_menus(false)
+	#AudioManager.bgm_play("res://assets/audio/bgm/shell.mp3")
+	#
+	## Call Dialogic
+	#Dialogic.start("res://assets/dialogue/intro/intro.dtl")
+	#await Dialogic.timeline_ended
+	#
+	#AudioManager.bgm_stop()
+	#Events.change_area("res://scenes/locations/loc_1_updqc.tscn")
 	
 	#Events.show_the_context_menus(true) # By default, as intro will flick it up.
 	

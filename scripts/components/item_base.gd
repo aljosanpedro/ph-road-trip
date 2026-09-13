@@ -9,10 +9,8 @@ extends Area2D
 ## Sprite2D to manipulate
 ## CollisionShape2D for it to directly reference the shape.
 
-@export var commands: Array[Commands]
-
 #region Initialized Variables and Exports
-@export_group("Required")
+@export_category("Required")
 ## The Hitbox for the component.
 @export var hitbox_component: CollisionShape2D
 ## The Sprite2D component required for the object.
