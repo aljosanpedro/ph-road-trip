@@ -1,6 +1,13 @@
-extends Node
-
+#==============================================================================
+# ** DataManager
+#------------------------------------------------------------------------------
+# This module manages the database and game objects. Almost all of the 
+# global variables used by the game are initialized by this module.
+#
 # This is all index based!
+#==============================================================================
+
+extends Node
 
 enum SWCH_NAME {
 	LOC_1_STALL,
@@ -24,9 +31,11 @@ enum VAR_NAME {
 
 var _switches: Dictionary[SWCH_NAME, bool] = {}
 var _variables: Dictionary[VAR_NAME, Variant] = {}
+# A set of combination of [SceneName] + [EventName] + [SelfSwitch]
+var _self_switches: Dictionary[String, bool] = {}
 
 # All Signals
-signal switch_has_been_set
+signal data_changed
 
 ## Initializes everything.
 func _init() -> void:
@@ -53,7 +62,7 @@ func set_switch(id: SWCH_NAME, value: bool) -> void:
 	# Set switch.
 	_switches[id] = value
 	
-	switch_has_been_set.emit()
+	data_changed.emit()
 
 ## Get the value of a variable.
 func get_variable(id: VAR_NAME) -> Variant:
@@ -62,7 +71,21 @@ func get_variable(id: VAR_NAME) -> Variant:
 ## Get the value of a variable.
 func set_variable(id: VAR_NAME, value: Variant) -> void:
 	# Return if we're just going to do the same thing.
-	if _variables.get(id, false) == value: return
+	#if _variables.get(id, false) == value: return
 	
 	# Set switch.
 	_variables[id] = value
+
+## Get the value of a self-switch.
+## Key: [SceneName] + [EventName] + [SelfSwitch]
+func get_self_switch(key: String) -> bool:
+	return _self_switches.get(key, false)
+
+## Set up the boolean for a self-switch.
+## Key: [SceneName] + [EventName] + [SelfSwitch]
+func set_self_switch(key: String, value: bool) -> void:
+	# Return if we're just going to do the same thing.
+	if _self_switches.get(key, false) == value: return
+	
+	# Set switch.
+	_self_switches[key] = value
