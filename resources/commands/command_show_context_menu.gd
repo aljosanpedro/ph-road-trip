@@ -1,4 +1,4 @@
-@icon("res://nodes/command_message.svg")
+@icon("res://nodes/command_context_menu.svg")
 
 class_name ShowContextMenuCommand
 extends Commands

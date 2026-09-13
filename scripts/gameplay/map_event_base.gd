@@ -10,15 +10,15 @@
 class_name MapEventBase
 extends Node2D
 
-## What counts as triggers to activate stuff.
+## The page list to run. It will run the bottom-most first, and then stop.
+@export var event_page_list: Array[EventPage]
 
-
-## Used to track the current event that is running.
+## Used to track the current command that is running.
 var index: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	DataManager.data_changed.connect(_observing_triggers)
 
 # DEPRECATED: Would like to use this... but you know what would happen honestly.
 # Plus, observer paradigm is a thing... so why are we trying to chase race
@@ -27,5 +27,7 @@ func _ready() -> void:
 #func _process(delta: float) -> void:
 	#pass
 
+## Used in order to detect any sort of changes in the game.
 func _observing_triggers() -> void:
-	pass
+	for event_page: EventPage in event_page_list:
+		event_page.trigger
