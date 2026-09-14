@@ -1,16 +1,11 @@
-## DEPRECATED AS HELL
-## Uses interactable_event now
+@icon("res://nodes/event_interactable.svg")
 
-@icon("res://nodes/item_base.svg")
-
-class_name ItemBase
-extends Area2D
-## ItemBase is the base of an item that can be interacted in the map.
-## Has a signal `item_clicked` that allows more control on the map.
-##
-## Requires:
-## Sprite2D to manipulate
-## CollisionShape2D for it to directly reference the shape.
+#==============================================================================
+class_name InteractableEvent
+extends MapEventBase
+#------------------------------------------------------------------------------
+# This class handles interactable events in the map.
+#==============================================================================
 
 #region Initialized Variables and Exports
 @export_category("Required")
@@ -25,13 +20,10 @@ extends Area2D
 ## No need for additional changes. Just make sure that the different
 ## required character is the opposite. i.e. RC = Wiks => Adi Interactable.
 @export var is_character_interactable: bool = false
-
-## Required in order to interact with the map instead of having its own separate
-## standalones.
-signal item_clicked()
 #endregion	
 
 #region Virtual functions
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Connect callable.
 	Events.pov_switch.connect(_pov_switch_grayout)
@@ -46,11 +38,22 @@ func _ready() -> void:
 		hide()
 
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
-	if not _required_character_checker(): return
+	if not _required_character_checker():
+		get_viewport().set_input_as_handled()
+		return
 	
 	if event.is_action_pressed("mouse_click"):
 		print("You clicked " + name + "!")
-		item_clicked.emit()
+		
+		# Call interact.
+		interact()
+		
+		# Set as handled.
+		get_viewport().set_input_as_handled()
+
+#endregion
+
+#region Interactable/Character functions
 
 ## INFO: Highlights item when mouse hovers to the item.
 func _on_mouse_entered() -> void:
@@ -106,5 +109,4 @@ func _show_item_outline(value: bool) -> void:
 		#if sprite_component != null: sprite_component.set_use_parent_material(false)
 		modulate = Color(1, 1, 1)
 		set_pickable(false)
-
 #endregion
