@@ -5,34 +5,9 @@ extends Node2D
 
 @onready var background = $Background
 @onready var animation_player = $AnimationPlayer
-# List of interactables
-# for wiks:
-# **stall**
-# **sunken_garden**
-# **adis_mural**
-# for adi:
-# **trees**
-# **loose_chicken**
-#"loc_1_stall": false,
-#"loc_1_sunken_garden": false,
-#"loc_1_adis_mural": false,
-#"loc_1_trees": false,
-#"loc_1_loose_chicken": false,
 
 func _ready() -> void:
 	animation_player.play("RESET")
-	
-	# Connect a following switch.
-	#DataManager.data_changed.connect(_is_everything_interacted)
-	
-	# Hide item outlines at first.
-	#Events.show_item_outline(false)
-	#
-	#Dialogic.start("res://assets/dialogue/location_1/loc_1_scene.dtl", "intro")
-	#await Dialogic.timeline_ended
-	#
-	#Events.show_the_context_menus(true) # By default, as intro will flick it up.
-	#Events.show_item_outline(true) # Interactables will now have outlines.
 
 # If everything is interacted.
 func _is_everything_interacted() -> void:
@@ -77,56 +52,3 @@ func _is_everything_interacted() -> void:
 	# Call map.
 	Events.show_travel_map_scene()
 	
-
-#region Interactable
-func _on_chicken_item_clicked() -> void:
-	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_1_LOOSE_CHICKEN): 
-		Events.item_already_interacted()
-		return
-	
-	Events.show_item_outline(false)
-	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "loose_chicken")
-	await Dialogic.timeline_ended
-	Events.finish_interactable(DataManager.SWCH_NAME.LOC_1_LOOSE_CHICKEN)
-
-func _on_stall_item_clicked() -> void:
-	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_1_STALL): 
-		Events.item_already_interacted()
-		return
-	
-	Events.show_item_outline(false)
-	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "stall")
-	await Dialogic.timeline_ended
-	Events.finish_interactable(DataManager.SWCH_NAME.LOC_1_STALL)
-
-func _on_adis_mural_item_clicked() -> void:
-	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_1_ADIS_MURAL): 
-		Events.item_already_interacted()
-		return
-	
-	Events.show_item_outline(false)
-	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "adis_mural")
-	await Dialogic.timeline_ended
-	Events.finish_interactable(DataManager.SWCH_NAME.LOC_1_ADIS_MURAL)
-
-func _on_trees_item_clicked() -> void:
-	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_1_TREES): 
-		Events.item_already_interacted()
-		return
-	
-	Events.show_item_outline(false)
-	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "trees")
-	await Dialogic.timeline_ended
-	Events.finish_interactable(DataManager.SWCH_NAME.LOC_1_TREES)
-
-func _on_sunken_garden_item_clicked() -> void:
-	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_1_SUNKEN_GARDEN): 
-		Events.item_already_interacted()
-		return
-	
-	Events.show_item_outline(false)
-	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "sunken_garden")
-	await Dialogic.timeline_ended
-	Events.finish_interactable(DataManager.SWCH_NAME.LOC_1_SUNKEN_GARDEN)
-
-#endregion

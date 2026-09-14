@@ -25,6 +25,7 @@ extends MapEventBase
 #region Virtual functions
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	super()
 	# Connect callable.
 	Events.pov_switch.connect(_pov_switch_grayout)
 	Events.set_item_outline.connect(_show_item_outline)

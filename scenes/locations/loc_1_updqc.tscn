@@ -1,23 +1,29 @@
 [gd_scene format=3 uid="uid://cbe1ckj2yiwf5"]
 
 [ext_resource type="Script" uid="uid://du0kpd023b5oa" path="res://scripts/locations/loc_1_updqc.gd" id="1_it7vl"]
-[ext_resource type="PackedScene" uid="uid://8iegyqjcp1jn" path="res://scenes/components/item_base.tscn" id="2_j3x12"]
 [ext_resource type="Shader" uid="uid://c3o5qj8eq2ms3" path="res://scripts/components/item_base_shader.gdshader" id="3_gsp0h"]
 [ext_resource type="Texture2D" uid="uid://c2j6stnrbc4wd" path="res://assets/images/items/loc_1/loc_1_adis_mural_interactable.png" id="3_j3x12"]
 [ext_resource type="Texture2D" uid="uid://1142vxlskcbl" path="res://assets/images/items/loc_1/loc_1_stall_interactable.png" id="4_btlh7"]
 [ext_resource type="Texture2D" uid="uid://bxv37vji0vyio" path="res://assets/images/items/loc_1/loc_1_trees_interactable.png" id="4_tyg5k"]
+[ext_resource type="Resource" uid="uid://bkghy2iffaco8" path="res://resources/events/loc_1/loc_1_adis_mural.tres" id="5_gcp73"]
 [ext_resource type="Texture2D" uid="uid://bsmeprl6deob1" path="res://assets/images/items/loc_1/loc_1_loose_chicken_interactable.png" id="5_gsp0h"]
+[ext_resource type="Resource" uid="uid://c8u5mjhkr016u" path="res://resources/events/common/already_interacted.tres" id="6_4336q"]
 [ext_resource type="Texture2D" uid="uid://cmpm3xbyem1j" path="res://assets/images/items/loc_1/loc_1_sunken_garden_interactable.png" id="7_bs6ud"]
+[ext_resource type="Resource" uid="uid://bvsth8ojpaf" path="res://resources/events/loc_1/loc_1_stall.tres" id="8_4336q"]
 [ext_resource type="Texture2D" uid="uid://ccv1y830n3wje" path="res://assets/images/items/adi_interactable.png" id="9_npvej"]
+[ext_resource type="Resource" uid="uid://dwtwab031cy5p" path="res://resources/events/loc_1/loc_1_chicken.tres" id="10_g0jub"]
 [ext_resource type="Texture2D" uid="uid://c8nhnqsopvc4" path="res://assets/images/items/wiks_interactable.png" id="10_kgfg1"]
 [ext_resource type="PackedScene" uid="uid://dxirpaxrv0f3n" path="res://scenes/gameplay/interactable_event.tscn" id="11_kngtm"]
 [ext_resource type="Script" uid="uid://87o5o2bfjl43" path="res://resources/events/event_page.gd" id="12_ccxf5"]
+[ext_resource type="Resource" uid="uid://bivsrl6x1ip0q" path="res://resources/events/loc_1/loc_1_trees.tres" id="12_y5ub3"]
 [ext_resource type="Resource" uid="uid://cuu2qsiavlwy" path="res://resources/events/common/pov_switch_adi.tres" id="13_x7cwg"]
 [ext_resource type="Resource" uid="uid://1il5e4gnbtj0" path="res://resources/events/common/pov_switch_wiks.tres" id="14_qsh8j"]
-[ext_resource type="Script" uid="uid://cwixl26rshljm" path="res://scripts/gameplay/map_event_base.gd" id="15_ccxf5"]
+[ext_resource type="Resource" uid="uid://br6hk81crl1hg" path="res://resources/events/loc_1/loc_1_sunken_garden.tres" id="14_y5ub3"]
+[ext_resource type="PackedScene" uid="uid://s0cgr666xcug" path="res://scenes/gameplay/map_event_base.tscn" id="15_ccxf5"]
 [ext_resource type="Resource" uid="uid://b7im3k0tm0eoe" path="res://resources/events/loc_1/loc_1_intro.tres" id="16_63cc0"]
 [ext_resource type="Script" uid="uid://c5bsi3j84v3a7" path="res://resources/commands/command_template.gd" id="17_iuivq"]
 [ext_resource type="Script" uid="uid://cfny4sp525n3u" path="res://resources/conditions/variable_condition.gd" id="18_fwjww"]
+[ext_resource type="Resource" uid="uid://c18pm6bt887rm" path="res://resources/events/loc_1/loc_1_end.tres" id="19_iuivq"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t66bq"]
 load_path = "res://.godot/imported/1_upd.png-f5f3523330a41720651a94e24edb9027.ctex"
@@ -31,66 +37,6 @@ tracks/0/path = NodePath("Background:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Adi\'sMural:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Stall:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Chicken:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Trees:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("SunkenGarden:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -111,66 +57,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Adi\'sMural:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Stall:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Chicken:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Trees:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("SunkenGarden:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bs6ud"]
 _data = {
@@ -178,7 +64,20 @@ _data = {
 &"fade_to_black": SubResource("Animation_btlh7")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_63cc0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jw4l6"]
+resource_local_to_scene = true
+shader = ExtResource("3_gsp0h")
+shader_parameter/maxLineWidth = 0.0
+shader_parameter/minLineWidth = 5.0
+shader_parameter/speed = 4.0
+shader_parameter/blockSize = 20.0
+shader_parameter/color = Color(1, 0.81, 0.25, 1)
+shader_parameter/tolerance = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bs6ud"]
+size = Vector2(355.5, 400.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m00o1"]
 resource_local_to_scene = true
 shader = ExtResource("3_gsp0h")
 shader_parameter/maxLineWidth = 0.0
@@ -191,7 +90,7 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_au5bx"]
 size = Vector2(523.25, 223.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_iuivq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oh30j"]
 resource_local_to_scene = true
 shader = ExtResource("3_gsp0h")
 shader_parameter/maxLineWidth = 0.0
@@ -204,7 +103,7 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyg5k"]
 size = Vector2(310, 128)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fwjww"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ciqjw"]
 resource_local_to_scene = true
 shader = ExtResource("3_gsp0h")
 shader_parameter/maxLineWidth = 0.0
@@ -217,7 +116,7 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3x12"]
 size = Vector2(81.75, 89)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gcp73"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rhq7q"]
 resource_local_to_scene = true
 shader = ExtResource("3_gsp0h")
 shader_parameter/maxLineWidth = 0.0
@@ -233,7 +132,7 @@ size = Vector2(1358.5, 385)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btlh7"]
 size = Vector2(262, 522.25)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4336q"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g0jub"]
 resource_local_to_scene = true
 shader = ExtResource("3_gsp0h")
 shader_parameter/maxLineWidth = 0.0
@@ -243,16 +142,30 @@ shader_parameter/blockSize = 20.0
 shader_parameter/color = Color(1, 0.81, 0.25, 1)
 shader_parameter/tolerance = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bs6ud"]
-size = Vector2(355.5, 400.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(138, 382)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y5ub3"]
+resource_local_to_scene = true
+shader = ExtResource("3_gsp0h")
+shader_parameter/maxLineWidth = 0.0
+shader_parameter/minLineWidth = 5.0
+shader_parameter/speed = 4.0
+shader_parameter/blockSize = 20.0
+shader_parameter/color = Color(1, 0.81, 0.25, 1)
+shader_parameter/tolerance = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrbww"]
 size = Vector2(138, 382)
 
-[sub_resource type="Resource" id="Resource_d6xjt"]
+[sub_resource type="Resource" id="Resource_x7cwg"]
+resource_name = "End Event"
+script = ExtResource("12_ccxf5")
+self_switch_triggers = Array[String](["end"])
+metadata/_custom_type_script = "uid://87o5o2bfjl43"
+
+[sub_resource type="Resource" id="Resource_oht3y"]
+resource_name = "End Event"
 script = ExtResource("12_ccxf5")
 self_switch_triggers = Array[String](["end"])
 metadata/_custom_type_script = "uid://87o5o2bfjl43"
@@ -269,92 +182,98 @@ metadata/_edit_lock_ = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1586842838]
 libraries/ = SubResource("AnimationLibrary_bs6ud")
 
-[node name="Adi\'sMural" parent="." unique_id=855729573 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
-material = SubResource("ShaderMaterial_63cc0")
+[node name="SunkenGarden" parent="." unique_id=1833280504 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("11_kngtm")]
+material = SubResource("ShaderMaterial_jw4l6")
+position = Vector2(102, 469)
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 1
+event_page_list = Array[ExtResource("12_ccxf5")]([ExtResource("14_y5ub3"), ExtResource("6_4336q")])
 
-[node name="Sprite2D" type="Sprite2D" parent="Adi\'sMural" unique_id=1417855945]
+[node name="Sprite2D" type="Sprite2D" parent="SunkenGarden" unique_id=429141993]
+position = Vector2(76, 371)
+texture = ExtResource("7_bs6ud")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SunkenGarden" unique_id=1366202211]
+position = Vector2(77.25, 348.75)
+shape = SubResource("RectangleShape2D_bs6ud")
+metadata/_edit_lock_ = true
+
+[node name="AdisMural" parent="." unique_id=2050541279 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("11_kngtm")]
+material = SubResource("ShaderMaterial_m00o1")
+hitbox_component = NodePath("CollisionShape2D")
+sprite_component = NodePath("Sprite2D")
+required_character = 1
+event_page_list = Array[ExtResource("12_ccxf5")]([ExtResource("5_gcp73"), ExtResource("6_4336q")])
+
+[node name="Sprite2D" type="Sprite2D" parent="AdisMural" unique_id=1725268119]
 position = Vector2(1231, 505)
 texture = ExtResource("3_j3x12")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Adi\'sMural" unique_id=153125173]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AdisMural" unique_id=1932500591]
 position = Vector2(1189.38, 504.25)
 shape = SubResource("RectangleShape2D_au5bx")
 
-[node name="Stall" parent="." unique_id=549817294 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
-material = SubResource("ShaderMaterial_iuivq")
+[node name="Stall" parent="." unique_id=2138751696 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("11_kngtm")]
+material = SubResource("ShaderMaterial_oh30j")
 position = Vector2(523, 332)
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 1
+event_page_list = Array[ExtResource("12_ccxf5")]([ExtResource("8_4336q"), ExtResource("6_4336q")])
 
-[node name="Sprite2D" type="Sprite2D" parent="Stall" unique_id=814199403]
+[node name="Sprite2D" type="Sprite2D" parent="Stall" unique_id=2136073044]
 position = Vector2(647, 348)
 texture = ExtResource("4_btlh7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stall" unique_id=1246077785]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stall" unique_id=902536135]
 position = Vector2(629, 351)
 shape = SubResource("RectangleShape2D_tyg5k")
 
-[node name="Chicken" parent="." unique_id=1719294075 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
-material = SubResource("ShaderMaterial_fwjww")
+[node name="Chicken" parent="." unique_id=51654588 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("11_kngtm")]
+material = SubResource("ShaderMaterial_ciqjw")
 position = Vector2(337, 443)
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 0
+event_page_list = Array[ExtResource("12_ccxf5")]([ExtResource("10_g0jub"), ExtResource("6_4336q")])
 
-[node name="Sprite2D" type="Sprite2D" parent="Chicken" unique_id=1492562984]
+[node name="Sprite2D" type="Sprite2D" parent="Chicken" unique_id=308106523]
 position = Vector2(1213, 41)
 texture = ExtResource("5_gsp0h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chicken" unique_id=240153446]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chicken" unique_id=533010660]
 position = Vector2(1214.13, 42.5)
 shape = SubResource("RectangleShape2D_j3x12")
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="Trees" parent="." unique_id=1936591882 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
-material = SubResource("ShaderMaterial_gcp73")
+[node name="Tree" parent="." unique_id=1332707333 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("11_kngtm")]
+material = SubResource("ShaderMaterial_rhq7q")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 0
+event_page_list = Array[ExtResource("12_ccxf5")]([ExtResource("12_y5ub3"), ExtResource("6_4336q")])
 
-[node name="Sprite2D" type="Sprite2D" parent="Trees" unique_id=63407363]
+[node name="Sprite2D" type="Sprite2D" parent="Tree" unique_id=1667813526]
 position = Vector2(683, 460)
 texture = ExtResource("4_tyg5k")
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Trees" unique_id=1759207577]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tree" unique_id=1159904927]
 position = Vector2(678.75, 192.5)
 shape = SubResource("RectangleShape2D_u16s0")
 debug_color = Color(1, 0, 0, 0.419608)
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Trees" unique_id=1179703314]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tree" unique_id=1531414054]
 position = Vector2(454, 648.875)
 shape = SubResource("RectangleShape2D_btlh7")
 debug_color = Color(1, 0, 0, 0.419608)
 metadata/_edit_lock_ = true
 
-[node name="SunkenGarden" parent="." unique_id=1701169771 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
-material = SubResource("ShaderMaterial_4336q")
-position = Vector2(102, 469)
-hitbox_component = NodePath("CollisionShape2D")
-sprite_component = NodePath("Sprite2D")
-required_character = 1
-
-[node name="Sprite2D" type="Sprite2D" parent="SunkenGarden" unique_id=1728279202]
-position = Vector2(76, 371)
-texture = ExtResource("7_bs6ud")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SunkenGarden" unique_id=311323827]
-position = Vector2(77.25, 348.75)
-shape = SubResource("RectangleShape2D_bs6ud")
-metadata/_edit_lock_ = true
-
 [node name="AdiNew" parent="." unique_id=907440396 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("11_kngtm")]
+material = SubResource("ShaderMaterial_g0jub")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 1
@@ -371,6 +290,7 @@ position = Vector2(551, 755)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="WiksNew" parent="." unique_id=477696627 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("11_kngtm")]
+material = SubResource("ShaderMaterial_y5ub3")
 position = Vector2(1123, 12)
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
@@ -388,13 +308,8 @@ position = Vector2(551, 755)
 shape = SubResource("RectangleShape2D_hrbww")
 debug_color = Color(1, 0, 0, 0.41960785)
 
-[node name="Intro" type="Area2D" parent="." unique_id=736780716]
-script = ExtResource("15_ccxf5")
-event_page_list = Array[ExtResource("12_ccxf5")]([ExtResource("16_63cc0"), SubResource("Resource_d6xjt")])
-metadata/_custom_type_script = "uid://cwixl26rshljm"
+[node name="Intro" parent="." unique_id=861190875 instance=ExtResource("15_ccxf5")]
+event_page_list = Array[ExtResource("12_ccxf5")]([ExtResource("16_63cc0"), SubResource("Resource_x7cwg")])
 
-[connection signal="item_clicked" from="Adi\'sMural" to="." method="_on_adis_mural_item_clicked"]
-[connection signal="item_clicked" from="Stall" to="." method="_on_stall_item_clicked"]
-[connection signal="item_clicked" from="Chicken" to="." method="_on_chicken_item_clicked"]
-[connection signal="item_clicked" from="Trees" to="." method="_on_trees_item_clicked"]
-[connection signal="item_clicked" from="SunkenGarden" to="." method="_on_sunken_garden_item_clicked"]
+[node name="Explored" parent="." unique_id=1548502259 instance=ExtResource("15_ccxf5")]
+event_page_list = Array[ExtResource("12_ccxf5")]([ExtResource("19_iuivq"), SubResource("Resource_oht3y")])

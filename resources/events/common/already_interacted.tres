@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EventPage" format=3 uid="uid://c8u5mjhkr016u"]
+
+[ext_resource type="Script" uid="uid://c5bsi3j84v3a7" path="res://resources/commands/command_template.gd" id="1_ma6q4"]
+[ext_resource type="Script" uid="uid://87o5o2bfjl43" path="res://resources/events/event_page.gd" id="2_4uyff"]
+[ext_resource type="Resource" uid="uid://c18y71hajmjrt" path="res://assets/dialogue/default_dialogue.dtl" id="2_y63ej"]
+[ext_resource type="Script" uid="uid://cfny4sp525n3u" path="res://resources/conditions/variable_condition.gd" id="3_y63ej"]
+[ext_resource type="Script" uid="uid://dbi2qtclckev3" path="res://resources/commands/command_dialogue.gd" id="3_ysonw"]
+
+[sub_resource type="Resource" id="Resource_ysonw"]
+script = ExtResource("3_ysonw")
+dialogic_file = ExtResource("2_y63ej")
+label = "already_interacted"
+metadata/_custom_type_script = "uid://dbi2qtclckev3"
+
+[resource]
+resource_name = "Already Interacted w/ Item"
+script = ExtResource("2_4uyff")
+self_switch_triggers = Array[String](["end"])
+commands = Array[ExtResource("1_ma6q4")]([SubResource("Resource_ysonw")])
+metadata/_custom_type_script = "uid://87o5o2bfjl43"
