@@ -6,6 +6,7 @@ extends Commands
 ## Show switch to show item outline.
 @export var switch: bool = true
 
+@warning_ignore("unused_parameter")
 func execute(node: MapEventBase) -> bool:
 	Events.show_the_context_menus(switch) # By default, as intro will flick it up.
 	return true

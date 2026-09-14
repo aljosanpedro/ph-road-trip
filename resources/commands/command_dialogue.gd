@@ -8,6 +8,7 @@ extends Commands
 ## Label where to start the entire timeline.
 @export var label: String = ""
 
+@warning_ignore("unused_parameter")
 func execute(node: MapEventBase) -> bool:
 	Dialogic.start(dialogic_file, label)
 	await Dialogic.timeline_ended

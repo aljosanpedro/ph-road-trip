@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/amynlrpfbtwaves.mp3-8d24ad6abebb7dfd59be44da8
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
