@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="EventPage" format=3 uid="uid://c18pm6bt887rm"]
+
+[ext_resource type="Script" uid="uid://c5bsi3j84v3a7" path="res://resources/commands/command_template.gd" id="1_7joc5"]
+[ext_resource type="Script" uid="uid://87o5o2bfjl43" path="res://resources/events/event_page.gd" id="2_ed2oe"]
+[ext_resource type="Resource" uid="uid://cwsa1kp8wnrst" path="res://assets/dialogue/location_1/loc_1_scene.dtl" id="2_vmeuk"]
+[ext_resource type="Script" uid="uid://dbi2qtclckev3" path="res://resources/commands/command_dialogue.gd" id="3_cg778"]
+[ext_resource type="Script" uid="uid://cfny4sp525n3u" path="res://resources/conditions/variable_condition.gd" id="3_vmeuk"]
+[ext_resource type="Script" uid="uid://b7gjvilkmwvj" path="res://resources/commands/command_open_camera.gd" id="4_qcv0i"]
+[ext_resource type="Script" uid="uid://btslp78wrry0l" path="res://resources/commands/command_stop_bgm.gd" id="5_s0hed"]
+[ext_resource type="Script" uid="uid://cy4bklexbxujm" path="res://resources/commands/command_set_self_switch.gd" id="6_s0hed"]
+
+[sub_resource type="Resource" id="Resource_cg778"]
+script = ExtResource("3_cg778")
+dialogic_file = ExtResource("2_vmeuk")
+label = "outro_pre_camera"
+metadata/_custom_type_script = "uid://dbi2qtclckev3"
+
+[sub_resource type="Resource" id="Resource_j3pel"]
+script = ExtResource("4_qcv0i")
+metadata/_custom_type_script = "uid://b7gjvilkmwvj"
+
+[sub_resource type="Resource" id="Resource_n8wo2"]
+script = ExtResource("5_s0hed")
+fade = 1.0
+metadata/_custom_type_script = "uid://btslp78wrry0l"
+
+[sub_resource type="Resource" id="Resource_fwjww"]
+script = ExtResource("6_s0hed")
+switch = "end"
+value = true
+metadata/_custom_type_script = "uid://cy4bklexbxujm"
+
+[resource]
+script = ExtResource("2_ed2oe")
+switch_triggers = Array[int]([0, 1, 2, 3, 4])
+trigger = 1
+commands = Array[ExtResource("1_7joc5")]([SubResource("Resource_cg778"), SubResource("Resource_j3pel"), SubResource("Resource_n8wo2"), SubResource("Resource_fwjww")])
+metadata/_custom_type_script = "uid://87o5o2bfjl43"

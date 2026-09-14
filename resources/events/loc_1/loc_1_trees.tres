@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="EventPage" format=3 uid="uid://bivsrl6x1ip0q"]
+
+[ext_resource type="Script" uid="uid://c5bsi3j84v3a7" path="res://resources/commands/command_template.gd" id="1_0lfgm"]
+[ext_resource type="Script" uid="uid://b4fpq7rakb5al" path="res://resources/commands/command_event_outline.gd" id="2_h7qdr"]
+[ext_resource type="Resource" uid="uid://dqjx22ryfj722" path="res://assets/dialogue/location_1/loc_1_interactables.dtl" id="3_t0pfu"]
+[ext_resource type="Script" uid="uid://dbi2qtclckev3" path="res://resources/commands/command_dialogue.gd" id="4_wb5m4"]
+[ext_resource type="Script" uid="uid://c51vr3q5hhvxs" path="res://resources/commands/command_set_switch.gd" id="5_lwke3"]
+[ext_resource type="Script" uid="uid://cy4bklexbxujm" path="res://resources/commands/command_set_self_switch.gd" id="6_2em7h"]
+[ext_resource type="Script" uid="uid://87o5o2bfjl43" path="res://resources/events/event_page.gd" id="7_p16q3"]
+[ext_resource type="Script" uid="uid://cfny4sp525n3u" path="res://resources/conditions/variable_condition.gd" id="8_k0fpd"]
+
+[sub_resource type="Resource" id="Resource_u6spa"]
+resource_name = "Hide Outline"
+script = ExtResource("2_h7qdr")
+switch = false
+metadata/_custom_type_script = "uid://b4fpq7rakb5al"
+
+[sub_resource type="Resource" id="Resource_qojkc"]
+script = ExtResource("4_wb5m4")
+dialogic_file = ExtResource("3_t0pfu")
+label = "trees"
+metadata/_custom_type_script = "uid://dbi2qtclckev3"
+
+[sub_resource type="Resource" id="Resource_upfwp"]
+script = ExtResource("5_lwke3")
+switch = 3
+value = true
+metadata/_custom_type_script = "uid://c51vr3q5hhvxs"
+
+[sub_resource type="Resource" id="Resource_x36xf"]
+resource_name = "Show Outline"
+script = ExtResource("2_h7qdr")
+metadata/_custom_type_script = "uid://b4fpq7rakb5al"
+
+[sub_resource type="Resource" id="Resource_6b878"]
+script = ExtResource("6_2em7h")
+switch = "end"
+value = true
+metadata/_custom_type_script = "uid://cy4bklexbxujm"
+
+[resource]
+script = ExtResource("7_p16q3")
+commands = Array[ExtResource("1_0lfgm")]([SubResource("Resource_u6spa"), SubResource("Resource_qojkc"), SubResource("Resource_upfwp"), SubResource("Resource_x36xf"), SubResource("Resource_6b878")])
+metadata/_custom_type_script = "uid://87o5o2bfjl43"

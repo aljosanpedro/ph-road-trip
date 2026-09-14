@@ -32,6 +32,7 @@ enum CurrentGameScene {
 ## INFO: Other variables
 ## Sets Adi as the default POV character.
 var current_game_scene = CurrentGameScene.CURRENT_MAP
+var current_area_name: String = "GameArea"
 
 #endregion
 
@@ -101,7 +102,7 @@ func _deferred_change_area(path: String) -> void:
 	# unless want to rename ofc xD
 	@warning_ignore("shadowed_variable")
 	
-	var current_scene = get_node("GameArea")
+	var current_scene = get_node(current_area_name)
 	var new_scene = ResourceLoader.load(path)
 	
 	await _fade_out_from_scene(current_scene)
@@ -113,7 +114,8 @@ func _deferred_change_area(path: String) -> void:
 	add_child(current_scene)
 	
 	# Before naming it...!
-	current_scene.name = "GameArea"
+	current_area_name = current_scene.name
+	#current_scene.name = "GameArea"
 	current_scene.modulate = Color.BLACK
 	
 	# New scene must always be the first.

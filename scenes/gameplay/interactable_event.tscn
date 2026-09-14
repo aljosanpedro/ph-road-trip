@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dxirpaxrv0f3n"]
 
 [ext_resource type="Script" uid="uid://cn1dmfjetxm5v" path="res://scripts/gameplay/interactable_event.gd" id="1_perr7"]
+[ext_resource type="Material" uid="uid://dfsofdoufcbun" path="res://assets/themes/item_base_shader.tres" id="1_x2fop"]
 
 [node name="InteractableEvent" type="Area2D" unique_id=2050541279]
+material = ExtResource("1_x2fop")
 script = ExtResource("1_perr7")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

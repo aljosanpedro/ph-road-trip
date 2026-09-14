@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="EventPage" format=3 uid="uid://bkghy2iffaco8"]
+
+[ext_resource type="Script" uid="uid://c5bsi3j84v3a7" path="res://resources/commands/command_template.gd" id="1_alrpc"]
+[ext_resource type="Script" uid="uid://b4fpq7rakb5al" path="res://resources/commands/command_event_outline.gd" id="2_15hww"]
+[ext_resource type="Script" uid="uid://87o5o2bfjl43" path="res://resources/events/event_page.gd" id="2_qojkc"]
+[ext_resource type="Script" uid="uid://cfny4sp525n3u" path="res://resources/conditions/variable_condition.gd" id="3_15hww"]
+[ext_resource type="Resource" uid="uid://dqjx22ryfj722" path="res://assets/dialogue/location_1/loc_1_interactables.dtl" id="3_jhamx"]
+[ext_resource type="Script" uid="uid://dbi2qtclckev3" path="res://resources/commands/command_dialogue.gd" id="4_vgj2i"]
+[ext_resource type="Script" uid="uid://c51vr3q5hhvxs" path="res://resources/commands/command_set_switch.gd" id="5_vgj2i"]
+[ext_resource type="Script" uid="uid://cy4bklexbxujm" path="res://resources/commands/command_set_self_switch.gd" id="6_kfb6d"]
+
+[sub_resource type="Resource" id="Resource_kfb6d"]
+resource_name = "Hide Outline"
+script = ExtResource("2_15hww")
+switch = false
+metadata/_custom_type_script = "uid://b4fpq7rakb5al"
+
+[sub_resource type="Resource" id="Resource_nbqv3"]
+script = ExtResource("4_vgj2i")
+dialogic_file = ExtResource("3_jhamx")
+label = "adis_mural"
+metadata/_custom_type_script = "uid://dbi2qtclckev3"
+
+[sub_resource type="Resource" id="Resource_jmi64"]
+script = ExtResource("5_vgj2i")
+switch = 2
+value = true
+metadata/_custom_type_script = "uid://c51vr3q5hhvxs"
+
+[sub_resource type="Resource" id="Resource_v3p4g"]
+resource_name = "Show Outline"
+script = ExtResource("2_15hww")
+metadata/_custom_type_script = "uid://b4fpq7rakb5al"
+
+[sub_resource type="Resource" id="Resource_paa58"]
+script = ExtResource("6_kfb6d")
+switch = "end"
+value = true
+metadata/_custom_type_script = "uid://cy4bklexbxujm"
+
+[resource]
+script = ExtResource("2_qojkc")
+commands = Array[ExtResource("1_alrpc")]([SubResource("Resource_kfb6d"), SubResource("Resource_nbqv3"), SubResource("Resource_jmi64"), SubResource("Resource_v3p4g"), SubResource("Resource_paa58")])
+metadata/_custom_type_script = "uid://87o5o2bfjl43"
