@@ -50,6 +50,13 @@ func _init() -> void:
 	print(_switches)
 	print(_variables)
 
+func _unhandled_key_input(event: InputEvent) -> void:
+	if not OS.is_debug_build(): return
+	if event.is_action_pressed("debug_switches"):
+		print(_switches)
+		print(_variables)
+		print(_self_switches)
+
 ## Get the value of a switch.
 func get_switch(id: SWCH_NAME) -> bool:
 	return _switches.get(id, false)
@@ -75,6 +82,8 @@ func set_variable(id: VAR_NAME, value: Variant) -> void:
 	
 	# Set switch.
 	_variables[id] = value
+	
+	data_changed.emit()
 
 ## Get the value of a self-switch.
 ## Key: [SceneName] + [EventName] + [SelfSwitch]
@@ -89,3 +98,5 @@ func set_self_switch(key: String, value: bool) -> void:
 	
 	# Set switch.
 	_self_switches[key] = value
+	
+	data_changed.emit()
