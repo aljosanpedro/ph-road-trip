@@ -1,9 +1,6 @@
 [gd_scene format=3 uid="uid://s0cgr666xcug"]
 
 [ext_resource type="Script" uid="uid://cwixl26rshljm" path="res://scripts/gameplay/map_event_base.gd" id="1_8cxdh"]
-[ext_resource type="Script" uid="uid://87o5o2bfjl43" path="res://resources/events/event_page.gd" id="2_32k8y"]
-[ext_resource type="Resource" uid="uid://d4fo7f224v2g6" path="res://resources/events/loc_1/intro.tres" id="3_acjde"]
 
 [node name="MapEventBase" type="Node2D" unique_id=179609153]
 script = ExtResource("1_8cxdh")
-event_page_list = Array[ExtResource("2_32k8y")]([ExtResource("3_acjde")])
