@@ -3,5 +3,6 @@
 class_name Commands
 extends Resource
 
+@warning_ignore("unused_parameter")
 func execute(node: MapEventBase) -> bool:
 	return true

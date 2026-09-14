@@ -8,6 +8,7 @@ extends Commands
 ## Volume to use
 @export var volume: float = 0.0
 
+@warning_ignore("unused_parameter")
 func execute(node: MapEventBase) -> bool:
 	AudioManager.bgs_play(audio_file)
 	AudioManager.bgs_volume(volume)

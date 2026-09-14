@@ -33,11 +33,11 @@ func bgm_play(path: String, volume: float = 0):
 	
 	background_music.stream = load(path)
 	
-	match background_music.stream:
-		AudioStreamWAV:
-			background_music.stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
-		_:
-			background_music.stream.loop = true
+	#match background_music.stream:
+		#AudioStreamWAV:
+			#background_music.stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+		#_:
+			#background_music.stream.loop = true
 			
 	background_music.volume_db = volume
 	background_music.play()
@@ -79,7 +79,7 @@ func bgs_play(path: String):
 		bgs_stop()
 	
 	background_sound.stream = load(path)
-	background_sound.stream.loop = true
+	#background_sound.stream.loop = true
 	background_sound.play()
 
 ## Stops BGS, as expected.
