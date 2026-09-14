@@ -50,7 +50,7 @@ func _find_suitable_page() -> void:
 func _meets_conditions(event_page: EventPage) -> bool:
 	var switches_ok = event_page.switch_triggers.all(func(s): return DataManager.get_switch(s))
 	var variables_ok = event_page.variable_triggers.all(func(v: VariableCondition): return v.is_met())
-	var self_switches_ok = event_page.self_switch_triggers.all(func(s): return DataManager.get_self_switch(s))
+	var self_switches_ok = event_page.self_switch_triggers.all(func(s): return DataManager.get_self_switch(get_parent().name + name + s))
 	return switches_ok and variables_ok and self_switches_ok
 
 # Runs the event itself.
