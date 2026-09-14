@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EventPage" format=3 uid="uid://cuu2qsiavlwy"]
+
+[ext_resource type="Script" uid="uid://c5bsi3j84v3a7" path="res://resources/commands/command_template.gd" id="1_gmwwa"]
+[ext_resource type="Script" uid="uid://87o5o2bfjl43" path="res://resources/events/event_page.gd" id="2_7mp07"]
+[ext_resource type="Script" uid="uid://bddoxpkoaqesq" path="res://resources/commands/command_pov_switch.gd" id="2_ewrer"]
+[ext_resource type="Script" uid="uid://cfny4sp525n3u" path="res://resources/conditions/variable_condition.gd" id="3_ewrer"]
+
+[sub_resource type="Resource" id="Resource_fitv5"]
+script = ExtResource("2_ewrer")
+metadata/_custom_type_script = "uid://bddoxpkoaqesq"
+
+[resource]
+script = ExtResource("2_7mp07")
+commands = Array[ExtResource("1_gmwwa")]([SubResource("Resource_fitv5")])
+metadata/_custom_type_script = "uid://87o5o2bfjl43"

@@ -1,19 +1,19 @@
-[gd_scene format=3 uid="uid://cbe1ckj2yiwf5"]
+[gd_scene format=3 uid="uid://bgim76qktr37m"]
 
-[ext_resource type="Script" uid="uid://du0kpd023b5oa" path="res://scripts/locations/loc_1_updqc.gd" id="1_it7vl"]
-[ext_resource type="PackedScene" uid="uid://8iegyqjcp1jn" path="res://scenes/components/item_base.tscn" id="2_j3x12"]
-[ext_resource type="Shader" uid="uid://c3o5qj8eq2ms3" path="res://scripts/components/item_base_shader.gdshader" id="3_gsp0h"]
-[ext_resource type="Texture2D" uid="uid://c2j6stnrbc4wd" path="res://assets/images/items/loc_1/loc_1_adis_mural_interactable.png" id="3_j3x12"]
-[ext_resource type="Texture2D" uid="uid://1142vxlskcbl" path="res://assets/images/items/loc_1/loc_1_stall_interactable.png" id="4_btlh7"]
-[ext_resource type="Texture2D" uid="uid://bxv37vji0vyio" path="res://assets/images/items/loc_1/loc_1_trees_interactable.png" id="4_tyg5k"]
-[ext_resource type="Texture2D" uid="uid://bsmeprl6deob1" path="res://assets/images/items/loc_1/loc_1_loose_chicken_interactable.png" id="5_gsp0h"]
-[ext_resource type="Texture2D" uid="uid://cmpm3xbyem1j" path="res://assets/images/items/loc_1/loc_1_sunken_garden_interactable.png" id="7_bs6ud"]
-[ext_resource type="Texture2D" uid="uid://ccv1y830n3wje" path="res://assets/images/items/adi_interactable.png" id="9_npvej"]
-[ext_resource type="Texture2D" uid="uid://c8nhnqsopvc4" path="res://assets/images/items/wiks_interactable.png" id="10_kgfg1"]
-[ext_resource type="PackedScene" uid="uid://dxirpaxrv0f3n" path="res://scenes/gameplay/interactable_event.tscn" id="11_kngtm"]
-[ext_resource type="Script" uid="uid://87o5o2bfjl43" path="res://resources/events/event_page.gd" id="12_ccxf5"]
-[ext_resource type="Resource" uid="uid://cuu2qsiavlwy" path="res://resources/events/common/pov_switch_adi.tres" id="13_x7cwg"]
-[ext_resource type="Resource" uid="uid://1il5e4gnbtj0" path="res://resources/events/common/pov_switch_wiks.tres" id="14_qsh8j"]
+[ext_resource type="Script" uid="uid://du0kpd023b5oa" path="res://scripts/locations/loc_1_updqc.gd" id="1_sprch"]
+[ext_resource type="PackedScene" uid="uid://8iegyqjcp1jn" path="res://scenes/components/item_base.tscn" id="2_vo426"]
+[ext_resource type="Shader" uid="uid://c3o5qj8eq2ms3" path="res://scripts/components/item_base_shader.gdshader" id="3_xy0mh"]
+[ext_resource type="Texture2D" uid="uid://c2j6stnrbc4wd" path="res://assets/images/items/loc_1/loc_1_adis_mural_interactable.png" id="4_w22ej"]
+[ext_resource type="Texture2D" uid="uid://1142vxlskcbl" path="res://assets/images/items/loc_1/loc_1_stall_interactable.png" id="5_xbq5b"]
+[ext_resource type="Texture2D" uid="uid://bsmeprl6deob1" path="res://assets/images/items/loc_1/loc_1_loose_chicken_interactable.png" id="6_cscfd"]
+[ext_resource type="Texture2D" uid="uid://bxv37vji0vyio" path="res://assets/images/items/loc_1/loc_1_trees_interactable.png" id="7_34a1t"]
+[ext_resource type="Texture2D" uid="uid://cmpm3xbyem1j" path="res://assets/images/items/loc_1/loc_1_sunken_garden_interactable.png" id="8_175v1"]
+[ext_resource type="Texture2D" uid="uid://ccv1y830n3wje" path="res://assets/images/items/adi_interactable.png" id="9_o4p05"]
+[ext_resource type="Texture2D" uid="uid://c8nhnqsopvc4" path="res://assets/images/items/wiks_interactable.png" id="10_55ftu"]
+[ext_resource type="PackedScene" uid="uid://dxirpaxrv0f3n" path="res://scenes/gameplay/interactable_event.tscn" id="11_kmyw0"]
+[ext_resource type="Script" uid="uid://87o5o2bfjl43" path="res://resources/events/event_page.gd" id="12_4c37g"]
+[ext_resource type="Resource" uid="uid://cuu2qsiavlwy" path="res://resources/events/common/pov_switch_adi.tres" id="13_empbn"]
+[ext_resource type="Resource" uid="uid://1il5e4gnbtj0" path="res://resources/events/common/pov_switch_wiks.tres" id="14_2ej1q"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t66bq"]
 load_path = "res://.godot/imported/1_upd.png-f5f3523330a41720651a94e24edb9027.ctex"
@@ -176,7 +176,7 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kngtm"]
 resource_local_to_scene = true
-shader = ExtResource("3_gsp0h")
+shader = ExtResource("3_xy0mh")
 shader_parameter/maxLineWidth = 0.0
 shader_parameter/minLineWidth = 5.0
 shader_parameter/speed = 4.0
@@ -189,7 +189,7 @@ size = Vector2(523.25, 223.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ccxf5"]
 resource_local_to_scene = true
-shader = ExtResource("3_gsp0h")
+shader = ExtResource("3_xy0mh")
 shader_parameter/maxLineWidth = 0.0
 shader_parameter/minLineWidth = 5.0
 shader_parameter/speed = 4.0
@@ -202,7 +202,7 @@ size = Vector2(310, 128)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x7cwg"]
 resource_local_to_scene = true
-shader = ExtResource("3_gsp0h")
+shader = ExtResource("3_xy0mh")
 shader_parameter/maxLineWidth = 0.0
 shader_parameter/minLineWidth = 5.0
 shader_parameter/speed = 4.0
@@ -215,7 +215,7 @@ size = Vector2(81.75, 89)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsh8j"]
 resource_local_to_scene = true
-shader = ExtResource("3_gsp0h")
+shader = ExtResource("3_xy0mh")
 shader_parameter/maxLineWidth = 0.0
 shader_parameter/minLineWidth = 5.0
 shader_parameter/speed = 4.0
@@ -231,7 +231,7 @@ size = Vector2(262, 522.25)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_63cc0"]
 resource_local_to_scene = true
-shader = ExtResource("3_gsp0h")
+shader = ExtResource("3_xy0mh")
 shader_parameter/maxLineWidth = 0.0
 shader_parameter/minLineWidth = 5.0
 shader_parameter/speed = 4.0
@@ -244,7 +244,7 @@ size = Vector2(355.5, 400.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iuivq"]
 resource_local_to_scene = true
-shader = ExtResource("3_gsp0h")
+shader = ExtResource("3_xy0mh")
 shader_parameter/maxLineWidth = 0.0
 shader_parameter/minLineWidth = 5.0
 shader_parameter/speed = 4.0
@@ -257,7 +257,7 @@ size = Vector2(138, 382)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fwjww"]
 resource_local_to_scene = true
-shader = ExtResource("3_gsp0h")
+shader = ExtResource("3_xy0mh")
 shader_parameter/maxLineWidth = 0.0
 shader_parameter/minLineWidth = 5.0
 shader_parameter/speed = 4.0
@@ -269,7 +269,7 @@ shader_parameter/tolerance = 0.0
 size = Vector2(138, 382)
 
 [node name="UPDQC" type="Node2D" unique_id=757965373]
-script = ExtResource("1_it7vl")
+script = ExtResource("1_sprch")
 
 [node name="Background" type="TextureRect" parent="." unique_id=380997668]
 offset_right = 1152.0
@@ -280,7 +280,7 @@ metadata/_edit_lock_ = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1586842838]
 libraries/ = SubResource("AnimationLibrary_bs6ud")
 
-[node name="Adi\'sMural" parent="." unique_id=855729573 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
+[node name="Adi\'sMural" parent="." unique_id=855729573 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_vo426")]
 material = SubResource("ShaderMaterial_kngtm")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
@@ -288,13 +288,13 @@ required_character = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Adi\'sMural" unique_id=1417855945]
 position = Vector2(1231, 505)
-texture = ExtResource("3_j3x12")
+texture = ExtResource("4_w22ej")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Adi\'sMural" unique_id=153125173]
 position = Vector2(1189.38, 504.25)
 shape = SubResource("RectangleShape2D_au5bx")
 
-[node name="Stall" parent="." unique_id=549817294 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
+[node name="Stall" parent="." unique_id=549817294 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_vo426")]
 material = SubResource("ShaderMaterial_ccxf5")
 position = Vector2(523, 332)
 hitbox_component = NodePath("CollisionShape2D")
@@ -303,13 +303,13 @@ required_character = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Stall" unique_id=814199403]
 position = Vector2(647, 348)
-texture = ExtResource("4_btlh7")
+texture = ExtResource("5_xbq5b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stall" unique_id=1246077785]
 position = Vector2(629, 351)
 shape = SubResource("RectangleShape2D_tyg5k")
 
-[node name="Chicken" parent="." unique_id=1719294075 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
+[node name="Chicken" parent="." unique_id=1719294075 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_vo426")]
 material = SubResource("ShaderMaterial_x7cwg")
 position = Vector2(337, 443)
 hitbox_component = NodePath("CollisionShape2D")
@@ -318,14 +318,14 @@ required_character = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Chicken" unique_id=1492562984]
 position = Vector2(1213, 41)
-texture = ExtResource("5_gsp0h")
+texture = ExtResource("6_cscfd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chicken" unique_id=240153446]
 position = Vector2(1214.13, 42.5)
 shape = SubResource("RectangleShape2D_j3x12")
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="Trees" parent="." unique_id=1936591882 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
+[node name="Trees" parent="." unique_id=1936591882 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_vo426")]
 material = SubResource("ShaderMaterial_qsh8j")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
@@ -333,7 +333,7 @@ required_character = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Trees" unique_id=63407363]
 position = Vector2(683, 460)
-texture = ExtResource("4_tyg5k")
+texture = ExtResource("7_34a1t")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trees" unique_id=1759207577]
@@ -348,7 +348,7 @@ shape = SubResource("RectangleShape2D_btlh7")
 debug_color = Color(1, 0, 0, 0.419608)
 metadata/_edit_lock_ = true
 
-[node name="SunkenGarden" parent="." unique_id=1701169771 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
+[node name="SunkenGarden" parent="." unique_id=1701169771 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_vo426")]
 material = SubResource("ShaderMaterial_63cc0")
 position = Vector2(102, 469)
 hitbox_component = NodePath("CollisionShape2D")
@@ -357,7 +357,7 @@ required_character = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="SunkenGarden" unique_id=1728279202]
 position = Vector2(76, 371)
-texture = ExtResource("7_bs6ud")
+texture = ExtResource("8_175v1")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SunkenGarden" unique_id=311323827]
@@ -365,7 +365,7 @@ position = Vector2(77.25, 348.75)
 shape = SubResource("RectangleShape2D_bs6ud")
 metadata/_edit_lock_ = true
 
-[node name="Adi" parent="." unique_id=1443207821 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
+[node name="Adi" parent="." unique_id=1443207821 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_vo426")]
 visible = false
 material = SubResource("ShaderMaterial_iuivq")
 hitbox_component = NodePath("CollisionShape2D")
@@ -376,13 +376,13 @@ is_character_interactable = true
 [node name="Sprite2D" type="Sprite2D" parent="Adi" unique_id=1931774958]
 position = Vector2(551.00006, 755)
 scale = Vector2(0.24666667, 0.24666668)
-texture = ExtResource("9_npvej")
+texture = ExtResource("9_o4p05")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Adi" unique_id=1882592510]
 position = Vector2(551, 755)
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="Wiks" parent="." unique_id=1373181299 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
+[node name="Wiks" parent="." unique_id=1373181299 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_vo426")]
 visible = false
 material = SubResource("ShaderMaterial_fwjww")
 position = Vector2(1123, 12)
@@ -394,41 +394,41 @@ is_character_interactable = true
 [node name="Sprite2D" type="Sprite2D" parent="Wiks" unique_id=626510108]
 position = Vector2(551.00006, 755)
 scale = Vector2(0.24666667, 0.24666668)
-texture = ExtResource("10_kgfg1")
+texture = ExtResource("10_55ftu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wiks" unique_id=1228395386]
 position = Vector2(551, 755)
 shape = SubResource("RectangleShape2D_hrbww")
 debug_color = Color(1, 0, 0, 0.41960785)
 
-[node name="AdiNew" parent="." unique_id=907440396 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("11_kngtm")]
+[node name="AdiNew" parent="." unique_id=907440396 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("11_kmyw0")]
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 1
 is_character_interactable = true
-event_page_list = Array[ExtResource("12_ccxf5")]([ExtResource("13_x7cwg")])
+event_page_list = Array[ExtResource("12_4c37g")]([ExtResource("13_empbn")])
 
 [node name="Sprite2D" type="Sprite2D" parent="AdiNew" unique_id=1679511083]
 position = Vector2(551.00006, 755)
 scale = Vector2(0.24666667, 0.24666668)
-texture = ExtResource("9_npvej")
+texture = ExtResource("9_o4p05")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AdiNew" unique_id=976972907]
 position = Vector2(551, 755)
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="WiksNew" parent="." unique_id=477696627 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("11_kngtm")]
+[node name="WiksNew" parent="." unique_id=477696627 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("11_kmyw0")]
 position = Vector2(1123, 12)
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 0
 is_character_interactable = true
-event_page_list = Array[ExtResource("12_ccxf5")]([ExtResource("14_qsh8j")])
+event_page_list = Array[ExtResource("12_4c37g")]([ExtResource("14_2ej1q")])
 
 [node name="Sprite2D" type="Sprite2D" parent="WiksNew" unique_id=730991474]
 position = Vector2(551.00006, 755)
 scale = Vector2(0.24666667, 0.24666668)
-texture = ExtResource("10_kgfg1")
+texture = ExtResource("10_55ftu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WiksNew" unique_id=2005082625]
 position = Vector2(551, 755)
