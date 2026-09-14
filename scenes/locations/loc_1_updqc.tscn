@@ -14,6 +14,10 @@
 [ext_resource type="Script" uid="uid://87o5o2bfjl43" path="res://resources/events/event_page.gd" id="12_ccxf5"]
 [ext_resource type="Resource" uid="uid://cuu2qsiavlwy" path="res://resources/events/common/pov_switch_adi.tres" id="13_x7cwg"]
 [ext_resource type="Resource" uid="uid://1il5e4gnbtj0" path="res://resources/events/common/pov_switch_wiks.tres" id="14_qsh8j"]
+[ext_resource type="Script" uid="uid://cwixl26rshljm" path="res://scripts/gameplay/map_event_base.gd" id="15_ccxf5"]
+[ext_resource type="Resource" uid="uid://b7im3k0tm0eoe" path="res://resources/events/loc_1/loc_1_intro.tres" id="16_63cc0"]
+[ext_resource type="Script" uid="uid://c5bsi3j84v3a7" path="res://resources/commands/command_template.gd" id="17_iuivq"]
+[ext_resource type="Script" uid="uid://cfny4sp525n3u" path="res://resources/conditions/variable_condition.gd" id="18_fwjww"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t66bq"]
 load_path = "res://.godot/imported/1_upd.png-f5f3523330a41720651a94e24edb9027.ctex"
@@ -174,7 +178,7 @@ _data = {
 &"fade_to_black": SubResource("Animation_btlh7")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kngtm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_63cc0"]
 resource_local_to_scene = true
 shader = ExtResource("3_gsp0h")
 shader_parameter/maxLineWidth = 0.0
@@ -187,7 +191,7 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_au5bx"]
 size = Vector2(523.25, 223.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ccxf5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iuivq"]
 resource_local_to_scene = true
 shader = ExtResource("3_gsp0h")
 shader_parameter/maxLineWidth = 0.0
@@ -200,7 +204,7 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyg5k"]
 size = Vector2(310, 128)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_x7cwg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fwjww"]
 resource_local_to_scene = true
 shader = ExtResource("3_gsp0h")
 shader_parameter/maxLineWidth = 0.0
@@ -213,7 +217,7 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3x12"]
 size = Vector2(81.75, 89)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qsh8j"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gcp73"]
 resource_local_to_scene = true
 shader = ExtResource("3_gsp0h")
 shader_parameter/maxLineWidth = 0.0
@@ -229,7 +233,7 @@ size = Vector2(1358.5, 385)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btlh7"]
 size = Vector2(262, 522.25)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_63cc0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4336q"]
 resource_local_to_scene = true
 shader = ExtResource("3_gsp0h")
 shader_parameter/maxLineWidth = 0.0
@@ -242,31 +246,16 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bs6ud"]
 size = Vector2(355.5, 400.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_iuivq"]
-resource_local_to_scene = true
-shader = ExtResource("3_gsp0h")
-shader_parameter/maxLineWidth = 0.0
-shader_parameter/minLineWidth = 5.0
-shader_parameter/speed = 4.0
-shader_parameter/blockSize = 20.0
-shader_parameter/color = Color(1, 0.81, 0.25, 1)
-shader_parameter/tolerance = 0.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(138, 382)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fwjww"]
-resource_local_to_scene = true
-shader = ExtResource("3_gsp0h")
-shader_parameter/maxLineWidth = 0.0
-shader_parameter/minLineWidth = 5.0
-shader_parameter/speed = 4.0
-shader_parameter/blockSize = 20.0
-shader_parameter/color = Color(1, 0.81, 0.25, 1)
-shader_parameter/tolerance = 0.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrbww"]
 size = Vector2(138, 382)
+
+[sub_resource type="Resource" id="Resource_d6xjt"]
+script = ExtResource("12_ccxf5")
+self_switch_triggers = Array[String](["end"])
+metadata/_custom_type_script = "uid://87o5o2bfjl43"
 
 [node name="UPDQC" type="Node2D" unique_id=757965373]
 script = ExtResource("1_it7vl")
@@ -281,7 +270,7 @@ metadata/_edit_lock_ = true
 libraries/ = SubResource("AnimationLibrary_bs6ud")
 
 [node name="Adi\'sMural" parent="." unique_id=855729573 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
-material = SubResource("ShaderMaterial_kngtm")
+material = SubResource("ShaderMaterial_63cc0")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 1
@@ -295,7 +284,7 @@ position = Vector2(1189.38, 504.25)
 shape = SubResource("RectangleShape2D_au5bx")
 
 [node name="Stall" parent="." unique_id=549817294 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
-material = SubResource("ShaderMaterial_ccxf5")
+material = SubResource("ShaderMaterial_iuivq")
 position = Vector2(523, 332)
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
@@ -310,7 +299,7 @@ position = Vector2(629, 351)
 shape = SubResource("RectangleShape2D_tyg5k")
 
 [node name="Chicken" parent="." unique_id=1719294075 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
-material = SubResource("ShaderMaterial_x7cwg")
+material = SubResource("ShaderMaterial_fwjww")
 position = Vector2(337, 443)
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
@@ -326,7 +315,7 @@ shape = SubResource("RectangleShape2D_j3x12")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Trees" parent="." unique_id=1936591882 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
-material = SubResource("ShaderMaterial_qsh8j")
+material = SubResource("ShaderMaterial_gcp73")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 0
@@ -349,7 +338,7 @@ debug_color = Color(1, 0, 0, 0.419608)
 metadata/_edit_lock_ = true
 
 [node name="SunkenGarden" parent="." unique_id=1701169771 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
-material = SubResource("ShaderMaterial_63cc0")
+material = SubResource("ShaderMaterial_4336q")
 position = Vector2(102, 469)
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
@@ -364,42 +353,6 @@ metadata/_edit_lock_ = true
 position = Vector2(77.25, 348.75)
 shape = SubResource("RectangleShape2D_bs6ud")
 metadata/_edit_lock_ = true
-
-[node name="Adi" parent="." unique_id=1443207821 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
-visible = false
-material = SubResource("ShaderMaterial_iuivq")
-hitbox_component = NodePath("CollisionShape2D")
-sprite_component = NodePath("Sprite2D")
-required_character = 1
-is_character_interactable = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Adi" unique_id=1931774958]
-position = Vector2(551.00006, 755)
-scale = Vector2(0.24666667, 0.24666668)
-texture = ExtResource("9_npvej")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Adi" unique_id=1882592510]
-position = Vector2(551, 755)
-shape = SubResource("RectangleShape2D_g4v7s")
-
-[node name="Wiks" parent="." unique_id=1373181299 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("2_j3x12")]
-visible = false
-material = SubResource("ShaderMaterial_fwjww")
-position = Vector2(1123, 12)
-hitbox_component = NodePath("CollisionShape2D")
-sprite_component = NodePath("Sprite2D")
-required_character = 0
-is_character_interactable = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Wiks" unique_id=626510108]
-position = Vector2(551.00006, 755)
-scale = Vector2(0.24666667, 0.24666668)
-texture = ExtResource("10_kgfg1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wiks" unique_id=1228395386]
-position = Vector2(551, 755)
-shape = SubResource("RectangleShape2D_hrbww")
-debug_color = Color(1, 0, 0, 0.41960785)
 
 [node name="AdiNew" parent="." unique_id=907440396 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("11_kngtm")]
 hitbox_component = NodePath("CollisionShape2D")
@@ -435,10 +388,13 @@ position = Vector2(551, 755)
 shape = SubResource("RectangleShape2D_hrbww")
 debug_color = Color(1, 0, 0, 0.41960785)
 
+[node name="Intro" type="Area2D" parent="." unique_id=736780716]
+script = ExtResource("15_ccxf5")
+event_page_list = Array[ExtResource("12_ccxf5")]([ExtResource("16_63cc0"), SubResource("Resource_d6xjt")])
+metadata/_custom_type_script = "uid://cwixl26rshljm"
+
 [connection signal="item_clicked" from="Adi\'sMural" to="." method="_on_adis_mural_item_clicked"]
 [connection signal="item_clicked" from="Stall" to="." method="_on_stall_item_clicked"]
 [connection signal="item_clicked" from="Chicken" to="." method="_on_chicken_item_clicked"]
 [connection signal="item_clicked" from="Trees" to="." method="_on_trees_item_clicked"]
 [connection signal="item_clicked" from="SunkenGarden" to="." method="_on_sunken_garden_item_clicked"]
-[connection signal="item_clicked" from="Adi" to="." method="_on_adi_item_clicked"]
-[connection signal="item_clicked" from="Wiks" to="." method="_on_wiks_item_clicked"]

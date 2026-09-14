@@ -23,16 +23,16 @@ func _ready() -> void:
 	animation_player.play("RESET")
 	
 	# Connect a following switch.
-	DataManager.data_changed.connect(_is_everything_interacted)
+	#DataManager.data_changed.connect(_is_everything_interacted)
 	
 	# Hide item outlines at first.
-	Events.show_item_outline(false)
-	
-	Dialogic.start("res://assets/dialogue/location_1/loc_1_scene.dtl", "intro")
-	await Dialogic.timeline_ended
-	
-	Events.show_the_context_menus(true) # By default, as intro will flick it up.
-	Events.show_item_outline(true) # Interactables will now have outlines.
+	#Events.show_item_outline(false)
+	#
+	#Dialogic.start("res://assets/dialogue/location_1/loc_1_scene.dtl", "intro")
+	#await Dialogic.timeline_ended
+	#
+	#Events.show_the_context_menus(true) # By default, as intro will flick it up.
+	#Events.show_item_outline(true) # Interactables will now have outlines.
 
 # If everything is interacted.
 func _is_everything_interacted() -> void:
@@ -77,8 +77,6 @@ func _is_everything_interacted() -> void:
 	# Call map.
 	Events.show_travel_map_scene()
 	
-	# Disconnect to never let it fire again.
-	DataManager.data_changed.disconnect(_is_everything_interacted)
 
 #region Interactable
 func _on_chicken_item_clicked() -> void:
@@ -130,13 +128,5 @@ func _on_sunken_garden_item_clicked() -> void:
 	Dialogic.start("res://assets/dialogue/location_1/loc_1_interactables.dtl", "sunken_garden")
 	await Dialogic.timeline_ended
 	Events.finish_interactable(DataManager.SWCH_NAME.LOC_1_SUNKEN_GARDEN)
-
-func _on_adi_item_clicked() -> void:
-	Events.set_current_pov(Events.POV_Character.ADI)
-	get_viewport().set_input_as_handled()
-
-func _on_wiks_item_clicked() -> void:
-	Events.set_current_pov(Events.POV_Character.WIKS)
-
 
 #endregion
