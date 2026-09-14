@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://2i3wod8cgavr" path="res://scripts/locations/intro_scene.gd" id="1_gbg58"]
 [ext_resource type="PackedScene" uid="uid://s0cgr666xcug" path="res://scenes/gameplay/map_event_base.tscn" id="2_l3u2p"]
 [ext_resource type="Script" uid="uid://87o5o2bfjl43" path="res://resources/events/event_page.gd" id="3_l3u2p"]
-[ext_resource type="Resource" uid="uid://d4fo7f224v2g6" path="res://resources/events/loc_1/intro.tres" id="4_gqxpw"]
+[ext_resource type="Resource" uid="uid://d4fo7f224v2g6" path="res://resources/events/intro/intro.tres" id="4_gqxpw"]
 
 [node name="IntroScene" type="Node2D" unique_id=630215984]
 script = ExtResource("1_gbg58")

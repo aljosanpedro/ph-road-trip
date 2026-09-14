@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="EventPage" format=3 uid="uid://b7im3k0tm0eoe"]
+
+[ext_resource type="Script" uid="uid://c5bsi3j84v3a7" path="res://resources/commands/command_template.gd" id="1_it721"]
+[ext_resource type="Script" uid="uid://b4fpq7rakb5al" path="res://resources/commands/command_event_outline.gd" id="2_ghxl7"]
+[ext_resource type="Resource" uid="uid://cwsa1kp8wnrst" path="res://assets/dialogue/location_1/loc_1_scene.dtl" id="3_tl1jd"]
+[ext_resource type="Script" uid="uid://dbi2qtclckev3" path="res://resources/commands/command_dialogue.gd" id="4_woqba"]
+[ext_resource type="Script" uid="uid://bpuesgtw316fh" path="res://resources/commands/command_show_context_menu.gd" id="5_w7yse"]
+[ext_resource type="Script" uid="uid://87o5o2bfjl43" path="res://resources/events/event_page.gd" id="6_0i265"]
+[ext_resource type="Script" uid="uid://cy4bklexbxujm" path="res://resources/commands/command_set_self_switch.gd" id="6_ghxl7"]
+[ext_resource type="Script" uid="uid://cfny4sp525n3u" path="res://resources/conditions/variable_condition.gd" id="7_2yoti"]
+
+[sub_resource type="Resource" id="Resource_6rcss"]
+script = ExtResource("2_ghxl7")
+switch = false
+metadata/_custom_type_script = "uid://b4fpq7rakb5al"
+
+[sub_resource type="Resource" id="Resource_wvfhl"]
+script = ExtResource("4_woqba")
+dialogic_file = ExtResource("3_tl1jd")
+label = "intro"
+metadata/_custom_type_script = "uid://dbi2qtclckev3"
+
+[sub_resource type="Resource" id="Resource_imu0k"]
+script = ExtResource("5_w7yse")
+metadata/_custom_type_script = "uid://bpuesgtw316fh"
+
+[sub_resource type="Resource" id="Resource_mogjb"]
+script = ExtResource("2_ghxl7")
+metadata/_custom_type_script = "uid://b4fpq7rakb5al"
+
+[sub_resource type="Resource" id="Resource_jhuqf"]
+script = ExtResource("6_ghxl7")
+switch = "end"
+value = true
+metadata/_custom_type_script = "uid://cy4bklexbxujm"
+
+[resource]
+script = ExtResource("6_0i265")
+trigger = 1
+commands = Array[ExtResource("1_it721")]([SubResource("Resource_6rcss"), SubResource("Resource_wvfhl"), SubResource("Resource_imu0k"), SubResource("Resource_mogjb"), SubResource("Resource_jhuqf")])
+metadata/_custom_type_script = "uid://87o5o2bfjl43"
