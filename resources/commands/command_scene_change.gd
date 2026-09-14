@@ -6,6 +6,6 @@ extends Commands
 ## Destination of the scene change.
 @export var destination: PackedScene
 
-func execute() -> bool:
+func execute(node: MapEventBase) -> bool:
 	Events.change_area(destination.resource_path)
 	return true

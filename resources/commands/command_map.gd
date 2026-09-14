@@ -3,6 +3,6 @@
 class_name OpenMapCommand
 extends Commands
 
-func execute() -> bool:
+func execute(node: MapEventBase) -> bool:
 	Events.show_travel_map_scene()
 	return true

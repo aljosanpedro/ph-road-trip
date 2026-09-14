@@ -8,6 +8,6 @@ extends Commands
 ## Volume to use
 @export var volume: float = 0.0
 
-func execute() -> bool:
+func execute(node: MapEventBase) -> bool:
 	AudioManager.bgm_play(audio_file, volume)
 	return true

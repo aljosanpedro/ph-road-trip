@@ -6,6 +6,6 @@ extends Commands
 ## Route to enable
 @export var route: Events.Locations
 
-func execute() -> bool:
+func execute(node: MapEventBase) -> bool:
 	Events.enable_route(route)
 	return true

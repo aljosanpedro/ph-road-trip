@@ -6,6 +6,6 @@ extends Commands
 # The amount of seconds to wait... in milliseconds.
 @export var seconds: float = 0
 
-func execute() -> bool:
+func execute(node: MapEventBase) -> bool:
 	await Events.wait(seconds)
 	return true

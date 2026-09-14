@@ -3,20 +3,32 @@
 [ext_resource type="Script" uid="uid://c5bsi3j84v3a7" path="res://resources/commands/command_template.gd" id="1_66h82"]
 [ext_resource type="Script" uid="uid://87o5o2bfjl43" path="res://resources/events/event_page.gd" id="2_57q7a"]
 [ext_resource type="Script" uid="uid://bpuesgtw316fh" path="res://resources/commands/command_show_context_menu.gd" id="2_mogjb"]
+[ext_resource type="Script" uid="uid://db2fgacjnuy5q" path="res://resources/commands/command_play_bgm.gd" id="3_bkdc8"]
 [ext_resource type="Resource" uid="uid://c2r5a416sj7ge" path="res://assets/dialogue/intro/intro.dtl" id="3_wvfhl"]
 [ext_resource type="Script" uid="uid://dbi2qtclckev3" path="res://resources/commands/command_dialogue.gd" id="4_imu0k"]
 [ext_resource type="PackedScene" uid="uid://cbe1ckj2yiwf5" path="res://scenes/locations/loc_1_updqc.tscn" id="5_imu0k"]
+[ext_resource type="Script" uid="uid://btslp78wrry0l" path="res://resources/commands/command_stop_bgm.gd" id="6_fltb5"]
 [ext_resource type="Script" uid="uid://r35bwpm7qv18" path="res://resources/commands/command_scene_change.gd" id="6_qux0n"]
+[ext_resource type="Script" uid="uid://cfny4sp525n3u" path="res://resources/conditions/variable_condition.gd" id="10_fltb5"]
 
 [sub_resource type="Resource" id="Resource_j3pel"]
 script = ExtResource("2_mogjb")
 switch = false
 metadata/_custom_type_script = "uid://bpuesgtw316fh"
 
+[sub_resource type="Resource" id="Resource_b5lyj"]
+script = ExtResource("3_bkdc8")
+audio_file = "uid://cpq8dombn704o"
+metadata/_custom_type_script = "uid://db2fgacjnuy5q"
+
 [sub_resource type="Resource" id="Resource_g28q7"]
 script = ExtResource("4_imu0k")
 dialogic_file = ExtResource("3_wvfhl")
 metadata/_custom_type_script = "uid://dbi2qtclckev3"
+
+[sub_resource type="Resource" id="Resource_q6f0e"]
+script = ExtResource("6_fltb5")
+metadata/_custom_type_script = "uid://btslp78wrry0l"
 
 [sub_resource type="Resource" id="Resource_qux0n"]
 script = ExtResource("6_qux0n")
@@ -26,5 +38,5 @@ metadata/_custom_type_script = "uid://r35bwpm7qv18"
 [resource]
 script = ExtResource("2_57q7a")
 trigger = 1
-commands = Array[ExtResource("1_66h82")]([SubResource("Resource_j3pel"), SubResource("Resource_g28q7"), SubResource("Resource_qux0n")])
+commands = Array[ExtResource("1_66h82")]([SubResource("Resource_j3pel"), SubResource("Resource_b5lyj"), SubResource("Resource_g28q7"), SubResource("Resource_q6f0e"), SubResource("Resource_qux0n")])
 metadata/_custom_type_script = "uid://87o5o2bfjl43"

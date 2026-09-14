@@ -6,6 +6,6 @@ extends Commands
 ## Show switch to show item outline.
 @export var switch: bool = true
 
-func execute() -> bool:
+func execute(node: MapEventBase) -> bool:
 	Events.show_item_outline(switch)
 	return true
