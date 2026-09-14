@@ -8,7 +8,7 @@
 #==============================================================================
 
 class_name MapEventBase
-extends Node2D
+extends Area2D
 
 ## The page list to run. It will run the bottom-most first, and then stop.
 @export var event_page_list: Array[EventPage]

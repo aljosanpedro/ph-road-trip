@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dxirpaxrv0f3n"]
+
+[ext_resource type="Script" uid="uid://cn1dmfjetxm5v" path="res://scripts/gameplay/interactable_event.gd" id="1_perr7"]
+
+[node name="InteractableEvent" type="Node2D" unique_id=907440396]
+script = ExtResource("1_perr7")
