@@ -3,6 +3,6 @@
 class_name StopSFXAllCommand
 extends Commands
 
-func execute() -> bool:
+func execute(node: MapEventBase) -> bool:
 	AudioManager.sfx_stop_all()
 	return true

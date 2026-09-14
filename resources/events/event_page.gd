@@ -22,11 +22,11 @@ enum TRIGGER_TYPE {
 
 @export_category("Triggers")
 ## Switches required to activate this event page.
-@export var switch_trigger: Array[DataManager.SWCH_NAME]
+@export var switch_triggers: Array[DataManager.SWCH_NAME]
 ## Variables required to activate this event page.
-@export var variable_trigger: Array[DataManager.VAR_NAME]
+@export var variable_triggers: Array[VariableCondition]
 ## Self-switches required to activate this event page.
-@export var self_switch_trigger: Array[String]
+@export var self_switch_triggers: Array[String]
 
 @export_category("Properties")
 @export var trigger: TRIGGER_TYPE

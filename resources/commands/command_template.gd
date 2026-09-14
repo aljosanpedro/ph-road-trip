@@ -3,5 +3,5 @@
 class_name Commands
 extends Resource
 
-func execute() -> bool:
+func execute(node: MapEventBase) -> bool:
 	return true

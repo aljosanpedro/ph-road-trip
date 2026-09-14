@@ -3,6 +3,6 @@
 class_name StopBGSCommand
 extends Commands
 
-func execute() -> bool:
+func execute(node: MapEventBase) -> bool:
 	AudioManager.bgs_stop()
 	return true

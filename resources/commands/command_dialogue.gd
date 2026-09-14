@@ -8,7 +8,7 @@ extends Commands
 ## Label where to start the entire timeline.
 @export var label: String = ""
 
-func execute() -> bool:
+func execute(node: MapEventBase) -> bool:
 	Dialogic.start(dialogic_file, label)
 	await Dialogic.timeline_ended
 	return true
