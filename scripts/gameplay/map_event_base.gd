@@ -51,7 +51,7 @@ func _meets_conditions(event_page: EventPage) -> bool:
 	var switches_ok = event_page.switch_triggers.all(func(s): return DataManager.get_switch(s))
 	var variables_ok = event_page.variable_triggers.all(func(v: VariableCondition): return v.is_met())
 	var self_switches_ok = event_page.self_switch_triggers.all(func(s): return DataManager.get_self_switch(self.get_parent().name + name + s))
-	print(name, switches_ok, variables_ok, self_switches_ok)
+	print(name, ": ", switches_ok, " ", variables_ok, " ", self_switches_ok)
 	return switches_ok and variables_ok and self_switches_ok
 
 # Runs the event itself.
@@ -68,7 +68,7 @@ func _activate_event_page(event_page: EventPage) -> void:
 		if command is EndEventCommand: break
 		
 		# Debugging
-		print("Running command: ", command.get_class())
+		print("Running command: ", command.get_script().get_global_name())
 		
 		@warning_ignore("redundant_await")
 		await command.execute(self)
