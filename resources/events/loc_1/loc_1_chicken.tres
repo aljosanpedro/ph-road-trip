@@ -39,6 +39,7 @@ value = true
 metadata/_custom_type_script = "uid://cy4bklexbxujm"
 
 [resource]
+resource_name = "Chicken"
 script = ExtResource("7_sqrxw")
 commands = Array[ExtResource("1_lklfi")]([SubResource("Resource_u6spa"), SubResource("Resource_qojkc"), SubResource("Resource_upfwp"), SubResource("Resource_x36xf"), SubResource("Resource_6b878")])
 metadata/_custom_type_script = "uid://87o5o2bfjl43"

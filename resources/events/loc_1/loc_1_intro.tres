@@ -35,6 +35,7 @@ value = true
 metadata/_custom_type_script = "uid://cy4bklexbxujm"
 
 [resource]
+resource_name = "Loc 1 Intro"
 script = ExtResource("6_0i265")
 trigger = 1
 commands = Array[ExtResource("1_it721")]([SubResource("Resource_6rcss"), SubResource("Resource_wvfhl"), SubResource("Resource_imu0k"), SubResource("Resource_mogjb"), SubResource("Resource_jhuqf")])
