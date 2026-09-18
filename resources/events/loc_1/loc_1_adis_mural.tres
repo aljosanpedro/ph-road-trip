@@ -39,6 +39,7 @@ value = true
 metadata/_custom_type_script = "uid://cy4bklexbxujm"
 
 [resource]
+resource_name = "Adi's Mural"
 script = ExtResource("2_qojkc")
 commands = Array[ExtResource("1_alrpc")]([SubResource("Resource_kfb6d"), SubResource("Resource_nbqv3"), SubResource("Resource_jmi64"), SubResource("Resource_v3p4g"), SubResource("Resource_paa58")])
 metadata/_custom_type_script = "uid://87o5o2bfjl43"
