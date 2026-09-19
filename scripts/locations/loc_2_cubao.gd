@@ -6,173 +6,70 @@ extends Node2D
 @onready var background = $Background
 @onready var animation_player = $AnimationPlayer
 
-# List of interactables
-# For wiks:
-# 	kids_playing
-# 	lanterns
-# 	radio
-# For adi:
-#	graffiti
-#	clothes
-# 	mannequins
-# 	jabee
-# "loc_2_kids_playing": false,
-# "loc_2_lanterns": false,
-# "loc_2_radio": false,
-# "loc_2_graffiti": false,
-# "loc_2_clothes": false,
-# "loc_2_mannequins": false,
-# "loc_2_jabee": false,
-
 func _ready() -> void:
-	AudioManager.bgm_play("res://assets/audio/bgm/cubao_2.mp3")
 	animation_player.play("RESET")
-	# Connect a following switch.
-	DataManager.data_changed.connect(_is_everything_interacted)
-	
-	# Hide item outlines at first.
-	Events.show_item_outline(false)
-	
-	# Set dialogue immediately.
-	Dialogic.start("res://assets/dialogue/location_2/loc_2_scene.dtl", "intro")
-	await Dialogic.timeline_ended
-	
-	
-	Events.show_the_context_menus(true) # By default, as intro will flick it up.
-	Events.show_item_outline(true) # Interactables will now have outlines.
+	#AudioManager.bgm_play("res://assets/audio/bgm/cubao_2.mp3")
+	#animation_player.play("RESET")
+	## Connect a following switch.
+	#DataManager.data_changed.connect(_is_everything_interacted)
+	#
+	## Hide item outlines at first.
+	#Events.show_item_outline(false)
+	#
+	## Set dialogue immediately.
+	#Dialogic.start("res://assets/dialogue/location_2/loc_2_scene.dtl", "intro")
+	#await Dialogic.timeline_ended
+	#
+	#
+	#Events.show_the_context_menus(true) # By default, as intro will flick it up.
+	#Events.show_item_outline(true) # Interactables will now have outlines.
 	
 
 
 # If everything is interacted.
-func _is_everything_interacted() -> void:
-	var relevant_switches = [
-		"loc_2_kids_playing",
-		"loc_2_lanterns",
-		"loc_2_radio",
-		"loc_2_graffiti",
-		"loc_2_clothes",
-		"loc_2_mannequins",
-		"loc_2_jabee"
-	]
-	
-	# If not all are interacted, return.
-	for switches in relevant_switches:
-		if not DataManager.get_switch(switches): return
-	
-	# Initiate outro if true...
-	Dialogic.start("res://assets/dialogue/location_2/loc_2_scene.dtl", "outro_pre_camera")
-	await Dialogic.timeline_ended
-	
-	# Initiate camera...
-	Events.open_camera()
-	await Events.camera_photo_taken
-	
-	# Stop music after photo is taken.
-	AudioManager.bgm_stop(1)
-	
-	# Delete all items instead.
-	for item in get_children():
-		if item is ItemBase:
-			item.queue_free()
-	
-	animation_player.play("fade_to_black")
-	await animation_player.animation_finished
-	
-	# Initiate after camera photo taken.
-	Dialogic.start("res://assets/dialogue/location_2/loc_2_scene.dtl", "outro_post_camera")
-	await Dialogic.timeline_ended
-	
-	# Then, enable Route.
-	Events.enable_route(Events.Locations.Makati)
-	
-	# Call map.
-	Events.show_travel_map_scene()
-	
-	# Disconnect to never let it fire again.
-	DataManager.data_changed.disconnect(_is_everything_interacted)
-
-#region Interactable
-func _on_graffiti_item_clicked() -> void:
-	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_2_GRAFFITI): 
-		Events.item_already_interacted()
-		return
-	
-	Events.show_item_outline(false)
-	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "graffiti")
-	await Dialogic.timeline_ended
-	Events.finish_interactable(DataManager.SWCH_NAME.LOC_2_GRAFFITI)
-
-
-func _on_jolibee_item_clicked() -> void:
-	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_2_JABEE): 
-		Events.item_already_interacted()
-		return
-	
-	Events.show_item_outline(false)
-	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "jabee")
-	await Dialogic.timeline_ended
-	Events.finish_interactable(DataManager.SWCH_NAME.LOC_2_JABEE)
-
-
-func _on_lanterns_item_clicked() -> void:
-	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_2_LANTERNS): 
-		Events.item_already_interacted()
-		return
-	
-	Events.show_item_outline(false)
-	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "lanterns")
-	await Dialogic.timeline_ended
-	Events.finish_interactable(DataManager.SWCH_NAME.LOC_2_LANTERNS)
-
-
-func _on_radio_item_clicked() -> void:
-	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_2_RADIO): 
-		Events.item_already_interacted()
-		return
-	
-	Events.show_item_outline(false)
-	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "radio")
-	await Dialogic.timeline_ended
-	Events.finish_interactable(DataManager.SWCH_NAME.LOC_2_RADIO)
-
-
-func _on_kids_item_clicked() -> void:
-	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_2_KIDS_PLAYING): 
-		Events.item_already_interacted()
-		return
-	
-	Events.show_item_outline(false)
-	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "kids_playing")
-	await Dialogic.timeline_ended
-	Events.finish_interactable(DataManager.SWCH_NAME.LOC_2_KIDS_PLAYING)
-
-
-func _on_mannequins_item_clicked() -> void:
-	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_2_MANNEQUINS): 
-		Events.item_already_interacted()
-		return
-	
-	Events.show_item_outline(false)
-	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "mannequins")
-	await Dialogic.timeline_ended
-	Events.finish_interactable(DataManager.SWCH_NAME.LOC_2_MANNEQUINS)
-
-
-func _on_clothesline_item_clicked() -> void:
-	if DataManager.get_switch(DataManager.SWCH_NAME.LOC_2_CLOTHES): 
-		Events.item_already_interacted()
-		return
-	
-	Events.show_item_outline(false)
-	Dialogic.start("res://assets/dialogue/location_2/loc_2_interactables.dtl", "clothes")
-	await Dialogic.timeline_ended
-	Events.finish_interactable(DataManager.SWCH_NAME.LOC_2_CLOTHES)
-
-func _on_adi_item_clicked() -> void:
-	Events.set_current_pov(Events.POV_Character.ADI)
-	get_viewport().set_input_as_handled()
-
-func _on_wiks_item_clicked() -> void:
-	Events.set_current_pov(Events.POV_Character.WIKS)
-	get_viewport().set_input_as_handled()
-#endregion
+#func _is_everything_interacted() -> void:
+	#var relevant_switches = [
+		#"loc_2_kids_playing",
+		#"loc_2_lanterns",
+		#"loc_2_radio",
+		#"loc_2_graffiti",
+		#"loc_2_clothes",
+		#"loc_2_mannequins",
+		#"loc_2_jabee"
+	#]
+	#
+	## If not all are interacted, return.
+	#for switches in relevant_switches:
+		#if not DataManager.get_switch(switches): return
+	#
+	## Initiate outro if true...
+	#Dialogic.start("res://assets/dialogue/location_2/loc_2_scene.dtl", "outro_pre_camera")
+	#await Dialogic.timeline_ended
+	#
+	## Initiate camera...
+	#Events.open_camera()
+	#await Events.camera_photo_taken
+	#
+	## Stop music after photo is taken.
+	#AudioManager.bgm_stop(1)
+	#
+	## Delete all items instead.
+	#for item in get_children():
+		#if item is ItemBase:
+			#item.queue_free()
+	#
+	#animation_player.play("fade_to_black")
+	#await animation_player.animation_finished
+	#
+	## Initiate after camera photo taken.
+	#Dialogic.start("res://assets/dialogue/location_2/loc_2_scene.dtl", "outro_post_camera")
+	#await Dialogic.timeline_ended
+	#
+	## Then, enable Route.
+	#Events.enable_route(Events.Locations.Makati)
+	#
+	## Call map.
+	#Events.show_travel_map_scene()
+	#
+	## Disconnect to never let it fire again.
+	#DataManager.data_changed.disconnect(_is_everything_interacted)
