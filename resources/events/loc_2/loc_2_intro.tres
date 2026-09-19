@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="EventPage" format=3 uid="uid://flo00mjrk6fq"]
+
+[ext_resource type="Script" uid="uid://c5bsi3j84v3a7" path="res://resources/commands/command_template.gd" id="1_pgij7"]
+[ext_resource type="Script" uid="uid://b4fpq7rakb5al" path="res://resources/commands/command_event_outline.gd" id="2_6x4ci"]
+[ext_resource type="Script" uid="uid://db2fgacjnuy5q" path="res://resources/commands/command_play_bgm.gd" id="2_l12d5"]
+[ext_resource type="Resource" uid="uid://cqk1cutdi4byv" path="res://assets/dialogue/location_2/loc_2_scene.dtl" id="4_it6bu"]
+[ext_resource type="Script" uid="uid://dbi2qtclckev3" path="res://resources/commands/command_dialogue.gd" id="4_ltin0"]
+[ext_resource type="Script" uid="uid://bpuesgtw316fh" path="res://resources/commands/command_show_context_menu.gd" id="5_jna46"]
+[ext_resource type="Script" uid="uid://cy4bklexbxujm" path="res://resources/commands/command_set_self_switch.gd" id="6_4u14p"]
+[ext_resource type="Script" uid="uid://87o5o2bfjl43" path="res://resources/events/event_page.gd" id="7_t6exa"]
+[ext_resource type="Script" uid="uid://cfny4sp525n3u" path="res://resources/conditions/variable_condition.gd" id="8_ivljt"]
+
+[sub_resource type="Resource" id="Resource_47vtq"]
+script = ExtResource("2_l12d5")
+audio_file = "uid://bve1uejlyxmdq"
+metadata/_custom_type_script = "uid://db2fgacjnuy5q"
+
+[sub_resource type="Resource" id="Resource_6rcss"]
+script = ExtResource("2_6x4ci")
+switch = false
+metadata/_custom_type_script = "uid://b4fpq7rakb5al"
+
+[sub_resource type="Resource" id="Resource_wvfhl"]
+script = ExtResource("4_ltin0")
+dialogic_file = ExtResource("4_it6bu")
+label = "intro"
+metadata/_custom_type_script = "uid://dbi2qtclckev3"
+
+[sub_resource type="Resource" id="Resource_imu0k"]
+script = ExtResource("5_jna46")
+metadata/_custom_type_script = "uid://bpuesgtw316fh"
+
+[sub_resource type="Resource" id="Resource_mogjb"]
+script = ExtResource("2_6x4ci")
+metadata/_custom_type_script = "uid://b4fpq7rakb5al"
+
+[sub_resource type="Resource" id="Resource_jhuqf"]
+script = ExtResource("6_4u14p")
+switch = "end"
+value = true
+metadata/_custom_type_script = "uid://cy4bklexbxujm"
+
+[resource]
+resource_name = "Loc 2 Intro"
+script = ExtResource("7_t6exa")
+trigger = 1
+commands = Array[ExtResource("1_pgij7")]([SubResource("Resource_47vtq"), SubResource("Resource_6rcss"), SubResource("Resource_wvfhl"), SubResource("Resource_imu0k"), SubResource("Resource_mogjb"), SubResource("Resource_jhuqf")])
+metadata/_custom_type_script = "uid://87o5o2bfjl43"

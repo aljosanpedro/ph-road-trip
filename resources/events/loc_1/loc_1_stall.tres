@@ -16,12 +16,14 @@ switch = false
 metadata/_custom_type_script = "uid://b4fpq7rakb5al"
 
 [sub_resource type="Resource" id="Resource_qojkc"]
+resource_name = "Dialogue"
 script = ExtResource("4_otm21")
 dialogic_file = ExtResource("3_upfwp")
 label = "stall"
 metadata/_custom_type_script = "uid://dbi2qtclckev3"
 
 [sub_resource type="Resource" id="Resource_upfwp"]
+resource_name = "Item Switch"
 script = ExtResource("5_fiaym")
 value = true
 metadata/_custom_type_script = "uid://c51vr3q5hhvxs"
@@ -32,6 +34,7 @@ script = ExtResource("2_c6wx7")
 metadata/_custom_type_script = "uid://b4fpq7rakb5al"
 
 [sub_resource type="Resource" id="Resource_6b878"]
+resource_name = "End Event"
 script = ExtResource("6_upfwp")
 switch = "end"
 value = true

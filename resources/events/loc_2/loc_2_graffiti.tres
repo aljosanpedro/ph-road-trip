@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="EventPage" format=3 uid="uid://bp7al638vooj8"]
+
+[ext_resource type="Script" uid="uid://c5bsi3j84v3a7" path="res://resources/commands/command_template.gd" id="1_8il6b"]
+[ext_resource type="Script" uid="uid://b4fpq7rakb5al" path="res://resources/commands/command_event_outline.gd" id="2_yl2fb"]
+[ext_resource type="Resource" uid="uid://8jgf0vmbwxq0" path="res://assets/dialogue/location_2/loc_2_interactables.dtl" id="3_sc4ro"]
+[ext_resource type="Script" uid="uid://dbi2qtclckev3" path="res://resources/commands/command_dialogue.gd" id="4_dxeby"]
+[ext_resource type="Script" uid="uid://c51vr3q5hhvxs" path="res://resources/commands/command_set_switch.gd" id="5_2ybqb"]
+[ext_resource type="Script" uid="uid://cy4bklexbxujm" path="res://resources/commands/command_set_self_switch.gd" id="6_5878y"]
+[ext_resource type="Script" uid="uid://87o5o2bfjl43" path="res://resources/events/event_page.gd" id="7_igtqv"]
+[ext_resource type="Script" uid="uid://cfny4sp525n3u" path="res://resources/conditions/variable_condition.gd" id="8_2b7bq"]
+
+[sub_resource type="Resource" id="Resource_u6spa"]
+resource_name = "Hide Outline"
+script = ExtResource("2_yl2fb")
+switch = false
+metadata/_custom_type_script = "uid://b4fpq7rakb5al"
+
+[sub_resource type="Resource" id="Resource_qojkc"]
+resource_name = "Dialogue"
+script = ExtResource("4_dxeby")
+dialogic_file = ExtResource("3_sc4ro")
+label = "graffiti"
+metadata/_custom_type_script = "uid://dbi2qtclckev3"
+
+[sub_resource type="Resource" id="Resource_upfwp"]
+resource_name = "Item Switch"
+script = ExtResource("5_2ybqb")
+switch = 8
+value = true
+metadata/_custom_type_script = "uid://c51vr3q5hhvxs"
+
+[sub_resource type="Resource" id="Resource_x36xf"]
+resource_name = "Show Outline"
+script = ExtResource("2_yl2fb")
+metadata/_custom_type_script = "uid://b4fpq7rakb5al"
+
+[sub_resource type="Resource" id="Resource_6b878"]
+resource_name = "End Event"
+script = ExtResource("6_5878y")
+switch = "end"
+value = true
+metadata/_custom_type_script = "uid://cy4bklexbxujm"
+
+[resource]
+resource_name = "Graffiti"
+script = ExtResource("7_igtqv")
+commands = Array[ExtResource("1_8il6b")]([SubResource("Resource_u6spa"), SubResource("Resource_qojkc"), SubResource("Resource_upfwp"), SubResource("Resource_x36xf"), SubResource("Resource_6b878")])
+metadata/_custom_type_script = "uid://87o5o2bfjl43"

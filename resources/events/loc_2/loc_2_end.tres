@@ -1,0 +1,75 @@
+[gd_resource type="Resource" script_class="EventPage" format=3 uid="uid://drw04bss3shff"]
+
+[ext_resource type="Script" uid="uid://c5bsi3j84v3a7" path="res://resources/commands/command_template.gd" id="1_6878h"]
+[ext_resource type="Resource" uid="uid://cqk1cutdi4byv" path="res://assets/dialogue/location_2/loc_2_scene.dtl" id="2_47vtq"]
+[ext_resource type="Script" uid="uid://dbi2qtclckev3" path="res://resources/commands/command_dialogue.gd" id="3_agohc"]
+[ext_resource type="Script" uid="uid://b7gjvilkmwvj" path="res://resources/commands/command_open_camera.gd" id="4_gwg7s"]
+[ext_resource type="Script" uid="uid://b77u6dh5mnho5" path="res://resources/commands/command_mouse_toggle.gd" id="5_58l0k"]
+[ext_resource type="Script" uid="uid://btslp78wrry0l" path="res://resources/commands/command_stop_bgm.gd" id="6_3gf50"]
+[ext_resource type="Script" uid="uid://b28ejrhids5as" path="res://resources/commands/command_animation_player.gd" id="7_yfird"]
+[ext_resource type="Script" uid="uid://bpcjtfjha2x4w" path="res://resources/commands/command_enable_route.gd" id="8_kksx6"]
+[ext_resource type="Script" uid="uid://cjla6nkibs8dp" path="res://resources/commands/command_map.gd" id="9_i6uxt"]
+[ext_resource type="Script" uid="uid://cy4bklexbxujm" path="res://resources/commands/command_set_self_switch.gd" id="10_nwxiu"]
+[ext_resource type="Script" uid="uid://87o5o2bfjl43" path="res://resources/events/event_page.gd" id="11_ksw1o"]
+[ext_resource type="Script" uid="uid://cfny4sp525n3u" path="res://resources/conditions/variable_condition.gd" id="12_ewv1k"]
+
+[sub_resource type="Resource" id="Resource_cg778"]
+script = ExtResource("3_agohc")
+dialogic_file = ExtResource("2_47vtq")
+label = "outro_pre_camera"
+metadata/_custom_type_script = "uid://dbi2qtclckev3"
+
+[sub_resource type="Resource" id="Resource_j3pel"]
+script = ExtResource("4_gwg7s")
+metadata/_custom_type_script = "uid://b7gjvilkmwvj"
+
+[sub_resource type="Resource" id="Resource_x2fop"]
+resource_name = "Hide Mouse"
+script = ExtResource("5_58l0k")
+metadata/_custom_type_script = "uid://b77u6dh5mnho5"
+
+[sub_resource type="Resource" id="Resource_n8wo2"]
+script = ExtResource("6_3gf50")
+fade = 1.0
+metadata/_custom_type_script = "uid://btslp78wrry0l"
+
+[sub_resource type="Resource" id="Resource_s0hed"]
+script = ExtResource("7_yfird")
+animation_player = "AnimationPlayer"
+animation_string = "fade_to_black"
+metadata/_custom_type_script = "uid://b28ejrhids5as"
+
+[sub_resource type="Resource" id="Resource_qsfrs"]
+script = ExtResource("3_agohc")
+dialogic_file = ExtResource("2_47vtq")
+label = "outro_post_camera"
+metadata/_custom_type_script = "uid://dbi2qtclckev3"
+
+[sub_resource type="Resource" id="Resource_6ly06"]
+script = ExtResource("8_kksx6")
+route = 2
+metadata/_custom_type_script = "uid://bpcjtfjha2x4w"
+
+[sub_resource type="Resource" id="Resource_pkjbo"]
+script = ExtResource("9_i6uxt")
+metadata/_custom_type_script = "uid://cjla6nkibs8dp"
+
+[sub_resource type="Resource" id="Resource_6xhm8"]
+resource_name = "Show Mouse"
+script = ExtResource("5_58l0k")
+toggle_mouse_mode = true
+metadata/_custom_type_script = "uid://b77u6dh5mnho5"
+
+[sub_resource type="Resource" id="Resource_fwjww"]
+script = ExtResource("10_nwxiu")
+switch = "end"
+value = true
+metadata/_custom_type_script = "uid://cy4bklexbxujm"
+
+[resource]
+resource_name = "Loc 2 Scene End"
+script = ExtResource("11_ksw1o")
+switch_triggers = Array[int]([5, 6, 7, 8, 9, 10, 11])
+trigger = 1
+commands = Array[ExtResource("1_6878h")]([SubResource("Resource_cg778"), SubResource("Resource_j3pel"), SubResource("Resource_x2fop"), SubResource("Resource_n8wo2"), SubResource("Resource_s0hed"), SubResource("Resource_qsfrs"), SubResource("Resource_6ly06"), SubResource("Resource_pkjbo"), SubResource("Resource_6xhm8"), SubResource("Resource_fwjww")])
+metadata/_custom_type_script = "uid://87o5o2bfjl43"

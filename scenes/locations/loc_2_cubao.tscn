@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://wx5m6c8828qu" path="res://scripts/locations/loc_2_cubao.gd" id="1_7bot1"]
 [ext_resource type="Texture2D" uid="uid://du6qv4l3n2bg1" path="res://assets/images/backgrounds/2_cubao.png" id="2_5wx0i"]
-[ext_resource type="PackedScene" uid="uid://8iegyqjcp1jn" path="res://scenes/components/item_base.tscn" id="3_s6s24"]
 [ext_resource type="Texture2D" uid="uid://c5lanwikfmg8c" path="res://assets/images/items/loc_2/loc_2_cubao_rubble_interactable.png" id="4_u3dxt"]
 [ext_resource type="Shader" uid="uid://c3o5qj8eq2ms3" path="res://scripts/components/item_base_shader.gdshader" id="4_xww42"]
 [ext_resource type="Texture2D" uid="uid://c3k1r7je517sp" path="res://assets/images/items/loc_2/loc_2_jollibee_interactable.png" id="5_2dul2"]
@@ -13,8 +12,61 @@
 [ext_resource type="Texture2D" uid="uid://cqy2myj0rqfhi" path="res://assets/images/items/loc_2/loc_2_clothesline_interactable.png" id="10_xww42"]
 [ext_resource type="Texture2D" uid="uid://ccv1y830n3wje" path="res://assets/images/items/adi_interactable.png" id="12_j05l1"]
 [ext_resource type="Texture2D" uid="uid://c8nhnqsopvc4" path="res://assets/images/items/wiks_interactable.png" id="13_iuwtx"]
+[ext_resource type="Resource" uid="uid://ugslvfvtdl2w" path="res://resources/events/loc_2/loc_2_mannequins.tres" id="13_qixdk"]
+[ext_resource type="PackedScene" uid="uid://dxirpaxrv0f3n" path="res://scenes/gameplay/interactable_event.tscn" id="14_1etyh"]
+[ext_resource type="Script" uid="uid://87o5o2bfjl43" path="res://resources/events/event_page.gd" id="15_1bnt6"]
+[ext_resource type="Resource" uid="uid://cwulg6c1jlurx" path="res://resources/events/loc_2/loc_2_clothesline.tres" id="15_2w8n7"]
+[ext_resource type="Resource" uid="uid://bp7al638vooj8" path="res://resources/events/loc_2/loc_2_graffiti.tres" id="16_1bnt6"]
+[ext_resource type="Resource" uid="uid://cuu2qsiavlwy" path="res://resources/events/common/pov_switch_adi.tres" id="16_kpmoe"]
+[ext_resource type="Resource" uid="uid://dqxfregc5u2nq" path="res://resources/events/loc_2/loc_2_jolibee.tres" id="16_vtiiq"]
+[ext_resource type="Resource" uid="uid://bikbayss3vspy" path="res://resources/events/loc_2/loc_2_lanterns.tres" id="17_b8wsk"]
+[ext_resource type="Resource" uid="uid://c8u5mjhkr016u" path="res://resources/events/common/already_interacted.tres" id="17_kpmoe"]
+[ext_resource type="Resource" uid="uid://1il5e4gnbtj0" path="res://resources/events/common/pov_switch_wiks.tres" id="17_vtiiq"]
+[ext_resource type="Resource" uid="uid://h33yhuymxrnb" path="res://resources/events/loc_2/loc_2_radio.tres" id="18_15vgl"]
+[ext_resource type="Resource" uid="uid://dkce1770lgpph" path="res://resources/events/loc_2/loc_2_kids.tres" id="19_qjeum"]
+[ext_resource type="PackedScene" uid="uid://s0cgr666xcug" path="res://scenes/gameplay/map_event_base.tscn" id="25_5nj70"]
+[ext_resource type="Resource" uid="uid://flo00mjrk6fq" path="res://resources/events/loc_2/loc_2_intro.tres" id="26_5nj70"]
+[ext_resource type="Script" uid="uid://c5bsi3j84v3a7" path="res://resources/commands/command_template.gd" id="27_k1pqe"]
+[ext_resource type="Script" uid="uid://cfny4sp525n3u" path="res://resources/conditions/variable_condition.gd" id="28_4gxti"]
+[ext_resource type="Resource" uid="uid://drw04bss3shff" path="res://resources/events/loc_2/loc_2_end.tres" id="29_mfhae"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cyk2q"]
+[sub_resource type="Animation" id="Animation_xww42"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_e3aox"]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x6eh2"]
+_data = {
+&"RESET": SubResource("Animation_xww42"),
+&"fade_to_black": SubResource("Animation_e3aox")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_15vgl"]
 resource_local_to_scene = true
 shader = ExtResource("4_xww42")
 shader_parameter/maxLineWidth = 0.0
@@ -33,7 +85,7 @@ size = Vector2(531, 249)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0d5x"]
 size = Vector2(141, 49.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5f0e0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b8wsk"]
 resource_local_to_scene = true
 shader = ExtResource("4_xww42")
 shader_parameter/maxLineWidth = 0.0
@@ -46,46 +98,7 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xww42"]
 size = Vector2(63, 82.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_plu33"]
-resource_local_to_scene = true
-shader = ExtResource("4_xww42")
-shader_parameter/maxLineWidth = 0.0
-shader_parameter/minLineWidth = 5.0
-shader_parameter/speed = 4.0
-shader_parameter/blockSize = 20.0
-shader_parameter/color = Color(1, 0.81, 0.25, 1)
-shader_parameter/tolerance = 0.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iuwtx"]
-size = Vector2(22.25, 104)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_heygx"]
-resource_local_to_scene = true
-shader = ExtResource("4_xww42")
-shader_parameter/maxLineWidth = 0.0
-shader_parameter/minLineWidth = 5.0
-shader_parameter/speed = 4.0
-shader_parameter/blockSize = 20.0
-shader_parameter/color = Color(1, 0.81, 0.25, 1)
-shader_parameter/tolerance = 0.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j05l1"]
-size = Vector2(74.5, 118)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1etyh"]
-resource_local_to_scene = true
-shader = ExtResource("4_xww42")
-shader_parameter/maxLineWidth = 0.0
-shader_parameter/minLineWidth = 5.0
-shader_parameter/speed = 4.0
-shader_parameter/blockSize = 20.0
-shader_parameter/color = Color(1, 0.81, 0.25, 1)
-shader_parameter/tolerance = 0.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jojy"]
-size = Vector2(139.25, 88)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bnt6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7quj"]
 resource_local_to_scene = true
 shader = ExtResource("4_xww42")
 shader_parameter/maxLineWidth = 0.0
@@ -98,7 +111,7 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6eh2"]
 size = Vector2(215, 292.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kpmoe"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5nj70"]
 resource_local_to_scene = true
 shader = ExtResource("4_xww42")
 shader_parameter/maxLineWidth = 0.0
@@ -111,211 +124,7 @@ shader_parameter/tolerance = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i67qn"]
 size = Vector2(206.5, 60.8439)
 
-[sub_resource type="Animation" id="Animation_xww42"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Background:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Graffiti:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Jolibee:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Lanterns:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Radio:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Kids:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Mannequins:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Clothesline:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_e3aox"]
-resource_name = "fade_to_black"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Background:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Graffiti:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Jolibee:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Lanterns:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Radio:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Kids:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Mannequins:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Clothesline:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_x6eh2"]
-_data = {
-&"RESET": SubResource("Animation_xww42"),
-&"fade_to_black": SubResource("Animation_e3aox")
-}
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vtiiq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qixdk"]
 resource_local_to_scene = true
 shader = ExtResource("4_xww42")
 shader_parameter/maxLineWidth = 0.0
@@ -325,10 +134,10 @@ shader_parameter/blockSize = 20.0
 shader_parameter/color = Color(1, 0.81, 0.25, 1)
 shader_parameter/tolerance = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q82dk"]
-size = Vector2(138, 382)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iuwtx"]
+size = Vector2(22.25, 104)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b8wsk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4jhyr"]
 resource_local_to_scene = true
 shader = ExtResource("4_xww42")
 shader_parameter/maxLineWidth = 0.0
@@ -338,184 +147,241 @@ shader_parameter/blockSize = 20.0
 shader_parameter/color = Color(1, 0.81, 0.25, 1)
 shader_parameter/tolerance = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6dsd5"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j05l1"]
+size = Vector2(74.5, 118)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yfkas"]
+resource_local_to_scene = true
+shader = ExtResource("4_xww42")
+shader_parameter/maxLineWidth = 0.0
+shader_parameter/minLineWidth = 5.0
+shader_parameter/speed = 4.0
+shader_parameter/blockSize = 20.0
+shader_parameter/color = Color(1, 0.81, 0.25, 1)
+shader_parameter/tolerance = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jojy"]
+size = Vector2(139.25, 88)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qjeum"]
+resource_local_to_scene = true
+shader = ExtResource("4_xww42")
+shader_parameter/maxLineWidth = 0.0
+shader_parameter/minLineWidth = 5.0
+shader_parameter/speed = 4.0
+shader_parameter/blockSize = 20.0
+shader_parameter/color = Color(1, 0.81, 0.25, 1)
+shader_parameter/tolerance = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qixdk"]
 size = Vector2(138, 382)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2w8n7"]
+resource_local_to_scene = true
+shader = ExtResource("4_xww42")
+shader_parameter/maxLineWidth = 0.0
+shader_parameter/minLineWidth = 5.0
+shader_parameter/speed = 4.0
+shader_parameter/blockSize = 20.0
+shader_parameter/color = Color(1, 0.81, 0.25, 1)
+shader_parameter/tolerance = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jhyr"]
+size = Vector2(138, 382)
+
+[sub_resource type="Resource" id="Resource_x7cwg"]
+resource_name = "End Event"
+script = ExtResource("15_1bnt6")
+self_switch_triggers = Array[String](["end"])
+metadata/_custom_type_script = "uid://87o5o2bfjl43"
+
+[sub_resource type="Resource" id="Resource_oht3y"]
+resource_name = "End Event"
+script = ExtResource("15_1bnt6")
+self_switch_triggers = Array[String](["end"])
+metadata/_custom_type_script = "uid://87o5o2bfjl43"
 
 [node name="Cubao" type="Node2D" unique_id=1691155284]
 script = ExtResource("1_7bot1")
 
-[node name="Background" type="TextureRect" parent="." unique_id=2065614517]
-offset_right = 1920.0
-offset_bottom = 1080.0
+[node name="Background" type="Sprite2D" parent="." unique_id=1770620879]
+position = Vector2(960, 540)
+scale = Vector2(0.5, 0.50000006)
 texture = ExtResource("2_5wx0i")
-expand_mode = 1
-metadata/_edit_lock_ = true
 
-[node name="Graffiti" parent="." unique_id=918383326 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
-material = SubResource("ShaderMaterial_cyk2q")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=399689053]
+libraries/ = SubResource("AnimationLibrary_x6eh2")
+
+[node name="Graffiti" parent="." unique_id=2050541279 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("14_1etyh")]
+material = SubResource("ShaderMaterial_15vgl")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 0
+event_page_list = Array[ExtResource("15_1bnt6")]([ExtResource("16_1bnt6"), ExtResource("17_kpmoe")])
 
-[node name="Sprite2D" type="Sprite2D" parent="Graffiti" unique_id=740383535]
+[node name="Sprite2D" type="Sprite2D" parent="Graffiti" unique_id=13646592]
 position = Vector2(675, 824)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_u3dxt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Graffiti" unique_id=517628484]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Graffiti" unique_id=1257685450]
 position = Vector2(733, 725)
 shape = SubResource("RectangleShape2D_e3aox")
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Graffiti" unique_id=548118007]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Graffiti" unique_id=1196225879]
 position = Vector2(774.5, 931.5)
 shape = SubResource("RectangleShape2D_iadbw")
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Graffiti" unique_id=1765715769]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Graffiti" unique_id=1310691779]
 position = Vector2(688.5, 622.25)
 shape = SubResource("RectangleShape2D_i0d5x")
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="Jolibee" parent="." unique_id=1679238870 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
-material = SubResource("ShaderMaterial_5f0e0")
+[node name="Jabee" parent="." unique_id=1899916168 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("14_1etyh")]
+material = SubResource("ShaderMaterial_b8wsk")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 0
+event_page_list = Array[ExtResource("15_1bnt6")]([ExtResource("16_vtiiq"), ExtResource("17_kpmoe")])
 
-[node name="Sprite2D" type="Sprite2D" parent="Jolibee" unique_id=462590534]
+[node name="Sprite2D" type="Sprite2D" parent="Jabee" unique_id=730917448]
 position = Vector2(444, 589)
 texture = ExtResource("5_2dul2")
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jolibee" unique_id=474969937]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jabee" unique_id=777493895]
 position = Vector2(448.5, 592.75)
 shape = SubResource("RectangleShape2D_xww42")
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="Lanterns" parent="." unique_id=1250161382 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
-material = SubResource("ShaderMaterial_plu33")
-hitbox_component = NodePath("CollisionShape2D")
-sprite_component = NodePath("Sprite2D")
-required_character = 1
-
-[node name="Sprite2D" type="Sprite2D" parent="Lanterns" unique_id=1861052624]
-position = Vector2(375, 529)
-texture = ExtResource("6_qov41")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lanterns" unique_id=1684730273]
-position = Vector2(373.875, 529)
-shape = SubResource("RectangleShape2D_iuwtx")
-
-[node name="Radio" parent="." unique_id=2123809075 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
-material = SubResource("ShaderMaterial_heygx")
-hitbox_component = NodePath("CollisionShape2D")
-sprite_component = NodePath("Sprite2D")
-required_character = 1
-
-[node name="Sprite2D" type="Sprite2D" parent="Radio" unique_id=1206810534]
-position = Vector2(477, 866)
-texture = ExtResource("7_e3aox")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Radio" unique_id=166023724]
-position = Vector2(470.75, 865)
-shape = SubResource("RectangleShape2D_j05l1")
-
-[node name="Kids" parent="." unique_id=564104444 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
-material = SubResource("ShaderMaterial_1etyh")
-hitbox_component = NodePath("CollisionShape2D")
-sprite_component = NodePath("Sprite2D")
-required_character = 1
-
-[node name="Sprite2D" type="Sprite2D" parent="Kids" unique_id=1957219941]
-position = Vector2(695, 548)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_e3aox")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kids" unique_id=418225406]
-position = Vector2(696.375, 548)
-shape = SubResource("RectangleShape2D_7jojy")
-
-[node name="Mannequins" parent="." unique_id=396230566 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
-material = SubResource("ShaderMaterial_1bnt6")
+[node name="Mannequins" parent="." unique_id=1330749222 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("14_1etyh")]
+material = SubResource("ShaderMaterial_i7quj")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 0
+event_page_list = Array[ExtResource("15_1bnt6")]([ExtResource("13_qixdk"), ExtResource("17_kpmoe")])
 
-[node name="Sprite2D" type="Sprite2D" parent="Mannequins" unique_id=1745340703]
+[node name="Sprite2D" type="Sprite2D" parent="Mannequins" unique_id=503201891]
 position = Vector2(1215, 728)
 texture = ExtResource("9_x6eh2")
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mannequins" unique_id=1686039129]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mannequins" unique_id=893396965]
 position = Vector2(1200.5, 725.75)
 shape = SubResource("RectangleShape2D_x6eh2")
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="Clothesline" parent="." unique_id=1951268596 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
-material = SubResource("ShaderMaterial_kpmoe")
+[node name="Clothes" parent="." unique_id=1125124615 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("14_1etyh")]
+material = SubResource("ShaderMaterial_5nj70")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 0
+event_page_list = Array[ExtResource("15_1bnt6")]([ExtResource("15_2w8n7"), ExtResource("17_kpmoe")])
 
-[node name="Sprite2D" type="Sprite2D" parent="Clothesline" unique_id=861564756]
+[node name="Sprite2D" type="Sprite2D" parent="Clothes" unique_id=908646765]
 position = Vector2(907, 240)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_xww42")
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Clothesline" unique_id=2106507722]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Clothes" unique_id=701734159]
 position = Vector2(899.026, 284.032)
 rotation = -0.6353
 shape = SubResource("RectangleShape2D_i67qn")
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=399689053]
-libraries/ = SubResource("AnimationLibrary_x6eh2")
-
-[node name="Adi" parent="." unique_id=1750703924 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
-material = SubResource("ShaderMaterial_vtiiq")
-position = Vector2(920, 69)
+[node name="Lanterns" parent="." unique_id=853981994 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("14_1etyh")]
+material = SubResource("ShaderMaterial_qixdk")
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 1
+event_page_list = Array[ExtResource("15_1bnt6")]([ExtResource("17_b8wsk"), ExtResource("17_kpmoe")])
 
-[node name="Sprite2D" type="Sprite2D" parent="Adi" unique_id=1219721545]
+[node name="Sprite2D" type="Sprite2D" parent="Lanterns" unique_id=907079223]
+position = Vector2(375, 529)
+texture = ExtResource("6_qov41")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lanterns" unique_id=1300319008]
+position = Vector2(373.875, 529)
+shape = SubResource("RectangleShape2D_iuwtx")
+
+[node name="Radio" parent="." unique_id=655337628 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("14_1etyh")]
+material = SubResource("ShaderMaterial_4jhyr")
+hitbox_component = NodePath("CollisionShape2D")
+sprite_component = NodePath("Sprite2D")
+required_character = 1
+event_page_list = Array[ExtResource("15_1bnt6")]([ExtResource("18_15vgl"), ExtResource("17_kpmoe")])
+
+[node name="Sprite2D" type="Sprite2D" parent="Radio" unique_id=1703956742]
+position = Vector2(477, 866)
+texture = ExtResource("7_e3aox")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Radio" unique_id=1885657968]
+position = Vector2(470.75, 865)
+shape = SubResource("RectangleShape2D_j05l1")
+
+[node name="KidsPlaying" parent="." unique_id=1171040997 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("14_1etyh")]
+material = SubResource("ShaderMaterial_yfkas")
+hitbox_component = NodePath("CollisionShape2D")
+sprite_component = NodePath("Sprite2D")
+required_character = 1
+event_page_list = Array[ExtResource("15_1bnt6")]([ExtResource("19_qjeum"), ExtResource("17_kpmoe")])
+
+[node name="Sprite2D" type="Sprite2D" parent="KidsPlaying" unique_id=853094898]
+position = Vector2(695, 548)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_e3aox")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KidsPlaying" unique_id=1880230907]
+position = Vector2(696.375, 548)
+shape = SubResource("RectangleShape2D_7jojy")
+
+[node name="AdiNew" parent="." unique_id=901712381 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("14_1etyh")]
+material = SubResource("ShaderMaterial_qjeum")
+position = Vector2(920, 69)
+priority = 1
+hitbox_component = NodePath("CollisionShape2D")
+sprite_component = NodePath("Sprite2D")
+required_character = 1
+is_character_interactable = true
+event_page_list = Array[ExtResource("15_1bnt6")]([ExtResource("16_kpmoe")])
+
+[node name="Sprite2D" type="Sprite2D" parent="AdiNew" unique_id=39902482]
 position = Vector2(551.00006, 755)
 scale = Vector2(0.24666667, 0.24666668)
 texture = ExtResource("12_j05l1")
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Adi" unique_id=948093055]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AdiNew" unique_id=1446002028]
 position = Vector2(551, 755)
-shape = SubResource("RectangleShape2D_q82dk")
+shape = SubResource("RectangleShape2D_qixdk")
 
-[node name="Wiks" parent="." unique_id=1031270667 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("3_s6s24")]
-material = SubResource("ShaderMaterial_b8wsk")
+[node name="WiksNew" parent="." unique_id=1224837162 node_paths=PackedStringArray("hitbox_component", "sprite_component") instance=ExtResource("14_1etyh")]
+material = SubResource("ShaderMaterial_2w8n7")
 position = Vector2(-255, -26)
 hitbox_component = NodePath("CollisionShape2D")
 sprite_component = NodePath("Sprite2D")
 required_character = 0
+is_character_interactable = true
+event_page_list = Array[ExtResource("15_1bnt6")]([ExtResource("17_vtiiq")])
 
-[node name="Sprite2D" type="Sprite2D" parent="Wiks" unique_id=1292896511]
+[node name="Sprite2D" type="Sprite2D" parent="WiksNew" unique_id=9620321]
 position = Vector2(551.00006, 755)
 scale = Vector2(0.24666667, 0.24666668)
 texture = ExtResource("13_iuwtx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wiks" unique_id=1654433013]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WiksNew" unique_id=12404422]
 position = Vector2(551, 755)
-shape = SubResource("RectangleShape2D_6dsd5")
+shape = SubResource("RectangleShape2D_4jhyr")
 debug_color = Color(1, 0, 0, 0.41960785)
 
-[connection signal="item_clicked" from="Graffiti" to="." method="_on_graffiti_item_clicked"]
-[connection signal="item_clicked" from="Jolibee" to="." method="_on_jolibee_item_clicked"]
-[connection signal="item_clicked" from="Lanterns" to="." method="_on_lanterns_item_clicked"]
-[connection signal="item_clicked" from="Radio" to="." method="_on_radio_item_clicked"]
-[connection signal="item_clicked" from="Kids" to="." method="_on_kids_item_clicked"]
-[connection signal="item_clicked" from="Mannequins" to="." method="_on_mannequins_item_clicked"]
-[connection signal="item_clicked" from="Clothesline" to="." method="_on_clothesline_item_clicked"]
-[connection signal="item_clicked" from="Adi" to="." method="_on_adi_item_clicked"]
-[connection signal="item_clicked" from="Wiks" to="." method="_on_wiks_item_clicked"]
+[node name="Intro" parent="." unique_id=861190875 instance=ExtResource("25_5nj70")]
+event_page_list = Array[ExtResource("15_1bnt6")]([ExtResource("26_5nj70"), SubResource("Resource_x7cwg")])
+
+[node name="Explored" parent="." unique_id=1498103293 instance=ExtResource("25_5nj70")]
+event_page_list = Array[ExtResource("15_1bnt6")]([ExtResource("29_mfhae"), SubResource("Resource_oht3y")])
