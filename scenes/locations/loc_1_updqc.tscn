@@ -127,10 +127,10 @@ shader_parameter/color = Color(1, 0.81, 0.25, 1)
 shader_parameter/tolerance = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u16s0"]
-size = Vector2(1358.5, 385)
+size = Vector2(1358, 385)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btlh7"]
-size = Vector2(262, 522.25)
+size = Vector2(262, 522)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jw4l6"]
 resource_local_to_scene = true
@@ -259,13 +259,12 @@ texture = ExtResource("4_tyg5k")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tree" unique_id=1159904927]
-position = Vector2(678.75, 192.5)
+position = Vector2(679, 193)
 shape = SubResource("RectangleShape2D_u16s0")
 debug_color = Color(1, 0, 0, 0.419608)
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Tree" unique_id=1531414054]
-position = Vector2(454, 648.875)
+position = Vector2(454, 648)
 shape = SubResource("RectangleShape2D_btlh7")
 debug_color = Color(1, 0, 0, 0.419608)
 metadata/_edit_lock_ = true
